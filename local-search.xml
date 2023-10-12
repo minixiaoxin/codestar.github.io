@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>我的第一篇文章</title>
+    <link href="/2023/10/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    <url>/2023/10/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    
+    <content type="html"><![CDATA[<p>我的第一篇博客文章</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>测试内容</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试文章</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2023/10/11/hello-world/"/>
     <url>/2023/10/11/hello-world/</url>
