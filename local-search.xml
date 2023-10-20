@@ -4,6 +4,58 @@
   
   
   <entry>
+    <title>Python安装报错之0x80072f7d错误解决方法</title>
+    <link href="/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <url>/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="一、问题现象"><a href="#一、问题现象" class="headerlink" title="一、问题现象"></a>一、问题现象</h2><p>安装过程中出现报错：0x80072f7d - 未指定的错误</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230403220751844.png" alt="image-20230403220751844"></p><p>这个问题发生，导致后续无法配置Python环境，必须要解决掉它。</p><h2 id="二、问题原因"><a href="#二、问题原因" class="headerlink" title="二、问题原因"></a>二、问题原因</h2><p>为了弄清是什么原因导致出现这种致命性问题，去找了一下”度娘”，发现原因如下：</p><blockquote><p>在Python的安装过程中，会涉及到数据传输，其中会涉及到一个协议TLS，安全传输层协议，安装Python的过程中必须要TLS协议的支持，我本机没有开启TLS协议导致出错。目前TLS1.2是常见传输协议版本，不过有的网站还是TLS1.1。所以得同时开启两个协议，TLS1.1、TLS1.2，具体操作来看解决方法。</p></blockquote><h2 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h2><p>1、<kbd>win</kbd>+<kbd>r</kbd>打开运行界面，输入<code>control</code>，打开控制面板：</p><p>2、进入“网络和Internet”：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230403221407319.png" alt="image-20230403221407319"></p><p>2、点击“Internet选项”：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230403221526209.png" alt="image-20230403221526209"></p><p>3、“Internet属性”中进入“高级”，勾选“使用TLS1.1”、“使用TLS1.2”：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230403220647559.png" alt="image-20230403220647559"></p><p>点击应用，重新安装Python。</p><h2 id="四、重新安装Python"><a href="#四、重新安装Python" class="headerlink" title="四、重新安装Python"></a>四、重新安装Python</h2><p>重新安装，选择对应的安装路径和安装选项，一路下一步安装即可，中间安装各类包需要费些时间，等待安装成功即可：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230403221810079.png" alt="image-20230403221810079"></p><p>大功告成，安装成功~</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230403225545117.png" alt="image-20230403225545117"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序语言学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows中Java安装及环境变量配置</title>
+    <link href="/2023/10/21/Windows%E4%B8%ADJava%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/"/>
+    <url>/2023/10/21/Windows%E4%B8%ADJava%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、下载jdk安装包"><a href="#1、下载jdk安装包" class="headerlink" title="1、下载jdk安装包"></a>1、下载jdk安装包</h2><p>通过以下镜像站下载jdk安装包：<a href="https://www.techspot.com/downloads/5553-java-jdk.html">https://www.techspot.com/downloads/5553-java-jdk.html</a></p><p>这里我选择的是Java11，选择对应的平台下载即可：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212852255.png" alt="image-20230820212852255"></p><p>在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212953315.png" alt="image-20230820212953315"></p><h2 id="2、安装JDK"><a href="#2、安装JDK" class="headerlink" title="2、安装JDK"></a>2、安装JDK</h2><p>下载完成之后，双击安装包：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213208823.png" alt="image-20230820213208823"></p><p>根据安装向导，自定义安装路径，一路安装完成即可。安装完成了之后，还无法使用，需要配置环境变量才能在PC中各环境下使用。</p><h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><h3 id="3-1、环境变量配置页进入"><a href="#3-1、环境变量配置页进入" class="headerlink" title="3.1、环境变量配置页进入"></a>3.1、环境变量配置页进入</h3><p>环境变量需要配置的内容有三点，分别是JAVA_HOME、CLASSPATH、path。Windows中<kbd>win</kbd>+<kbd>r</kbd>打开运行面板，输入<code>sysdm.cpl</code>，进入<strong>系统属性</strong>页面：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213715533.png" alt="image-20230820213715533"></p><p>之后切到<strong>高级</strong>页签，点击<strong>环境变量</strong>进入环境变量配置页面，进入之后就开始配置具体的变量名了：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213825582.png" alt="image-20230820213825582"></p><h3 id="3-2、环境变量1：JAVA-HOME"><a href="#3-2、环境变量1：JAVA-HOME" class="headerlink" title="3.2、环境变量1：JAVA_HOME"></a>3.2、环境变量1：JAVA_HOME</h3><p>在系统变量中，<strong>新建</strong>环境变量，变量名给”JAVA_HOME”，变量值<strong>填入JAVA的安装根目录</strong>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">根据实际情况填入</span><br>D:\JDK11<br></code></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820214141226.png" alt="image-20230820214141226"></p><h3 id="3-3、环境变量2：CLASSPATH"><a href="#3-3、环境变量2：CLASSPATH" class="headerlink" title="3.3、环境变量2：CLASSPATH"></a>3.3、环境变量2：CLASSPATH</h3><p>这个环境变量配置的为<strong>JAVA所有依赖的包路径</strong>。</p><p>同样，在系统变量中<strong>新建</strong>环境变量，变量名给”CLASSPATH”，变量值填入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意，最前面有个.</span><br>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;<br></code></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820214359184.png" alt="image-20230820214359184"></p><p>%JAVA_HOME%意思为取名为”JAVA_HOME”的环境变量的值，即写成这样也可以，两者等价：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">.;D:\JDK11\lib\dt.jar;D:\JDK11\lib\tools.jar;<br></code></pre></td></tr></table></figure><p>推荐上面的写法，方便管理。</p><h3 id="3-4、环境变量3：Path"><a href="#3-4、环境变量3：Path" class="headerlink" title="3.4、环境变量3：Path"></a>3.4、环境变量3：Path</h3><p>这个环境变量配置的为<strong>Java中jdk和jre的可执行bin文件</strong>。</p><p>找到Path环境变量，新建两条，填入以下内容：Windows10中建议分开写，不然会出现无法识别。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">合并写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">分开写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\jre\bin</span><br></code></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820215621671.png" alt="image-20230820215621671"></p><h2 id="4、验证安装"><a href="#4、验证安装" class="headerlink" title="4、验证安装"></a>4、验证安装</h2><p>进入powershell面板，输入<code>java --version</code>验证配置，如果正常返回版本号，则环境配置成功：</p><p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820215906035.png" alt="image-20230820215906035"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序语言学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JAVA</tag>
+      
+      <tag>Windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>笔记本安装纯净Ubuntu 22.04 LTS系统全流程</title>
     <link href="/2023/10/12/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85%E7%BA%AF%E5%87%80Ubuntu%2022.04%20LTS%E7%B3%BB%E7%BB%9F%E5%85%A8%E6%B5%81%E7%A8%8B/"/>
     <url>/2023/10/12/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85%E7%BA%AF%E5%87%80Ubuntu%2022.04%20LTS%E7%B3%BB%E7%BB%9F%E5%85%A8%E6%B5%81%E7%A8%8B/</url>
@@ -71,31 +123,6 @@
     <tags>
       
       <tag>压力测试</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>我的第一篇文章</title>
-    <link href="/2023/10/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <url>/2023/10/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    
-    <content type="html"><![CDATA[<p>我的第一篇博客文章</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>测试内容</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>测试文章</tag>
       
     </tags>
     

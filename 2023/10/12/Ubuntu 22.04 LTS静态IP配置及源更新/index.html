@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/web-icon1.png">
-  <link rel="icon" href="/img/web-icon1.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <link rel="icon" href="/img/mini%E5%B0%8F%E6%96%B0.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 22.04 LTS静态IP配置及源更新">
 <meta property="og:url" content="http://www.codestar.top/2023/10/12/Ubuntu%2022.04%20LTS%E9%9D%99%E6%80%81IP%E9%85%8D%E7%BD%AE%E5%8F%8A%E6%BA%90%E6%9B%B4%E6%96%B0/index.html">
-<meta property="og:site_name" content="小新的博客">
+<meta property="og:site_name" content="mini小新的博客">
 <meta property="og:description" content="1、网络模式确认注：以下操作均基于VMWARE虚拟环境，需要确认虚拟网络配置为NAT模式。 检查方式：编辑——&gt;虚拟网络编辑器，进入到以下页面。配置和记住当前设置的网关IP、子网掩码、IP段  2、静态IP配置2-1、切换管理员权限开启虚拟机，进入到terminal，切换到管理员模式： 1234567# 执行后输入登录用户密码sudo -i# 初装系统root密码为随机密码，需要自行更改pa">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20221007114038651.png">
@@ -45,7 +45,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Ubuntu 22.04 LTS静态IP配置及源更新 - 小新的博客</title>
+  <title>Ubuntu 22.04 LTS静态IP配置及源更新 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -533,6 +533,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -724,6 +730,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

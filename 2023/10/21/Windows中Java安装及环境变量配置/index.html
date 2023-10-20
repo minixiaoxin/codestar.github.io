@@ -18,24 +18,35 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="方法一拉起两个进程，执行文件拷贝，输出空文件。可压测到100%，持续执行。 1for i in &#96;seq 1 $(cat &#x2F;proc&#x2F;cpuinfo |grep &quot;physical id&quot; |wc -l)&#96;; do dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;dev&#x2F;null &amp; done  方法二持续计算圆周率，bc命令。可压测到100 12# 计算小数点后5000位ec">
+    <meta name="description" content="1、下载jdk安装包通过以下镜像站下载jdk安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 这里我选择的是Java11，选择对应的平台下载即可：  在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：  2、安装JDK下载完成之后，双击安装包：  根据安装向导，自定义安装路径，一路安装完成即可。安装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux下CPU压测执行指导">
-<meta property="og:url" content="http://www.codestar.top/2023/10/12/Linux%E4%B8%8BCPU%E5%8E%8B%E6%B5%8B%E6%89%A7%E8%A1%8C%E6%8C%87%E5%AF%BC/index.html">
+<meta property="og:title" content="Windows中Java安装及环境变量配置">
+<meta property="og:url" content="http://www.codestar.top/2023/10/21/Windows%E4%B8%ADJava%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="方法一拉起两个进程，执行文件拷贝，输出空文件。可压测到100%，持续执行。 1for i in &#96;seq 1 $(cat &#x2F;proc&#x2F;cpuinfo |grep &quot;physical id&quot; |wc -l)&#96;; do dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;dev&#x2F;null &amp; done  方法二持续计算圆周率，bc命令。可压测到100 12# 计算小数点后5000位ec">
+<meta property="og:description" content="1、下载jdk安装包通过以下镜像站下载jdk安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 这里我选择的是Java11，选择对应的平台下载即可：  在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：  2、安装JDK下载完成之后，双击安装包：  根据安装向导，自定义安装路径，一路安装完成即可。安装">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-12T15:29:05.000Z">
-<meta property="article:modified_time" content="2023-10-12T15:36:19.102Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212852255.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212953315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213208823.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213715533.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213825582.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820214141226.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820214359184.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820215621671.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820215906035.png">
+<meta property="article:published_time" content="2023-10-20T16:43:37.000Z">
+<meta property="article:modified_time" content="2023-10-20T16:47:58.245Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="压力测试">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212852255.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Linux下CPU压测执行指导 - mini小新的博客</title>
+  <title>Windows中Java安装及环境变量配置 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux下CPU压测执行指导"></span>
+            <span id="subtitle" data-typed-text="Windows中Java安装及环境变量配置"></span>
           
         </div>
 
@@ -239,8 +250,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-12 23:29" pubdate>
-          2023年10月12日 晚上
+        <time datetime="2023-10-21 00:43" pubdate>
+          2023年10月21日 凌晨
         </time>
       </span>
     
@@ -251,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          949 字
         
       </span>
     
@@ -262,7 +273,7 @@
         
         
         
-          14 分钟
+          8 分钟
         
       </span>
     
@@ -307,33 +318,43 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux下CPU压测执行指导</h1>
+            <h1 id="seo-header">Windows中Java安装及环境变量配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>拉起两个进程，执行文件拷贝，输出空文件。可压测到100%，持续执行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">for i in `seq 1 $(cat /proc/cpuinfo |grep &quot;physical id&quot; |wc -l)`; do dd if=/dev/zero of=/dev/null &amp; done<br></code></pre></td></tr></table></figure>
+                <h2 id="1、下载jdk安装包"><a href="#1、下载jdk安装包" class="headerlink" title="1、下载jdk安装包"></a>1、下载jdk安装包</h2><p>通过以下镜像站下载jdk安装包：<a target="_blank" rel="noopener" href="https://www.techspot.com/downloads/5553-java-jdk.html">https://www.techspot.com/downloads/5553-java-jdk.html</a></p>
+<p>这里我选择的是Java11，选择对应的平台下载即可：</p>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212852255.png" srcset="/img/loading.gif" lazyload alt="image-20230820212852255"></p>
+<p>在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：</p>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820212953315.png" srcset="/img/loading.gif" lazyload alt="image-20230820212953315"></p>
+<h2 id="2、安装JDK"><a href="#2、安装JDK" class="headerlink" title="2、安装JDK"></a>2、安装JDK</h2><p>下载完成之后，双击安装包：</p>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213208823.png" srcset="/img/loading.gif" lazyload alt="image-20230820213208823"></p>
+<p>根据安装向导，自定义安装路径，一路安装完成即可。安装完成了之后，还无法使用，需要配置环境变量才能在PC中各环境下使用。</p>
+<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><h3 id="3-1、环境变量配置页进入"><a href="#3-1、环境变量配置页进入" class="headerlink" title="3.1、环境变量配置页进入"></a>3.1、环境变量配置页进入</h3><p>环境变量需要配置的内容有三点，分别是JAVA_HOME、CLASSPATH、path。Windows中<kbd>win</kbd>+<kbd>r</kbd>打开运行面板，输入<code>sysdm.cpl</code>，进入<strong>系统属性</strong>页面：</p>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213715533.png" srcset="/img/loading.gif" lazyload alt="image-20230820213715533"></p>
+<p>之后切到<strong>高级</strong>页签，点击<strong>环境变量</strong>进入环境变量配置页面，进入之后就开始配置具体的变量名了：</p>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820213825582.png" srcset="/img/loading.gif" lazyload alt="image-20230820213825582"></p>
+<h3 id="3-2、环境变量1：JAVA-HOME"><a href="#3-2、环境变量1：JAVA-HOME" class="headerlink" title="3.2、环境变量1：JAVA_HOME"></a>3.2、环境变量1：JAVA_HOME</h3><p>在系统变量中，<strong>新建</strong>环境变量，变量名给”JAVA_HOME”，变量值<strong>填入JAVA的安装根目录</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">根据实际情况填入</span><br>D:\JDK11<br></code></pre></td></tr></table></figure>
 
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>持续计算圆周率，bc命令。可压测到100</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">计算小数点后5000位</span><br>echo &quot;scale=5000; 4*a(1)&quot; | bc -l -q<br></code></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820214141226.png" srcset="/img/loading.gif" lazyload alt="image-20230820214141226"></p>
+<h3 id="3-3、环境变量2：CLASSPATH"><a href="#3-3、环境变量2：CLASSPATH" class="headerlink" title="3.3、环境变量2：CLASSPATH"></a>3.3、环境变量2：CLASSPATH</h3><p>这个环境变量配置的为<strong>JAVA所有依赖的包路径</strong>。</p>
+<p>同样，在系统变量中<strong>新建</strong>环境变量，变量名给”CLASSPATH”，变量值填入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意，最前面有个.</span><br>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;<br></code></pre></td></tr></table></figure>
 
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820214359184.png" srcset="/img/loading.gif" lazyload alt="image-20230820214359184"></p>
+<p>%JAVA_HOME%意思为取名为”JAVA_HOME”的环境变量的值，即写成这样也可以，两者等价：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">.;D:\JDK11\lib\dt.jar;D:\JDK11\lib\tools.jar;<br></code></pre></td></tr></table></figure>
 
+<p>推荐上面的写法，方便管理。</p>
+<h3 id="3-4、环境变量3：Path"><a href="#3-4、环境变量3：Path" class="headerlink" title="3.4、环境变量3：Path"></a>3.4、环境变量3：Path</h3><p>这个环境变量配置的为<strong>Java中jdk和jre的可执行bin文件</strong>。</p>
+<p>找到Path环境变量，新建两条，填入以下内容：Windows10中建议分开写，不然会出现无法识别。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">合并写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">分开写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\jre\bin</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>编写一个循环，可压测到65%左右，持续执行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">编写一个脚本文件，持续执行该循环，往空文件中写入1。实际不会生成新文件。</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">filename=cputest.sh</span><br>while [ 1 ]<br>do<br>echo 1 &gt;&gt; /dev/null<br>done<br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加执行权限</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">或执行<span class="hljs-built_in">chmod</span> +x cputest.sh</span><br>chmod 777 cputest.sh<br></code></pre></td></tr></table></figure>
-
-<h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>模拟用户不断地访问，并发进程，</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">************常规执行*************</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">不会占用过多资源</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">!/bin/bash</span><br>Njob=15    #任务总数<br>for ((i=0; i&lt;$Njob; i++)); do<br>&#123;<br>          echo  &quot;progress $i is sleeping for 3 seconds zzz…&quot;<br>          sleep  3<br>&#125;<br>done<br>echo -e &quot;time-consuming: $SECONDS    seconds&quot;    #显示脚本执行耗时<br><span class="hljs-meta prompt_"># </span><span class="language-bash">************并发执行*************</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">!/bin/bash</span><br>Njob=15<br>for ((i=0; i&lt;$Njob; i++)); do<br>          echo  &quot;progress $i is sleeping for 3 seconds zzz…&quot;<br>          sleep  3 &amp;       #循环内容放到后台执行<br>done<br>wait      #等待循环结束再执行wait后面的内容<br>echo -e &quot;time-consuming: $SECONDS    seconds&quot;    #显示脚本执行耗时<br></code></pre></td></tr></table></figure>
-
-<h2 id="压测脚本"><a href="#压测脚本" class="headerlink" title="压测脚本"></a>压测脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">并发运行的最佳实践</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">总进程数</span><br>Sp=2500<br><span class="hljs-meta prompt_"># </span><span class="language-bash">并发数,并发数过大可能造成系统崩溃</span><br>Qp=250<br><span class="hljs-meta prompt_"># </span><span class="language-bash">存放进程的队列</span><br>Qarr=();<br><span class="hljs-meta prompt_"># </span><span class="language-bash">运行进程数</span><br>run=0<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将进程的添加到队列里的函数</span><br>function push() &#123;<br>Qarr=($&#123;Qarr[@]&#125; $1)<br>run=$&#123;#Qarr[@]&#125;<br>&#125;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">检测队列里的进程是否运行完毕</span><br>function check() &#123;<br>oldQ=($&#123;Qarr[@]&#125;)<br>Qarr=()<br>for p in &quot;$&#123;oldQ[@]&#125;&quot;;do<br>if [[ -d &quot;/proc/$p&quot; ]];then<br>Qarr=($&#123;Qarr[@]&#125; $p)<br>fi<br>done<br>run=$&#123;#Qarr[@]&#125;<br>&#125;<br><span class="hljs-meta prompt_"> # </span><span class="language-bash">main</span><br>for((i=0; i&lt;$Sp; i++));do<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 500000`; <span class="hljs-keyword">do</span> curl -o /dev/null -s -w %&#123;http_code&#125;:%&#123;time_total&#125; http://www.baidu.com ;<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot; &quot;</span>; <span class="hljs-keyword">done</span></span><br>echo &quot;running $i &quot;<br>sleep 3 &amp;<br>push $!<br>while [[ $run -gt $Qp ]];do<br>check<br>sleep 0.1<br>done<br>done<br>echo -e &quot;time-consuming: $SECONDS seconds&quot; #显示脚本执行耗时<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820215621671.png" srcset="/img/loading.gif" lazyload alt="image-20230820215621671"></p>
+<h2 id="4、验证安装"><a href="#4、验证安装" class="headerlink" title="4、验证安装"></a>4、验证安装</h2><p>进入powershell面板，输入<code>java --version</code>验证配置，如果正常返回版本号，则环境配置成功：</p>
+<p><img src="https://raw.githubusercontent.com/minixiaoxin/note-image/master/note-image/image-20230820215906035.png" srcset="/img/loading.gif" lazyload alt="image-20230820215906035"></p>
 
                 
               </div>
@@ -352,7 +373,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
+  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" class="category-chain-item">程序语言学习</a>
   
   
 
@@ -367,7 +388,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" class="print-no-link">#压力测试</a>
+        <a href="/tags/JAVA/" class="print-no-link">#JAVA</a>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
       
     </div>
   
@@ -379,8 +402,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux下CPU压测执行指导</div>
-      <div>http://www.codestar.top/2023/10/12/Linux下CPU压测执行指导/</div>
+      <div>Windows中Java安装及环境变量配置</div>
+      <div>http://www.codestar.top/2023/10/21/Windows中Java安装及环境变量配置/</div>
     </div>
     <div class="license-meta">
       
@@ -392,7 +415,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月12日</div>
+          <div>2023年10月21日</div>
         </div>
       
       
@@ -424,15 +447,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/12/Ubuntu%2022.04%20LTS%E9%9D%99%E6%80%81IP%E9%85%8D%E7%BD%AE%E5%8F%8A%E6%BA%90%E6%9B%B4%E6%96%B0/" title="Ubuntu 22.04 LTS静态IP配置及源更新">
+                      <a href="/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="Python安装报错之0x80072f7d错误解决方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ubuntu 22.04 LTS静态IP配置及源更新</span>
+                        <span class="hidden-mobile">Python安装报错之0x80072f7d错误解决方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/10/12/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85%E7%BA%AF%E5%87%80Ubuntu%2022.04%20LTS%E7%B3%BB%E7%BB%9F%E5%85%A8%E6%B5%81%E7%A8%8B/" title="笔记本安装纯净Ubuntu 22.04 LTS系统全流程">
+                        <span class="hidden-mobile">笔记本安装纯净Ubuntu 22.04 LTS系统全流程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
