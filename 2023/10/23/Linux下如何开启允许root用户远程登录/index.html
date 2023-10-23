@@ -18,35 +18,29 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、下载jdk安装包通过以下镜像站下载jdk安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 这里我选择的是Java11，选择对应的平台下载即可：  在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：  2、安装JDK下载完成之后，双击安装包：  根据安装向导，自定义安装路径，一路安装完成即可。安装">
+    <meta name="description" content="1、背景在很多时候，远程登录使用的是用户身份登录，在系统路径下的文件无法通过用户角色直接下载。下载的话，需要将文件移动到当前用户有权限的路径下才能下载，比较麻烦。而另一种下载方法是以root用户的身份登录系统进行原路径下载，但多数SSH为了提高系统安全性，默认关闭了root远程登录的权限，需手动配置SSH，使其能够允许root远程登录，以Ubuntu系统为参考，具体操作如下。 2、配置SSH 查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows中Java安装及环境变量配置">
-<meta property="og:url" content="http://www.codestar.top/2023/10/21/Windows%E4%B8%ADJava%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="Linux下如何开启允许root用户远程登录">
+<meta property="og:url" content="http://www.codestar.top/2023/10/23/Linux%E4%B8%8B%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、下载jdk安装包通过以下镜像站下载jdk安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 这里我选择的是Java11，选择对应的平台下载即可：  在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：  2、安装JDK下载完成之后，双击安装包：  根据安装向导，自定义安装路径，一路安装完成即可。安装">
+<meta property="og:description" content="1、背景在很多时候，远程登录使用的是用户身份登录，在系统路径下的文件无法通过用户角色直接下载。下载的话，需要将文件移动到当前用户有权限的路径下才能下载，比较麻烦。而另一种下载方法是以root用户的身份登录系统进行原路径下载，但多数SSH为了提高系统安全性，默认关闭了root远程登录的权限，需手动配置SSH，使其能够允许root远程登录，以Ubuntu系统为参考，具体操作如下。 2、配置SSH 查找">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820212852255.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820212953315.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820213208823.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820213715533.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820213825582.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820214141226.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820214359184.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820215621671.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820215906035.png">
-<meta property="article:published_time" content="2023-10-20T16:43:37.000Z">
-<meta property="article:modified_time" content="2023-10-22T16:03:07.886Z">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230530115045644.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230530120223288.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230530120301175.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230530120934802.png">
+<meta property="article:published_time" content="2023-10-23T13:52:03.000Z">
+<meta property="article:modified_time" content="2023-10-23T17:58:27.563Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="JAVA">
-<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="SSH远程">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://codestar.top/note-image/image-20230820212852255.png">
+<meta name="twitter:image" content="https://codestar.top/note-image/image-20230530115045644.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Windows中Java安装及环境变量配置 - mini小新的博客</title>
+  <title>Linux下如何开启允许root用户远程登录 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -252,7 +246,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Windows中Java安装及环境变量配置"></span>
+            <span id="subtitle" data-typed-text="Linux下如何开启允许root用户远程登录"></span>
           
         </div>
 
@@ -268,8 +262,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-21 00:43" pubdate>
-          2023年10月21日 凌晨
+        <time datetime="2023-10-23 21:52" pubdate>
+          2023年10月23日 晚上
         </time>
       </span>
     
@@ -280,7 +274,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          950 字
+          1.3k 字
         
       </span>
     
@@ -291,7 +285,7 @@
         
         
         
-          8 分钟
+          11 分钟
         
       </span>
     
@@ -336,43 +330,83 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Windows中Java安装及环境变量配置</h1>
+            <h1 id="seo-header">Linux下如何开启允许root用户远程登录</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="1、下载jdk安装包"><a href="#1、下载jdk安装包" class="headerlink" title="1、下载jdk安装包"></a>1、下载jdk安装包</h2><p>通过以下镜像站下载jdk安装包：<a target="_blank" rel="noopener" href="https://www.techspot.com/downloads/5553-java-jdk.html">https://www.techspot.com/downloads/5553-java-jdk.html</a></p>
-<p>这里我选择的是Java11，选择对应的平台下载即可：</p>
-<p><img src="https://codestar.top/note-image/image-20230820212852255.png" srcset="/img/loading.gif" lazyload alt="image-20230820212852255"></p>
-<p>在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：</p>
-<p><img src="https://codestar.top/note-image/image-20230820212953315.png" srcset="/img/loading.gif" lazyload alt="image-20230820212953315"></p>
-<h2 id="2、安装JDK"><a href="#2、安装JDK" class="headerlink" title="2、安装JDK"></a>2、安装JDK</h2><p>下载完成之后，双击安装包：</p>
-<p><img src="https://codestar.top/note-image/image-20230820213208823.png" srcset="/img/loading.gif" lazyload alt="image-20230820213208823"></p>
-<p>根据安装向导，自定义安装路径，一路安装完成即可。安装完成了之后，还无法使用，需要配置环境变量才能在PC中各环境下使用。</p>
-<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><h3 id="3-1、环境变量配置页进入"><a href="#3-1、环境变量配置页进入" class="headerlink" title="3.1、环境变量配置页进入"></a>3.1、环境变量配置页进入</h3><p>环境变量需要配置的内容有三点，分别是JAVA_HOME、CLASSPATH、path。Windows中<kbd>win</kbd>+<kbd>r</kbd>打开运行面板，输入<code>sysdm.cpl</code>，进入<strong>系统属性</strong>页面：</p>
-<p><img src="https://codestar.top/note-image/image-20230820213715533.png" srcset="/img/loading.gif" lazyload alt="image-20230820213715533"></p>
-<p>之后切到<strong>高级</strong>页签，点击<strong>环境变量</strong>进入环境变量配置页面，进入之后就开始配置具体的变量名了：</p>
-<p><img src="https://codestar.top/note-image/image-20230820213825582.png" srcset="/img/loading.gif" lazyload alt="image-20230820213825582"></p>
-<h3 id="3-2、环境变量1：JAVA-HOME"><a href="#3-2、环境变量1：JAVA-HOME" class="headerlink" title="3.2、环境变量1：JAVA_HOME"></a>3.2、环境变量1：JAVA_HOME</h3><p>在系统变量中，<strong>新建</strong>环境变量，变量名给”JAVA_HOME”，变量值<strong>填入JAVA的安装根目录</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">根据实际情况填入</span><br>D:\JDK11<br></code></pre></td></tr></table></figure>
+                <h2 id="1、背景"><a href="#1、背景" class="headerlink" title="1、背景"></a>1、背景</h2><p>在很多时候，远程登录使用的是用户身份登录，在系统路径下的文件无法通过用户角色直接下载。下载的话，需要将文件移动到当前用户有权限的路径下才能下载，比较麻烦。而另一种下载方法是以root用户的身份登录系统进行原路径下载，但多数SSH为了提高系统安全性，<strong>默认关闭了root远程登录的权限</strong>，需手动配置SSH，使其能够允许root远程登录，以Ubuntu系统为参考，具体操作如下。</p>
+<h2 id="2、配置SSH"><a href="#2、配置SSH" class="headerlink" title="2、配置SSH"></a>2、配置SSH</h2><ul>
+<li>查找配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">一般为这个路径：</span><br>/etc/ssh/sshd_config<br><span class="hljs-meta prompt_"># </span><span class="language-bash">无此路径的情况下直接查找配置文件</span><br>find / -name *sshd_config<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/image-20230820214141226.png" srcset="/img/loading.gif" lazyload alt="image-20230820214141226"></p>
-<h3 id="3-3、环境变量2：CLASSPATH"><a href="#3-3、环境变量2：CLASSPATH" class="headerlink" title="3.3、环境变量2：CLASSPATH"></a>3.3、环境变量2：CLASSPATH</h3><p>这个环境变量配置的为<strong>JAVA所有依赖的包路径</strong>。</p>
-<p>同样，在系统变量中<strong>新建</strong>环境变量，变量名给”CLASSPATH”，变量值填入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意，最前面有个.</span><br>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/ssh/sshd_config<br><span class="hljs-meta prompt_"># </span><span class="language-bash">键入i进入编辑模式，加入以下内容。wq保存</span><br>PermitRootLogin yes<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/image-20230820214359184.png" srcset="/img/loading.gif" lazyload alt="image-20230820214359184"></p>
-<p>%JAVA_HOME%意思为取<strong>名称为”JAVA_HOME”的环境变量</strong>的值，即写成这样也可以，两者等价：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">.;D:\JDK11\lib\dt.jar;D:\JDK11\lib\tools.jar;<br></code></pre></td></tr></table></figure>
+<p><img src="https://codestar.top/note-image/image-20230530115045644.png" srcset="/img/loading.gif" lazyload alt="image-20230530115045644"></p>
+<h2 id="3、重启服务进程"><a href="#3、重启服务进程" class="headerlink" title="3、重启服务进程"></a>3、重启服务进程</h2><h3 id="3-1、SSH与SSHD进程的区别"><a href="#3-1、SSH与SSHD进程的区别" class="headerlink" title="3-1、SSH与SSHD进程的区别"></a>3-1、SSH与SSHD进程的区别</h3><p>SSH与SSHD主要区别在于主动或被动连接：</p>
+<ul>
+<li>SSH为<strong>客户端</strong>主动远程其他设备即服务端；</li>
+<li>SSHD为<strong>服务端</strong>被动接收来其他设备的SSH请求。</li>
+</ul>
+<p>具体差异点总结如下：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th align="left">SSH</th>
+<th>SSHD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义</td>
+<td align="left">SSH是Secure Shell的缩写，它是一种加密网络协议，用于远程登录和安全文件传输。</td>
+<td>SSHD是SSH Daemon的缩写，是运行在服务器端的SSH软件守护进程。</td>
+</tr>
+<tr>
+<td>作用</td>
+<td align="left">用来进行远程连接、远程管理和传输文件等操作。</td>
+<td>作为服务器端软件，接收来自客户端的连接请求，并为其提供安全的远程登录和文件传输功能。</td>
+</tr>
+<tr>
+<td>运行位置</td>
+<td align="left">运行在<strong>客户端</strong>上。</td>
+<td>运行在<strong>服务端</strong>上。</td>
+</tr>
+<tr>
+<td>端口号</td>
+<td align="left">默认使用22端口。</td>
+<td>默认使用22端口。</td>
+</tr>
+<tr>
+<td>用户验证</td>
+<td align="left">通过用户名和密码进行验证。</td>
+<td>支持多种用户验证方式，包括用户名和密码、公钥认证、Kerberos身份验证等。</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td align="left">基于公开密钥加密技术，采用对称加密和非对称加密相结合的方式保证数据传输的安全性。</td>
+<td>通过数字证书和加密算法保障通信过程中数据的安全性和完整性。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td align="left">适用于Linux、Unix、Mac OS等操作系统。</td>
+<td>适用于Linux、Unix、Mac OS等操作系统。</td>
+</tr>
+</tbody></table>
+<h3 id="3-2、重启SSHD生效配置"><a href="#3-2、重启SSHD生效配置" class="headerlink" title="3-2、重启SSHD生效配置"></a>3-2、重启SSHD生效配置</h3><p>以下指令重启SSHD服务，两条指令等价：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart sshd<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或</span><br>service sshd restart<br></code></pre></td></tr></table></figure>
 
-<p>推荐上面的写法，方便管理。</p>
-<h3 id="3-4、环境变量3：Path"><a href="#3-4、环境变量3：Path" class="headerlink" title="3.4、环境变量3：Path"></a>3.4、环境变量3：Path</h3><p>这个环境变量配置的为<strong>Java中jdk和jre的可执行bin文件</strong>。</p>
-<p>找到Path环境变量，新建两条，填入以下内容：Windows10中建议分开写，不然会出现无法识别。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">合并写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">分开写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\jre\bin</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/image-20230820215621671.png" srcset="/img/loading.gif" lazyload alt="image-20230820215621671"></p>
-<h2 id="4、验证安装"><a href="#4、验证安装" class="headerlink" title="4、验证安装"></a>4、验证安装</h2><p>进入powershell面板，输入<code>java --version</code>验证配置，如果正常返回版本号，则环境配置成功：</p>
-<p><img src="https://codestar.top/note-image/image-20230820215906035.png" srcset="/img/loading.gif" lazyload alt="image-20230820215906035"></p>
+<p>执行上述指令会重启SSHD服务，也就是重启整个SSH<strong>服务器进程</strong>，同时也会<strong>重新加载配置文件</strong>。这个命令通常用于对SSH服务器进行设置和调试时，或者在修改SSH服务配置后使其生效。执行该命令不会影响其他正在运行的进程，只会重启SSH服务进程。</p>
+<h2 id="4、root用户下载文件"><a href="#4、root用户下载文件" class="headerlink" title="4、root用户下载文件"></a>4、root用户下载文件</h2><h3 id="4-1、root用户远程登录"><a href="#4-1、root用户远程登录" class="headerlink" title="4-1、root用户远程登录"></a>4-1、root用户远程登录</h3><p>使用远程登录软件或平台填入root名称及Linux设备IP，这里我使用的是<strong>MobaXterm</strong>，之后会认证要求输入root密码，登入即可：</p>
+<p><img src="https://codestar.top/note-image/image-20230530120223288.png" srcset="/img/loading.gif" lazyload alt="image-20230530120223288"></p>
+<p>登录成功如下，进入Linux服务器shell面板：</p>
+<p><img src="https://codestar.top/note-image/image-20230530120301175.png" srcset="/img/loading.gif" lazyload alt="image-20230530120301175"></p>
+<h3 id="4-2、下载文件"><a href="#4-2、下载文件" class="headerlink" title="4-2、下载文件"></a>4-2、下载文件</h3><p>使用ftp下载工具：如FileZilla，xftp、MobaXterm（集成到软件内部），同样输入Linux端IP、用户名（root）、密码及端口（22）登录远程设备，进入需要下载的文件路径，拖动文件至本地路径下载即可：</p>
+<p><img src="https://codestar.top/note-image/image-20230530120934802.png" srcset="/img/loading.gif" lazyload alt="image-20230530120934802"></p>
 
                 
               </div>
@@ -391,7 +425,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" class="category-chain-item">程序语言学习</a>
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
   
   
 
@@ -406,9 +440,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JAVA/" class="print-no-link">#JAVA</a>
-      
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+        <a href="/tags/SSH%E8%BF%9C%E7%A8%8B/" class="print-no-link">#SSH远程</a>
       
     </div>
   
@@ -420,8 +452,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Windows中Java安装及环境变量配置</div>
-      <div>http://www.codestar.top/2023/10/21/Windows中Java安装及环境变量配置/</div>
+      <div>Linux下如何开启允许root用户远程登录</div>
+      <div>http://www.codestar.top/2023/10/23/Linux下如何开启允许root用户远程登录/</div>
     </div>
     <div class="license-meta">
       
@@ -433,13 +465,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月21日</div>
+          <div>2023年10月23日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年10月23日</div>
+          <div>2023年10月24日</div>
         </div>
       
       
@@ -482,9 +514,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="Python安装报错之0x80072f7d错误解决方法">
+                      <a href="/2023/10/24/coredump%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E6%93%8D%E4%BD%9C-linux%E7%AF%87/" title="coredump基础知识及操作-linux篇">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python安装报错之0x80072f7d错误解决方法</span>
+                        <span class="hidden-mobile">coredump基础知识及操作-linux篇</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -492,8 +524,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/12/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85%E7%BA%AF%E5%87%80Ubuntu%2022.04%20LTS%E7%B3%BB%E7%BB%9F%E5%85%A8%E6%B5%81%E7%A8%8B/" title="笔记本安装纯净Ubuntu 22.04 LTS系统全流程">
-                        <span class="hidden-mobile">笔记本安装纯净Ubuntu 22.04 LTS系统全流程</span>
+                      <a href="/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="Python安装报错之0x80072f7d错误解决方法">
+                        <span class="hidden-mobile">Python安装报错之0x80072f7d错误解决方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

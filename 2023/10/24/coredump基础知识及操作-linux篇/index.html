@@ -18,35 +18,37 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、下载jdk安装包通过以下镜像站下载jdk安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 这里我选择的是Java11，选择对应的平台下载即可：  在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：  2、安装JDK下载完成之后，双击安装包：  根据安装向导，自定义安装路径，一路安装完成即可。安装">
+    <meta name="description" content="1、coredump简介​	在系统的运行过程中，有许多时候会出现程序运行不正常的情况，进而产生崩溃现象，而为了方便记录和追溯问题的发生进程和或相关的线程信息，亦或是崩溃时间等，有了coredump这种文件。  Linux中的dump文件为core文件，以core开头，类似如下：   Windows中dump文件为dmp文件，类似如下：    2、core生成限制123456# 检查core生成大小">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows中Java安装及环境变量配置">
-<meta property="og:url" content="http://www.codestar.top/2023/10/21/Windows%E4%B8%ADJava%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="coredump基础知识及操作-linux篇">
+<meta property="og:url" content="http://www.codestar.top/2023/10/24/coredump%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E6%93%8D%E4%BD%9C-linux%E7%AF%87/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、下载jdk安装包通过以下镜像站下载jdk安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 这里我选择的是Java11，选择对应的平台下载即可：  在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：  2、安装JDK下载完成之后，双击安装包：  根据安装向导，自定义安装路径，一路安装完成即可。安装">
+<meta property="og:description" content="1、coredump简介​	在系统的运行过程中，有许多时候会出现程序运行不正常的情况，进而产生崩溃现象，而为了方便记录和追溯问题的发生进程和或相关的线程信息，亦或是崩溃时间等，有了coredump这种文件。  Linux中的dump文件为core文件，以core开头，类似如下：   Windows中dump文件为dmp文件，类似如下：    2、core生成限制123456# 检查core生成大小">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820212852255.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820212953315.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820213208823.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820213715533.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820213825582.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820214141226.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820214359184.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820215621671.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20230820215906035.png">
-<meta property="article:published_time" content="2023-10-20T16:43:37.000Z">
-<meta property="article:modified_time" content="2023-10-22T16:03:07.886Z">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112112849208.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112112958003.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112105439700.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112113607292.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112114526249.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20231024014749829.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112105615231.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20231024014844990.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20231024014918951.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112142536039.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112142121648.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20230112162822742.png">
+<meta property="article:published_time" content="2023-10-23T17:41:04.000Z">
+<meta property="article:modified_time" content="2023-10-23T17:52:43.597Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="JAVA">
-<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="调试技术">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://codestar.top/note-image/image-20230820212852255.png">
+<meta name="twitter:image" content="https://codestar.top/note-image/image-20230112112849208.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Windows中Java安装及环境变量配置 - mini小新的博客</title>
+  <title>coredump基础知识及操作-linux篇 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -252,7 +254,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Windows中Java安装及环境变量配置"></span>
+            <span id="subtitle" data-typed-text="coredump基础知识及操作-linux篇"></span>
           
         </div>
 
@@ -268,8 +270,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-21 00:43" pubdate>
-          2023年10月21日 凌晨
+        <time datetime="2023-10-24 01:41" pubdate>
+          2023年10月24日 凌晨
         </time>
       </span>
     
@@ -280,7 +282,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          950 字
+          1.1k 字
         
       </span>
     
@@ -291,7 +293,7 @@
         
         
         
-          8 分钟
+          10 分钟
         
       </span>
     
@@ -336,43 +338,60 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Windows中Java安装及环境变量配置</h1>
+            <h1 id="seo-header">coredump基础知识及操作-linux篇</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="1、下载jdk安装包"><a href="#1、下载jdk安装包" class="headerlink" title="1、下载jdk安装包"></a>1、下载jdk安装包</h2><p>通过以下镜像站下载jdk安装包：<a target="_blank" rel="noopener" href="https://www.techspot.com/downloads/5553-java-jdk.html">https://www.techspot.com/downloads/5553-java-jdk.html</a></p>
-<p>这里我选择的是Java11，选择对应的平台下载即可：</p>
-<p><img src="https://codestar.top/note-image/image-20230820212852255.png" srcset="/img/loading.gif" lazyload alt="image-20230820212852255"></p>
-<p>在该页面下，还有Java其他的版本提供下载，需要的可以进入对应页面用同样的方式下载：</p>
-<p><img src="https://codestar.top/note-image/image-20230820212953315.png" srcset="/img/loading.gif" lazyload alt="image-20230820212953315"></p>
-<h2 id="2、安装JDK"><a href="#2、安装JDK" class="headerlink" title="2、安装JDK"></a>2、安装JDK</h2><p>下载完成之后，双击安装包：</p>
-<p><img src="https://codestar.top/note-image/image-20230820213208823.png" srcset="/img/loading.gif" lazyload alt="image-20230820213208823"></p>
-<p>根据安装向导，自定义安装路径，一路安装完成即可。安装完成了之后，还无法使用，需要配置环境变量才能在PC中各环境下使用。</p>
-<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><h3 id="3-1、环境变量配置页进入"><a href="#3-1、环境变量配置页进入" class="headerlink" title="3.1、环境变量配置页进入"></a>3.1、环境变量配置页进入</h3><p>环境变量需要配置的内容有三点，分别是JAVA_HOME、CLASSPATH、path。Windows中<kbd>win</kbd>+<kbd>r</kbd>打开运行面板，输入<code>sysdm.cpl</code>，进入<strong>系统属性</strong>页面：</p>
-<p><img src="https://codestar.top/note-image/image-20230820213715533.png" srcset="/img/loading.gif" lazyload alt="image-20230820213715533"></p>
-<p>之后切到<strong>高级</strong>页签，点击<strong>环境变量</strong>进入环境变量配置页面，进入之后就开始配置具体的变量名了：</p>
-<p><img src="https://codestar.top/note-image/image-20230820213825582.png" srcset="/img/loading.gif" lazyload alt="image-20230820213825582"></p>
-<h3 id="3-2、环境变量1：JAVA-HOME"><a href="#3-2、环境变量1：JAVA-HOME" class="headerlink" title="3.2、环境变量1：JAVA_HOME"></a>3.2、环境变量1：JAVA_HOME</h3><p>在系统变量中，<strong>新建</strong>环境变量，变量名给”JAVA_HOME”，变量值<strong>填入JAVA的安装根目录</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">根据实际情况填入</span><br>D:\JDK11<br></code></pre></td></tr></table></figure>
+                <h2 id="1、coredump简介"><a href="#1、coredump简介" class="headerlink" title="1、coredump简介"></a>1、coredump简介</h2><p>​	在系统的运行过程中，有许多时候会出现程序运行不正常的情况，进而产生崩溃现象，而为了方便记录和追溯问题的发生进程和或相关的线程信息，亦或是崩溃时间等，有了coredump这种文件。</p>
+<ul>
+<li><p>Linux中的dump文件为core文件，以core开头，类似如下：</p>
+<p><img src="https://codestar.top/note-image/image-20230112112849208.png" srcset="/img/loading.gif" lazyload alt="image-20230112112849208"></p>
+</li>
+<li><p>Windows中dump文件为dmp文件，类似如下：</p>
+<p><img src="https://codestar.top/note-image/image-20230112112958003.png" srcset="/img/loading.gif" lazyload alt="image-20230112112958003"></p>
+</li>
+</ul>
+<h2 id="2、core生成限制"><a href="#2、core生成限制" class="headerlink" title="2、core生成限制"></a>2、core生成限制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查core生成大小限制</span><br>ulimit -c<br><span class="hljs-meta prompt_"># </span><span class="language-bash">检查文件大小限制</span><br>ulimit<br><span class="hljs-meta prompt_"># </span><span class="language-bash">限制大小不超过1024KB</span><br>ulimit -c 1024<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/image-20230820214141226.png" srcset="/img/loading.gif" lazyload alt="image-20230820214141226"></p>
-<h3 id="3-3、环境变量2：CLASSPATH"><a href="#3-3、环境变量2：CLASSPATH" class="headerlink" title="3.3、环境变量2：CLASSPATH"></a>3.3、环境变量2：CLASSPATH</h3><p>这个环境变量配置的为<strong>JAVA所有依赖的包路径</strong>。</p>
-<p>同样，在系统变量中<strong>新建</strong>环境变量，变量名给”CLASSPATH”，变量值填入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意，最前面有个.</span><br>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;<br></code></pre></td></tr></table></figure>
+<p>返回值含义：</p>
+<ul>
+<li>0—-禁止生成core文件</li>
+<li>ulimited—-未限制core大小</li>
+<li>数值—-限制大小不超过该设定值KB</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">设定为无限制</span><br>ulimit -c unlimited<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/image-20230820214359184.png" srcset="/img/loading.gif" lazyload alt="image-20230820214359184"></p>
-<p>%JAVA_HOME%意思为取<strong>名称为”JAVA_HOME”的环境变量</strong>的值，即写成这样也可以，两者等价：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">.;D:\JDK11\lib\dt.jar;D:\JDK11\lib\tools.jar;<br></code></pre></td></tr></table></figure>
+<p><img src="https://codestar.top/note-image/image-20230112105439700.png" srcset="/img/loading.gif" lazyload alt="image-20230112105439700"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查所有的用户配置，各项返回值含义同上</span><br>ulimit -a<br></code></pre></td></tr></table></figure>
 
-<p>推荐上面的写法，方便管理。</p>
-<h3 id="3-4、环境变量3：Path"><a href="#3-4、环境变量3：Path" class="headerlink" title="3.4、环境变量3：Path"></a>3.4、环境变量3：Path</h3><p>这个环境变量配置的为<strong>Java中jdk和jre的可执行bin文件</strong>。</p>
-<p>找到Path环境变量，新建两条，填入以下内容：Windows10中建议分开写，不然会出现无法识别。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">合并写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">分开写法</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\bin</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">JAVA_HOME%\jre\bin</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://codestar.top/note-image/image-20230112113607292.png" srcset="/img/loading.gif" lazyload alt="image-20230112113607292"></p>
+<p>设定单一用户程序上限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">设定单个用户程序上限为3：限制生成的dump数量</span><br>ulimit -u 3<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/image-20230820215621671.png" srcset="/img/loading.gif" lazyload alt="image-20230820215621671"></p>
-<h2 id="4、验证安装"><a href="#4、验证安装" class="headerlink" title="4、验证安装"></a>4、验证安装</h2><p>进入powershell面板，输入<code>java --version</code>验证配置，如果正常返回版本号，则环境配置成功：</p>
-<p><img src="https://codestar.top/note-image/image-20230820215906035.png" srcset="/img/loading.gif" lazyload alt="image-20230820215906035"></p>
+<p><img src="https://codestar.top/note-image/image-20230112114526249.png" srcset="/img/loading.gif" lazyload alt="image-20230112114526249"></p>
+<p>设定之后，会将单个程序的core数量限制在设定值之内：</p>
+<p><img src="https://codestar.top/note-image/image-20231024014749829.png" srcset="/img/loading.gif" lazyload alt="image-20231024014749829"></p>
+<h2 id="3、core相关配置"><a href="#3、core相关配置" class="headerlink" title="3、core相关配置"></a>3、core相关配置</h2><h3 id="3-1、配置文件"><a href="#3-1、配置文件" class="headerlink" title="3-1、配置文件"></a>3-1、配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">配置文件</span><br>/proc/sys/kernel/core_pattern<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查询结果为执行core生成的程序路径，及生成格式</span><br>cat /proc/sys/kernel/core_pattern<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/image-20230112105615231.png" srcset="/img/loading.gif" lazyload alt="image-20230112105615231"></p>
+<p>程序段中记录着详细的core生成路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /bin/coredump-handler.sh<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/image-20231024014844990.png" srcset="/img/loading.gif" lazyload alt="image-20231024014844990"></p>
+<h3 id="3-2、配置文件格式"><a href="#3-2、配置文件格式" class="headerlink" title="3-2、配置文件格式"></a>3-2、配置文件格式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">％p 转储过程的PID<br>％u （数字）转储进程的实际UID<br>％G （数字）转储过程的实际GID<br>％s 引起转储的信号数<br>％t 转储时间，表示为自1970年1月1日00:00:00 +0000（UTC）以来的秒数<br>％H 主机名（与uname（2）返回的节点名相同）<br>％e 可执行文件名（无路径前缀）<br>％E 可执行文件的路径名，用斜杠（’/’）替换为感叹号（’！’）。<br>％C 崩溃过程的核心文件大小软资源限制（自Linux 2.6.24开始）<br></code></pre></td></tr></table></figure>
+
+<h2 id="4、core生成验证"><a href="#4、core生成验证" class="headerlink" title="4、core生成验证"></a>4、core生成验证</h2><p>使用kill指令或pkill指令来验证core生成逻辑：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">根据进程名来abort进程并生成core文件</span><br>pkill -6 proc_name<br><span class="hljs-meta prompt_"># </span><span class="language-bash">根据PID来abort进程并生成core文件</span><br>ps -aux | grep proc_name<br>kill -6 [PID]<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/image-20231024014918951.png" srcset="/img/loading.gif" lazyload alt="image-20231024014918951"></p>
+<p><strong>拓展：</strong><code>kill -l</code>查看kill对应的信号量列表</p>
+<p><img src="https://codestar.top/note-image/image-20230112142536039.png" srcset="/img/loading.gif" lazyload alt="image-20230112142536039"></p>
+<h2 id="5、core调试"><a href="#5、core调试" class="headerlink" title="5、core调试"></a>5、core调试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">gdb 程序名称 core名称</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">示例：</span><br>gdb someip_manager core_someip_manager__6609_1672103695<br></code></pre></td></tr></table></figure>
+
+<p>gdb面板输入<code>where</code>或者<code>bt</code>查找出错的那一行或函数，具体错误信息可以在<code>#0~#05</code>中查看：</p>
+<p><img src="https://codestar.top/note-image/image-20230112142121648.png" srcset="/img/loading.gif" lazyload alt="image-20230112142121648"></p>
+<p><img src="https://codestar.top/note-image/image-20230112162822742.png" srcset="/img/loading.gif" lazyload alt="image-20230112162822742"></p>
 
                 
               </div>
@@ -391,7 +410,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" class="category-chain-item">程序语言学习</a>
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
   
   
 
@@ -406,9 +425,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JAVA/" class="print-no-link">#JAVA</a>
-      
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+        <a href="/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E6%9C%AF/" class="print-no-link">#调试技术</a>
       
     </div>
   
@@ -420,8 +437,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Windows中Java安装及环境变量配置</div>
-      <div>http://www.codestar.top/2023/10/21/Windows中Java安装及环境变量配置/</div>
+      <div>coredump基础知识及操作-linux篇</div>
+      <div>http://www.codestar.top/2023/10/24/coredump基础知识及操作-linux篇/</div>
     </div>
     <div class="license-meta">
       
@@ -433,13 +450,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月21日</div>
+          <div>2023年10月24日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年10月23日</div>
+          <div>2023年10月24日</div>
         </div>
       
       
@@ -482,18 +499,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="Python安装报错之0x80072f7d错误解决方法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python安装报错之0x80072f7d错误解决方法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/12/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85%E7%BA%AF%E5%87%80Ubuntu%2022.04%20LTS%E7%B3%BB%E7%BB%9F%E5%85%A8%E6%B5%81%E7%A8%8B/" title="笔记本安装纯净Ubuntu 22.04 LTS系统全流程">
-                        <span class="hidden-mobile">笔记本安装纯净Ubuntu 22.04 LTS系统全流程</span>
+                      <a href="/2023/10/23/Linux%E4%B8%8B%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" title="Linux下如何开启允许root用户远程登录">
+                        <span class="hidden-mobile">Linux下如何开启允许root用户远程登录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
