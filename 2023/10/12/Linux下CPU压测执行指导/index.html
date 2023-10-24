@@ -26,7 +26,7 @@
 <meta property="og:description" content="方法一拉起两个进程，执行文件拷贝，输出空文件。可压测到100%，持续执行。 1for i in &#96;seq 1 $(cat &#x2F;proc&#x2F;cpuinfo |grep &quot;physical id&quot; |wc -l)&#96;; do dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;dev&#x2F;null &amp; done  方法二持续计算圆周率，bc命令。可压测到100 12# 计算小数点后5000位ec">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-12T15:29:05.000Z">
-<meta property="article:modified_time" content="2023-10-22T15:44:13.856Z">
+<meta property="article:modified_time" content="2023-10-24T16:09:15.456Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="压力测试">
 <meta name="twitter:card" content="summary_large_image">
@@ -56,7 +56,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_mwvanzaz22i.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -327,6 +327,14 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">Linux下CPU压测执行指导</h1>
             
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年10月25日 凌晨
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
@@ -343,12 +351,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">************常规执行*************</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">不会占用过多资源</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">!/bin/bash</span><br>Njob=15    #任务总数<br>for ((i=0; i&lt;$Njob; i++)); do<br>&#123;<br>          echo  &quot;progress $i is sleeping for 3 seconds zzz…&quot;<br>          sleep  3<br>&#125;<br>done<br>echo -e &quot;time-consuming: $SECONDS    seconds&quot;    #显示脚本执行耗时<br><span class="hljs-meta prompt_"># </span><span class="language-bash">************并发执行*************</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">!/bin/bash</span><br>Njob=15<br>for ((i=0; i&lt;$Njob; i++)); do<br>          echo  &quot;progress $i is sleeping for 3 seconds zzz…&quot;<br>          sleep  3 &amp;       #循环内容放到后台执行<br>done<br>wait      #等待循环结束再执行wait后面的内容<br>echo -e &quot;time-consuming: $SECONDS    seconds&quot;    #显示脚本执行耗时<br></code></pre></td></tr></table></figure>
 
 <h2 id="压测脚本"><a href="#压测脚本" class="headerlink" title="压测脚本"></a>压测脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">并发运行的最佳实践</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">总进程数</span><br>Sp=2500<br><span class="hljs-meta prompt_"># </span><span class="language-bash">并发数,并发数过大可能造成系统崩溃</span><br>Qp=250<br><span class="hljs-meta prompt_"># </span><span class="language-bash">存放进程的队列</span><br>Qarr=();<br><span class="hljs-meta prompt_"># </span><span class="language-bash">运行进程数</span><br>run=0<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将进程的添加到队列里的函数</span><br>function push() &#123;<br>Qarr=($&#123;Qarr[@]&#125; $1)<br>run=$&#123;#Qarr[@]&#125;<br>&#125;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">检测队列里的进程是否运行完毕</span><br>function check() &#123;<br>oldQ=($&#123;Qarr[@]&#125;)<br>Qarr=()<br>for p in &quot;$&#123;oldQ[@]&#125;&quot;;do<br>if [[ -d &quot;/proc/$p&quot; ]];then<br>Qarr=($&#123;Qarr[@]&#125; $p)<br>fi<br>done<br>run=$&#123;#Qarr[@]&#125;<br>&#125;<br><span class="hljs-meta prompt_"> # </span><span class="language-bash">main</span><br>for((i=0; i&lt;$Sp; i++));do<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 500000`; <span class="hljs-keyword">do</span> curl -o /dev/null -s -w %&#123;http_code&#125;:%&#123;time_total&#125; http://www.baidu.com ;<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot; &quot;</span>; <span class="hljs-keyword">done</span></span><br>echo &quot;running $i &quot;<br>sleep 3 &amp;<br>push $!<br>while [[ $run -gt $Qp ]];do<br>check<br>sleep 0.1<br>done<br>done<br>echo -e &quot;time-consuming: $SECONDS seconds&quot; #显示脚本执行耗时<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
 
 
                 
@@ -414,7 +416,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年10月22日</div>
+          <div>2023年10月25日</div>
         </div>
       
       
@@ -571,7 +573,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-icon-star-on"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <p>Copyright © 2022-2023. All Rights Reserved.</p> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
     </div>
   
   
