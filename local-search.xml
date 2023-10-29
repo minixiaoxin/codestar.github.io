@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>npm下载源如何修改为其他源地址</title>
+    <link href="/2023/10/29/npm%E4%B8%8B%E8%BD%BD%E6%BA%90%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%85%B6%E4%BB%96%E6%BA%90%E5%9C%B0%E5%9D%80/"/>
+    <url>/2023/10/29/npm%E4%B8%8B%E8%BD%BD%E6%BA%90%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%85%B6%E4%BB%96%E6%BA%90%E5%9C%B0%E5%9D%80/</url>
+    
+    <content type="html"><![CDATA[<h1 id="npm下载源如何修改为其他源地址"><a href="#npm下载源如何修改为其他源地址" class="headerlink" title="npm下载源如何修改为其他源地址"></a>npm下载源如何修改为其他源地址</h1><h2 id="1、国内源地址清单"><a href="#1、国内源地址清单" class="headerlink" title="1、国内源地址清单"></a>1、国内源地址清单</h2><p>官方的源地址： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p><p>由于服务器在海外，国内访问速度会慢很多。下面是我搜集的一些npm国内的镜像源</p><table><thead><tr><th align="center">源名称</th><th align="center">npm源地址</th><th align="center">推荐指数</th></tr></thead><tbody><tr><td align="center">淘宝新镜像源</td><td align="center"><a href="https://registry.npmmirror.com/">https://registry.npmmirror.com</a></td><td align="center">★★★★</td></tr><tr><td align="center">腾讯云镜像源</td><td align="center"><a href="http://mirrors.cloud.tencent.com/npm/">http://mirrors.cloud.tencent.com/npm/</a></td><td align="center">★★★</td></tr><tr><td align="center">华为云镜像源</td><td align="center"><a href="https://mirrors.huaweicloud.com/repository/npm/">https://mirrors.huaweicloud.com/repository/npm/</a></td><td align="center">★★★</td></tr><tr><td align="center">cnpm镜像地址</td><td align="center"><a href="http://registry.cnpmjs.org/">http://registry.cnpmjs.org</a></td><td align="center">★★</td></tr><tr><td align="center">淘宝旧源镜像</td><td align="center"><a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></td><td align="center">★</td></tr></tbody></table><p>其中淘宝旧镜像源在2022年5月31日废弃，不过至今（2023年10月29日）还是能正常使用，建议是使用新版镜像源。</p><h2 id="2、修改npm源"><a href="#2、修改npm源" class="headerlink" title="2、修改npm源"></a>2、修改npm源</h2><h3 id="2-1、临时修改"><a href="#2-1、临时修改" class="headerlink" title="2.1、临时修改"></a>2.1、临时修改</h3><p>如果只是在某一次使用源，可以临时修改，通过在install命令前加上<code>--registry 源地址</code>即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">示例：使用淘宝npm源下载cnpm</span><br>npm --registry https://registry.npm.taobao.org install cnpm<br></code></pre></td></tr></table></figure><h3 id="2-2、永久修改"><a href="#2-2、永久修改" class="headerlink" title="2.2、永久修改"></a>2.2、永久修改</h3><h4 id="方法一：使用命令行修改"><a href="#方法一：使用命令行修改" class="headerlink" title="方法一：使用命令行修改"></a>方法一：使用命令行修改</h4><p>永久配置，直接使用指令修改：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm config set registry https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure><p>修改之后生效如下，查询npm配置的源：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm config get registry<br></code></pre></td></tr></table></figure><p>返回淘宝镜像源说明配置已经生效了：</p><p><img src="https://codestar.top/note-image/image-20231029161636529.png" alt="image-20231029161636529"></p><p>按照个人喜好配置相应的镜像源即可。</p><h4 id="方法二：直接修改配置文件"><a href="#方法二：直接修改配置文件" class="headerlink" title="方法二：直接修改配置文件"></a>方法二：直接修改配置文件</h4><p>在自己的电脑<code>C:\Users\username</code>上修改<code>.npmrc</code>文件，如没有则新建txt文件，把名称和后缀改成一样即可。</p><p>然后将其中的内容修改如下：[D:\Node.js]替换成自己的安装路径，registry改为镜像源地址</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">prefix=D:\Node.js\node_global<br>cache=D:\Node.js\node_cache<br>registry=https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/image-20231029163854250.png" alt="image-20231029163854250"></p><h2 id="3、npm仓库管理工具"><a href="#3、npm仓库管理工具" class="headerlink" title="3、npm仓库管理工具"></a>3、npm仓库管理工具</h2><p>使用<code>nrm</code>来进行仓库管理：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g nrm<br></code></pre></td></tr></table></figure><p>通过工具查看可配置的镜像源：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nrm ls<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/image-20231029162829130.png" alt="image-20231029162829130"></p><p>其他更多的使用方法，可以查看官方说明：<a href="https://github.com/Pana/nrm">https://github.com/Pana/nrm</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>node.js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>node.js</tag>
+      
+      <tag>npm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>coredump基础知识及操作-linux篇</title>
     <link href="/2023/10/24/coredump%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E6%93%8D%E4%BD%9C-linux%E7%AF%87/"/>
     <url>/2023/10/24/coredump%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E6%93%8D%E4%BD%9C-linux%E7%AF%87/</url>
