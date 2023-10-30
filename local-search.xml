@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Android adb 利用wlan局域网进行无线调试方法</title>
+    <link href="/2023/10/31/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/"/>
+    <url>/2023/10/31/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Android-adb-利用wlan局域网进行无线调试方法"><a href="#Android-adb-利用wlan局域网进行无线调试方法" class="headerlink" title="Android adb 利用wlan局域网进行无线调试方法"></a>Android adb 利用wlan局域网进行无线调试方法</h1><h2 id="1、原理"><a href="#1、原理" class="headerlink" title="1、原理"></a>1、原理</h2><p>利用两端设备同处同一个局域网实现数据共享，连接adb设备，通过无线局域网进行数据传输，调试。</p><h2 id="2、无线设备连接"><a href="#2、无线设备连接" class="headerlink" title="2、无线设备连接"></a>2、无线设备连接</h2><p><strong>注：</strong>首次连接需使用USB线</p><h3 id="2-1、TCP端口启用"><a href="#2-1、TCP端口启用" class="headerlink" title="2-1、TCP端口启用"></a>2-1、TCP端口启用</h3><p>待连Android设备，开启tcp连接，放开5555端口（可自定义1023-65535都可以用）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">以5555端口开启TCP连接</span><br>adb tcpid 5555<br></code></pre></td></tr></table></figure><p>执行无报错即可：</p><p><img src="https://codestar.top/note-image/image-20230804111208300.png" alt="image-20230804111208300"></p><h3 id="2-2、启用热点"><a href="#2-2、启用热点" class="headerlink" title="2-2、启用热点"></a>2-2、启用热点</h3><p>待连Android设备开启无线热点，检查对应IP地址：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb shell ifconfig<br></code></pre></td></tr></table></figure><p>检查wlan2 IP地址：</p><p><img src="https://codestar.top/note-image/image-20230411200715363.png" alt="image-20230411200715363"></p><h3 id="2-3、连接adb设备"><a href="#2-3、连接adb设备" class="headerlink" title="2-3、连接adb设备"></a>2-3、连接adb设备</h3><ul><li><p>1、PC连接Android设备热点</p></li><li><p>2、指定5555端口（2-1配置的端口）连接设备：</p></li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb connect 192.168.46.1:5555<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/image-20230804111304500.png" alt="image-20230804111304500"></p><p>出现connected表示已连接adb设备。</p><h3 id="2-4、检查设备连接"><a href="#2-4、检查设备连接" class="headerlink" title="2-4、检查设备连接"></a>2-4、检查设备连接</h3><p>检查设备连接：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb devices -l<br></code></pre></td></tr></table></figure><p>已连接的设备展示如下：</p><p><img src="https://codestar.top/note-image/image-20231031002843478.png" alt="image-20231031002843478"></p><p>后续可以正常的执行所有支持的adb指令：</p><p><img src="https://codestar.top/note-image/image-20230804111451998.png" alt="image-20230804111451998"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Android技术</category>
+      
+      <category>Android调试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+      <tag>ADB</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>npm下载源如何修改为其他源地址</title>
     <link href="/2023/10/29/npm%E4%B8%8B%E8%BD%BD%E6%BA%90%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%85%B6%E4%BB%96%E6%BA%90%E5%9C%B0%E5%9D%80/"/>
     <url>/2023/10/29/npm%E4%B8%8B%E8%BD%BD%E6%BA%90%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%85%B6%E4%BB%96%E6%BA%90%E5%9C%B0%E5%9D%80/</url>
