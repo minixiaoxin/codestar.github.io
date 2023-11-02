@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>利用IDEA编译封装Android APK操作方法</title>
+    <link href="/2023/11/03/%E5%88%A9%E7%94%A8IDEA%E7%BC%96%E8%AF%91%E5%B0%81%E8%A3%85Android%20APK%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/"/>
+    <url>/2023/11/03/%E5%88%A9%E7%94%A8IDEA%E7%BC%96%E8%AF%91%E5%B0%81%E8%A3%85Android%20APK%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="利用IDEA编译封装Android-APK操作方法"><a href="#利用IDEA编译封装Android-APK操作方法" class="headerlink" title="利用IDEA编译封装Android APK操作方法"></a>利用IDEA编译封装Android APK操作方法</h1><p>**&#x3D;&#x3D;注：&#x3D;&#x3D;**以下步骤基于IDEA Community 2023.1.1版本操作。</p><h2 id="1、安装Android-SDK"><a href="#1、安装Android-SDK" class="headerlink" title="1、安装Android SDK"></a>1、安装Android SDK</h2><p><img src="https://codestar.top/note-image/image-20230516182304899.png" alt="image-20230516182304899"></p><p>一开始检查无SDK安装，点击next进行安装：</p><p><img src="https://codestar.top/note-image/image-20230516182512814.png" alt="image-20230516182512814"></p><p>修改安装的内容，默认安装SDK即可，修改安装位置，点击next继续安装：</p><p><img src="https://codestar.top/note-image/image-20230516182440374.png" alt="image-20230516182440374"></p><p>继续next：</p><p><img src="https://codestar.top/note-image/image-20230516182649248.png" alt="image-20230516182649248"></p><p>同意协议，点击finish：</p><p><img src="https://codestar.top/note-image/image-20230516182757532.png" alt="image-20230516182757532"></p><p>之后会进入安装过程：</p><p><img src="https://codestar.top/note-image/image-20230516182846165.png" alt="image-20230516182846165"></p><p>最后下载完成finish即可。</p><h2 id="2、创建Android项目"><a href="#2、创建Android项目" class="headerlink" title="2、创建Android项目"></a>2、创建Android项目</h2><p>安装完SDK之后，next继续创建模板：</p><p><img src="https://codestar.top/note-image/image-20230516183928652.png" alt="image-20230516183928652"></p><p>选择Empty Activity模板：</p><p><img src="https://codestar.top/note-image/image-20230516184345674.png" alt="image-20230516184345674"></p><p><img src="https://codestar.top/note-image/image-20230516184801891.png" alt="image-20230516184801891"></p><p><img src="https://codestar.top/note-image/image-20230516185015732.png" alt="image-20230516185015732"></p><p><img src="https://codestar.top/note-image/image-20230517091251806.png" alt="image-20230517091251806"></p><h2 id="3、项目结构"><a href="#3、项目结构" class="headerlink" title="3、项目结构"></a>3、项目结构</h2><p>生成项目后，主要的结构如下：</p><p><img src="https://codestar.top/note-image/image-20230517141803431.png" alt="image-20230517141803431"></p><p>项目默认创建了主活动文件，目录为src&#x2F;main&#x2F;java&#x2F;com.*.*下面的MainActivity.kt，并且创建对应的主页面res&#x2F;layout&#x2F;activity_main.xml，<TextView>中默认写入了Hello World。</p><h2 id="4、运行环境准备"><a href="#4、运行环境准备" class="headerlink" title="4、运行环境准备"></a>4、运行环境准备</h2><p>在run窗口配置，进入Device Manager中新建虚拟设备：</p><p><img src="https://codestar.top/note-image/image-20230517142157196.png" alt="image-20230517142157196"></p><p><img src="https://codestar.top/note-image/image-20230517142311897.png" alt="image-20230517142311897"></p><p>选择任意一种phone设备，之后next进入下一步：</p><p><img src="https://codestar.top/note-image/image-20230517142510075.png" alt="image-20230517142510075"></p><p>获取手机镜像：</p><ul><li>选择镜像：</li></ul><p><img src="https://codestar.top/note-image/image-20230517142708298.png" alt="image-20230517142708298"></p><ul><li>同意协议之后，下载镜像：</li></ul><p><img src="https://codestar.top/note-image/image-20230517142737944.png" alt="image-20230517142737944"></p><p>等待下载完成：</p><p><img src="https://codestar.top/note-image/image-20230517143012763.png" alt="image-20230517143012763"></p><p>安装完成：</p><p><img src="https://codestar.top/note-image/image-20230517150615464.png" alt="image-20230517150615464"></p><ul><li>安装HAXM</li></ul><p><img src="https://codestar.top/note-image/image-20230517150721174.png" alt="image-20230517150721174"></p><p><img src="https://codestar.top/note-image/image-20230517150745014.png" alt="image-20230517150745014"></p><p>选则安装程序，同意协议，点击next继续（安装过程弹出需要管理员权限，同意安装即可）：</p><p><img src="https://codestar.top/note-image/image-20230517150820053.png" alt="image-20230517150820053"></p><p>安装完成，finish结束：</p><p><img src="https://codestar.top/note-image/image-20230517150930328.png" alt="image-20230517150930328"></p><p>安装结束后，此提示依旧存在，可忽略，此页面为静态页面，后续重新打开页面会修复：</p><p><img src="https://codestar.top/note-image/image-20230517151154107.png" alt="image-20230517151154107"></p><ul><li>选中镜像，继续下一步创建：</li></ul><p><img src="https://codestar.top/note-image/image-20230517151139175.png" alt="image-20230517151139175"></p><p>finish完成创建：</p><p><img src="https://codestar.top/note-image/image-20230517151448373.png" alt="image-20230517151448373"></p><p>创建完成之后会出现在虚拟设备列表中：</p><p><img src="https://codestar.top/note-image/image-20230517151405917.png" alt="image-20230517151405917"></p><h2 id="5、安卓虚拟机运行APP"><a href="#5、安卓虚拟机运行APP" class="headerlink" title="5、安卓虚拟机运行APP"></a>5、安卓虚拟机运行APP</h2><p>选择虚拟机直接点击右上角运行图标运行APP</p><p><img src="https://codestar.top/note-image/image-20230517154808072.png" alt="image-20230517154808072"></p><p>运行后如下：</p><p><img src="https://codestar.top/note-image/image-20230517154646772.png" alt="image-20230517154646772"></p><p>缩小虚拟设备列表：</p><p><img src="https://codestar.top/note-image/Snipaste_2023-05-17_15-52-20.png" alt="Snipaste_2023-05-17_15-52-20"></p><p>截图：</p><p><img src="https://codestar.top/note-image/image-20230517154622689.png" alt="image-20230517154622689"></p><p>将HelloWrord字样修改成其他，然后点击运行按钮旁的第二个重启按钮，更新的代码会即时生效而不用重启<a href="https://so.csdn.net/so/search?q=%E8%99%9A%E6%8B%9F%E6%9C%BA&spm=1001.2101.3001.7020">虚拟机</a>，开发过程中便于我们调试。</p><ul><li>修改布局内容</li></ul><p>选中元素，右击进入Go to XML：</p><p><img src="https://codestar.top/note-image/image-20230517155853605.png" alt="image-20230517155853605"></p><p>或点击页面右上角Code进入编辑：</p><p><img src="https://codestar.top/note-image/image-20230517160041903.png" alt="image-20230517160041903"></p><p>XML页面可以修改页面布局，点击右上角design切换至原来页面：</p><p><img src="https://codestar.top/note-image/image-20230517155757627.png" alt="image-20230517155757627"></p><h2 id="6、发布APK"><a href="#6、发布APK" class="headerlink" title="6、发布APK"></a>6、发布APK</h2><p>开发完应用app后，我们就可以发布成apk，提供他人下载安装。</p><p>发布方法：</p><p>点击Build—》Generate Signed Bundle &#x2F; APK</p><p><img src="https://codestar.top/note-image/image-20230517161604019.png" alt="image-20230517161604019"></p><p>选择APK，next：</p><p><img src="https://codestar.top/note-image/image-20230517161627540.png" alt="image-20230517161627540"></p><p>Key store path，选择新建key文件</p><p><img src="https://codestar.top/note-image/image-20230517161717098.png" alt="image-20230517161717098"></p><p>按照提示填写key存放路径和Password以及名称和组织，点击OK继续下一步：</p><p><strong>注：</strong>后续每一轮打包发布APK都需要此key文件和Password，很重要，记好谨防丢失。</p><p><img src="https://codestar.top/note-image/image-20230517162141618.png" alt="image-20230517162141618"></p><p>记住密码，进入下一步：</p><p><img src="/IDEA%E7%BC%96%E8%AF%91%E5%B0%81%E8%A3%85APK%E6%8C%87%E5%AF%BC.assets/image-20230517163133491.png" alt="image-20230517163133491"></p><p>选择发布版本有debug和release两种，选择其中一个进行打包：debug是内测版文件比较大，用于开发调试。release是发行版比较小，运行也快。</p><p><img src="https://codestar.top/note-image/image-20230517163442348.png" alt="image-20230517163442348"></p><p><img src="https://codestar.top/note-image/image-20230517165038317.png" alt="image-20230517165038317"></p><p>打包完成apk的输出目录默认会在app下如目标路径下如AndroidAPP\app\release，确认完成后，该目录下就生成了apk文件，发到手机上就能安装运行了。</p><p>至此整个APK封装发布流程完成了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Android技术</category>
+      
+      <category>Android-APK</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+      <tag>apk包编译</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Android adb 利用wlan局域网进行无线调试方法</title>
     <link href="/2023/10/31/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/"/>
     <url>/2023/10/31/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</url>
@@ -71,12 +100,14 @@
       
       <category>Linux技术</category>
       
+      <category>调试技术</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>调试技术</tag>
+      <tag>COREDUMP</tag>
       
     </tags>
     
@@ -96,7 +127,7 @@
       
       <category>Linux技术</category>
       
-      <category>Linux</category>
+      <category>Linux-SSH</category>
       
     </categories>
     
@@ -121,14 +152,16 @@
     
     <categories>
       
-      <category>程序语言学习</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>Python安装</tag>
+      
+      <tag>异常解决</tag>
       
     </tags>
     
@@ -146,7 +179,7 @@
     
     <categories>
       
-      <category>程序语言学习</category>
+      <category>JAVA</category>
       
     </categories>
     
@@ -175,12 +208,16 @@
       
       <category>Linux技术</category>
       
+      <category>系统安装</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>linux系统搭建</tag>
+      <tag>Linux系统</tag>
+      
+      <tag>Ubuntu</tag>
       
     </tags>
     
@@ -200,12 +237,16 @@
       
       <category>Linux技术</category>
       
+      <category>系统安装</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>linux系统搭建</tag>
+      <tag>Linux系统</tag>
+      
+      <tag>Ubuntu</tag>
       
     </tags>
     
@@ -230,7 +271,7 @@
     
     <tags>
       
-      <tag>压力测试</tag>
+      <tag>CPU压力测试</tag>
       
     </tags>
     
