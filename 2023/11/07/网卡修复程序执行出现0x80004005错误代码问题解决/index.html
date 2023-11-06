@@ -18,31 +18,35 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="一、问题现象安装过程中出现报错：0x80072f7d - 未指定的错误  这个问题发生，导致后续无法配置Python环境，必须要解决掉它。 二、问题原因为了弄清是什么原因导致出现这种致命性问题，去找了一下”度娘”，发现原因如下：  在Python的安装过程中，会涉及到数据传输，其中会涉及到一个协议TLS，安全传输层协议，安装Python的过程中必须要TLS协议的支持，我本机没有开启TLS协议导致出">
+    <meta name="description" content="1、初步修复指令参考：https:&#x2F;&#x2F;baijiahao.baidu.com&#x2F;s?id&#x3D;1715556202388908891&amp;wfr&#x3D;spider&amp;for&#x3D;pc 以管理员身份运行： 123regsvr32 softpub.dllregsvr32 wintrust.dllregsvr32 initpki.dll  2、regsvr32 initpki.dll执行报错问题解决参考：h">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python安装报错之0x80072f7d错误解决方法">
-<meta property="og:url" content="http://www.codestar.top/2023/10/21/Python%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99%E4%B9%8B0x80072f7d%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="网卡修复程序执行出现0x80004005错误代码问题解决">
+<meta property="og:url" content="http://www.codestar.top/2023/11/07/%E7%BD%91%E5%8D%A1%E4%BF%AE%E5%A4%8D%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%87%BA%E7%8E%B00x80004005%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="一、问题现象安装过程中出现报错：0x80072f7d - 未指定的错误  这个问题发生，导致后续无法配置Python环境，必须要解决掉它。 二、问题原因为了弄清是什么原因导致出现这种致命性问题，去找了一下”度娘”，发现原因如下：  在Python的安装过程中，会涉及到数据传输，其中会涉及到一个协议TLS，安全传输层协议，安装Python的过程中必须要TLS协议的支持，我本机没有开启TLS协议导致出">
+<meta property="og:description" content="1、初步修复指令参考：https:&#x2F;&#x2F;baijiahao.baidu.com&#x2F;s?id&#x3D;1715556202388908891&amp;wfr&#x3D;spider&amp;for&#x3D;pc 以管理员身份运行： 123regsvr32 softpub.dllregsvr32 wintrust.dllregsvr32 initpki.dll  2、regsvr32 initpki.dll执行报错问题解决参考：h">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://codestar.top/note-image/image-20231022234449760.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20231022234509493.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20231022234640504.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20231022234803305.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20231022234824356.png">
-<meta property="og:image" content="https://codestar.top/note-image/image-20231022234840585.png">
-<meta property="article:published_time" content="2023-10-20T16:56:55.000Z">
-<meta property="article:modified_time" content="2023-11-06T17:33:08.432Z">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212104125540.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212104125540.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212104112299.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212120334898.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212140333170.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212122316122.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212122508987.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212122532652.png">
+<meta property="og:image" content="https://codestar.top/note-image/image-20221212140525730.png">
+<meta property="article:published_time" content="2023-11-06T17:31:14.000Z">
+<meta property="article:modified_time" content="2023-11-06T17:36:41.701Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="Python安装">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="网卡设备">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://codestar.top/note-image/image-20231022234449760.png">
+<meta name="twitter:image" content="https://codestar.top/note-image/image-20221212104125540.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Python安装报错之0x80072f7d错误解决方法 - mini小新的博客</title>
+  <title>网卡修复程序执行出现0x80004005错误代码问题解决 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -266,7 +270,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Python安装报错之0x80072f7d错误解决方法"></span>
+            <span id="subtitle" data-typed-text="网卡修复程序执行出现0x80004005错误代码问题解决"></span>
           
         </div>
 
@@ -282,8 +286,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-21 00:56" pubdate>
-          2023年10月21日 凌晨
+        <time datetime="2023-11-07 01:31" pubdate>
+          2023年11月7日 凌晨
         </time>
       </span>
     
@@ -294,7 +298,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          474 字
+          4.2k 字
         
       </span>
     
@@ -305,7 +309,7 @@
         
         
         
-          4 分钟
+          35 分钟
         
       </span>
     
@@ -350,7 +354,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Python安装报错之0x80072f7d错误解决方法</h1>
+            <h1 id="seo-header">网卡修复程序执行出现0x80004005错误代码问题解决</h1>
             
               <p class="note note-info">
                 
@@ -363,25 +367,39 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一、问题现象"><a href="#一、问题现象" class="headerlink" title="一、问题现象"></a>一、问题现象</h2><p>安装过程中出现报错：0x80072f7d - 未指定的错误</p>
-<p><img src="https://codestar.top/note-image/image-20231022234449760.png" srcset="/img/loading.gif" lazyload alt="image-20231022234449760"></p>
-<p>这个问题发生，导致后续无法配置Python环境，必须要解决掉它。</p>
-<h2 id="二、问题原因"><a href="#二、问题原因" class="headerlink" title="二、问题原因"></a>二、问题原因</h2><p>为了弄清是什么原因导致出现这种致命性问题，去找了一下”度娘”，发现原因如下：</p>
-<blockquote>
-<p>在Python的安装过程中，会涉及到数据传输，其中会涉及到一个协议TLS，安全传输层协议，安装Python的过程中必须要TLS协议的支持，我本机没有开启TLS协议导致出错。目前TLS1.2是常见传输协议版本，不过有的网站还是TLS1.1。所以得同时开启两个协议，TLS1.1、TLS1.2，具体操作来看解决方法。</p>
-</blockquote>
-<h2 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h2><p>1、<kbd>win</kbd>+<kbd>r</kbd>打开运行界面，输入<code>control</code>，打开控制面板：</p>
-<p>2、进入“网络和Internet”：</p>
-<p><img src="https://codestar.top/note-image/image-20231022234509493.png" srcset="/img/loading.gif" lazyload alt="image-20231022234509493"></p>
-<p>2、点击“Internet选项”：</p>
-<p><img src="https://codestar.top/note-image/image-20231022234640504.png" srcset="/img/loading.gif" lazyload alt="image-20231022234640504"></p>
-<p>3、“Internet属性”中进入“高级”，勾选“使用TLS1.1”、“使用TLS1.2”：</p>
-<p><img src="https://codestar.top/note-image/image-20231022234803305.png" srcset="/img/loading.gif" lazyload alt="image-20231022234803305"></p>
-<p>点击应用，重新安装Python。</p>
-<h2 id="四、重新安装Python"><a href="#四、重新安装Python" class="headerlink" title="四、重新安装Python"></a>四、重新安装Python</h2><p>重新安装，选择对应的安装路径和安装选项，一路下一步安装即可，中间安装各类包需要费些时间，等待安装成功即可：</p>
-<p><img src="https://codestar.top/note-image/image-20231022234824356.png" srcset="/img/loading.gif" lazyload alt="image-20231022234824356"></p>
-<p>大功告成，安装成功~</p>
-<p><img src="https://codestar.top/note-image/image-20231022234840585.png" srcset="/img/loading.gif" lazyload alt="image-20231022234840585"></p>
+                <h2 id="1、初步修复指令"><a href="#1、初步修复指令" class="headerlink" title="1、初步修复指令"></a>1、初步修复指令</h2><p>参考：<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1715556202388908891&wfr=spider&for=pc">https://baijiahao.baidu.com/s?id=1715556202388908891&amp;wfr=spider&amp;for=pc</a></p>
+<p>以管理员身份运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">regsvr32 softpub.dll<br>regsvr32 wintrust.dll<br>regsvr32 initpki.dll<br></code></pre></td></tr></table></figure>
+
+<h2 id="2、regsvr32-initpki-dll执行报错问题解决"><a href="#2、regsvr32-initpki-dll执行报错问题解决" class="headerlink" title="2、regsvr32 initpki.dll执行报错问题解决"></a>2、regsvr32 initpki.dll执行报错问题解决</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41943240/article/details/115220254">https://blog.csdn.net/qq_41943240/article/details/115220254</a></p>
+<p>执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$</span><span class="language-bash"><span class="hljs-built_in">arch</span> = Get-WMIObject -Class Win32_Processor -ComputerName LocalHost | Select-Object AddressWidth</span> <br>Write-Host &quot;1. Stopping Windows Update Services...&quot; <br>Stop-Service -Name BITS <br>Stop-Service -Name wuauserv <br>Stop-Service -Name appidsvc <br>Stop-Service -Name cryptsvc <br>Write-Host &quot;2. Remove QMGR Data file...&quot; <br>Remove-Item &quot;$env:allusersprofile\Application Data\Microsoft\Network\Downloader\qmgr*.dat&quot; -ErrorAction SilentlyContinue <br>Write-Host &quot;3. Renaming the Software Distribution and CatRoot Folder...&quot; <br>Rename-Item $env:systemroot\SoftwareDistribution SoftwareDistribution.bak -ErrorAction SilentlyContinue <br>Rename-Item $env:systemroot\System32\Catroot2 catroot2.bak -ErrorAction SilentlyContinue <br>Write-Host &quot;4. Removing old Windows Update log...&quot; <br>Remove-Item $env:systemroot\WindowsUpdate.log -ErrorAction SilentlyContinue <br>Write-Host &quot;5. Resetting the Windows Update Services to defualt settings...&quot; <br>&quot;sc.exe sdset bits D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;AU)(A;;CCLCSWRPWPDTLOCRRC;;;PU)&quot; <br>&quot;sc.exe sdset wuauserv D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;AU)(A;;CCLCSWRPWPDTLOCRRC;;;PU)&quot; <br>Set-Location $env:systemroot\system32 <br>Write-Host &quot;6. Registering some DLLs...&quot; <br>regsvr32.exe /s atl.dll <br>regsvr32.exe /s urlmon.dll <br>regsvr32.exe /s mshtml.dll <br>regsvr32.exe /s shdocvw.dll <br>regsvr32.exe /s browseui.dll <br>regsvr32.exe /s jscript.dll <br>regsvr32.exe /s vbscript.dll <br>regsvr32.exe /s scrrun.dll <br>regsvr32.exe /s msxml.dll <br>regsvr32.exe /s msxml3.dll <br>regsvr32.exe /s msxml6.dll <br>regsvr32.exe /s actxprxy.dll <br>regsvr32.exe /s softpub.dll <br>regsvr32.exe /s wintrust.dll <br>regsvr32.exe /s dssenh.dll <br>regsvr32.exe /s rsaenh.dll <br>regsvr32.exe /s gpkcsp.dll <br>regsvr32.exe /s sccbase.dll <br>regsvr32.exe /s slbcsp.dll <br>regsvr32.exe /s cryptdlg.dll <br>regsvr32.exe /s oleaut32.dll <br>regsvr32.exe /s ole32.dll <br>regsvr32.exe /s shell32.dll <br>regsvr32.exe /s initpki.dll <br>regsvr32.exe /s wuapi.dll <br>regsvr32.exe /s wuaueng.dll <br>regsvr32.exe /s wuaueng1.dll <br>regsvr32.exe /s wucltui.dll <br>regsvr32.exe /s wups.dll <br>regsvr32.exe /s wups2.dll <br>regsvr32.exe /s wuweb.dll <br>regsvr32.exe /s qmgr.dll <br>regsvr32.exe /s qmgrprxy.dll <br>regsvr32.exe /s wucltux.dll <br>regsvr32.exe /s muweb.dll <br>regsvr32.exe /s wuwebv.dll <br>Write-Host &quot;7) Removing WSUS client settings...&quot; <br>REG DELETE &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate&quot; /v AccountDomainSid /f <br>REG DELETE &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate&quot; /v PingID /f <br>REG DELETE &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate&quot; /v SusClientId /f <br>Write-Host &quot;8) Resetting the WinSock...&quot; <br>netsh winsock reset <br>netsh winhttp reset proxy <br>Write-Host &quot;9) Delete all BITS jobs...&quot; <br>Get-BitsTransfer | Remove-BitsTransfer <br>Write-Host &quot;10) Attempting to install the Windows Update Agent...&quot; <br><span class="hljs-meta prompt_">if($</span><span class="language-bash"><span class="hljs-built_in">arch</span> -eq 64)&#123;</span> <br>wusa Windows8-RT-KB2937636-x64 /quiet <br>&#125; <br>else&#123; <br>wusa Windows8-RT-KB2937636-x86 /quiet <br>&#125; <br>Write-Host &quot;11) Starting Windows Update Services...&quot; <br>Start-Service -Name BITS <br>Start-Service -Name wuauserv <br>Start-Service -Name appidsvc <br>Start-Service -Name cryptsvc <br>Write-Host &quot;12) Forcing discovery...&quot; <br>wuauclt /resetauthorization /detectnow <br>Write-Host &quot;Process complete. Please reboot your computer.&quot; <br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/image-20221212104125540.png" srcset="/img/loading.gif" lazyload alt="image-20221212104125540"></p>
+<p><img src="https://codestar.top/note-image/image-20221212104125540.png" srcset="/img/loading.gif" lazyload alt="image-20221212104125540"></p>
+<p><img src="https://codestar.top/note-image/image-20221212104112299.png" srcset="/img/loading.gif" lazyload alt="image-20221212104112299"></p>
+<p>直接补齐对应dll文件：</p>
+<p>参考：<a target="_blank" rel="noopener" href="http://www.dllzj.com/initpki.dll/">http://www.dllzj.com/initpki.dll/</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">拷贝到一下文件夹</span><br>C:\Windows\SysWOW64<br>C:\Windows\System32<br></code></pre></td></tr></table></figure>
+
+<h2 id="3、换个方法–清除网卡旧配置"><a href="#3、换个方法–清除网卡旧配置" class="headerlink" title="3、换个方法–清除网卡旧配置"></a>3、换个方法–清除网卡旧配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">重置网卡</span><br>netsh winsock reset catalog<br>netsh int ip reset reset.log<br></code></pre></td></tr></table></figure>
+
+<p>重启系统后检查网卡配置，恢复为默认状态：</p>
+<p><img src="https://codestar.top/note-image/image-20221212120334898.png" srcset="/img/loading.gif" lazyload alt="image-20221212120334898"></p>
+<p>删除对应子项注册表：</p>
+<p><img src="https://codestar.top/note-image/image-20221212140333170.png" srcset="/img/loading.gif" lazyload alt="image-20221212140333170"></p>
+<h2 id="4、诊断服务开启"><a href="#4、诊断服务开启" class="headerlink" title="4、诊断服务开启"></a>4、诊断服务开启</h2><p><kbd>win</kbd>+<kbd>r</kbd>打开运行窗口，运行services.msc，进入服务面板，检查以下项是否开启：</p>
+<p><img src="https://codestar.top/note-image/image-20221212122316122.png" srcset="/img/loading.gif" lazyload alt="image-20221212122316122"></p>
+<h2 id="5、网卡驱动重置"><a href="#5、网卡驱动重置" class="headerlink" title="5、网卡驱动重置"></a>5、网卡驱动重置</h2><p><kbd>win</kbd>+<kbd>r</kbd>打开运行窗口，输入devmgmt.msc，进入设备管理器。</p>
+<p><img src="https://codestar.top/note-image/image-20221212122508987.png" srcset="/img/loading.gif" lazyload alt="image-20221212122508987"></p>
+<p>网络适配器，卸载对应设备：</p>
+<p><img src="https://codestar.top/note-image/image-20221212122532652.png" srcset="/img/loading.gif" lazyload alt="image-20221212122532652"></p>
+<p>之后重新连接网卡即可：</p>
+<p><img src="https://codestar.top/note-image/image-20221212140525730.png" srcset="/img/loading.gif" lazyload alt="image-20221212140525730"></p>
+<h2 id="6、参考方法"><a href="#6、参考方法" class="headerlink" title="6、参考方法"></a>6、参考方法</h2><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/2148256226206548268.html">https://zhidao.baidu.com/question/2148256226206548268.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/a1cbed5fbb4ae45c3b3567ec102de2bd9705de5d.html?_wkts_=1670816062878&bdQuery=%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE%E7%9A%84%E5%86%85%E5%AE%B9%E6%B8%85%E9%99%A4">https://wenku.baidu.com/view/a1cbed5fbb4ae45c3b3567ec102de2bd9705de5d.html?_wkts_=1670816062878&amp;bdQuery=%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE%E7%9A%84%E5%86%85%E5%AE%B9%E6%B8%85%E9%99%A4</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zizhi888.cn/itbaike/31328.html">https://www.zizhi888.cn/itbaike/31328.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/fulse-p-6276858.html">http://t.zoukankan.com/fulse-p-6276858.html</a></p>
 
                 
               </div>
@@ -400,8 +418,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/Windows/" class="category-chain-item">Windows</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/Windows/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/" class="category-chain-item">设备管理</a>
+  
+  
+
   
 
       </span>
@@ -415,7 +440,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Python%E5%AE%89%E8%A3%85/" class="print-no-link">#Python安装</a>
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/%E7%BD%91%E5%8D%A1%E8%AE%BE%E5%A4%87/" class="print-no-link">#网卡设备</a>
       
     </div>
   
@@ -427,8 +454,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Python安装报错之0x80072f7d错误解决方法</div>
-      <div>http://www.codestar.top/2023/10/21/Python安装报错之0x80072f7d错误解决方法/</div>
+      <div>网卡修复程序执行出现0x80004005错误代码问题解决</div>
+      <div>http://www.codestar.top/2023/11/07/网卡修复程序执行出现0x80004005错误代码问题解决/</div>
     </div>
     <div class="license-meta">
       
@@ -440,7 +467,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月21日</div>
+          <div>2023年11月7日</div>
         </div>
       
       
@@ -489,9 +516,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/23/Linux%E4%B8%8B%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" title="Linux下如何开启允许root用户远程登录">
+                      <a href="/2023/11/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%8D%81%E5%9B%9B%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84%E9%AB%98%E6%95%88%E6%8A%80%E5%B7%A7/" title="搜索引擎十四个常用的高效技巧">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux下如何开启允许root用户远程登录</span>
+                        <span class="hidden-mobile">搜索引擎十四个常用的高效技巧</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -499,8 +526,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/21/Windows%E4%B8%ADJava%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="Windows中Java安装及环境变量配置">
-                        <span class="hidden-mobile">Windows中Java安装及环境变量配置</span>
+                      <a href="/2023/11/06/Jenkins%E6%93%8D%E4%BD%9C%E6%8C%87%E5%AF%BC-Base1%EF%BC%9Ajenkins%E5%AE%89%E8%A3%85/" title="Jenkins操作指导-Base1：jenkins安装">
+                        <span class="hidden-mobile">Jenkins操作指导-Base1：jenkins安装</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
