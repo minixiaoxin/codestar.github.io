@@ -31,7 +31,7 @@
   <url>
     <loc>http://www.codestar.top/2023/11/03/Coding/%E5%88%A9%E7%94%A8IDEA%E7%BC%96%E8%AF%91%E5%B0%81%E8%A3%85Android%20APK%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/</loc>
     
-    <lastmod>2023-11-09</lastmod>
+    <lastmod>2023-11-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -191,21 +191,28 @@
 
   
   <url>
-    <loc>http://www.codestar.top/tags/Android/</loc>
+    <loc>http://www.codestar.top/tags/Git/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/ADB/</loc>
+    <loc>http://www.codestar.top/tags/Gitkraken/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/SSH%E8%BF%9C%E7%A8%8B/</loc>
+    <loc>http://www.codestar.top/tags/Git%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/Python%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -219,7 +226,7 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/Windows/</loc>
+    <loc>http://www.codestar.top/tags/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -240,6 +247,41 @@
   </url>
   
   <url>
+    <loc>http://www.codestar.top/tags/Android/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/apk%E5%8C%85%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/IDEA/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/ADB/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.codestar.top/tags/CPU%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -247,7 +289,14 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/Python%E5%AE%89%E8%A3%85/</loc>
+    <loc>http://www.codestar.top/tags/SSH%E8%BF%9C%E7%A8%8B/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/COREDUMP/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -268,49 +317,7 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/COREDUMP/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/apk%E5%8C%85%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/IDEA/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/Jenkins/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/CICD%E5%B7%A5%E5%85%B7/</loc>
+    <loc>http://www.codestar.top/tags/Windows/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -318,13 +325,6 @@
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -359,21 +359,21 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/Git/</loc>
+    <loc>http://www.codestar.top/tags/Jenkins/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/Gitkraken/</loc>
+    <loc>http://www.codestar.top/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.codestar.top/tags/Git%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
+    <loc>http://www.codestar.top/tags/CICD%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -382,28 +382,7 @@
 
   
   <url>
-    <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/Android%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/categories/node-js/</loc>
+    <loc>http://www.codestar.top/categories/Git/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -417,7 +396,35 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</loc>
+    <loc>http://www.codestar.top/categories/Maven/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/node-js/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -431,7 +438,7 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/%E8%B0%83%E8%AF%95%E6%8A%80%E6%9C%AF/</loc>
+    <loc>http://www.codestar.top/categories/Windows/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -445,14 +452,21 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/Maven/</loc>
+    <loc>http://www.codestar.top/categories/AI-ML/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/CICD/</loc>
+    <loc>http://www.codestar.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/Google/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/Android%E8%B0%83%E8%AF%95/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -473,7 +487,14 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/CICD/Jenkins/</loc>
+    <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/%E8%B0%83%E8%AF%95%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -487,35 +508,7 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/categories/Windows/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/Google/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.codestar.top/categories/Windows/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.codestar.top/categories/AI-ML/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -529,7 +522,14 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/categories/Git/</loc>
+    <loc>http://www.codestar.top/categories/CICD/</loc>
+    <lastmod>2023-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/categories/CICD/Jenkins/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
