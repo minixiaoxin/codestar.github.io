@@ -18,16 +18,16 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、大模型开发1.1、大模型开发概念初级大模型的开发，一般是将LLM作为一个调用工具，通过 Prompt Engineering、数据工程、业务逻辑分解等手段来发挥大模型的能力，一般不会去大幅度改动模型本身。通过调用LLM来适配不同的任务，之后在应用场景中去优化。 由于不需要对模型进行训练，无需构造类似于传统AI开发需要用到的训练集等内容，可以直接从我们所处的业务中自行构造出一小批特定场景的小验证">
+    <meta name="description" content="1、知识库的数据1.1、需要什么数据库？如何来构建一个适用于LLM的数据库，不同于传统的关系型数据库SQL那些，LLM中所存储的数据均为向量格式，在LLM中进行运算的也是以向量作为语料。也正是这个特殊点，LLM的数据库也称之为向量数据库。当前的方案是使用LangChain架构来构建出一个向量数据库，在LangChain中已经集成了30多个向量数据库工具，考虑到轻巧加载快捷的特点，这里使用Chrom">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLM笔记3：LLM项目设计及开发流程">
-<meta property="og:url" content="http://www.codestar.top/2023/11/20/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B03%EF%BC%9ALLM%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E5%8F%8A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="LLM笔记4：LLM向量数据库构建">
+<meta property="og:url" content="http://www.codestar.top/2023/11/21/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B04%EF%BC%9ALLM%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%84%E5%BB%BA/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、大模型开发1.1、大模型开发概念初级大模型的开发，一般是将LLM作为一个调用工具，通过 Prompt Engineering、数据工程、业务逻辑分解等手段来发挥大模型的能力，一般不会去大幅度改动模型本身。通过调用LLM来适配不同的任务，之后在应用场景中去优化。 由于不需要对模型进行训练，无需构造类似于传统AI开发需要用到的训练集等内容，可以直接从我们所处的业务中自行构造出一小批特定场景的小验证">
+<meta property="og:description" content="1、知识库的数据1.1、需要什么数据库？如何来构建一个适用于LLM的数据库，不同于传统的关系型数据库SQL那些，LLM中所存储的数据均为向量格式，在LLM中进行运算的也是以向量作为语料。也正是这个特殊点，LLM的数据库也称之为向量数据库。当前的方案是使用LangChain架构来构建出一个向量数据库，在LangChain中已经集成了30多个向量数据库工具，考虑到轻巧加载快捷的特点，这里使用Chrom">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.codestar.top/img/blog-img/AGI_pic1.png">
-<meta property="article:published_time" content="2023-11-19T16:26:05.000Z">
-<meta property="article:modified_time" content="2023-11-21T14:48:57.812Z">
+<meta property="article:published_time" content="2023-11-21T15:35:15.000Z">
+<meta property="article:modified_time" content="2023-11-21T15:35:46.340Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="Datawhale">
 <meta property="article:tag" content="LLM">
@@ -39,7 +39,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LLM笔记3：LLM项目设计及开发流程 - mini小新的博客</title>
+  <title>LLM笔记4：LLM向量数据库构建 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -263,7 +263,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LLM笔记3：LLM项目设计及开发流程"></span>
+            <span id="subtitle" data-typed-text="LLM笔记4：LLM向量数据库构建"></span>
           
         </div>
 
@@ -279,8 +279,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-20 00:26" pubdate>
-          2023年11月20日 凌晨
+        <time datetime="2023-11-21 23:35" pubdate>
+          2023年11月21日 晚上
         </time>
       </span>
     
@@ -291,7 +291,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k 字
+          1.2k 字
         
       </span>
     
@@ -302,7 +302,7 @@
         
         
         
-          14 分钟
+          3 分钟
         
       </span>
     
@@ -347,7 +347,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LLM笔记3：LLM项目设计及开发流程</h1>
+            <h1 id="seo-header">LLM笔记4：LLM向量数据库构建</h1>
             
               <p class="note note-info">
                 
@@ -360,121 +360,27 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、大模型开发"><a href="#1、大模型开发" class="headerlink" title="1、大模型开发"></a>1、大模型开发</h2><h3 id="1-1、大模型开发概念"><a href="#1-1、大模型开发概念" class="headerlink" title="1.1、大模型开发概念"></a>1.1、大模型开发概念</h3><p>初级大模型的开发，一般是将LLM作为一个调用工具，通过 <strong>Prompt Engineering、数据工程、业务逻辑分解</strong>等手段来发挥大模型的能力，一般不会去大幅度改动模型本身。通过调用LLM来适配不同的任务，之后在应用场景中去优化。</p>
-<p>由于不需要对模型进行训练，无需构造类似于传统AI开发需要用到的训练集等内容，可以直接从我们所处的业务中自行构造出一小批特定场景的小验证集，重点工作主要还是在Prompt的设计上，以此来验证llm开发的效果是否达标。在开发过程中，尝试用 <strong>Prompt Engineering 来替代子模型的训练调优</strong>，通过 Prompt 链路组合来实现业务逻辑，用一个通用大模型 + 若干业务 Prompt 来解决任务</p>
-<p>在实际的业务中，收集Bad Case，再通过这些Bad Case针对性优化Prompt，从而实现较好的泛化效果。相较于传统 AI 的评估过程，需要构造训练集、测试集、验证集，在训练集上训练模型、在测试集上调优模型、在验证集上最终验证模型效果，整个开发链路相对简化了一些。</p>
-<h3 id="1-2、LLM项目开发的整理流程"><a href="#1-2、LLM项目开发的整理流程" class="headerlink" title="1.2、LLM项目开发的整理流程"></a>1.2、LLM项目开发的整理流程</h3><p>LLM项目的开发流程，整体上包含8个过程项，顺序如下图：</p>
-<p><img src="https://codestar.top/note-image/image-20231121224818691.png" srcset="/img/loading.gif" lazyload alt="image-20231121224818691"></p>
-<ul>
-<li>确定目标：需要明确出开发所针对的应用场景、目标人群和核心价值</li>
-<li>功能设计：从业务逻辑中提炼出应用所应该要提供的功能，设计出一个完整的适配LLM场景的功能逻辑。</li>
-<li>整体框架搭建：在明确好功能之后，需要对功能进行规划，明确好设计框架，当前通用的框架是 <strong>特定数据库（向量数据库）+ Prompt + 通用大模型</strong>。推荐使用LangChain框架来进行开发，其提供了Chain、Tool 等架构的实现，可以基于 LangChain 框架进行LLM的定制化，从而实现从用户输入到数据库再到大模型最后输出的整体架构连接</li>
-<li>搭建数据库(向量)：开发过程需要使用到个性化的数据库进行支撑，由于LLM需要进行向量语义检索，一般使用想chroma的向量数据库。</li>
-<li>Prompt Engineering：Prompt对LLM影响尤为深刻，这一步需要明确出Prompt的设计原则和技巧，一般借助于业务数据中收集到的验证集来设计满足要求、具备基本能力的Prompt。</li>
-<li>验证迭代：模型开发完成之后，还需要对其中发现的Bad Case来进行针对性的改进Prompt，并验证改进，通过这个过程不断迭代不断优化，提升系统效果。</li>
-<li>搭建前端后台：完整迭代优化之后，就已经完成了核心功能，后续可以进行前端后台的搭建。这个领域已经发展的非常成熟，主流的有两种快速开发Demo的框架有<strong>Gradio</strong>和<strong>Streamlit</strong>，可以是开发者迅速搭建可视化页面并实现Demo上线。</li>
-<li>体验优化：到了这一步，基本上已经有了用户开始使用了，这一过程就需要来对用户体验进行跟踪，记录用户反馈及其中出现的Bad Case，从而对应用进行针对性的优化。</li>
-</ul>
-<p>基本的环节如上，其中比较核心的几个环节有，<strong>搭建向量数据库、Prompt Engineering、验证迭代</strong>，这几步对应用影响较大，甚至可以说直接决定了用户体验好坏与否。</p>
-<h2 id="2、LLM项目流程"><a href="#2、LLM项目流程" class="headerlink" title="2、LLM项目流程"></a>2、LLM项目流程</h2><p>下面根据我们所需要实现的个人应用来按照上述的框架，做一些项目流程拆解：</p>
-<h3 id="2-1、项目规划与需求分析"><a href="#2-1、项目规划与需求分析" class="headerlink" title="2.1、项目规划与需求分析"></a>2.1、项目规划与需求分析</h3><p>明确设计需求及应用功能：</p>
-<ul>
-<li>1）项目目标：</li>
-</ul>
+                <h2 id="1、知识库的数据"><a href="#1、知识库的数据" class="headerlink" title="1、知识库的数据"></a>1、知识库的数据</h2><h3 id="1-1、需要什么数据库？"><a href="#1-1、需要什么数据库？" class="headerlink" title="1.1、需要什么数据库？"></a>1.1、需要什么数据库？</h3><p>如何来构建一个适用于LLM的数据库，不同于传统的关系型数据库SQL那些，LLM中所存储的数据均为向量格式，在LLM中进行运算的也是以向量作为语料。也正是这个特殊点，LLM的数据库也称之为向量数据库。当前的方案是使用LangChain架构来构建出一个向量数据库，在LangChain中已经集成了30多个向量数据库工具，考虑到轻巧加载快捷的特点，这里使用<strong>Chroma向量数据库</strong>作为首选。</p>
+<h3 id="1-2、数据的处理过程"><a href="#1-2、数据的处理过程" class="headerlink" title="1.2、数据的处理过程"></a>1.2、数据的处理过程</h3><p>明确了构建工具，接下来是构建流程。构建的过程，首先是语料收集和处理：</p>
 <blockquote>
-<p>基于个人知识库的问答助手</p>
+<p>数据语料，可以使用不同类型的格式文件，常见的如PDF文本文件、MP4视频文件、MD文本文件等。</p>
 </blockquote>
-<ul>
-<li>2）<strong>核心功能</strong>：</li>
-</ul>
+<p>将这些文件经过处理之后，可以存储到向量数据库中，最终目的是要将这些数据转换为向量的格式。具体要经过下面的一些处理过程：</p>
+<p><img src="https://codestar.top/note-image/image-20231121231529369.png" srcset="/img/loading.gif" lazyload alt="image-20231121231529369"></p>
+<p>方便处理的是文本类型的结构化数据，非结构化数据需要经过转化处理才能使用。</p>
+<h2 id="2、向量数据库构建"><a href="#2、向量数据库构建" class="headerlink" title="2、向量数据库构建"></a>2、向量数据库构建</h2><h3 id="2-1、Chroma认识"><a href="#2-1、Chroma认识" class="headerlink" title="2.1、Chroma认识"></a>2.1、Chroma认识</h3><p>Chroma向量数据库，用来专门检索<strong>向量数据</strong>即<strong>Embedding</strong>的一种数据库系统，在LangChain集成，这里涉及到embedding一些知识点，参考下面的内容，暂时不做梳理：</p>
 <blockquote>
-<ol>
-<li>上传文档、创建知识库；</li>
-<li>选择知识库，检索用户提问的知识片段；</li>
-<li>提供知识片段与提问，获取大模型回答；</li>
-<li>流式回复；</li>
-<li>历史对话记录；</li>
-</ol>
+<p>embedding的认识：</p>
+<p><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/llm-universe/#/C2/%E9%99%843.LangChain%20%E8%87%AA%E5%AE%9A%E4%B9%89%20LLM%20embedding">https://datawhalechina.github.io/llm-universe/#/C2/%E9%99%843.LangChain%20%E8%87%AA%E5%AE%9A%E4%B9%89%20LLM%20embedding</a></p>
+<p>调用智谱embedding：</p>
+<p><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/llm-universe/#/C2/6.%20%E8%B0%83%E7%94%A8%E6%99%BA%E8%B0%B1%20AI(ChatGLM)%E7%94%9F%E6%88%90%20embedding">https://datawhalechina.github.io/llm-universe/#/C2/6.%20%E8%B0%83%E7%94%A8%E6%99%BA%E8%B0%B1%20AI(ChatGLM)%E7%94%9F%E6%88%90%20embedding</a></p>
 </blockquote>
-<ul>
-<li>3）确定技术架构和工具</li>
-</ul>
-<blockquote>
-<ol>
-<li>开发框架：LangChain框架</li>
-<li>向量数据库：Chroma知识库</li>
-<li>LLM：GPT、星火大模型、文心一言、GLM 等</li>
-<li>前后端：Gradio 和 Streamlit</li>
-</ol>
-</blockquote>
-<h3 id="2-2、向量数据库构建与数据获取"><a href="#2-2、向量数据库构建与数据获取" class="headerlink" title="2.2、向量数据库构建与数据获取"></a>2.2、向量数据库构建与数据获取</h3><h4 id="1）项目原理"><a href="#1）项目原理" class="headerlink" title="1）项目原理"></a>1）项目原理</h4><p>本项目实现原理如下图所示（<a target="_blank" rel="noopener" href="https://github.com/chatchat-space/Langchain-Chatchat/blob/master/img/langchain+chatglm.png">图片来源</a> ）：</p>
-<p><img src="https://codestar.top/note-image/image-20231119235902301.png" srcset="/img/loading.gif" lazyload alt="image-20231119235902301"></p>
-<p>过程概述如下：</p>
-<blockquote>
-<p>加载本地文档 -&gt; 读取文本 -&gt; 文本分割 -&gt; 文本向量化 -&gt; question向量化 -&gt; 在文本向量中匹配出与问句向量最相似的 top k个 -&gt; 匹配出的文本作为上下文和问题一起添加到 prompt中 -&gt; 提交给 LLM生成回答</p>
-</blockquote>
-<h4 id="2）收集和整理用户提供的文档"><a href="#2）收集和整理用户提供的文档" class="headerlink" title="2）收集和整理用户提供的文档"></a>2）收集和整理用户提供的文档</h4><p>用户常用文档格式有 pdf、txt、doc 等，首先使用工具读取文本，通常使用 langchain 的文档加载器模块可以方便的将用户提供的文档加载进来，也可以使用一些 python 比较成熟的包进行读取。</p>
-<p>由于目前大模型使用 token 的限制，我们需要对读取的文本进行切分，将较长的文本切分为较小的文本，这时一段文本就是一个单位的知识。</p>
-<h4 id="3）将文档词向量化"><a href="#3）将文档词向量化" class="headerlink" title="3）将文档词向量化"></a>3）将文档词向量化</h4><p>使用文本嵌入(Embeddings)对分割后的文档进行向量化，使语义相似的文本片段具有接近的向量表示。然后，存入向量数据库，这个流程正是创建 <code>索引(index)</code> 的过程。</p>
-<p>向量数据库对各文档片段进行索引，支持快速检索。这样，当用户提出问题时，可以先将问题转换为向量，在数据库中快速找到语义最相关的文档片段。然后将这些文档片段与问题一起传递给语言模型，生成回答</p>
-<h4 id="4）将向量化后的文档导入Chroma知识库，建立知识库索引"><a href="#4）将向量化后的文档导入Chroma知识库，建立知识库索引" class="headerlink" title="4）将向量化后的文档导入Chroma知识库，建立知识库索引"></a>4）将向量化后的文档导入Chroma知识库，建立知识库索引</h4><p>Langchain 集成了超过 30 个不同的向量存储库。我们选择 Chroma 向量库是因为它轻量级且数据存储在内存中，这使得它非常容易启动和开始使用。</p>
-<p>将用户知识库内容经过 embedding 存入向量知识库，然后用户每一次提问也会经过 embedding，利用向量相关性算法（例如余弦算法）找到最匹配的几个知识库片段，将这些知识库片段作为上下文，与用户问题一起作为 prompt 提交给 LLM 回答。</p>
-<h3 id="2-3、大模型集成与API连接"><a href="#2-3、大模型集成与API连接" class="headerlink" title="2.3、大模型集成与API连接"></a>2.3、大模型集成与API连接</h3><ol>
-<li>集成GPT、星火、文心、GLM 等大模型，配置 API 连接。</li>
-<li>编写代码，实现与大模型 API 的交互，以便获取问题答案。</li>
-</ol>
-<h3 id="2-4、核心功能实现"><a href="#2-4、核心功能实现" class="headerlink" title="2.4、核心功能实现"></a>2.4、核心功能实现</h3><ol>
-<li>构建 Prompt Engineering，实现大模型回答功能，根据用户提问和知识库内容生成回答。</li>
-<li>实现流式回复，允许用户进行多轮对话。</li>
-<li>添加历史对话记录功能，保存用户与助手的交互历史。</li>
-</ol>
-<h3 id="2-5、核心功能迭代优化"><a href="#2-5、核心功能迭代优化" class="headerlink" title="2.5、核心功能迭代优化"></a>2.5、核心功能迭代优化</h3><ol>
-<li>进行验证评估，收集 Bad Case。</li>
-<li>根据 Bad Case 迭代优化核心功能实现。</li>
-</ol>
-<h3 id="2-6、前端与用户交互界面开发"><a href="#2-6、前端与用户交互界面开发" class="headerlink" title="2.6、前端与用户交互界面开发"></a>2.6、前端与用户交互界面开发</h3><ol>
-<li>使用 Gradio 和 Streamlit 搭建前端界面。</li>
-<li>实现用户上传文档、创建知识库的功能。</li>
-<li>设计用户界面，包括问题输入、知识库选择、历史记录展示等。</li>
-</ol>
-<h3 id="2-7、部署测试与上线"><a href="#2-7、部署测试与上线" class="headerlink" title="2.7、部署测试与上线"></a>2.7、部署测试与上线</h3><ol>
-<li>部署问答助手到服务器或云平台，确保可在互联网上访问。</li>
-<li>进行生产环境测试，确保系统稳定。</li>
-<li>上线并向用户发布。</li>
-</ol>
-<h3 id="2-8、维护与持续改进"><a href="#2-8、维护与持续改进" class="headerlink" title="2.8、维护与持续改进"></a>2.8、维护与持续改进</h3><ol>
-<li>监测系统性能和用户反馈，及时处理问题。</li>
-<li>定期更新知识库，添加新的文档和信息。</li>
-<li>收集用户需求，进行系统改进和功能扩展。</li>
-</ol>
-<p>整个流程将确保项目从规划、开发、测试到上线和维护都能够顺利进行，为用户提供高质量的基于个人知识库的问答助手。</p>
-<h2 id="3、LLM项目开发架构"><a href="#3、LLM项目开发架构" class="headerlink" title="3、LLM项目开发架构"></a>3、LLM项目开发架构</h2><h3 id="3-1、整体架构"><a href="#3-1、整体架构" class="headerlink" title="3.1、整体架构"></a>3.1、整体架构</h3><p>经过上文分析，本项目为搭建一个<strong>基于大模型的个人知识库助手</strong>，基于 LangChain 框架搭建，核心技术包括 <strong>LLM API 调用、向量数据库、检索问答链</strong>等。项目整体架构如下：</p>
-<p><img src="https://codestar.top/note-image/image-20231120001308172.png" srcset="/img/loading.gif" lazyload alt="image-20231120001308172"></p>
-<p>图来源于：<a target="_blank" rel="noopener" href="https://github.com/datawhalechina/llm-universe/blob/main/figures/structure.jpg">https://github.com/datawhalechina/llm-universe/blob/main/figures/structure.jpg</a></p>
-<p>如上，本项目从底向上依次分为 <strong>LLM 层、数据层、数据库层、应用层与服务层</strong>：<br>① <strong>LLM</strong> 层主要基于四种流行 LLM API 进行了 LLM 调用封装，支持用户以统一的入口、方式来访问不同的模型，支持随时进行模型的切换；<br>② <strong>数据层</strong> 主要包括个人知识库的源数据以及 Embedding API，源数据经过 Embedding 处理可以被向量数据库使用；<br>③ <strong>数据库层</strong> 主要为基于个人知识库源数据搭建的向量数据库，在本项目中我们选择了 Chroma；<br>④ <strong>应用层</strong> 为核心功能的最顶层封装，我们基于 LangChain 提供的检索问答链基类进行了进一步封装，从而支持不同模型切换以及便捷实现基于数据库的检索问答；<br>⑤ 最顶层为<strong>服务层</strong>，我们分别实现了 Gradio 搭建 Demo 与 FastAPI 组建 API 两种方式来支持本项目的服务访问。</p>
-<h3 id="3-2、代码结构"><a href="#3-2、代码结构" class="headerlink" title="3.2、代码结构"></a>3.2、代码结构</h3><p>本项目的完整代码存放于 <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/llm-universe">project</a> 目录下，实现了项目的全部功能及封装，代码结构如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs markup">-project<br>    -readme.md 项目说明<br>    -requirements.txt 使用依赖包的版本 <br>    -llm LLM调用封装<br>        -self_llm.py 自定义 LLM 基类<br>        -wenxin_llm.py 自定义百度文心 LLM<br>        -spark_llm.py 自定义讯飞星火 LLM<br>        -zhipuai_llm.py 自定义智谱AI LLM<br>        -call_llm.py 将各个 LLM 的原生接口封装在一起<br>        -test.ipynb 使用示例<br>    -embedding embedding调用封装<br>        -zhipuai_embedding.py 自定义智谱AI embedding<br>        -call_embedding.py 调用 embedding 模型 <br>    -data 源数据路径<br>    -database 数据库层封装<br>        -create_db.py 处理源数据及初始化数据库封装<br>    -qa_chain 应用层封装<br>        -qa_chain.py 封装检索问答链，返回一个检索问答链对象<br>        -chat_qa_chian.py：封装对话检索链，返回一个带有历史记录的对话检索链对象<br>        -get_vectordb.py 返回向量数据库对象<br>        -model_to_llm.py 调用模型<br>        -test.ipynb 使用示例<br>    -serve 服务层封装<br>        -run_gradio.py 启动 Gradio 界面<br>        -api.py 封装 FastAPI<br>        -run_api.sh 启动 API<br>        -test.ipynb 使用示例Copy to clipboardErrorCopied<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-3、项目逻辑"><a href="#3-3、项目逻辑" class="headerlink" title="3.3、项目逻辑"></a>3.3、项目逻辑</h3><ol>
-<li>用户：可以通过<code> run_gradio</code> 或者 <code>run_api </code>启动整个服务；</li>
-<li>服务层调用 qa_chain.py 或 chat_qa_chain 实例化对话检索链对象，实现全部核心功能；</li>
-<li>服务层和应用层都可以调用、切换 prompt_template.py 中的 prompt 模板来实现 prompt 的迭代；</li>
-<li>也可以直接调用 call_llm 中的 get_completion 函数来实现不使用数据库的 LLM；</li>
-<li>应用层调用已存在的数据库和 llm 中的自定义 LLM 来构建检索链；</li>
-<li>如果数据库不存在，应用层调用 create_db.py 创建数据库，该脚本可以使用 openai embedding 也可以使用 embedding.py 中的自定义 embedding</li>
-</ol>
-<h3 id="3-4、-各层简析"><a href="#3-4、-各层简析" class="headerlink" title="3.4、 各层简析"></a>3.4、 各层简析</h3><h4 id="1）LLM-层"><a href="#1）LLM-层" class="headerlink" title="1）LLM 层"></a>1）LLM 层</h4><p>LLM 层主要功能为将国内外四种知名 LLM API（OpenAI-ChatGPT、百度文心、讯飞星火、智谱GLM）进行封装，隐藏不同 API 的调用差异，实现在同一个对象或函数中通过不同的 model 参数来使用不同来源的 LLM。</p>
-<p>在 LLM 层，我们首先构建了一个 Self_LLM 基类，基类定义了所有 API 的一些共同参数（如 API_Key，temperature 等）；然后我们在该基类基础上继承实现了上述四种 LLM API 的自定义 LLM。同时，我们也将四种 LLM 的原生 API 封装在了统一的 get_completion 函数中。</p>
-<p>在上一章，我们已详细介绍了每一种 LLM 的调用方式、封装方式，项目代码中的 LLM 层封装就是上一章讲解的代码实践。</p>
-<h4 id="2）数据层"><a href="#2）数据层" class="headerlink" title="2）数据层"></a>2）数据层</h4><p>数据层主要包括个人知识库的源数据（包括 pdf、txt、md 等）和 Embedding 对象。源数据需要经过 Embedding 处理才能进入向量数据库，我们在数据层自定义了智谱提供的 Embedding API 的封装，支持上层以统一方式调用智谱 Embedding 或 OpenAI Embedding。</p>
-<p>在上一章，我们也已详细介绍了 Embdding API 的调用及封装方式。</p>
-<h4 id="3）数据库层"><a href="#3）数据库层" class="headerlink" title="3）数据库层"></a>3）数据库层</h4><p>数据库层主要存放了向量数据库文件。同时，我们在该层实现了源数据处理、创建向量数据库的方法。</p>
-<p>我们将在第四章详细介绍向量数据库、源数据处理方法以及构建向量数据库的具体实现。</p>
-<h4 id="4）应用层"><a href="#4）应用层" class="headerlink" title="4）应用层"></a>4）应用层</h4><p>应用层封装了整个项目的全部核心功能。我们基于 LangChain 提供的检索问答链，在 LLM 层、数据库层的基础上，实现了本项目检索问答链的封装。自定义的检索问答链除具备基本的检索问答功能外，也支持通过 model 参数来灵活切换使用的 LLM。我们实现了两个检索问答链，分别是有历史记录的 Chat_QA_Chain 和没有历史记录的 QA_Chain。</p>
-<p>我们将在第五章讲解 Prompt 的构造与检索问答链的构建细节。</p>
-<h4 id="5）服务层"><a href="#5）服务层" class="headerlink" title="5）服务层"></a>5）服务层</h4><p>服务层主要是基于应用层的核心功能封装，实现了 Demo 的搭建或 API 的封装。在本项目中，我们分别实现了通过 Gradio 搭建前端界面与 FastAPI 进行封装，支持多样化的项目调用。</p>
-<p>我们将在第六章详细介绍如何使用 Gradio 以及 FastAPI 来实现服务层的设计。</p>
-<h2 id="4、参考："><a href="#4、参考：" class="headerlink" title="4、参考："></a>4、参考：</h2><p><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/llm-universe/#/C3/3.%20%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E7%AE%80%E6%9E%90">https://datawhalechina.github.io/llm-universe/#/C3/3.%20%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E7%AE%80%E6%9E%90</a></p>
+<p>向量数据库中的数据形式，其中每个向量代表一个数据项，每个向量，可以是文本、数字、或者图像亦或是视频等其他格式的数据类型。通过建立向量数据库，能够对其中的数据建立高效的索引，加速检索过程和存储过程的效率。</p>
+<h3 id="2-2、通过向量数据库进行检索"><a href="#2-2、通过向量数据库进行检索" class="headerlink" title="2.2、通过向量数据库进行检索"></a>2.2、通过向量数据库进行检索</h3><p>在向量数据库中可以使用多种检索方式，有几个典型的检索：<br>1）相似度检索：以相似度即词的相关性进行检索</p>
+<p>2）MMR检索：最大边际相关性（MMR，Maximum marginal relevance）。主要目的是在进行相似度检索的同时，增加内容的丰富度。</p>
+<p>后续还有<strong>链锁式问答</strong>、<strong>结合Prompt提问过程</strong>处理，后续进行扩展。</p>
+<h2 id="3、项目数据库构建"><a href="#3、项目数据库构建" class="headerlink" title="3、项目数据库构建"></a>3、项目数据库构建</h2><p>实践流程，将具体的文件处理成文档词向量化，存储到Chroma向量数据库中，从而建立我们的LLM应用数据源。按照第一章流程来建立项目数据库。</p>
+<p><strong>注：</strong>Embedding的类型有许多，根据使用的LLM大模型来实践。</p>
 
                 
               </div>
@@ -531,8 +437,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LLM笔记3：LLM项目设计及开发流程</div>
-      <div>http://www.codestar.top/2023/11/20/AI_ML/DatawhaleLearn/LLM笔记3：LLM项目设计及开发流程/</div>
+      <div>LLM笔记4：LLM向量数据库构建</div>
+      <div>http://www.codestar.top/2023/11/21/AI_ML/DatawhaleLearn/LLM笔记4：LLM向量数据库构建/</div>
     </div>
     <div class="license-meta">
       
@@ -544,7 +450,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月20日</div>
+          <div>2023年11月21日</div>
         </div>
       
       
@@ -593,18 +499,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/21/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B04%EF%BC%9ALLM%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%84%E5%BB%BA/" title="LLM笔记4：LLM向量数据库构建">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LLM笔记4：LLM向量数据库构建</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/19/Coding/Python/Python%E6%89%A7%E8%A1%8Cwebsocket%E8%BF%9E%E6%8E%A5%E5%87%BA%E7%8E%B0websocket-has-no-attribute-enableTrace%E9%94%99%E8%AF%AF/" title="Python执行websocket连接出现websocket has no attribute enableTrace错误">
-                        <span class="hidden-mobile">Python执行websocket连接出现websocket has no attribute enableTrace错误</span>
+                      <a href="/2023/11/20/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B03%EF%BC%9ALLM%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E5%8F%8A%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" title="LLM笔记3：LLM项目设计及开发流程">
+                        <span class="hidden-mobile">LLM笔记3：LLM项目设计及开发流程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
