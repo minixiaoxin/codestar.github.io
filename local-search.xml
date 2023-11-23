@@ -5,12 +5,30 @@
   
   <entry>
     <title>LLM笔记5：大模型开发的迭代验证</title>
-    <link href="/2023/11/23/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/"/>
-    <url>/2023/11/23/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/</url>
+    <link href="/2023/11/23/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/"/>
+    <url>/2023/11/23/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="1、迭代验证的一般思路"><a href="#1、迭代验证的一般思路" class="headerlink" title="1、迭代验证的一般思路"></a>1、迭代验证的一般思路</h2><p>参考：</p><p><a href="https://datawhalechina.github.io/llm-universe/#/C6/1.%20%E9%AA%8C%E8%AF%81%E8%BF%AD%E4%BB%A3%E7%9A%84%E4%B8%80%E8%88%AC%E6%80%9D%E8%B7%AF">https://datawhalechina.github.io/llm-universe/#/C6/1.%20%E9%AA%8C%E8%AF%81%E8%BF%AD%E4%BB%A3%E7%9A%84%E4%B8%80%E8%88%AC%E6%80%9D%E8%B7%AF</a></p><p>占坑，待完善</p><h2 id="2、Bad-Case优化"><a href="#2、Bad-Case优化" class="headerlink" title="2、Bad Case优化"></a>2、Bad Case优化</h2><p>参考：</p><p><a href="https://datawhalechina.github.io/llm-universe/#/C6/2.%20%E8%A7%A3%E5%86%B3Bad%20Case">https://datawhalechina.github.io/llm-universe/#/C6/2.%20%E8%A7%A3%E5%86%B3Bad%20Case</a></p><p>占坑，待完善</p><h2 id="3、大模型评估方法"><a href="#3、大模型评估方法" class="headerlink" title="3、大模型评估方法"></a>3、大模型评估方法</h2><p>参考：</p><p><a href="https://datawhalechina.github.io/llm-universe/#/C6/3.%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95">https://datawhalechina.github.io/llm-universe/#/C6/3.%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95</a></p><p>占坑，待完善</p>]]></content>
     
     
+    <categories>
+      
+      <category>AI&amp;ML</category>
+      
+      <category>LLM</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Datawhale</tag>
+      
+      <tag>LLM</tag>
+      
+      <tag>AI&amp;ML</tag>
+      
+    </tags>
     
   </entry>
   
