@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Windows Terminal命令行工具安装过程指导</title>
+    <link href="/2023/11/30/System/Windows/Windows%20Terminal%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%8C%87%E5%AF%BC/"/>
+    <url>/2023/11/30/System/Windows/Windows%20Terminal%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%8C%87%E5%AF%BC/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、在线安装"><a href="#1、在线安装" class="headerlink" title="1、在线安装"></a>1、在线安装</h2><p>使用Windows自带的应用商店下载：Windows Store直接搜索<code>terminal</code>下载第一个即可</p><p><img src="https://codestar.top/note-image/image-20231130224110717.png" alt="image-20231130224110717"></p><h2 id="2、离线安装"><a href="#2、离线安装" class="headerlink" title="2、离线安装"></a>2、离线安装</h2><p>Windows Terminal 微软官方有相应的Github库来维护和发布：<a href="https://github.com/microsoft/terminal/releases">https://github.com/microsoft/terminal/releases</a></p><p>去到微软官方GitHub仓库Release页面，根据系统对应版本下载安装包：</p><p><img src="https://codestar.top/note-image/image-20230216144337781.png" alt="image-20230216144337781"></p><p>下载完成之后，文件后缀为<code>.msixbundle</code>，直接双击安装包进行安装：</p><p><img src="https://codestar.top/note-image/image-20230216144504874.png" alt="image-20230216144504874"></p><p><img src="https://codestar.top/note-image/image-20230216144528352.png" alt="image-20230216144528352"></p><h2 id="3、问题记录"><a href="#3、问题记录" class="headerlink" title="3、问题记录"></a>3、问题记录</h2><p>出现<strong>应用安装程序无法安装应用包相关项。请向开发人员索要  应用包。</strong>的问题：</p><p><img src="https://codestar.top/note-image/image-20230216171030402.png" alt="image-20230216171030402"></p><p>可以尝试下面的方法来解决问题：</p><ul><li>1、启用<code>Microsoft Store Install Service</code>服务</li></ul><blockquote><p><kbd>Win</kbd>+<kbd>R</kbd>打开运行窗口，输入<code>services.msc</code>打开服务页面，找到<code>Microsoft Store Install Service</code>服务项，启动该项服务</p></blockquote><ul><li>2、重装<code>Microsoft Store</code></li></ul><blockquote><p>1）卸载Microsoft Store</p><p>右键 开始 -&gt; Windows PowerShell (Admin) -&gt; 输入下列指令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">get-appxpackage</span> *store* | <span class="hljs-built_in">remove-Appxpackage</span><br></code></pre></td></tr></table></figure><p>2）重启电脑，重新安装Microsoft Store</p><p>右键 开始 -&gt; Windows PowerShell (Admin) -&gt; 输入下列指令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">add-appxpackage</span> <span class="hljs-literal">-register</span> <span class="hljs-string">&quot;C:\Program Files\WindowsApps\*Store*\AppxManifest.xml&quot;</span> <span class="hljs-literal">-disabledevelopmentmode</span><br></code></pre></td></tr></table></figure></blockquote><ul><li>3、修改支持TLS协议</li></ul><blockquote><p><kbd>Win</kbd>+<kbd>R</kbd>打开运行窗口，输入<code>inetcpl.cpl </code>，“高级”，勾选<code>SSL 3.0 、TLS 1.0 、TLS 1.1 、TLS 1.2、TLS1.3</code>，应用后重启电脑</p></blockquote><p>之后重新运行离线安装包，即可正常安装。</p><p>参考：<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/%E6%88%91%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/c5ac1083-da00-4df8-940a-ca626267da3d">https://answers.microsoft.com/zh-hans/windows/forum/all/%E6%88%91%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/c5ac1083-da00-4df8-940a-ca626267da3d</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+      <category>Windows Terminal</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>工具</tag>
+      
+      <tag>Windows Terminal</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LLM笔记5：大模型开发的迭代验证</title>
     <link href="/2023/11/23/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/"/>
     <url>/2023/11/23/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/</url>
