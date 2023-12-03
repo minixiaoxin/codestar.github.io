@@ -18,26 +18,25 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、在线安装使用Windows自带的应用商店下载：Windows Store直接搜索terminal下载第一个即可  2、离线安装Windows Terminal 微软官方有相应的Github库来维护和发布：https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;terminal&#x2F;releases 去到微软官方GitHub仓库Release页面，根据系统对应版本下载安装包：  下载完成之后，文件">
+    <meta name="description" content="1、现象无论是在Windows terminal中，还是在cmd，以及Node.js prompt中，在已经安装完成hexo或hexo-cli的情况下，无法识别到hexo指令，类似如下：   尝试在命令路径下执行，依旧不行。 查找本地的npm安装路径 1npm root -g  D:\Node.js\node_global\node_modules将其添加到环境变量，发现依旧无效，查询方法 2、解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows Terminal命令行工具安装过程指导">
-<meta property="og:url" content="http://www.codestar.top/2023/11/30/System/Windows/Windows%20Terminal%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%8C%87%E5%AF%BC/index.html">
+<meta property="og:title" content="Windows 11安装hexo后，hexo指令无法识别问题">
+<meta property="og:url" content="http://www.codestar.top/2023/12/02/HexoblogGuide/Windows-11%E5%AE%89%E8%A3%85hexo%E5%90%8E%EF%BC%8Chexo%E6%8C%87%E4%BB%A4%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、在线安装使用Windows自带的应用商店下载：Windows Store直接搜索terminal下载第一个即可  2、离线安装Windows Terminal 微软官方有相应的Github库来维护和发布：https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;terminal&#x2F;releases 去到微软官方GitHub仓库Release页面，根据系统对应版本下载安装包：  下载完成之后，文件">
+<meta property="og:description" content="1、现象无论是在Windows terminal中，还是在cmd，以及Node.js prompt中，在已经安装完成hexo或hexo-cli的情况下，无法识别到hexo指令，类似如下：   尝试在命令路径下执行，依旧不行。 查找本地的npm安装路径 1npm root -g  D:\Node.js\node_global\node_modules将其添加到环境变量，发现依旧无效，查询方法 2、解">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/Scene_pic1.png">
-<meta property="article:published_time" content="2023-11-30T15:13:43.000Z">
-<meta property="article:modified_time" content="2023-11-30T15:26:54.151Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/hexoblogGuide_pic1.png">
+<meta property="article:published_time" content="2023-12-02T15:59:24.000Z">
+<meta property="article:modified_time" content="2023-12-03T15:47:38.812Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="Windows">
-<meta property="article:tag" content="工具">
-<meta property="article:tag" content="Windows Terminal">
+<meta property="article:tag" content="HEXO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Scene_pic1.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/hexoblogGuide_pic1.png">
   
   
   
-  <title>Windows Terminal命令行工具安装过程指导 - mini小新的博客</title>
+  <title>Windows 11安装hexo后，hexo指令无法识别问题 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -261,7 +260,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Windows Terminal命令行工具安装过程指导"></span>
+            <span id="subtitle" data-typed-text="Windows 11安装hexo后，hexo指令无法识别问题"></span>
           
         </div>
 
@@ -277,8 +276,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-30 23:13" pubdate>
-          2023年11月30日 晚上
+        <time datetime="2023-12-02 23:59" pubdate>
+          2023年12月2日 晚上
         </time>
       </span>
     
@@ -289,7 +288,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          933 字
+          1.3k 字
         
       </span>
     
@@ -300,7 +299,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -345,12 +344,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Windows Terminal命令行工具安装过程指导</h1>
+            <h1 id="seo-header">Windows 11安装hexo后，hexo指令无法识别问题</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月30日 晚上
+                    本文最后更新于：2023年12月3日 晚上
                   
                 
               </p>
@@ -358,43 +357,59 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、在线安装"><a href="#1、在线安装" class="headerlink" title="1、在线安装"></a>1、在线安装</h2><p>使用Windows自带的应用商店下载：Windows Store直接搜索<code>terminal</code>下载第一个即可</p>
-<p><img src="https://codestar.top/note-image/image-20231130224110717.png" srcset="/img/loading.gif" lazyload alt="image-20231130224110717"></p>
-<h2 id="2、离线安装"><a href="#2、离线安装" class="headerlink" title="2、离线安装"></a>2、离线安装</h2><p>Windows Terminal 微软官方有相应的Github库来维护和发布：<a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal/releases">https://github.com/microsoft/terminal/releases</a></p>
-<p>去到微软官方GitHub仓库Release页面，根据系统对应版本下载安装包：</p>
-<p><img src="https://codestar.top/note-image/image-20230216144337781.png" srcset="/img/loading.gif" lazyload alt="image-20230216144337781"></p>
-<p>下载完成之后，文件后缀为<code>.msixbundle</code>，直接双击安装包进行安装：</p>
-<p><img src="https://codestar.top/note-image/image-20230216144504874.png" srcset="/img/loading.gif" lazyload alt="image-20230216144504874"></p>
-<p><img src="https://codestar.top/note-image/image-20230216144528352.png" srcset="/img/loading.gif" lazyload alt="image-20230216144528352"></p>
-<h2 id="3、问题记录"><a href="#3、问题记录" class="headerlink" title="3、问题记录"></a>3、问题记录</h2><p>出现<strong>应用安装程序无法安装应用包相关项。请向开发人员索要  应用包。</strong>的问题：</p>
-<p><img src="https://codestar.top/note-image/image-20230216171030402.png" srcset="/img/loading.gif" lazyload alt="image-20230216171030402"></p>
-<p>可以尝试下面的方法来解决问题：</p>
-<ul>
-<li>1、启用<code>Microsoft Store Install Service</code>服务</li>
-</ul>
-<blockquote>
-<p><kbd>Win</kbd>+<kbd>R</kbd>打开运行窗口，输入<code>services.msc</code>打开服务页面，找到<code>Microsoft Store Install Service</code>服务项，启动该项服务</p>
-</blockquote>
-<ul>
-<li>2、重装<code>Microsoft Store</code></li>
-</ul>
-<blockquote>
-<p>1）卸载Microsoft Store</p>
-<p>右键 开始 -&gt; Windows PowerShell (Admin) -&gt; 输入下列指令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">get-appxpackage</span> *store* | <span class="hljs-built_in">remove-Appxpackage</span><br></code></pre></td></tr></table></figure>
+                <h2 id="1、现象"><a href="#1、现象" class="headerlink" title="1、现象"></a>1、现象</h2><p>无论是在Windows terminal中，还是在cmd，以及Node.js prompt中，在<strong>已经安装完成hexo或hexo-cli的情况下，无法识别到hexo指令</strong>，类似如下：</p>
+<p><img src="https://codestar.top/note-image/image-20231009003053103.png" srcset="/img/loading.gif" lazyload alt="image-20231009003053103"></p>
+<p><img src="https://codestar.top/note-image/image-20231009003245022.png" srcset="/img/loading.gif" lazyload alt="image-20231009003245022"></p>
+<p>尝试在命令路径下执行，依旧不行。</p>
+<p>查找本地的npm安装路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm root -g<br></code></pre></td></tr></table></figure>
 
-<p>2）重启电脑，重新安装Microsoft Store</p>
-<p>右键 开始 -&gt; Windows PowerShell (Admin) -&gt; 输入下列指令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">add-appxpackage</span> <span class="hljs-literal">-register</span> <span class="hljs-string">&quot;C:\Program Files\WindowsApps\*Store*\AppxManifest.xml&quot;</span> <span class="hljs-literal">-disabledevelopmentmode</span><br></code></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>3、修改支持TLS协议</li>
-</ul>
-<blockquote>
-<p><kbd>Win</kbd>+<kbd>R</kbd>打开运行窗口，输入<code>inetcpl.cpl </code>，“高级”，勾选<code>SSL 3.0 、TLS 1.0 、TLS 1.1 、TLS 1.2、TLS1.3</code>，应用后重启电脑</p>
-</blockquote>
-<p>之后重新运行离线安装包，即可正常安装。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/all/%E6%88%91%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/c5ac1083-da00-4df8-940a-ca626267da3d">https://answers.microsoft.com/zh-hans/windows/forum/all/%E6%88%91%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/c5ac1083-da00-4df8-940a-ca626267da3d</a></p>
+<p><code>D:\Node.js\node_global\node_modules</code>将其添加到环境变量，发现依旧无效，查询方法</p>
+<h2 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h2><p>上网查阅资料，处理方法为，将下面的路径加入到环境变量path中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">your-user-name 是你自己的电脑用户名</span><br>C:\\Users\\your-user-name\\AppData\\Roaming\\npm<br></code></pre></td></tr></table></figure>
+
+<p><strong>但是！！！</strong>很奇怪的是，我的APPDATA下没有npm这个路径：</p>
+<p><img src="https://codestar.top/note-image/image-20231009232454879.png" srcset="/img/loading.gif" lazyload alt="image-20231009232454879"></p>
+<p>在另外一台Windows10上安装就没有出现这种问题，在Windows 11上就有这种奇怪的现象！</p>
+<p><strong>思考：</strong>到底是什么原因导致的，我在Windows terminal中，还是在cmd，以及Node.js prompt中，甚至是进入到<code>D:\Node.js\node_global\node_modules</code>相应的安装路径下执行，都还是找不到hexo这个命令，我重装hexo都不生效。</p>
+<p>而修改环境变量更加不可行，本身我的node.js已经记录在环境变量的path下，原则上来说应该不影响才对。到底是什么原因？继续查找答案。</p>
+<p><img src="https://codestar.top/note-image/image-20231009232908162.png" srcset="/img/loading.gif" lazyload alt="image-20231009232908162"></p>
+<h2 id="3、另辟蹊径之重装Node-js"><a href="#3、另辟蹊径之重装Node-js" class="headerlink" title="3、另辟蹊径之重装Node.js"></a>3、另辟蹊径之重装Node.js</h2><p>尝试重装Node.js</p>
+<p><img src="https://codestar.top/note-image/image-20231009221659111.png" srcset="/img/loading.gif" lazyload alt="image-20231009221659111"></p>
+<p>安装额外的工具，安装完成之后，重新执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-cli -g<br></code></pre></td></tr></table></figure>
+
+<p>依旧无法识别到hexo指令。。</p>
+<p>之后又尝试重启电脑，然而，也并不管用。</p>
+<p>检查本地是否已经安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm list -g<br></code></pre></td></tr></table></figure>
+
+<p>很明显，我是已经安装的，但就是无法执行。。。</p>
+<p><img src="https://codestar.top/note-image/image-20231010001701220.png" srcset="/img/loading.gif" lazyload alt="image-20231010001701220"></p>
+<h2 id="4、问题解决方法的探索"><a href="#4、问题解决方法的探索" class="headerlink" title="4、问题解决方法的探索"></a>4、问题解决方法的探索</h2><p>前面几种思路，查阅到的网上的处理方法也不管用，去官网看一下文档，尝试能否找到答案。</p>
+<p>通过查阅<a target="_blank" rel="noopener" href="https://hexo.io/docs/">hexo官方文档</a>，找到一种替代的方法可以执行hexo指令：</p>
+<p><img src="https://codestar.top/note-image/image-20231009233558162.png" srcset="/img/loading.gif" lazyload alt="image-20231009233558162"></p>
+<p>使用npx来间接性的调用hexo指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npx hexo &lt;command&gt;<br></code></pre></td></tr></table></figure>
+
+<p>这个是可行的：</p>
+<p><img src="https://codestar.top/note-image/image-20231009233633976.png" srcset="/img/loading.gif" lazyload alt="image-20231009233633976"></p>
+<p>基本的指令都是可以执行的：</p>
+<p><img src="https://codestar.top/note-image/image-20231009234944537.png" srcset="/img/loading.gif" lazyload alt="image-20231009234944537"></p>
+<p>但是这种使用方式是在不配置环境变量的情况下才用，在实际的使用过程中会很不方便。</p>
+<p>那接下来如何将我的PC本地的环境配置上hexo的bin路径？我继续查找方法。</p>
+<p>我的PC使用<code>npx hexo</code>能够正常的执行，那么PC上肯定有可执行的同名文件，利用everything一搜索，果然找到了如下的文件，没错就是这个hexo.cmd文件：</p>
+<p><img src="https://codestar.top/note-image/image-20231010001928018.png" srcset="/img/loading.gif" lazyload alt="image-20231010001928018"></p>
+<p>进入到这个路径下，检查文件，文件夹结构和我们的<code>C:\\Users\\your-user-name\\AppData\\Roaming\\npm</code>目录是一样的，全局安装路径。</p>
+<p><img src="https://codestar.top/note-image/image-20231010001547905.png" srcset="/img/loading.gif" lazyload alt="image-20231010001547905"></p>
+<p>知道了之后，再将这个路径添加到系统path环境变量中试一试：</p>
+<p><kbd>win</kbd>+<kbd>R</kbd>打开运行窗口，输入<code>sysdm.cpl</code>，高级</p>
+<p><img src="https://codestar.top/note-image/image-20231010002214974.png" srcset="/img/loading.gif" lazyload alt="image-20231010002214974"></p>
+<p><img src="https://codestar.top/note-image/image-20231010002250920.png" srcset="/img/loading.gif" lazyload alt="image-20231010002250920"></p>
+<p>找到系统变量Path，编辑内容，<strong>新建</strong>一列，将这个路径拷贝进去：</p>
+<p><img src="https://codestar.top/note-image/image-20231010002402709.png" srcset="/img/loading.gif" lazyload alt="image-20231010002402709"></p>
+<p>之后点击确定，关闭之前的运行窗口，重新打开，再尝试执行&#96;&#96;hexo&#96;指令，就大功告成了：</p>
+<p><img src="https://codestar.top/note-image/image-20231010002546570.png" srcset="/img/loading.gif" lazyload alt="image-20231010002546570"></p>
 
                 
               </div>
@@ -413,12 +428,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Windows/" class="category-chain-item">Windows</a>
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="category-chain-item">博客搭建</a>
   
   
     <span>></span>
     
-  <a href="/categories/Windows/Windows-Terminal/" class="category-chain-item">Windows Terminal</a>
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/HEXO/" class="category-chain-item">HEXO</a>
   
   
 
@@ -437,9 +452,7 @@
       
         <a href="/tags/Windows/" class="print-no-link">#Windows</a>
       
-        <a href="/tags/%E5%B7%A5%E5%85%B7/" class="print-no-link">#工具</a>
-      
-        <a href="/tags/Windows-Terminal/" class="print-no-link">#Windows Terminal</a>
+        <a href="/tags/HEXO/" class="print-no-link">#HEXO</a>
       
     </div>
   
@@ -451,8 +464,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Windows Terminal命令行工具安装过程指导</div>
-      <div>http://www.codestar.top/2023/11/30/System/Windows/Windows Terminal命令行工具安装过程指导/</div>
+      <div>Windows 11安装hexo后，hexo指令无法识别问题</div>
+      <div>http://www.codestar.top/2023/12/02/HexoblogGuide/Windows-11安装hexo后，hexo指令无法识别问题/</div>
     </div>
     <div class="license-meta">
       
@@ -464,13 +477,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月30日</div>
+          <div>2023年12月2日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年11月30日</div>
+          <div>2023年12月3日</div>
         </div>
       
       
@@ -513,18 +526,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/02/HexoblogGuide/HEXO-github-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B/" title="HEXO : github+hexo搭建个人博客流程">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HEXO : github+hexo搭建个人博客流程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/23/AI_ML/DatawhaleLearn/LLM%E7%AC%94%E8%AE%B05%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%AA%8C%E8%AF%81/" title="LLM笔记5：大模型开发的迭代验证">
-                        <span class="hidden-mobile">LLM笔记5：大模型开发的迭代验证</span>
+                      <a href="/2023/12/02/Coding/IDE/VSCODE/vscode%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E7%BC%A9%E6%94%BE%E7%BA%A7%E5%88%AB%E6%9D%A5%E8%B0%83%E6%95%B4%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%A7%E5%B0%8F/" title="vscode调整窗口缩放级别来调整侧边栏大小">
+                        <span class="hidden-mobile">vscode调整窗口缩放级别来调整侧边栏大小</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
