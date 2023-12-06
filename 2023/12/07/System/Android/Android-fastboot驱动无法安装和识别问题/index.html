@@ -18,25 +18,26 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、现象无论是在Windows terminal中，还是在cmd，以及Node.js prompt中，在已经安装完成hexo或hexo-cli的情况下，无法识别到hexo指令，类似如下：   尝试在命令路径下执行，依旧不行。 查找本地的npm安装路径 1npm root -g  D:\Node.js\node_global\node_modules将其添加到环境变量，发现依旧无效，查询方法 2、解">
+    <meta name="description" content="1、问题现象及原因Android fastboot模式下出现在其他设备中：  指令也不生效：  典型的驱动问题，在此之前已经安装了驱动。出现这个现象，很可能是驱动异常或者不兼容当前的fastboot设备。 2、Google官网下载驱动包进入官方下载页面：https:&#x2F;&#x2F;developer.android.com&#x2F;studio&#x2F;run&#x2F;win-usb?hl&#x3D;zh-cn  下载下来会是一个压缩包：us">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows 11安装hexo后，hexo指令无法识别问题">
-<meta property="og:url" content="http://www.codestar.top/2023/12/02/HexoblogGuide/Windows-11%E5%AE%89%E8%A3%85hexo%E5%90%8E%EF%BC%8Chexo%E6%8C%87%E4%BB%A4%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="Android fastboot驱动无法安装和识别问题">
+<meta property="og:url" content="http://www.codestar.top/2023/12/07/System/Android/Android-fastboot%E9%A9%B1%E5%8A%A8%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%92%8C%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、现象无论是在Windows terminal中，还是在cmd，以及Node.js prompt中，在已经安装完成hexo或hexo-cli的情况下，无法识别到hexo指令，类似如下：   尝试在命令路径下执行，依旧不行。 查找本地的npm安装路径 1npm root -g  D:\Node.js\node_global\node_modules将其添加到环境变量，发现依旧无效，查询方法 2、解">
+<meta property="og:description" content="1、问题现象及原因Android fastboot模式下出现在其他设备中：  指令也不生效：  典型的驱动问题，在此之前已经安装了驱动。出现这个现象，很可能是驱动异常或者不兼容当前的fastboot设备。 2、Google官网下载驱动包进入官方下载页面：https:&#x2F;&#x2F;developer.android.com&#x2F;studio&#x2F;run&#x2F;win-usb?hl&#x3D;zh-cn  下载下来会是一个压缩包：us">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/hexoblogGuide_pic1.png">
-<meta property="article:published_time" content="2023-12-02T15:59:24.000Z">
-<meta property="article:modified_time" content="2023-12-03T15:47:38.812Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/Android_pic1.png">
+<meta property="article:published_time" content="2023-12-06T16:24:22.000Z">
+<meta property="article:modified_time" content="2023-12-06T16:26:29.123Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="HEXO">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="FASTBOOT">
+<meta property="article:tag" content="驱动">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/hexoblogGuide_pic1.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Android_pic1.png">
   
   
   
-  <title>Windows 11安装hexo后，hexo指令无法识别问题 - mini小新的博客</title>
+  <title>Android fastboot驱动无法安装和识别问题 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -260,7 +261,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Windows 11安装hexo后，hexo指令无法识别问题"></span>
+            <span id="subtitle" data-typed-text="Android fastboot驱动无法安装和识别问题"></span>
           
         </div>
 
@@ -276,8 +277,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-02 23:59" pubdate>
-          2023年12月2日 晚上
+        <time datetime="2023-12-07 00:24" pubdate>
+          2023年12月7日 凌晨
         </time>
       </span>
     
@@ -288,7 +289,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1k 字
         
       </span>
     
@@ -299,7 +300,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -344,12 +345,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Windows 11安装hexo后，hexo指令无法识别问题</h1>
+            <h1 id="seo-header">Android fastboot驱动无法安装和识别问题</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年12月3日 晚上
+                    本文最后更新于：2023年12月7日 凌晨
                   
                 
               </p>
@@ -357,59 +358,57 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、现象"><a href="#1、现象" class="headerlink" title="1、现象"></a>1、现象</h2><p>无论是在Windows terminal中，还是在cmd，以及Node.js prompt中，在<strong>已经安装完成hexo或hexo-cli的情况下，无法识别到hexo指令</strong>，类似如下：</p>
-<p><img src="https://codestar.top/note-image/image-20231009003053103.png" srcset="/img/loading.gif" lazyload alt="image-20231009003053103"></p>
-<p><img src="https://codestar.top/note-image/image-20231009003245022.png" srcset="/img/loading.gif" lazyload alt="image-20231009003245022"></p>
-<p>尝试在命令路径下执行，依旧不行。</p>
-<p>查找本地的npm安装路径</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm root -g<br></code></pre></td></tr></table></figure>
+                <h2 id="1、问题现象及原因"><a href="#1、问题现象及原因" class="headerlink" title="1、问题现象及原因"></a>1、问题现象及原因</h2><p>Android fastboot模式下出现在其他设备中：</p>
+<p><img src="https://codestar.top/note-image/image-20231108102720963.png" srcset="/img/loading.gif" lazyload alt="image-20231108102720963"></p>
+<p>指令也不生效：</p>
+<p><img src="https://codestar.top/note-image/image-20231108102800265.png" srcset="/img/loading.gif" lazyload alt="image-20231108102800265"></p>
+<p>典型的驱动问题，在此之前已经安装了驱动。出现这个现象，很可能是驱动异常或者不兼容当前的fastboot设备。</p>
+<h2 id="2、Google官网下载驱动包"><a href="#2、Google官网下载驱动包" class="headerlink" title="2、Google官网下载驱动包"></a>2、Google官网下载驱动包</h2><p>进入官方下载页面：<a target="_blank" rel="noopener" href="https://developer.android.com/studio/run/win-usb?hl=zh-cn">https://developer.android.com/studio/run/win-usb?hl=zh-cn</a></p>
+<p><img src="https://codestar.top/note-image/image-20231108102942717.png" srcset="/img/loading.gif" lazyload alt="image-20231108102942717"></p>
+<p>下载下来会是一个压缩包：usb_driver_r13-windows.zip，解压文件后使用。</p>
+<h2 id="3、手动安装fastboot驱动"><a href="#3、手动安装fastboot驱动" class="headerlink" title="3、手动安装fastboot驱动"></a>3、手动安装fastboot驱动</h2><p>直接选择本地路径，进入下一页安装会出现下面的无法安装的情况：</p>
+<p><img src="https://codestar.top/note-image/image-20231108103240406.png" srcset="/img/loading.gif" lazyload alt="image-20231108103240406"></p>
+<p><img src="https://codestar.top/note-image/image-20231108103222742.png" srcset="/img/loading.gif" lazyload alt="image-20231108103222742"></p>
+<p>需要手动，在PC本地选取到驱动路径来进行安装：</p>
+<p>直接点击下面的选项，不要点击下一页：</p>
+<p><img src="https://codestar.top/note-image/image-20231108103329623.png" srcset="/img/loading.gif" lazyload alt="image-20231108103329623"></p>
+<p>双击“显示所有设备”，或选中点击下一页：</p>
+<p><img src="https://codestar.top/note-image/image-20231108103435463.png" srcset="/img/loading.gif" lazyload alt="image-20231108103435463"></p>
+<p>选择第一个，从磁盘安装：</p>
+<p><img src="https://codestar.top/note-image/image-20231108105025315.png" srcset="/img/loading.gif" lazyload alt="image-20231108105025315"></p>
+<p>选择本地路径：</p>
+<p><img src="https://codestar.top/note-image/image-20231108105109152.png" srcset="/img/loading.gif" lazyload alt="image-20231108105109152"></p>
+<p>之后就能成功的看到下面的驱动程序了，下一页安装：</p>
+<p><img src="https://codestar.top/note-image/image-20231108105434813.png" srcset="/img/loading.gif" lazyload alt="image-20231108105434813"></p>
+<p>会出现一个安装告警弹窗，选择“是”直接安装，之后会开始安装驱动，逐个页面点击安装就行：</p>
+<p><img src="https://codestar.top/note-image/image-20231108110036086.png" srcset="/img/loading.gif" lazyload alt="image-20231108110036086"></p>
+<p><strong>注：</strong>安装的过程可能会涉及到签名校验无法安装，关闭Windows的三方签名校验即可，参考<strong>4、关闭强制签名校验</strong>一节。</p>
+<p>安装完成：</p>
+<p><img src="https://codestar.top/note-image/image-20231108110147911.png" srcset="/img/loading.gif" lazyload alt="image-20231108110147911"></p>
+<p>之后就能正常的接入fastboot设备使用了：</p>
+<p><img src="https://codestar.top/note-image/image-20231108110349965.png" srcset="/img/loading.gif" lazyload alt="image-20231108110349965"></p>
+<p><img src="https://codestar.top/note-image/image-20231108110444773.png" srcset="/img/loading.gif" lazyload alt="image-20231108110444773"></p>
+<h2 id="4、关闭强制签名校验"><a href="#4、关闭强制签名校验" class="headerlink" title="4、关闭强制签名校验"></a>4、关闭强制签名校验</h2><h3 id="4-1、Windows10配置"><a href="#4-1、Windows10配置" class="headerlink" title="4.1、Windows10配置"></a>4.1、Windows10配置</h3><p>使用<kbd>win</kbd>+<kbd>U</kbd>，打开设置页面，进入“主页”–&gt;“更新和安全”–&gt;“恢复”–&gt;“高级启动”–&gt;“立即重新启动”：</p>
+<p><img src="https://codestar.top/note-image/image-20231207000134224.png" srcset="/img/loading.gif" lazyload alt="image-20231207000134224"></p>
+<p>之后按下面配置，“疑难解答”—&gt;“高级选项”–&gt;“启动设置”–&gt;“重启”，输入7或者F7禁用强制签名校验：</p>
+<p><img src="https://codestar.top/note-image/image-20231207001231881.png" srcset="/img/loading.gif" lazyload alt="image-20231207001231881"></p>
+<p><img src="https://codestar.top/note-image/image-20231207001512625.png" srcset="/img/loading.gif" lazyload alt="image-20231207001512625"></p>
+<p>重启之后，重新安装驱动文件即可，会弹出信任第三方驱动的警告，同意即可。</p>
+<h3 id="4-2、windows11配置"><a href="#4-2、windows11配置" class="headerlink" title="4.2、windows11配置"></a>4.2、windows11配置</h3><p>使用<kbd>win</kbd>+<kbd>U</kbd>，打开设置页面，进入“系统”–&gt;“恢复”–&gt;“高级启动”–&gt;“立即重新启动”：</p>
+<p><img src="https://codestar.top/note-image/image-20231206235959721.png" srcset="/img/loading.gif" lazyload alt="image-20231206235959721"></p>
+<p>后续启动配置同上。</p>
+<h3 id="4-3、永久禁用强制签名校验"><a href="#4-3、永久禁用强制签名校验" class="headerlink" title="4.3、永久禁用强制签名校验"></a>4.3、永久禁用强制签名校验</h3><p>之前的两种方法只是临时关闭签名校验，当设备重新开关机之后，又会重新恢复校验签名。为了方便后续更改驱动，可以使用下面的方法来永久禁用签名：</p>
+<ul>
+<li><kbd>win</kbd>+<kbd>X</kbd>打开启动菜单栏，选择“命令提示符（管理员）”，输入下列指令以关闭签名校验：</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">bcdedit /<span class="hljs-built_in">set</span> nointegritychecks on<br></code></pre></td></tr></table></figure>
 
-<p><code>D:\Node.js\node_global\node_modules</code>将其添加到环境变量，发现依旧无效，查询方法</p>
-<h2 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h2><p>上网查阅资料，处理方法为，将下面的路径加入到环境变量path中：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">your-user-name 是你自己的电脑用户名</span><br>C:\\Users\\your-user-name\\AppData\\Roaming\\npm<br></code></pre></td></tr></table></figure>
+<ul>
+<li>重新开启签名校验，输入下列指令：</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">bcdedit /<span class="hljs-built_in">set</span> nointegritychecks off<br></code></pre></td></tr></table></figure>
 
-<p><strong>但是！！！</strong>很奇怪的是，我的APPDATA下没有npm这个路径：</p>
-<p><img src="https://codestar.top/note-image/image-20231009232454879.png" srcset="/img/loading.gif" lazyload alt="image-20231009232454879"></p>
-<p>在另外一台Windows10上安装就没有出现这种问题，在Windows 11上就有这种奇怪的现象！</p>
-<p><strong>思考：</strong>到底是什么原因导致的，我在Windows terminal中，还是在cmd，以及Node.js prompt中，甚至是进入到<code>D:\Node.js\node_global\node_modules</code>相应的安装路径下执行，都还是找不到hexo这个命令，我重装hexo都不生效。</p>
-<p>而修改环境变量更加不可行，本身我的node.js已经记录在环境变量的path下，原则上来说应该不影响才对。到底是什么原因？继续查找答案。</p>
-<p><img src="https://codestar.top/note-image/image-20231009232908162.png" srcset="/img/loading.gif" lazyload alt="image-20231009232908162"></p>
-<h2 id="3、另辟蹊径之重装Node-js"><a href="#3、另辟蹊径之重装Node-js" class="headerlink" title="3、另辟蹊径之重装Node.js"></a>3、另辟蹊径之重装Node.js</h2><p>尝试重装Node.js</p>
-<p><img src="https://codestar.top/note-image/image-20231009221659111.png" srcset="/img/loading.gif" lazyload alt="image-20231009221659111"></p>
-<p>安装额外的工具，安装完成之后，重新执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-cli -g<br></code></pre></td></tr></table></figure>
-
-<p>依旧无法识别到hexo指令。。</p>
-<p>之后又尝试重启电脑，然而，也并不管用。</p>
-<p>检查本地是否已经安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm list -g<br></code></pre></td></tr></table></figure>
-
-<p>很明显，我是已经安装的，但就是无法执行。。。</p>
-<p><img src="https://codestar.top/note-image/image-20231010001701220.png" srcset="/img/loading.gif" lazyload alt="image-20231010001701220"></p>
-<h2 id="4、问题解决方法的探索"><a href="#4、问题解决方法的探索" class="headerlink" title="4、问题解决方法的探索"></a>4、问题解决方法的探索</h2><p>前面几种思路，查阅到的网上的处理方法也不管用，去官网看一下文档，尝试能否找到答案。</p>
-<p>通过查阅<a target="_blank" rel="noopener" href="https://hexo.io/docs/">hexo官方文档</a>，找到一种替代的方法可以执行hexo指令：</p>
-<p><img src="https://codestar.top/note-image/image-20231009233558162.png" srcset="/img/loading.gif" lazyload alt="image-20231009233558162"></p>
-<p>使用npx来间接性的调用hexo指令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npx hexo &lt;command&gt;<br></code></pre></td></tr></table></figure>
-
-<p>这个是可行的：</p>
-<p><img src="https://codestar.top/note-image/image-20231009233633976.png" srcset="/img/loading.gif" lazyload alt="image-20231009233633976"></p>
-<p>基本的指令都是可以执行的：</p>
-<p><img src="https://codestar.top/note-image/image-20231009234944537.png" srcset="/img/loading.gif" lazyload alt="image-20231009234944537"></p>
-<p>但是这种使用方式是在不配置环境变量的情况下才用，在实际的使用过程中会很不方便。</p>
-<p>那接下来如何将我的PC本地的环境配置上hexo的bin路径？我继续查找方法。</p>
-<p>我的PC使用<code>npx hexo</code>能够正常的执行，那么PC上肯定有可执行的同名文件，利用everything一搜索，果然找到了如下的文件，没错就是这个hexo.cmd文件：</p>
-<p><img src="https://codestar.top/note-image/image-20231010001928018.png" srcset="/img/loading.gif" lazyload alt="image-20231010001928018"></p>
-<p>进入到这个路径下，检查文件，文件夹结构和我们的<code>C:\\Users\\your-user-name\\AppData\\Roaming\\npm</code>目录是一样的，全局安装路径。</p>
-<p><img src="https://codestar.top/note-image/image-20231010001547905.png" srcset="/img/loading.gif" lazyload alt="image-20231010001547905"></p>
-<p>知道了之后，再将这个路径添加到系统path环境变量中试一试：</p>
-<p><kbd>win</kbd>+<kbd>R</kbd>打开运行窗口，输入<code>sysdm.cpl</code>，高级</p>
-<p><img src="https://codestar.top/note-image/image-20231010002214974.png" srcset="/img/loading.gif" lazyload alt="image-20231010002214974"></p>
-<p><img src="https://codestar.top/note-image/image-20231010002250920.png" srcset="/img/loading.gif" lazyload alt="image-20231010002250920"></p>
-<p>找到系统变量Path，编辑内容，<strong>新建</strong>一列，将这个路径拷贝进去：</p>
-<p><img src="https://codestar.top/note-image/image-20231010002402709.png" srcset="/img/loading.gif" lazyload alt="image-20231010002402709"></p>
-<p>之后点击确定，关闭之前的运行窗口，重新打开，再尝试执行&#96;&#96;hexo&#96;指令，就大功告成了：</p>
-<p><img src="https://codestar.top/note-image/image-20231010002546570.png" srcset="/img/loading.gif" lazyload alt="image-20231010002546570"></p>
+<p><strong>注：</strong>如果未生效，需要在BIOS中关闭Secure Boot。</p>
 
                 
               </div>
@@ -428,12 +427,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="category-chain-item">博客搭建</a>
+  <a href="/categories/Android%E6%8A%80%E6%9C%AF/" class="category-chain-item">Android技术</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/HEXO/" class="category-chain-item">HEXO</a>
+  <a href="/categories/Android%E6%8A%80%E6%9C%AF/FASTBOOT/" class="category-chain-item">FASTBOOT</a>
   
   
 
@@ -450,9 +449,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+        <a href="/tags/Android/" class="print-no-link">#Android</a>
       
-        <a href="/tags/HEXO/" class="print-no-link">#HEXO</a>
+        <a href="/tags/FASTBOOT/" class="print-no-link">#FASTBOOT</a>
+      
+        <a href="/tags/%E9%A9%B1%E5%8A%A8/" class="print-no-link">#驱动</a>
       
     </div>
   
@@ -464,8 +465,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Windows 11安装hexo后，hexo指令无法识别问题</div>
-      <div>http://www.codestar.top/2023/12/02/HexoblogGuide/Windows-11安装hexo后，hexo指令无法识别问题/</div>
+      <div>Android fastboot驱动无法安装和识别问题</div>
+      <div>http://www.codestar.top/2023/12/07/System/Android/Android-fastboot驱动无法安装和识别问题/</div>
     </div>
     <div class="license-meta">
       
@@ -477,13 +478,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月2日</div>
+          <div>2023年12月7日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年12月3日</div>
+          <div>2023年12月7日</div>
         </div>
       
       
@@ -526,18 +527,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/07/System/Android/Android-fastboot%E9%A9%B1%E5%8A%A8%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%92%8C%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98/" title="Android fastboot驱动无法安装和识别问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Android fastboot驱动无法安装和识别问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/02/Coding/IDE/VSCODE/vscode%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E7%BC%A9%E6%94%BE%E7%BA%A7%E5%88%AB%E6%9D%A5%E8%B0%83%E6%95%B4%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%A7%E5%B0%8F/" title="vscode调整窗口缩放级别来调整侧边栏大小">
-                        <span class="hidden-mobile">vscode调整窗口缩放级别来调整侧边栏大小</span>
+                      <a href="/2023/12/02/HexoblogGuide/Windows-11%E5%AE%89%E8%A3%85hexo%E5%90%8E%EF%BC%8Chexo%E6%8C%87%E4%BB%A4%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98/" title="Windows 11安装hexo后，hexo指令无法识别问题">
+                        <span class="hidden-mobile">Windows 11安装hexo后，hexo指令无法识别问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
