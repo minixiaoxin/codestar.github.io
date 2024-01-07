@@ -243,13 +243,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/wall-1.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/wall-3.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Stay Hungry. Stay Foolish.—Steve Jobs"></span>
+            <span id="subtitle" data-typed-text="Try it, knew it, get it, build it, and achieve it."></span>
           
         </div>
 
@@ -1106,7 +1106,37 @@
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(text);
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://api.vvhan.com/api/en',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'data,zh'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
+              }
+            }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://api.vvhan.com/api/en:', error);
+            }
+            typing(text);
+          }
+        })
       
     })(window, document);
   </script>
