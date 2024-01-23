@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Linux：如何查询进程下的线程</title>
+    <link href="/2024/01/23/System/Linux/Linux%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E8%BF%9B%E7%A8%8B%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B/"/>
+    <url>/2024/01/23/System/Linux/Linux%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E8%BF%9B%E7%A8%8B%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>进程和线程，是程序运行绕不开的话题，当我们想查询一个进程下存在哪些进程时，可以有哪些方法查询到，这是要思考的问题。</p><h2 id="2、思路"><a href="#2、思路" class="headerlink" title="2、思路"></a>2、思路</h2><h3 id="2-1、是否有方法可查？"><a href="#2-1、是否有方法可查？" class="headerlink" title="2.1、是否有方法可查？"></a>2.1、是否有方法可查？</h3><p>可想在linux中肯定有方法可以查询到进程下的线程，那么如何来查询？查询<code>ps</code>手册，发现可以通过参数<code>-T</code>查询到对应的进程下的线程：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看对应手册</span><br>man ps<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202401232220348.png" alt="image-20240123222038191"></p><p>当我们知道含线程的进程时哪一个进程的时候，可以使用-T参数通过PID来获取进程下的线程：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -ef | grep /usr/libexec/gvfsd<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202401232233282.png" alt="image-20240123223305183"></p><p>或者直接使用pgrep通过进程名匹配进程pid：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pgrep gvfsd<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202401232240082.png" alt="image-20240123224010041"></p><p>再通过进程pid即可查询到对应的线程：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -T -p 1300<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202401232241552.png" alt="image-20240123224139498"></p><h3 id="2-2、合并命令行"><a href="#2-2、合并命令行" class="headerlink" title="2.2、合并命令行"></a>2.2、合并命令行</h3><p>通过前面的两个指令，成功查询到了进程下含有哪些线程后，那么我们能否将指令合并成1条来简化指令执行呢？这里就可以使用到awk和xargs来对指令执行的参数进行传递了，合并后的指令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -ef | grep gvfsd | awk &#x27;&#123;print $2&#125;&#x27; | xargs ps -T -p<br></code></pre></td></tr></table></figure><p>在这段指令中，无需知道进程pid，直接将其作为参数传递给<code>ps -T -p</code>这一段指令，中间通过awk和xargs以及管道符|来传递参数。</p><p>分为下面三段：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step 1:查询进程gvfsd详情，第二列为pid</span><br>ps -ef | grep gvfsd<br><span class="hljs-meta prompt_"># </span><span class="language-bash">step 2:获取前一段指令执行结果第2列值</span><br>| awk &#x27;&#123;print $2&#125;&#x27;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">step 3:将awk获取到的值，作为参数传递给下一步的指令</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">正常执行ps -T -p 1300，这一段中的pid 1300，通过ps -ef | grep gvfsd | awk <span class="hljs-string">&#x27;&#123;print $2&#125;&#x27;</span> | 执行的指令获取。</span><br>| xargs ps -T -p<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202401232252363.png" alt="image-20240123225254283"></p><p><strong>注：</strong>当要查询的进程名存在多项时，会将所有的线程结果查询出来。</p><p><img src="https://codestar.top/note-image/202401232255216.png" alt="image-20240123225525979"></p><h3 id="2-3、如何知道进程是否有线程？"><a href="#2-3、如何知道进程是否有线程？" class="headerlink" title="2.3、如何知道进程是否有线程？"></a>2.3、如何知道进程是否有线程？</h3><p>通过上述的方法，能够成功的查询到指定进程下所含的线程，那么我们不知道对应进程全名，只是想知道哪些进程有线程时，如何来查询呢？linux中也提供了相应的指令来查询：</p><p>正常我们使用<code>ps -ef</code>查询指令会展示所有进程的全格式列表下的内容，但扩展<code>-L</code>参数一起使用时会增加NLWP（线程数）和LWP（线程ID）列：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -eLf<br></code></pre></td></tr></table></figure><p>通过这个指令可以查询所有的进程详情，并将线程详情打印：</p><p><img src="https://codestar.top/note-image/202401232258424.png" alt="image-20240123225839123"></p><p>当然，看到了这里，其实，还有第二种方法来查询指定进程名下的线程，没错，那就是将上面的指令结果通过grep来筛选：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -eLf | grep gvfsd<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202401232300164.png" alt="image-20240123230041790"></p><p>到了这里，可以发现，<code>ps -eLf | grep gvfsd</code>执行的结果和<code>ps -ef | grep gvfsd | awk &#39;&#123;print $2&#125;&#39; | xargs ps -T -p</code>两种情况执行的结果差不多，无外乎，展示数据的多少，但是我们想查的数据都能够正确的获取到，具体使用哪种，全凭喜好。</p><h2 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h2><p>查询进程下的线程有两种方法：</p><h3 id="3-1、方法一"><a href="#3-1、方法一" class="headerlink" title="3.1、方法一"></a>3.1、方法一</h3><p><code>awk</code>和<code>xargs</code>方法传递参数查询：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -ef | grep process_name | awk &#x27;&#123;print $2&#125;&#x27; | xargs ps -T -p<br></code></pre></td></tr></table></figure><h3 id="3-2、方法二"><a href="#3-2、方法二" class="headerlink" title="3.2、方法二"></a>3.2、方法二</h3><p><code>ps</code>中<code>-L</code>和<code>-f</code>参数连用，增加打印线程信息：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -eLf | grep process_name<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux技术</category>
+      
+      <category>进程管理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>进程</tag>
+      
+      <tag>线程</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HEXO：子域名的配置及如何绑定到个人网站</title>
     <link href="/2024/01/21/HexoblogGuide/HEXO%EF%BC%9A%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E5%88%B0%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/"/>
     <url>/2024/01/21/HexoblogGuide/HEXO%EF%BC%9A%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E5%88%B0%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/</url>
