@@ -4,6 +4,66 @@
   
   
   <entry>
+    <title>Github更换token后cloudflare图床链接失效问题处理</title>
+    <link href="/2024/01/25/HexoblogGuide/Github%E6%9B%B4%E6%8D%A2token%E5%90%8Ecloudflare%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/"/>
+    <url>/2024/01/25/HexoblogGuide/Github%E6%9B%B4%E6%8D%A2token%E5%90%8Ecloudflare%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、问题现象"><a href="#1、问题现象" class="headerlink" title="1、问题现象"></a>1、问题现象</h2><p>在更新classic token后，通过github搭建的图床链接尽数失效了，产生了裂图，现象如下，图像加载失败：</p><p><img src="https://codestar.top/note-image/202401250016470.png" alt="image-20231110155119781"></p><p>为了恢复博客图片的加载，需要尽快解决。</p><h2 id="2、问题原因"><a href="#2、问题原因" class="headerlink" title="2、问题原因"></a>2、问题原因</h2><p>由于我是使用github和cloudflare一起搭建的图床，在更新github token更新之后cloudflare 配置的github token还是旧的，导致worker作业流异常：</p><p><img src="https://codestar.top/note-image/202401250017434.png" alt="image-20231110160557408"></p><p>因为这个原因，导致我的图片访问出现异常。</p><h2 id="3、解决方法"><a href="#3、解决方法" class="headerlink" title="3、解决方法"></a>3、解决方法</h2><p>要解决这个问题，只需要在更新github token的同时，同步更新cloudflare中workflow的相关token即可：</p><h3 id="3-1、生成github-token"><a href="#3-1、生成github-token" class="headerlink" title="3.1、生成github token"></a>3.1、生成github token</h3><p>在github的<code>Settings &gt;&gt; Personal access tokens &gt;&gt; Tokens(classic)</code>更新token过期时间为no expiration：</p><p><img src="https://codestar.top/note-image/202401250018066.png" alt="image-20231110161120652"></p><p><img src="https://codestar.top/note-image/202401250019485.png" alt="image-20231110161230648"></p><p>token只会展示1次，要保存好。要想安全系数更高一些可以选择固定时间，或自定义过期时间。生成之后，下拉到页面底部，<code>update token</code></p><h3 id="3-2、更新cloudflare-worker"><a href="#3-2、更新cloudflare-worker" class="headerlink" title="3.2、更新cloudflare worker"></a>3.2、更新cloudflare worker</h3><p>Workers &amp; Pages –&gt; Overview  进入到cloudflare工作流：</p><p><img src="https://codestar.top/note-image/202401250019458.png" alt="image-20231110162035573"></p><p>编辑工作流：</p><p><img src="https://codestar.top/note-image/202401250019072.png" alt="image-20231110162437465"></p><p>将token更新之后，执行<code>Save and deploy</code>，在这个页面测试链接会报400的错误，我个人设置的为私有库导致这种现象，无需理会，不影响作业流更新：</p><p><img src="https://codestar.top/note-image/202401250019738.png" alt="image-20231110163726076"></p><p>更新之后，下面的图片链接就可以正常的访问了：</p><p><img src="https://codestar.top/note-image/202401250020831.png" alt="image-20231110163627806"></p><p><strong>注意：</strong>当更新上述内容之后，依然部分图片链接异常。<strong>需要重新配置worker</strong>，详情参考指导《Windows中配置PigGo图床及CDN加速》中第5.4节。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CDN</category>
+      
+      <category>博客搭建</category>
+      
+      <category>图床</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图床</tag>
+      
+      <tag>博客优化</tag>
+      
+      <tag>CDN</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows：屏保设置被置灰问题处理</title>
+    <link href="/2024/01/25/System/Windows/Windows%EF%BC%9A%E5%B1%8F%E4%BF%9D%E8%AE%BE%E7%BD%AE%E8%A2%AB%E7%BD%AE%E7%81%B0%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/"/>
+    <url>/2024/01/25/System/Windows/Windows%EF%BC%9A%E5%B1%8F%E4%BF%9D%E8%AE%BE%E7%BD%AE%E8%A2%AB%E7%BD%AE%E7%81%B0%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、问题现象"><a href="#1、问题现象" class="headerlink" title="1、问题现象"></a>1、问题现象</h2><p>在部分场景下，屏保会出现无法置灰无法设置的情况，像下面这种：</p><p><img src="https://codestar.top/note-image/202401250003442.png" alt="image-20240122173726259"></p><p>正常Windows家庭版还是专业版等版本，都不会限制这一块的编辑权限，在特定情况下会被管理员给修改了，导致无法设置。</p><h2 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h2><p>通过修改注册表来释放编辑权限：</p><ul><li>1、<kbd>Win</kbd>+<kbd>R</kbd>打开运行窗口：输入<code>regedit</code></li></ul><p><img src="https://codestar.top/note-image/202401250003803.png" alt="image-20240122174026050"></p><ul><li>2、进入以下路径：</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Control Panel\Desktop<br></code></pre></td></tr></table></figure><ul><li>3、删除配置项下所有配置文件（非默认）：</li></ul><p><code>scrnsave.exe</code>（屏保程序）和<code>ScreenSaveTimeOut</code>（屏保等待时间），如果存在<code>ScreenSaverIsSecure</code>，一并删除：</p><p><img src="https://codestar.top/note-image/202401250003252.png" alt="image-20240122181136558"></p><ul><li>4、验证修改</li></ul><p>重新打开屏保设置，删除注册表项之后，就能够正常配置屏保程序和时间了：</p><p><img src="https://codestar.top/note-image/202401250004389.png" alt="image-20240122181314029"></p><h2 id="3、问题原因"><a href="#3、问题原因" class="headerlink" title="3、问题原因"></a>3、问题原因</h2><p>这里涉及到注册表之间的逻辑关系，下面两类注册表：</p><ul><li>1、用户侧控制面板配置</li></ul><p>这里为用户自行定义的一些配置，如前文中的<code>scrnsave.exe</code>（屏保程序）和<code>ScreenSaveTimeOut</code>（屏保等待时间），<code>ScreenSaverIsSecure</code>等配置项也可以在这边设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">HKEY_CURRENT_USER\Control Panel\Desktop<br></code></pre></td></tr></table></figure><ul><li>2、系统控制面板的策略配置：</li></ul><p>当策略配置中存在配置项时，会覆盖掉<code>HKEY_CURRENT_USER\Control Panel\Desktop</code>，即<strong>用户侧配置不生效，其对应的控制面板设置会置灰</strong>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Control Panel\Desktop<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>屏保设置</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux：如何查询进程下的线程</title>
     <link href="/2024/01/23/System/Linux/Linux%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E8%BF%9B%E7%A8%8B%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B/"/>
     <url>/2024/01/23/System/Linux/Linux%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E8%BF%9B%E7%A8%8B%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B/</url>
@@ -142,7 +202,7 @@
       
       <tag>建站指南</tag>
       
-      <tag>首页优化</tag>
+      <tag>博客优化</tag>
       
     </tags>
     
