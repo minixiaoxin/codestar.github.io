@@ -18,26 +18,25 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、解决思路想要调整侧边栏，可以通过调整页面的缩放级别来实现。 2、vscode配置ctrl+shift+p打开选项栏，选择”首选项：打开用户设置”：  进入设置页面后，搜索window.zoomlevel：  放大窗口，设置值大于1即可，缩小窗口即设置为0-1之间的值即可。 设置完后，整体页面大小会进行变化。">
+    <meta name="description" content="1、国内源地址清单官方的源地址： https:&#x2F;&#x2F;registry.npmjs.org&#x2F; 由于服务器在海外，国内访问速度会慢很多。下面是我搜集的一些npm国内的镜像源    源名称 npm源地址 推荐指数    淘宝新镜像源 https:&#x2F;&#x2F;registry.npmmirror.com ★★★★   腾讯云镜像源 http:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;npm&#x2F; ★★★">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vscode调整窗口缩放级别来调整侧边栏大小">
-<meta property="og:url" content="http://www.codestar.top/2023/12/02/Coding/IDE/VSCODE/vscode%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E7%BC%A9%E6%94%BE%E7%BA%A7%E5%88%AB%E6%9D%A5%E8%B0%83%E6%95%B4%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%A7%E5%B0%8F/index.html">
+<meta property="og:title" content="npm下载源如何修改为其他源地址">
+<meta property="og:url" content="http://www.codestar.top/2023/10/29/Coding/web/npm%E4%B8%8B%E8%BD%BD%E6%BA%90%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%85%B6%E4%BB%96%E6%BA%90%E5%9C%B0%E5%9D%80/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、解决思路想要调整侧边栏，可以通过调整页面的缩放级别来实现。 2、vscode配置ctrl+shift+p打开选项栏，选择”首选项：打开用户设置”：  进入设置页面后，搜索window.zoomlevel：  放大窗口，设置值大于1即可，缩小窗口即设置为0-1之间的值即可。 设置完后，整体页面大小会进行变化。">
+<meta property="og:description" content="1、国内源地址清单官方的源地址： https:&#x2F;&#x2F;registry.npmjs.org&#x2F; 由于服务器在海外，国内访问速度会慢很多。下面是我搜集的一些npm国内的镜像源    源名称 npm源地址 推荐指数    淘宝新镜像源 https:&#x2F;&#x2F;registry.npmmirror.com ★★★★   腾讯云镜像源 http:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;npm&#x2F; ★★★">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/Scene_pic2.png">
-<meta property="article:published_time" content="2023-12-02T09:37:05.000Z">
-<meta property="article:modified_time" content="2023-12-02T15:59:08.351Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/nodejs.png">
+<meta property="article:published_time" content="2023-10-29T10:07:53.000Z">
+<meta property="article:modified_time" content="2023-11-18T16:45:57.153Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="vscode">
-<meta property="article:tag" content="工具">
-<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="node.js">
+<meta property="article:tag" content="npm">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Scene_pic2.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/nodejs.png">
   
   
   
-  <title>vscode调整窗口缩放级别来调整侧边栏大小 - mini小新的博客</title>
+  <title>npm下载源如何修改为其他源地址 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -261,7 +260,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vscode调整窗口缩放级别来调整侧边栏大小"></span>
+            <span id="subtitle" data-typed-text="npm下载源如何修改为其他源地址"></span>
           
         </div>
 
@@ -277,8 +276,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-02 17:37" pubdate>
-          2023年12月2日 下午
+        <time datetime="2023-10-29 18:07" pubdate>
+          2023年10月29日 晚上
         </time>
       </span>
     
@@ -289,7 +288,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          150 字
+          996 字
         
       </span>
     
@@ -300,7 +299,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -345,12 +344,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">vscode调整窗口缩放级别来调整侧边栏大小</h1>
+            <h1 id="seo-header">npm下载源如何修改为其他源地址</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年12月2日 晚上
+                    本文最后更新于：2023年11月19日 凌晨
                   
                 
               </p>
@@ -358,13 +357,68 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、解决思路"><a href="#1、解决思路" class="headerlink" title="1、解决思路"></a>1、解决思路</h2><p>想要调整侧边栏，可以通过调整页面的缩放级别来实现。</p>
-<h2 id="2、vscode配置"><a href="#2、vscode配置" class="headerlink" title="2、vscode配置"></a>2、vscode配置</h2><p><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>打开选项栏，选择”首选项：打开用户设置”：</p>
-<p><img src="https://codestar.top/note-image/image-20231202112048982.png" srcset="/img/loading.gif" lazyload alt="image-20231202112048982"></p>
-<p>进入设置页面后，搜索<code>window.zoomlevel</code>：</p>
-<p><img src="https://codestar.top/note-image/image-20231202111921382.png" srcset="/img/loading.gif" lazyload alt="image-20231202111921382"></p>
-<p>放大窗口，设置值大于1即可，缩小窗口即设置为0-1之间的值即可。</p>
-<p>设置完后，整体页面大小会进行变化。</p>
+                <h2 id="1、国内源地址清单"><a href="#1、国内源地址清单" class="headerlink" title="1、国内源地址清单"></a>1、国内源地址清单</h2><p>官方的源地址： <a target="_blank" rel="noopener" href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p>
+<p>由于服务器在海外，国内访问速度会慢很多。下面是我搜集的一些npm国内的镜像源</p>
+<table>
+<thead>
+<tr>
+<th align="center">源名称</th>
+<th align="center">npm源地址</th>
+<th align="center">推荐指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">淘宝新镜像源</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://registry.npmmirror.com/">https://registry.npmmirror.com</a></td>
+<td align="center">★★★★</td>
+</tr>
+<tr>
+<td align="center">腾讯云镜像源</td>
+<td align="center"><a target="_blank" rel="noopener" href="http://mirrors.cloud.tencent.com/npm/">http://mirrors.cloud.tencent.com/npm/</a></td>
+<td align="center">★★★</td>
+</tr>
+<tr>
+<td align="center">华为云镜像源</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://mirrors.huaweicloud.com/repository/npm/">https://mirrors.huaweicloud.com/repository/npm/</a></td>
+<td align="center">★★★</td>
+</tr>
+<tr>
+<td align="center">cnpm镜像地址</td>
+<td align="center"><a target="_blank" rel="noopener" href="http://registry.cnpmjs.org/">http://registry.cnpmjs.org</a></td>
+<td align="center">★★</td>
+</tr>
+<tr>
+<td align="center">淘宝旧源镜像</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></td>
+<td align="center">★</td>
+</tr>
+</tbody></table>
+<p>其中淘宝旧镜像源在2022年5月31日废弃，不过至今（2023年10月29日）还是能正常使用，建议是使用新版镜像源。</p>
+<h2 id="2、修改npm源"><a href="#2、修改npm源" class="headerlink" title="2、修改npm源"></a>2、修改npm源</h2><h3 id="2-1、临时修改"><a href="#2-1、临时修改" class="headerlink" title="2.1、临时修改"></a>2.1、临时修改</h3><p>如果只是在某一次使用源，可以临时修改，通过在install命令前加上<code>--registry 源地址</code>即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">示例：使用淘宝npm源下载cnpm</span><br>npm --registry https://registry.npm.taobao.org install cnpm<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-2、永久修改"><a href="#2-2、永久修改" class="headerlink" title="2.2、永久修改"></a>2.2、永久修改</h3><h4 id="方法一：使用命令行修改"><a href="#方法一：使用命令行修改" class="headerlink" title="方法一：使用命令行修改"></a>方法一：使用命令行修改</h4><p>永久配置，直接使用指令修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm config set registry https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure>
+
+<p>修改之后生效如下，查询npm配置的源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm config get registry<br></code></pre></td></tr></table></figure>
+
+<p>返回淘宝镜像源说明配置已经生效了：</p>
+<p><img src="https://codestar.top/note-image/image-20231029161636529.png" srcset="/img/loading.gif" lazyload alt="image-20231029161636529"></p>
+<p>按照个人喜好配置相应的镜像源即可。</p>
+<h4 id="方法二：直接修改配置文件"><a href="#方法二：直接修改配置文件" class="headerlink" title="方法二：直接修改配置文件"></a>方法二：直接修改配置文件</h4><p>在自己的电脑<code>C:\Users\username</code>上修改<code>.npmrc</code>文件，如没有则新建txt文件，把名称和后缀改成一样即可。</p>
+<p>然后将其中的内容修改如下：[D:\Node.js]替换成自己的安装路径，registry改为镜像源地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">prefix=D:\Node.js\node_global<br>cache=D:\Node.js\node_cache<br>registry=https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/image-20231029163854250.png" srcset="/img/loading.gif" lazyload alt="image-20231029163854250"></p>
+<h2 id="3、npm仓库管理工具"><a href="#3、npm仓库管理工具" class="headerlink" title="3、npm仓库管理工具"></a>3、npm仓库管理工具</h2><p>使用<code>nrm</code>来进行仓库管理：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g nrm<br></code></pre></td></tr></table></figure>
+
+<p>通过工具查看可配置的镜像源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nrm ls<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/image-20231029162829130.png" srcset="/img/loading.gif" lazyload alt="image-20231029162829130"></p>
+<p>其他更多的使用方法，可以查看官方说明：<a target="_blank" rel="noopener" href="https://github.com/Pana/nrm">https://github.com/Pana/nrm</a></p>
 
                 
               </div>
@@ -383,15 +437,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/IDE/" class="category-chain-item">IDE</a>
+  <a href="/categories/node-js/" class="category-chain-item">node.js</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/IDE/vscode/" class="category-chain-item">vscode</a>
-  
-  
-
   
 
       </span>
@@ -405,11 +452,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vscode/" class="print-no-link">#vscode</a>
+        <a href="/tags/node-js/" class="print-no-link">#node.js</a>
       
-        <a href="/tags/%E5%B7%A5%E5%85%B7/" class="print-no-link">#工具</a>
-      
-        <a href="/tags/IDE/" class="print-no-link">#IDE</a>
+        <a href="/tags/npm/" class="print-no-link">#npm</a>
       
     </div>
   
@@ -421,8 +466,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vscode调整窗口缩放级别来调整侧边栏大小</div>
-      <div>http://www.codestar.top/2023/12/02/Coding/IDE/VSCODE/vscode调整窗口缩放级别来调整侧边栏大小/</div>
+      <div>npm下载源如何修改为其他源地址</div>
+      <div>http://www.codestar.top/2023/10/29/Coding/web/npm下载源如何修改为其他源地址/</div>
     </div>
     <div class="license-meta">
       
@@ -434,13 +479,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月2日</div>
+          <div>2023年10月29日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年12月2日</div>
+          <div>2023年11月19日</div>
         </div>
       
       
@@ -483,9 +528,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/02/System/Windows/Windows-11%E5%AE%89%E8%A3%85hexo%E5%90%8E%EF%BC%8Chexo%E6%8C%87%E4%BB%A4%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98/" title="Windows 11安装hexo后，hexo指令无法识别问题">
+                      <a href="/2023/10/31/System/Android/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/" title="Android adb 利用wlan局域网进行无线调试方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Windows 11安装hexo后，hexo指令无法识别问题</span>
+                        <span class="hidden-mobile">Android adb 利用wlan局域网进行无线调试方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -493,8 +538,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/02/HexoblogGuide/HEXO%EF%BC%9Agithub+hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B/" title="HEXO：github+hexo搭建个人博客流程">
-                        <span class="hidden-mobile">HEXO：github+hexo搭建个人博客流程</span>
+                      <a href="/2023/10/24/System/Linux/Linux%E4%B8%AD%E7%9A%84COREDUMP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" title="Linux中的COREDUMP基础知识及配置方法">
+                        <span class="hidden-mobile">Linux中的COREDUMP基础知识及配置方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
