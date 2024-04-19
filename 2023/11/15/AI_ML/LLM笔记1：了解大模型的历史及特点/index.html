@@ -1,0 +1,1085 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <link rel="icon" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mini小新">
+  <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
+  
+    <meta name="description" content="1、概述1.1、词义解惑部分专业名词缩略词表：    缩写 全称 说明    LLM Large Language Model 大语言模型：参数量达到10亿级别以上的(不同领域定义会存在偏差)   PLM Pre-trained Language Model 预训练语言模型：这种模型是在大规模文本数据上进行预训练，然后可以通过微调或其他技术来适应特定的自然语言处理任务。常见的PLM包括BERT、G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLM笔记1：了解大模型的历史及特点">
+<meta property="og:url" content="http://www.codestar.top/2023/11/15/AI_ML/LLM%E7%AC%94%E8%AE%B01%EF%BC%9A%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8E%86%E5%8F%B2%E5%8F%8A%E7%89%B9%E7%82%B9/index.html">
+<meta property="og:site_name" content="mini小新的博客">
+<meta property="og:description" content="1、概述1.1、词义解惑部分专业名词缩略词表：    缩写 全称 说明    LLM Large Language Model 大语言模型：参数量达到10亿级别以上的(不同领域定义会存在偏差)   PLM Pre-trained Language Model 预训练语言模型：这种模型是在大规模文本数据上进行预训练，然后可以通过微调或其他技术来适应特定的自然语言处理任务。常见的PLM包括BERT、G">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/AGI_pic1.png">
+<meta property="article:published_time" content="2023-11-14T17:44:30.000Z">
+<meta property="article:modified_time" content="2023-11-19T16:58:44.354Z">
+<meta property="article:author" content="mini小新">
+<meta property="article:tag" content="Datawhale">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="AI&amp;ML">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/AGI_pic1.png">
+  
+  
+  
+  <title>LLM笔记1：了解大模型的历史及特点 - mini小新的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_1dwux0cbyv6.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.codestar.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"shell"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"a48e14d1d7805c8552eaa9824984945e","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Gxk1Sem8mKPN1DwNwHP3SsBG-MdYXbMMI","app_key":"wfFTsKm5TWsVNYYUHBugqEKu","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a48e14d1d7805c8552eaa9824984945e";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>mini小新</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-icon_books"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-user-fill"></i>
+                <span>个人</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/">
+                    <i class="iconfont icon-info"></i>
+                    <span>关于</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wall-3.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LLM笔记1：了解大模型的历史及特点"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        mini小新
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-15 01:44" pubdate>
+          2023年11月15日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LLM笔记1：了解大模型的历史及特点</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年11月20日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h2><h3 id="1-1、词义解惑"><a href="#1-1、词义解惑" class="headerlink" title="1.1、词义解惑"></a>1.1、词义解惑</h3><p>部分专业名词缩略词表：</p>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LLM</td>
+<td>Large Language Model</td>
+<td>大语言模型：参数量达到10亿级别以上的(不同领域定义会存在偏差)</td>
+</tr>
+<tr>
+<td>PLM</td>
+<td>Pre-trained Language Model</td>
+<td>预训练语言模型：这种模型是在大规模文本数据上进行预训练，然后可以通过微调或其他技术来适应特定的自然语言处理任务。常见的PLM包括BERT、GPT等。</td>
+</tr>
+<tr>
+<td>AGI</td>
+<td>Artificial General Intelligence</td>
+<td>通用人工智能</td>
+</tr>
+</tbody></table>
+<h3 id="1-2、关于大模型LLM的认识"><a href="#1-2、关于大模型LLM的认识" class="headerlink" title="1.2、关于大模型LLM的认识"></a>1.2、关于大模型LLM的认识</h3><p>​	现如今LLM（大语言模型）发展迅速，在各种应用领域都有不错的应用效果，如在<strong>自然语言处理</strong>领域，LLM可以帮助计算机更好地理解和生成文本，包括写文章、回答问题、翻译语言等。在<strong>信息检索</strong>领域，它可以改进搜索引擎，让我们更轻松地找到所需的信息。在<strong>计算机视觉</strong>领域，研究人员还在努力让计算机理解图像和文字，以改善多媒体交互。下面来了解一下语言模型的发展历程。</p>
+<h2 id="2、语言模型发展简史"><a href="#2、语言模型发展简史" class="headerlink" title="2、语言模型发展简史"></a>2、语言模型发展简史</h2><p>梳理的一张发展简图：</p>
+<p><img src="https://codestar.top/note-image/image-20231115014623579.png" srcset="/img/loading.gif" lazyload alt="image-20231115014623579"></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://datawhalechina.github.io/llm-universe/#/C1/1.%20%E4%BB%80%E4%B9%88%E6%98%AF%E2%BC%A4%E6%A8%A1%E5%9E%8B">https://datawhalechina.github.io/llm-universe/#/C1/1.%20%E4%BB%80%E4%B9%88%E6%98%AF%E2%BC%A4%E6%A8%A1%E5%9E%8B</a></p>
+<h2 id="3、国内外的LLM发展"><a href="#3、国内外的LLM发展" class="headerlink" title="3、国内外的LLM发展"></a>3、国内外的LLM发展</h2><h3 id="3-1、大模型的发展"><a href="#3-1、大模型的发展" class="headerlink" title="3.1、大模型的发展"></a>3.1、大模型的发展</h3><p>2019年大模型开始进入爆发式发展，至今在各大科技公司或研究机构已有非常多的LLM落地实现。下面是按时间线【2019年 - 2023年 6月】列出的LLM发展轨迹，其中仅包含模型参数量超100亿的大模型，如下图所示：</p>
+<p><img src="https://codestar.top/note-image/LLMs-0623-final.png" srcset="/img/loading.gif" lazyload alt="大语言模型"></p>
+<p>图来源于：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/23018223">https://arxiv.org/abs/23018223</a></p>
+<h3 id="3-2、国外代表性LLM大模型"><a href="#3-2、国外代表性LLM大模型" class="headerlink" title="3.2、国外代表性LLM大模型"></a>3.2、国外代表性LLM大模型</h3><h4 id="3-2-1、开源模型"><a href="#3-2-1、开源模型" class="headerlink" title="3.2.1、开源模型"></a>3.2.1、开源模型</h4><table>
+<thead>
+<tr>
+<th align="left">LLM名称</th>
+<th align="left">参数量</th>
+<th align="left">上下文长度</th>
+<th align="left">发布厂商&#x2F;研究机构</th>
+<th align="left">开源地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">LLaMA系列</td>
+<td align="left">70亿-650亿</td>
+<td align="left">32k-256k</td>
+<td align="left">Meta</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/llama">https://github.com/facebookresearch/llama</a></td>
+</tr>
+</tbody></table>
+<h4 id="3-2-2、闭源模型"><a href="#3-2-2、闭源模型" class="headerlink" title="3.2.2、闭源模型"></a>3.2.2、闭源模型</h4><p>国外现如今的LLM发展很迅速，在继OpenAI发布ChatGPT之后，各大厂商纷纷推出自己的大语言模型，具有代表性的LLM如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">LLM名称</th>
+<th align="left">参数量</th>
+<th align="left">上下文长度</th>
+<th align="left">发布厂商&#x2F;研究机构</th>
+<th align="left">发布时间</th>
+<th align="left">学习知识库截止日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">GPT-4 Turbo</td>
+<td align="left">未公布</td>
+<td align="left">128k</td>
+<td align="left">OpenAI</td>
+<td align="left">2023 年 11 月 7 日</td>
+<td align="left">2023 年 4 月</td>
+</tr>
+<tr>
+<td align="left">GPT-4</td>
+<td align="left">1.8 万亿（猜测）</td>
+<td align="left">未公布</td>
+<td align="left">OpenAI</td>
+<td align="left">2023 年 3月</td>
+<td align="left">2021 年 9 月</td>
+</tr>
+<tr>
+<td align="left">GPT-3.5</td>
+<td align="left">1750亿</td>
+<td align="left">16k</td>
+<td align="left">OpenAI</td>
+<td align="left">2023 年 3月</td>
+<td align="left">2021 年 9 月</td>
+</tr>
+<tr>
+<td align="left">Claude 2</td>
+<td align="left">860.1 亿(猜测)</td>
+<td align="left">200K</td>
+<td align="left">Anthropic 公司</td>
+<td align="left">2023 年 7 月 11 日</td>
+<td align="left">2022 年 11 月</td>
+</tr>
+<tr>
+<td align="left">Claude</td>
+<td align="left">62亿</td>
+<td align="left">100K</td>
+<td align="left">Anthropic 公司</td>
+<td align="left">2023 年 3 月 15 日</td>
+<td align="left">2022 年 3 月</td>
+</tr>
+<tr>
+<td align="left">PaLM 2</td>
+<td align="left">34亿</td>
+<td align="left">未公布</td>
+<td align="left">Google</td>
+<td align="left">2022 年 5 月</td>
+<td align="left">未公布</td>
+</tr>
+</tbody></table>
+<h3 id="3-3、国内代表性LLM大模型"><a href="#3-3、国内代表性LLM大模型" class="headerlink" title="3.3、国内代表性LLM大模型"></a>3.3、国内代表性LLM大模型</h3><h4 id="3-3-1、开源模型"><a href="#3-3-1、开源模型" class="headerlink" title="3.3.1、开源模型"></a>3.3.1、开源模型</h4><table>
+<thead>
+<tr>
+<th align="left">LLM名称</th>
+<th align="left">参数量</th>
+<th align="left">上下文长度</th>
+<th align="left">发布厂商&#x2F;研究机构</th>
+<th align="left">开源地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">GLM系列</td>
+<td align="left">62 亿</td>
+<td align="left">2k</td>
+<td align="left">清华大学&amp;智谱 AI</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/THUDM">https://github.com/THUDM</a></td>
+</tr>
+<tr>
+<td align="left">通义千问（Qwen）</td>
+<td align="left">70亿(7B)&amp;140亿(7B)</td>
+<td align="left">8k</td>
+<td align="left">阿里巴巴</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/QwenLM/Qwen/tree/main">https://github.com/QwenLM/Qwen/tree/main</a></td>
+</tr>
+<tr>
+<td align="left">Baichuan系列</td>
+<td align="left">70 亿</td>
+<td align="left">4k</td>
+<td align="left">百川智能</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/baichuan-inc">https://github.com/baichuan-inc</a></td>
+</tr>
+<tr>
+<td align="left">Yi</td>
+<td align="left">60亿&amp;340亿</td>
+<td align="left">200k</td>
+<td align="left">零一万物</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/01-ai/Yi">https://github.com/01-ai/Yi</a></td>
+</tr>
+</tbody></table>
+<h4 id="3-3-2、闭源模型"><a href="#3-3-2、闭源模型" class="headerlink" title="3.3.2、闭源模型"></a>3.3.2、闭源模型</h4><table>
+<thead>
+<tr>
+<th align="left">LLM名称</th>
+<th align="left">参数量</th>
+<th align="left">上下文长度</th>
+<th align="left">发布厂商&#x2F;研究机构</th>
+<th align="left">发布时间</th>
+<th align="left">学习知识库截止日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">文心一言（4.0）</td>
+<td align="left">2600 亿</td>
+<td align="left">未公布</td>
+<td align="left">百度</td>
+<td align="left">2023 年 3 月</td>
+<td align="left">未公布</td>
+</tr>
+<tr>
+<td align="left">星火大模型</td>
+<td align="left">1700 亿</td>
+<td align="left">未公布</td>
+<td align="left">科大讯飞</td>
+<td align="left">2023 年 5 月 6 日</td>
+<td align="left">未公布</td>
+</tr>
+</tbody></table>
+<h2 id="4、LLM可能的应用场景"><a href="#4、LLM可能的应用场景" class="headerlink" title="4、LLM可能的应用场景"></a>4、LLM可能的应用场景</h2><p>​	目前在LLM方面的应用，最多的便是Chat机器人，通过与人类对话的形式，理解人类指令和执行各种复杂任务。这一形式，大大的扩展了人们的想象空间，基于LLM的能力，可以让其充当各种角色来与自己对话，并可作为一个领域专家来回答或解决自己所提出的问题，当然目前这种对话形式以文字较多，后续会逐渐扩展到其他各种输入类型，如视频、语音、图像等等内容，并且在多模态领域也已有各种相对成熟的模型来调用，如<strong>GPT-4与DALL·E 3</strong>的联合，扩展了ChatGPT在图像生成方面的能力，未来的应用范围必定会非常的广泛。</p>
+<h2 id="5、我们如何利用LLM构建应用？"><a href="#5、我们如何利用LLM构建应用？" class="headerlink" title="5、我们如何利用LLM构建应用？"></a>5、我们如何利用LLM构建应用？</h2><h3 id="5-1、思考"><a href="#5-1、思考" class="headerlink" title="5.1、思考"></a>5.1、思考</h3><p>​	在上述介绍了非常多的大语言模型，各有千秋，那么除了使用原生的Chat应用，我们还能够使用它们来做什么？目前大模型能够执行各种任务，代码编写、求解数学问题、写作建议、图像生成、摘要总结、搜索信息等等。那么这些能力，我们是否可以通过这些惊奇的能力来拓展应用的使用场景或者自定义应用的能力，那么我们如何来通过LLM来构建出我们自己的应用？在这个问题上，目前已经有了一个相对稳定的一个开发框架——<a target="_blank" rel="noopener" href="https://www.langchain.com/">LangChain</a>。LangChain为开源工具，</p>
+<p>为了将大模型整条链路能够部署在端侧，即部署为应用，这个工具实现了将整个链路连接在一起，可以更便捷的开发上层应用，在制作自己专属的LLM应用上更为的简单。</p>
+<h3 id="5-2、LangChain"><a href="#5-2、LangChain" class="headerlink" title="5.2、LangChain"></a>5.2、LangChain</h3><p>​	LangChain是一个用于开发由语言模型驱动的应用程序的框架，可以将不同的LLM模型、向量数据库、交互层 Prompt、外部知识、外部代理工具等工具前部整合到一起，进而方便我们可以自由构建专属LLM应用。</p>
+<ul>
+<li><p>相关资源：</p>
+<blockquote>
+<p>Langchain官网：<a target="_blank" rel="noopener" href="https://www.langchain.com/">https://www.langchain.com/</a></p>
+<p>中文官方文档：<a target="_blank" rel="noopener" href="https://www.langchain.asia/">https://www.langchain.asia/</a></p>
+<p>官方仓库：<a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain">https://github.com/langchain-ai/langchain</a></p>
+</blockquote>
+</li>
+</ul>
+<p>​	框架由几个部分组成：</p>
+<ul>
+<li><p>LangChain 库：</p>
+<blockquote>
+<p> Python 和 JavaScript 库。包含无数组件的接口和集成，将这些组件组合成链和代理的基本运行时，以及链和代理的现成实现</p>
+</blockquote>
+</li>
+<li><p>LangChain模板：</p>
+<blockquote>
+<p>一组易于部署的参考架构，适用于各种任务</p>
+</blockquote>
+</li>
+<li><p>LangServe：</p>
+<blockquote>
+<p>用于将LangChain链部署为REST API的库</p>
+</blockquote>
+</li>
+<li><p>LangSmith：</p>
+<blockquote>
+<p> 开发者平台，可调试、测试、评估和监控基于任何LLM框架构建的链，并与LangChain无缝集成</p>
+</blockquote>
+</li>
+</ul>
+<p>基本的结构图如下：</p>
+<p><img src="https://codestar.top/note-image/image-20231115011536625.png" srcset="/img/loading.gif" lazyload alt="image-20231115011536625"></p>
+<p>参考：</p>
+<p>1）<a target="_blank" rel="noopener" href="https://python.langchain.com/docs/get_started/introduction">https://python.langchain.com/docs/get_started/introduction</a></p>
+<p>2）<a target="_blank" rel="noopener" href="https://datawhalechina.github.io/llm-universe/#/C1/4.%20%E4%BB%80%E4%B9%88%E6%98%AF%20LangChain">https://datawhalechina.github.io/llm-universe/#/C1/4.%20%E4%BB%80%E4%B9%88%E6%98%AF%20LangChain</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/AI-ML/" class="category-chain-item">AI&amp;ML</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/AI-ML/LLM/" class="category-chain-item">LLM</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Datawhale/" class="print-no-link">#Datawhale</a>
+      
+        <a href="/tags/LLM/" class="print-no-link">#LLM</a>
+      
+        <a href="/tags/AI-ML/" class="print-no-link">#AI&ML</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LLM笔记1：了解大模型的历史及特点</div>
+      <div>http://www.codestar.top/2023/11/15/AI_ML/LLM笔记1：了解大模型的历史及特点/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mini小新</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月15日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年11月20日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/16/Git/Git%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7-Gitkraken%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%8C%87%E5%8D%97/" title="Git可视化工具 Gitkraken安装过程指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Git可视化工具 Gitkraken安装过程指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/07/Skills/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E6%9C%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="搜索引擎技术及使用技巧">
+                        <span class="hidden-mobile">搜索引擎技术及使用技巧</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comentapi.codestar.top/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/bmoji","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/qq","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"locale":{"placeholder":"留下你的足迹，存下你的建议~","reactionTitle":"点赞"},"copyright":false},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-icon-star-on"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span>Copyright © 2022-2024. All Rights Reserved.</span><br> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
