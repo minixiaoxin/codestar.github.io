@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <link rel="icon" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mini小新">
+  <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
+  
+    <meta name="description" content="1、MySQL安装推荐Mysql5.7版本，安装过程及基础配置参考：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_44281591&#x2F;article&#x2F;details&#x2F;117935147 数据库状态检查：正常运行为active状态 1systemctl status mysqld   查看临时密码： 123grep &amp;#x27;temporary password&amp;#x27; &#x2F;var&#x2F;log&#x2F;m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Confluence配置MySQL数据库驱动及连接">
+<meta property="og:url" content="http://www.codestar.top/2024/04/21/Confluence/Confluence%E9%85%8D%E7%BD%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A9%B1%E5%8A%A8%E5%8F%8A%E8%BF%9E%E6%8E%A5/index.html">
+<meta property="og:site_name" content="mini小新的博客">
+<meta property="og:description" content="1、MySQL安装推荐Mysql5.7版本，安装过程及基础配置参考：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_44281591&#x2F;article&#x2F;details&#x2F;117935147 数据库状态检查：正常运行为active状态 1systemctl status mysqld   查看临时密码： 123grep &amp;#x27;temporary password&amp;#x27; &#x2F;var&#x2F;log&#x2F;m">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/wiki_pic1.png">
+<meta property="article:published_time" content="2024-04-21T09:37:57.000Z">
+<meta property="article:modified_time" content="2024-04-21T10:52:49.154Z">
+<meta property="article:author" content="mini小新">
+<meta property="article:tag" content="linux系统">
+<meta property="article:tag" content="Confluence">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="WIKI System">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/wiki_pic1.png">
+  
+  
+  
+  <title>Confluence配置MySQL数据库驱动及连接 - mini小新的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_1dwux0cbyv6.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.codestar.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"shell"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"a48e14d1d7805c8552eaa9824984945e","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Gxk1Sem8mKPN1DwNwHP3SsBG-MdYXbMMI","app_key":"wfFTsKm5TWsVNYYUHBugqEKu","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a48e14d1d7805c8552eaa9824984945e";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>mini小新</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-icon_books"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-user-fill"></i>
+                <span>个人</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/">
+                    <i class="iconfont icon-info"></i>
+                    <span>关于</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wall-3.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Confluence配置MySQL数据库驱动及连接"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        mini小新
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-21 17:37" pubdate>
+          2024年4月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Confluence配置MySQL数据库驱动及连接</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年4月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1、MySQL安装"><a href="#1、MySQL安装" class="headerlink" title="1、MySQL安装"></a>1、MySQL安装</h2><p>推荐Mysql5.7版本，安装过程及基础配置参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44281591/article/details/117935147">https://blog.csdn.net/qq_44281591/article/details/117935147</a></p>
+<p>数据库状态检查：正常运行为active状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl status mysqld<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211639421.png" srcset="/img/loading.gif" lazyload alt="image-20240415110618597"></p>
+<p>查看临时密码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep &#x27;temporary password&#x27; /var/log/mysqld.log<br><span class="hljs-meta prompt_"># </span><span class="language-bash">返回如下：localhost后所接的是临时密码</span><br>2024-04-14T15:50:51.690115Z 1 [Note] A temporary password is generated for root@localhost: lK%kU!jLM3kP<br></code></pre></td></tr></table></figure>
+
+<p>修改数据库密码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">一路y，中间会替换user及root用户的密码，一共修改四个密码，建议统一</span><br>mysql_secure_installation<br></code></pre></td></tr></table></figure>
+
+<p>用新密码登录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mysql -u root -p<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211704922.png" srcset="/img/loading.gif" lazyload alt="image-20240415114348083"></p>
+<h2 id="2、配置数据库"><a href="#2、配置数据库" class="headerlink" title="2、配置数据库"></a>2、配置数据库</h2><h3 id="2-1、创建confluence数据库"><a href="#2-1、创建confluence数据库" class="headerlink" title="2.1、创建confluence数据库"></a>2.1、创建confluence数据库</h3><p>Confluence创建对应的数据库，并配置UTF8字符集：</p>
+<p><strong>注意：</strong>很多教程会将字符集配置为utf8_bin，但实际confluence是不支持的，按照<a target="_blank" rel="noopener" href="https://doc.devpod.cn/conf/confluence-mysql-utf8mb4-collationutf8mb4_bin-17104923.html">官方的要求</a>，要求字符集为utf8mb4，否则会出现下列问题：</p>
+<p><img src="https://codestar.top/note-image/202404211727939.png" srcset="/img/loading.gif" lazyload alt="image-20240415150404666"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> database confluence <span class="hljs-keyword">default</span> <span class="hljs-type">character</span> <span class="hljs-keyword">set</span> utf8mb4 <span class="hljs-keyword">collate</span> utf8mb4_bin;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211708502.png" srcset="/img/loading.gif" lazyload alt="image-20240415121339102"></p>
+<p>授权confluence用户权限：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"># <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> Linux用户名.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;mysql用户名&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;填入数据库访问密码&#x27;</span>; <br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> confluence.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;confluence&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;填入数据库访问密码&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211708319.png" srcset="/img/loading.gif" lazyload alt="image-20240415121446029"></p>
+<p>刷新权限：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">flush privileges;<br></code></pre></td></tr></table></figure>
+
+<p>检查是否添加成功：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">use mysql<br><span class="hljs-keyword">select</span> host,<span class="hljs-keyword">user</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br></code></pre></td></tr></table></figure>
+
+<p>添加成功能够正常查询到confluence用户：</p>
+<p><img src="https://codestar.top/note-image/202404211708302.png" srcset="/img/loading.gif" lazyload alt="image-20240415121720099"></p>
+<p>完整一键指令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">mysql <span class="hljs-operator">-</span>uroot <span class="hljs-operator">-</span>p <span class="hljs-operator">-</span>e &quot;create database confluence default character set utf8mb4 collate utf8mb4_bin;grant all on confluence.* to &#x27;confluence&#x27;@&#x27;%&#x27; identified by &#x27;填入数据库访问密码&#x27;;flush privileges;&quot;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-2、MySQL隔离等级配置"><a href="#2-2、MySQL隔离等级配置" class="headerlink" title="2.2、MySQL隔离等级配置"></a>2.2、MySQL隔离等级配置</h3><p>这里如果数据库设置不符合要求在后面的confluence安装中可能会提示”Confluence设置MySQL数据库报错：必须使用’READ-COMMITTED’作为默认隔离级别。”修复方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">登录数据路</span><br>mysql -u root -p<br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改MySQL隔离级别</span> <br>SET GLOBAL tx_isolation=&#x27;READ-COMMITTED&#x27;;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211736502.png" srcset="/img/loading.gif" lazyload alt="image-20240415144941424"></p>
+<h3 id="2-3、MySQL配置文件修改"><a href="#2-3、MySQL配置文件修改" class="headerlink" title="2.3、MySQL配置文件修改"></a>2.3、MySQL配置文件修改</h3><p>修改mysql配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /etc/my.cnf<br>vim /etc/my.cnf<br></code></pre></td></tr></table></figure>
+
+
+<p>数据库配置文件修改：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs none">[mysqld]<br>character-set-server=utf8mb4<br>collation-server=utf8mb4_bin<br>default-storage-engine=INNODB<br>max_allowed_packet=256M<br>innodb_log_file_size=2GB<br>transaction-isolation=READ-COMMITTED<br>binlog_format=row<br>log-bin-trust-function-creators=1<br>optimizer_switch=derived_merge=off<br></code></pre></td></tr></table></figure>
+
+<p>如果有下面这一行，删掉：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">// remove this if it exists<br>sql_mode = NO_AUTO_VALUE_ON_ZERO<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211736144.png" srcset="/img/loading.gif" lazyload alt="image-20240415145548063"></p>
+<p>配置完成后重启mysql服务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart mysqld<br></code></pre></td></tr></table></figure>
+
+<p>此步骤参考官方文档：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html">https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doc.devpod.cn/conf/confluence-mysql-17104919.html">https://doc.devpod.cn/conf/confluence-mysql-17104919.html</a></p>
+</li>
+</ul>
+<h2 id="3、confluence配置MySQL驱动"><a href="#3、confluence配置MySQL驱动" class="headerlink" title="3、confluence配置MySQL驱动"></a>3、confluence配置MySQL驱动</h2><h3 id="3-1、下载JDBC驱动"><a href="#3-1、下载JDBC驱动" class="headerlink" title="3.1、下载JDBC驱动"></a>3.1、下载JDBC驱动</h3><p>maven开源仓库下载对应JDBC驱动，这里我选择5.19版本：<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/">https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/</a></p>
+<p><img src="https://codestar.top/note-image/202404211712276.png" srcset="/img/loading.gif" lazyload alt="image-20240415092737045"></p>
+<p>使用wget指令在Linux设备上下载至本地：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-2、confluence配置MySQL驱动"><a href="#3-2、confluence配置MySQL驱动" class="headerlink" title="3.2、confluence配置MySQL驱动"></a>3.2、confluence配置MySQL驱动</h3><p>在未装JDBC前，confluence数据库配置页面如下：无法正常驱动MySQL</p>
+<p><img src="https://codestar.top/note-image/202404211713117.png" srcset="/img/loading.gif" lazyload alt="image-20240415092430026"></p>
+<p>移动JDBC jar文件至confluence配置路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mv mysql-connector-java-5.1.49.jar /usr/local/software/confluence/confluence/WEB-INF/lib<br><span class="hljs-meta prompt_"># </span><span class="language-bash">检查是否移动成功</span><br>ll /usr/local/software/confluence/confluence/WEB-INF/lib | grep mysql-<br></code></pre></td></tr></table></figure>
+
+<h2 id="4、confluence配置MySQL"><a href="#4、confluence配置MySQL" class="headerlink" title="4、confluence配置MySQL"></a>4、confluence配置MySQL</h2><p>在完成前几节的配置之后，重启 Confluence 并继续安装过程：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">关闭confluence</span><br>/usr/local/software/confluence/bin/stop-confluence.sh<br><span class="hljs-meta prompt_"># </span><span class="language-bash">开启confluence</span><br>/usr/local/software/confluence/bin/start-confluence.sh<br></code></pre></td></tr></table></figure>
+
+<p>Linux浏览器打开confluence页面：<a target="_blank" rel="noopener" href="https://localhost:5050/">https://localhost:5050</a></p>
+<p>之后，配置完JDBC进入数据库配置页面会显示如下：</p>
+<p><img src="https://codestar.top/note-image/202404211714798.png" srcset="/img/loading.gif" lazyload alt="image-20240415140932621"></p>
+<p>通过连接字符串连接：</p>
+<p><strong>注意：</strong>上面配置字符集为utf8mb4，此处配置要求为utf8</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">jdbc:mysql://localhost:3306/confluence?sessionVariables=tx_isolation=&#x27;READ-COMMITTED&#x27;&amp;useUnicode=true&amp;characterEncoding=utf8<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211735019.png" srcset="/img/loading.gif" lazyload alt="image-20240415141737589"></p>
+<p>在经过上述的配置重启数据后，刷新页面重新连接，测试通过后进入下一步安装：</p>
+<p><img src="https://codestar.top/note-image/202404211735661.png" srcset="/img/loading.gif" lazyload alt="image-20240415150109994"></p>
+<p>配置中：</p>
+<p><img src="https://codestar.top/note-image/202404211734650.png" srcset="/img/loading.gif" lazyload alt="image-20240415150207957"></p>
+<p>配置完成后会自动进入confluence初始化配置界面，不在此处说明。</p>
+<h2 id="5、拓展：utf8字符集错误解决步骤细节"><a href="#5、拓展：utf8字符集错误解决步骤细节" class="headerlink" title="5、拓展：utf8字符集错误解决步骤细节"></a>5、拓展：utf8字符集错误解决步骤细节</h2><p>解决方法：</p>
+<ul>
+<li>1、停掉confluence服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/software/confluence/bin/stop-confluence.sh<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>2、数据库服务器参数修改：</li>
+</ul>
+<p>由于前面已经修改<code>/etc/my.cnf</code>配置文件，其中确保有下面两处配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">character-set-server=utf8mb4<br>collation-server=utf8mb4_bin<br></code></pre></td></tr></table></figure>
+
+<p>修改完成后重启mysql服务。</p>
+<ul>
+<li>3、修改数据库、表、字段的字符集和collation</li>
+</ul>
+<p>登录mysql：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mysql -u root -p<br></code></pre></td></tr></table></figure>
+
+<p>修改confluence数据库字符集：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SET</span> FOREIGN_KEY_CHECKS<span class="hljs-operator">=</span><span class="hljs-number">0</span>;<br><br><span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-keyword">To</span> Change database <span class="hljs-keyword">collation</span>：数据库修改<br><span class="hljs-keyword">ALTER</span> DATABASE confluence <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_bin;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211734720.png" srcset="/img/loading.gif" lazyload alt="image-20240415153143342"></p>
+<p>最后执行下面：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">SET FOREIGN_KEY_CHECKS=1;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211734214.png" srcset="/img/loading.gif" lazyload alt="image-20240415153444371"></p>
+<ul>
+<li>4、启动confluence</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/software/confluence/bin/start-confluence.sh<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404211733692.png" srcset="/img/loading.gif" lazyload alt="image-20240415153557009"></p>
+<p><strong>Tips</strong> 一般情况下，建议按照<strong>2.1、创建confluence数据库</strong>小节在新建数据库时指定正确的字符编码，避免后续数据库中部分表或文本出现字符错误，出现隐藏的问题。</p>
+<p>全文参考：</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1071437">https://developer.aliyun.com/article/1071437</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wjoyxt/p/10689883.html">https://www.cnblogs.com/wjoyxt/p/10689883.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/439166">https://developer.aliyun.com/article/439166</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LOVEYU/p/13684158.html">https://www.cnblogs.com/LOVEYU/p/13684158.html</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Confluence/" class="category-chain-item">Confluence</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux%E7%B3%BB%E7%BB%9F/" class="print-no-link">#linux系统</a>
+      
+        <a href="/tags/Confluence/" class="print-no-link">#Confluence</a>
+      
+        <a href="/tags/MySQL/" class="print-no-link">#MySQL</a>
+      
+        <a href="/tags/WIKI-System/" class="print-no-link">#WIKI System</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Confluence配置MySQL数据库驱动及连接</div>
+      <div>http://www.codestar.top/2024/04/21/Confluence/Confluence配置MySQL数据库驱动及连接/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mini小新</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年4月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/21/Linux/Centos-7-9-yum%E5%AE%89%E8%A3%85java8/" title="Centos 7.9 yum安装java8">
+                        <span class="hidden-mobile">Centos 7.9 yum安装java8</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comentapi.codestar.top/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/bmoji","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/qq","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"locale":{"placeholder":"留下你的足迹，存下你的建议~","reactionTitle":"点赞"},"copyright":false},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-icon-star-on"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span>Copyright © 2022-2024. All Rights Reserved.</span><br> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

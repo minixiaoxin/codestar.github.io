@@ -18,26 +18,27 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、前言当我们购买了顶级域名时，期望其不只是在www前缀使用，可以扩展到多个不同的子域名。子域名可以用来关联到不同的站点，同时根据子域名的名称，也能够明显的区分不同站点的类型和作用，那么配置子域名的方法可以参考下面的过程来执行。按照域名的结构来说[www].[domain].[com]，[www]为一级域名即子域名我们下面配置的修改点就在这，[domain]为二级域名也称为根域名，[com]为顶级">
+    <meta name="description" content="1、PicGo插件下载进入cmd面板，手动cd到PicGo配置目录，一般为C:\Users\XXX\AppData\Roaming\picgo，安装对应插件(需要提前安装node.js，本文不做赘述)： 1npm install picgo-plugin-tinypng --save   安装完成之后还不会有效果，需要重启一下PicGo，重启之后插件就正常安装了，效果如下：  其他支持的插件如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO：子域名的配置及如何绑定到个人网站">
-<meta property="og:url" content="http://www.codestar.top/2024/01/21/HexoblogGuide/HEXO%EF%BC%9A%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E5%88%B0%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/index.html">
+<meta property="og:title" content="HEXO：PicGo+Tynipng实现图片上传即压缩">
+<meta property="og:url" content="http://www.codestar.top/2024/04/21/BLOG/HEXO%EF%BC%9APicGo-Tynipng%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%8D%B3%E5%8E%8B%E7%BC%A9/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、前言当我们购买了顶级域名时，期望其不只是在www前缀使用，可以扩展到多个不同的子域名。子域名可以用来关联到不同的站点，同时根据子域名的名称，也能够明显的区分不同站点的类型和作用，那么配置子域名的方法可以参考下面的过程来执行。按照域名的结构来说[www].[domain].[com]，[www]为一级域名即子域名我们下面配置的修改点就在这，[domain]为二级域名也称为根域名，[com]为顶级">
+<meta property="og:description" content="1、PicGo插件下载进入cmd面板，手动cd到PicGo配置目录，一般为C:\Users\XXX\AppData\Roaming\picgo，安装对应插件(需要提前安装node.js，本文不做赘述)： 1npm install picgo-plugin-tinypng --save   安装完成之后还不会有效果，需要重启一下PicGo，重启之后插件就正常安装了，效果如下：  其他支持的插件如下：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/hexoblogGuide_pic1.png">
-<meta property="article:published_time" content="2024-01-21T06:20:47.000Z">
-<meta property="article:modified_time" content="2024-01-21T06:34:56.401Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/blog_pic2.png">
+<meta property="article:published_time" content="2024-04-21T07:59:30.000Z">
+<meta property="article:modified_time" content="2024-04-21T10:45:40.692Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="建站指南">
 <meta property="article:tag" content="HEXO">
-<meta property="article:tag" content="子域名">
+<meta property="article:tag" content="PicGo技巧">
+<meta property="article:tag" content="WEB图片压缩">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/hexoblogGuide_pic1.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/blog_pic2.png">
   
   
   
-  <title>HEXO：子域名的配置及如何绑定到个人网站 - mini小新的博客</title>
+  <title>HEXO：PicGo+Tynipng实现图片上传即压缩 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -261,7 +262,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="HEXO：子域名的配置及如何绑定到个人网站"></span>
+            <span id="subtitle" data-typed-text="HEXO：PicGo+Tynipng实现图片上传即压缩"></span>
           
         </div>
 
@@ -277,8 +278,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-21 14:20" pubdate>
-          2024年1月21日 下午
+        <time datetime="2024-04-21 15:59" pubdate>
+          2024年4月21日 下午
         </time>
       </span>
     
@@ -289,7 +290,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          861 字
+          812 字
         
       </span>
     
@@ -345,12 +346,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">HEXO：子域名的配置及如何绑定到个人网站</h1>
+            <h1 id="seo-header">HEXO：PicGo+Tynipng实现图片上传即压缩</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年1月21日 下午
+                    本文最后更新于：2024年4月21日 晚上
                   
                 
               </p>
@@ -358,50 +359,52 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>当我们购买了顶级域名时，期望其不只是在www前缀使用，可以扩展到多个不同的子域名。子域名可以用来关联到不同的站点，同时根据子域名的名称，也能够明显的区分不同站点的类型和作用，那么配置子域名的方法可以参考下面的过程来执行。按照域名的结构来说[www].[domain].[com]，[www]为一级域名即子域名我们下面配置的修改点就在这，[domain]为二级域名也称为根域名，[com]为顶级域名。结构从左往右<strong>路由范围逐级递增</strong>，域名”&#x2F;“后接对应站点的资源。</p>
-<h2 id="2、配置子域名"><a href="#2、配置子域名" class="headerlink" title="2、配置子域名"></a>2、配置子域名</h2><h3 id="2-1、域名由namesoli托管"><a href="#2-1、域名由namesoli托管" class="headerlink" title="2.1、域名由namesoli托管"></a>2.1、域名由namesoli托管</h3><p>因为我的域名服务商为namesoli，在这以此为例进行说明：</p>
+                <h2 id="1、PicGo插件下载"><a href="#1、PicGo插件下载" class="headerlink" title="1、PicGo插件下载"></a>1、PicGo插件下载</h2><p>进入cmd面板，手动cd到PicGo配置目录，一般为<code>C:\Users\XXX\AppData\Roaming\picgo</code>，安装对应插件(需要提前安装node.js，本文不做赘述)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install picgo-plugin-tinypng --save<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202404210038663.png" srcset="/img/loading.gif" lazyload alt="image-20240421003808482"></p>
+<p>安装完成之后还不会有效果，需要重启一下PicGo，重启之后插件就正常安装了，效果如下：</p>
+<p><img src="https://codestar.top/note-image/202404210037289.png" srcset="/img/loading.gif" lazyload alt="image-20240421003701184"></p>
+<p>其他支持的插件如下：<a target="_blank" rel="noopener" href="https://github.com/PicGo/Awesome-PicGo">Picgo插件清单</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lunhui601/article/details/107722580">https://blog.csdn.net/lunhui601/article/details/107722580</a></p>
+<h2 id="2、Tinypng-API配置"><a href="#2、Tinypng-API配置" class="headerlink" title="2、Tinypng API配置"></a>2、Tinypng API配置</h2><h3 id="2-1、Tinypng-API申请"><a href="#2-1、Tinypng-API申请" class="headerlink" title="2.1、Tinypng API申请"></a>2.1、Tinypng API申请</h3><p>进入到tinypng官网：</p>
 <ul>
-<li>进入<a target="_blank" rel="noopener" href="https://www.namesilo.com/account_domains.php">个人域名管理(Domain manage)</a>，点击蓝球球：</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202401211042149.png" srcset="/img/loading.gif" lazyload alt="image-20240121104203077"></p>
-<ul>
-<li>进入”Manage DNS”，添加路由，类型为CNAME，添加或删除一级子域名：如添加为[info.domain.com]、[blog.domain.com]，后面配置的”TARGET HOSTNAME”为目标源地址</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202401211354124.png" srcset="/img/loading.gif" lazyload alt="image-20240121135411052"></p>
-<h3 id="2-2、域名由CloudFlare托管"><a href="#2-2、域名由CloudFlare托管" class="headerlink" title="2.2、域名由CloudFlare托管"></a>2.2、域名由CloudFlare托管</h3><p>在使用CloudFlare对域名进行代理托管时，按照类似的步骤操作如下：</p>
-<ul>
-<li>进入域名管理：</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202401211025649.png" srcset="/img/loading.gif" lazyload alt="image-20240121102539592"></p>
-<ul>
-<li>配置路由规则（子域名），类型配置为CNAME，Content为源目标地址，同namesoli中的”TARGET HOSTNAME”：每添加一条，即可增加一个子域名，最大数量上限为50条。</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202401210927072.png" srcset="/img/loading.gif" lazyload alt="image-20240121092700008"></p>
-<p><strong>注：</strong>这里的配置的”Name”不可重复，否则会添加失败。</p>
-<p>其他域名服务提供上，均可按上述类似操作进行配置，均为配置DNS路由即可。</p>
-<h2 id="3、子域名绑定"><a href="#3、子域名绑定" class="headerlink" title="3、子域名绑定"></a>3、子域名绑定</h2><p>这里以网站部署到github上为例：</p>
-<ul>
-<li>进入github “Setting”–“Pages”页面，在“Custome domain”处填写子域名再”Save”进行解析：</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202401211029950.png" srcset="/img/loading.gif" lazyload alt="image-20240121102909890"></p>
-<p>待github部署完成之后就能够正常通过子域名访问网站了：</p>
-<p><img src="https://codestar.top/note-image/202401211028326.png" srcset="/img/loading.gif" lazyload alt="image-20240121102806285"></p>
-<h2 id="4、配置子域名转发重定向"><a href="#4、配置子域名转发重定向" class="headerlink" title="4、配置子域名转发重定向"></a>4、配置子域名转发重定向</h2><ul>
-<li><p>进入域名管理页面，点击单个顶级域名：</p>
+<li><p>国外用这个地址：</p>
+<p><a target="_blank" rel="noopener" href="https://tinypng.com/developers">https://tinypng.com/developers</a></p>
 </li>
-<li><p>进入“Sub-Domain Forwarding”，管理子域名重定向：</p>
+<li><p>国内用这个地址：</p>
+<p><a target="_blank" rel="noopener" href="https://tinify.cn/developers">https://tinify.cn/developers</a></p>
 </li>
 </ul>
-<p><img src="https://codestar.top/note-image/202401210005890.png" srcset="/img/loading.gif" lazyload alt="image-20240121000556854"></p>
+<p>两个网站为同一家。</p>
+<p>打开API主页，填写邮箱及昵称进行注册：会收到一封注册邮件，直接点击跳转完成注册。</p>
+<p><img src="https://codestar.top/note-image/202404211541523.png" srcset="/img/loading.gif" lazyload alt="image-20240421154121105"></p>
+<p>会跳转进入到这个页面：此时API还未开放</p>
+<p><img src="https://codestar.top/note-image/202404211444128.png" srcset="/img/loading.gif" lazyload alt="image-20240421144421521"></p>
+<p>重新进入到<a target="_blank" rel="noopener" href="https://tinypng.com/developers%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%86%8D%E9%87%8D%E6%96%B0%E7%99%BB%E5%BD%951%E6%AC%A1%E4%B9%8B%E5%90%8E%EF%BC%8C%E4%BC%9A%E7%94%9F%E6%88%90API">https://tinypng.com/developers页面，再重新登录1次之后，会生成API</a> KEY:</p>
+<p><img src="https://codestar.top/note-image/202404211444509.png" srcset="/img/loading.gif" lazyload alt="image-20240421144404747"></p>
+<p>进入API页面：</p>
+<p><img src="https://codestar.top/note-image/202404211443899.png" srcset="/img/loading.gif" lazyload alt="image-20240421144354146"></p>
+<p>API KEY的初始状态是disable，还无法使用，需要手动启用（enable）：</p>
+<p><img src="https://codestar.top/note-image/202404211443049.png" srcset="/img/loading.gif" lazyload alt="image-20240421144324331"></p>
+<h3 id="2-2、PicGo配置API"><a href="#2-2、PicGo配置API" class="headerlink" title="2.2、PicGo配置API"></a>2.2、PicGo配置API</h3><p>在获取到了Tinypng的API Key之后，复制key内容，进入到PicGo Tinypng插件中：</p>
+<p><img src="https://codestar.top/note-image/202404211443723.png" srcset="/img/loading.gif" lazyload alt="image-20240421144258145"></p>
+<p>进入到插件配置页，填入自己的key内容：</p>
+<p><img src="https://codestar.top/note-image/202404210052284.png" srcset="/img/loading.gif" lazyload alt="image-20240421005255208"></p>
+<p>配置完之后，需手动启用传输压缩：下面的状态是已经正常开启了。</p>
+<p><img src="https://codestar.top/note-image/202404211441886.png" srcset="/img/loading.gif" lazyload alt="image-20240421144136179"></p>
+<p>在完成这些操作之后，每上传1次图片都会进行压缩操作。Tinypng API每月有免费的500张压缩额度，对于写博文来说够用了。</p>
+<p><img src="https://codestar.top/note-image/202404211432403.png" srcset="/img/loading.gif" lazyload alt="image-20240421143248580"></p>
+<h3 id="2-3、测试压缩效果"><a href="#2-3、测试压缩效果" class="headerlink" title="2.3、测试压缩效果"></a>2.3、测试压缩效果</h3><p>同一张图片上传：</p>
 <ul>
-<li>添加重定向子域名：</li>
+<li>未压缩图片大小：</li>
 </ul>
-<p><img src="https://codestar.top/note-image/202401210008867.png" srcset="/img/loading.gif" lazyload alt="image-20240121000813813"></p>
+<p><img src="https://codestar.top/note-image/202404210059982.png" srcset="/img/loading.gif" lazyload alt="image-20240421005922917"></p>
 <ul>
-<li>配置子域名前缀：</li>
+<li>压缩后图片大小：</li>
 </ul>
-<p><img src="https://codestar.top/note-image/202401210009623.png" srcset="/img/loading.gif" lazyload alt="image-20240121000927567"></p>
-<p>配置完成后，即可对指定的域名进行重定向。</p>
+<p><img src="https://codestar.top/note-image/202404210105646.png" srcset="/img/loading.gif" lazyload alt="image-20240421010544452"></p>
+<p><strong>注意：</strong>图片越大，压缩的效果越大。由于增加了压缩的过程，上传图片的时间会在原来的基础上增加2-3s。</p>
 
                 
               </div>
@@ -446,7 +449,9 @@
       
         <a href="/tags/HEXO/" class="print-no-link">#HEXO</a>
       
-        <a href="/tags/%E5%AD%90%E5%9F%9F%E5%90%8D/" class="print-no-link">#子域名</a>
+        <a href="/tags/PicGo%E6%8A%80%E5%B7%A7/" class="print-no-link">#PicGo技巧</a>
+      
+        <a href="/tags/WEB%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" class="print-no-link">#WEB图片压缩</a>
       
     </div>
   
@@ -458,8 +463,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>HEXO：子域名的配置及如何绑定到个人网站</div>
-      <div>http://www.codestar.top/2024/01/21/HexoblogGuide/HEXO：子域名的配置及如何绑定到个人网站/</div>
+      <div>HEXO：PicGo+Tynipng实现图片上传即压缩</div>
+      <div>http://www.codestar.top/2024/04/21/BLOG/HEXO：PicGo-Tynipng实现图片上传即压缩/</div>
     </div>
     <div class="license-meta">
       
@@ -471,13 +476,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月21日</div>
+          <div>2024年4月21日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年1月21日</div>
+          <div>2024年4月21日</div>
         </div>
       
       
@@ -520,9 +525,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/23/Linux/Linux%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E8%BF%9B%E7%A8%8B%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B/" title="Linux：如何查询进程下的线程">
+                      <a href="/2024/04/21/Linux/Centos-7-9-%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AEjava-17-sdk%E7%8E%AF%E5%A2%83/" title="Centos 7.9 搭建及配置java 17 sdk环境">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux：如何查询进程下的线程</span>
+                        <span class="hidden-mobile">Centos 7.9 搭建及配置java 17 sdk环境</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -530,8 +535,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/01/16/Python/Python%E5%AE%9E%E7%8E%B0shell%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C/" title="Python实现shell指令执行">
-                        <span class="hidden-mobile">Python实现shell指令执行</span>
+                      <a href="/2024/03/03/Linux/Linux%EF%BC%9A%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95/" title="Linux：文件权限详解及修改方法">
+                        <span class="hidden-mobile">Linux：文件权限详解及修改方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
