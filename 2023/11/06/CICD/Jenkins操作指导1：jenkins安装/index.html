@@ -18,26 +18,26 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、软件下载Gitkraken最后一个免费版本为：6.5.1。后续的新版本本地私有库打开都为收费功能。 可用的下载链接：    平台 文件名 下载链接    win-x86 GitKrakenSetup-6.5.1-x86.exe 下载   win-x64 GitKrakenSetup-6.5.1-x64.exe 下载   linux-rpm GitKraken-v6.5.1.rpm 下载   l">
+    <meta name="description" content="1、Java11配置安装Tips：新版Jenkins要求系统安装的Java版本至少为Java11，在安装Jenkins之前，先配置一下本地的java环境，适配新版Jenkins。 下载java11安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 选择下面Windows类型，进入下载页面：  在执行前，需要配置一下java11的环境变">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git可视化工具 Gitkraken安装过程指南">
-<meta property="og:url" content="http://www.codestar.top/2023/11/16/Git/Git%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7-Gitkraken%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="Jenkins操作指导1：jenkins安装">
+<meta property="og:url" content="http://www.codestar.top/2023/11/06/CICD/Jenkins%E6%93%8D%E4%BD%9C%E6%8C%87%E5%AF%BC1%EF%BC%9Ajenkins%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、软件下载Gitkraken最后一个免费版本为：6.5.1。后续的新版本本地私有库打开都为收费功能。 可用的下载链接：    平台 文件名 下载链接    win-x86 GitKrakenSetup-6.5.1-x86.exe 下载   win-x64 GitKrakenSetup-6.5.1-x64.exe 下载   linux-rpm GitKraken-v6.5.1.rpm 下载   l">
+<meta property="og:description" content="1、Java11配置安装Tips：新版Jenkins要求系统安装的Java版本至少为Java11，在安装Jenkins之前，先配置一下本地的java环境，适配新版Jenkins。 下载java11安装包：https:&#x2F;&#x2F;www.techspot.com&#x2F;downloads&#x2F;5553-java-jdk.html 选择下面Windows类型，进入下载页面：  在执行前，需要配置一下java11的环境变">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/Git_pic1.png">
-<meta property="article:published_time" content="2023-11-15T16:41:17.000Z">
-<meta property="article:modified_time" content="2023-11-15T16:59:40.818Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/Jenkins_pic1.png">
+<meta property="article:published_time" content="2023-11-05T16:06:42.000Z">
+<meta property="article:modified_time" content="2024-04-21T15:14:11.366Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="Git">
-<meta property="article:tag" content="Gitkraken">
-<meta property="article:tag" content="Git可视化工具">
+<meta property="article:tag" content="Jenkins">
+<meta property="article:tag" content="持续集成">
+<meta property="article:tag" content="CICD工具">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Git_pic1.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Jenkins_pic1.png">
   
   
   
-  <title>Git可视化工具 Gitkraken安装过程指南 - mini小新的博客</title>
+  <title>Jenkins操作指导1：jenkins安装 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -261,7 +261,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Git可视化工具 Gitkraken安装过程指南"></span>
+            <span id="subtitle" data-typed-text="Jenkins操作指导1：jenkins安装"></span>
           
         </div>
 
@@ -277,8 +277,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-16 00:41" pubdate>
-          2023年11月16日 凌晨
+        <time datetime="2023-11-06 00:06" pubdate>
+          2023年11月6日 凌晨
         </time>
       </span>
     
@@ -289,7 +289,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          948 字
+          1.2k 字
         
       </span>
     
@@ -300,7 +300,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -345,12 +345,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Git可视化工具 Gitkraken安装过程指南</h1>
+            <h1 id="seo-header">Jenkins操作指导1：jenkins安装</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月16日 凌晨
+                    本文最后更新于：2024年4月21日 晚上
                   
                 
               </p>
@@ -358,73 +358,62 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、软件下载"><a href="#1、软件下载" class="headerlink" title="1、软件下载"></a>1、软件下载</h2><p>Gitkraken最后一个免费版本为：6.5.1。后续的新版本本地私有库打开都为<strong>收费功能</strong>。</p>
-<p>可用的下载链接：</p>
-<table>
-<thead>
-<tr>
-<th>平台</th>
-<th>文件名</th>
-<th>下载链接</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>win-x86</td>
-<td>GitKrakenSetup-6.5.1-x86.exe</td>
-<td><a target="_blank" rel="noopener" href="https://ihawo.liner.fun/usr/uploads/2020/09/700118875.exe">下载</a></td>
-</tr>
-<tr>
-<td>win-x64</td>
-<td>GitKrakenSetup-6.5.1-x64.exe</td>
-<td><a target="_blank" rel="noopener" href="https://ihawo.liner.fun/usr/uploads/2020/09/2110903104.exe">下载</a></td>
-</tr>
-<tr>
-<td>linux-rpm</td>
-<td>GitKraken-v6.5.1.rpm</td>
-<td><a target="_blank" rel="noopener" href="https://ihawo.liner.fun/usr/uploads/2020/09/3454936649.rpm">下载</a></td>
-</tr>
-<tr>
-<td>linux-deb</td>
-<td>GitKraken-v6.5.1.deb</td>
-<td><a target="_blank" rel="noopener" href="https://ihawo.liner.fun/usr/uploads/2020/09/3894812982.deb">下载</a></td>
-</tr>
-<tr>
-<td>linux-tar.gz</td>
-<td>GitKraken-v6.5.1.tar.gz</td>
-<td><a target="_blank" rel="noopener" href="https://ihawo.liner.fun/usr/uploads/2020/09/12847260.gz">下载</a></td>
-</tr>
-<tr>
-<td>mac</td>
-<td>GitKraken-v6.5.1.zip</td>
-<td><a target="_blank" rel="noopener" href="https://ihawo.liner.fun/usr/uploads/2020/09/2065013024.zip">下载</a></td>
-</tr>
-</tbody></table>
-<p>下载对应版本后，直接双击文件安装即可。</p>
-<p>想下载新版本的可以去官网下载，最新版本为9.0.1</p>
-<p><a target="_blank" rel="noopener" href="https://www.gitkraken.com/download">https://www.gitkraken.com/download</a></p>
-<p>订阅费用$4.95&#x2F;用户&#x2F;月。</p>
-<h2 id="2、屏蔽自动更新"><a href="#2、屏蔽自动更新" class="headerlink" title="2、屏蔽自动更新"></a>2、屏蔽自动更新</h2><h3 id="2-1、host文件屏蔽更新"><a href="#2-1、host文件屏蔽更新" class="headerlink" title="2.1、host文件屏蔽更新"></a>2.1、host文件屏蔽更新</h3><p>修改hosts文件，当连接到以下域名时首先会从hosts文件中索引，将其设备本机地址进行屏蔽：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Windows\System32\drivers\etc\hosts<br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加以下内容</span><br>0.0.0.0 release.gitkraken.com<br></code></pre></td></tr></table></figure>
+                <h2 id="1、Java11配置安装"><a href="#1、Java11配置安装" class="headerlink" title="1、Java11配置安装"></a>1、Java11配置安装</h2><p><strong>Tips：</strong>新版Jenkins要求系统安装的Java版本至少为Java11，在安装Jenkins之前，先配置一下本地的java环境，适配新版Jenkins。</p>
+<p>下载java11安装包：<a target="_blank" rel="noopener" href="https://www.techspot.com/downloads/5553-java-jdk.html">https://www.techspot.com/downloads/5553-java-jdk.html</a></p>
+<p>选择下面Windows类型，进入下载页面：</p>
+<p><img src="https://codestar.top/note-image/image-20230815095841852.png" srcset="/img/loading.gif" lazyload alt="image-20230815095841852"></p>
+<p>在执行前，需要配置一下java11的环境变量：<kbd>win</kbd>+<kbd>r</kbd>打开执行面板，输入<code>sysdm.cpl</code>进入系统属性面板，切换至“高级”页签，点击环境变量：</p>
+<p><img src="https://codestar.top/note-image/image-20230815101418996.png" srcset="/img/loading.gif" lazyload alt="image-20230815101418996"></p>
+<p>要配置的环境变量有3个，在系统变量中配置，分别是下面这几项：</p>
+<p>1、JAVA_HOME：把java安装根路径填入</p>
+<p><img src="https://codestar.top/note-image/image-20230815101230726.png" srcset="/img/loading.gif" lazyload alt="image-20230815101230726"></p>
+<p>2、CLASS_PATH:输入<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar; </code></p>
+<p><img src="https://codestar.top/note-image/image-20230815101629462.png" srcset="/img/loading.gif" lazyload alt="image-20230815101629462"></p>
+<p>3、path：添加可执行文件路径，填入<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code></p>
+<p><img src="https://codestar.top/note-image/image-20230815101905409.png" srcset="/img/loading.gif" lazyload alt="image-20230815101905409"></p>
+<p>修改完了，点击确认即可。之前打开的运行面板需要关闭重新打开。</p>
+<p>运行面板输入<code>java -version</code>，出现下面执行结果，说明配置正常。</p>
+<p><img src="https://codestar.top/note-image/image-20230815102117537.png" srcset="/img/loading.gif" lazyload alt="image-20230815102117537"></p>
+<h2 id="2、Jenkins下载"><a href="#2、Jenkins下载" class="headerlink" title="2、Jenkins下载"></a>2、Jenkins下载</h2><p>在配置完成java环境之后，从官网下载Windows安装包，官网：<a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/download/">https://www.jenkins.io/zh/download/</a></p>
+<p>选择下面的类型：</p>
+<p><img src="https://codestar.top/note-image/image-20230815094803461.png" srcset="/img/loading.gif" lazyload alt="image-20230815094803461"></p>
+<p>下载完成之后，双击应用程序，跟随指导安装即可：</p>
+<p>端口默认8080</p>
+<p><img src="https://codestar.top/note-image/image-20230815095201603.png" srcset="/img/loading.gif" lazyload alt="image-20230815095201603"></p>
+<p>配置java，最新版本jenkins只支持java11或java17：</p>
+<p><img src="https://codestar.top/note-image/image-20230815095336909.png" srcset="/img/loading.gif" lazyload alt="image-20230815095336909"></p>
+<p>在参考第一节配置完Java11后，进入下一步：</p>
+<p><img src="https://codestar.top/note-image/image-20230815100153469.png" srcset="/img/loading.gif" lazyload alt="image-20230815100153469"></p>
+<p><img src="https://codestar.top/note-image/image-20230815100219161.png" srcset="/img/loading.gif" lazyload alt="image-20230815100219161"></p>
+<p>一路到底，出现下面页面则安装完成：</p>
+<p><img src="https://codestar.top/note-image/image-20230815100513334.png" srcset="/img/loading.gif" lazyload alt="image-20230815100513334"></p>
+<p>安装完成之后，<strong>PC不会展示可执行图标</strong>，jenkins通过指令来打开。</p>
+<h2 id="3、启动jenkins服务"><a href="#3、启动jenkins服务" class="headerlink" title="3、启动jenkins服务"></a>3、启动jenkins服务</h2><p>要启动jenkins需要进入到其安装路径下，执行相应指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -jar jenkins.war --httpPort=8080<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/image-20230606173130627.png" srcset="/img/loading.gif" lazyload alt="image-20230606173130627"></p>
-<h3 id="2-1、删除更新程序"><a href="#2-1、删除更新程序" class="headerlink" title="2.1、删除更新程序"></a>2.1、删除更新程序</h3><p>程序所在路径：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\&lt;你的用户名&gt;\AppData\Local\gitkraken<br></code></pre></td></tr></table></figure>
+<p>启动完成之后，在浏览器打开控制页面地址：<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a></p>
+<p><img src="https://codestar.top/note-image/image-20230815102836219.png" srcset="/img/loading.gif" lazyload alt="image-20230815102836219"></p>
+<p>首次安装启动，会出现管理员密码校验：</p>
+<p>从下面路径查看密码填到下面的页面，解锁权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword<br></code></pre></td></tr></table></figure>
 
-<p>删除Update.exe程序</p>
-<h2 id="3、启动应用"><a href="#3、启动应用" class="headerlink" title="3、启动应用"></a>3、启动应用</h2><p>正常启动会出现这个页面：</p>
-<p><img src="https://codestar.top/note-image/image-20230113173027315.png" srcset="/img/loading.gif" lazyload alt="image-20230113173027315"></p>
-<p>支持两种账号登陆：GitHub账号、Gitkraken账户：</p>
-<p><img src="https://codestar.top/note-image/image-20230113173121550.png" srcset="/img/loading.gif" lazyload alt="image-20230113173121550"></p>
-<p>首次打开无法绕过上面的弹窗，关闭软件，重新打开右上角会出现<strong>X</strong>关闭按钮：</p>
-<p><img src="https://codestar.top/note-image/image-20230803180308957.png" srcset="/img/loading.gif" lazyload alt="image-20230803180308957"></p>
-<p>关闭弹窗之后，后面软件就可以正常的使用了。</p>
-<p>页面右下角有一个激活日期，不用管它，清零后也不影响使用：</p>
-<p><img src="https://codestar.top/note-image/image-20230803180436879.png" srcset="/img/loading.gif" lazyload alt="image-20230803180436879"></p>
-<p>注：由于在<a href="###2.1host%E6%96%87%E4%BB%B6%E5%B1%8F%E8%94%BD%E6%9B%B4%E6%96%B0">2.1host文件屏蔽更新</a>节中屏蔽了对应的域名，不建议登录账户，直接免登录使用即可，需要拉库直接clone即可。</p>
-<p>参考文章：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43335226/article/details/107091568">https://blog.csdn.net/weixin_43335226/article/details/107091568</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98960725">https://zhuanlan.zhihu.com/p/98960725</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/tardis/zm/art/98960725?source_id=1005">https://www.zhihu.com/tardis/zm/art/98960725?source_id=1005</a></p>
+<p><img src="https://codestar.top/note-image/image-20230815102907208.png" srcset="/img/loading.gif" lazyload alt="image-20230815102907208"></p>
+<p>进入之后，会出现插件引导页面，我这里选择“安装推荐的插件”：</p>
+<p><img src="https://codestar.top/note-image/image-20230815103121109.png" srcset="/img/loading.gif" lazyload alt="image-20230815103121109"></p>
+<p>之后进入插件下载页面，等待插件安装完成即可开始使用了：</p>
+<p><img src="https://codestar.top/note-image/image-20230815103212930.png" srcset="/img/loading.gif" lazyload alt="image-20230815103212930"></p>
+<p>创建账户：下面的信息填完，均为<strong>必填</strong></p>
+<p><img src="https://codestar.top/note-image/image-20230815103641757.png" srcset="/img/loading.gif" lazyload alt="image-20230815103641757"></p>
+<p>设置URL，这里我保持了默认：</p>
+<p><img src="https://codestar.top/note-image/image-20230815103748752.png" srcset="/img/loading.gif" lazyload alt="image-20230815103748752"></p>
+<p>配置完毕：</p>
+<p><img src="https://codestar.top/note-image/image-20230815103813581.png" srcset="/img/loading.gif" lazyload alt="image-20230815103813581"></p>
+<h2 id="4、其他Jenkins操作"><a href="#4、其他Jenkins操作" class="headerlink" title="4、其他Jenkins操作"></a>4、其他Jenkins操作</h2><h3 id="4-1、关闭Jenkins服务"><a href="#4-1、关闭Jenkins服务" class="headerlink" title="4.1、关闭Jenkins服务"></a>4.1、关闭Jenkins服务</h3><p>在Jenkins服务器的网址url地址后加上<strong>exit</strong>：</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/exit">http://localhost:8080/exit</a></p>
+<h3 id="4-2、重启Jenkies服务"><a href="#4-2、重启Jenkies服务" class="headerlink" title="4.2、重启Jenkies服务"></a>4.2、重启Jenkies服务</h3><p>在Jenkins服务器URL地址后加内容<strong>restart</strong></p>
+<p>  <a target="_blank" rel="noopener" href="http://localhost:8080/restart">http://localhost:8080/restart</a></p>
+<h3 id="4-3、重新加载配置信息"><a href="#4-3、重新加载配置信息" class="headerlink" title="4.3、重新加载配置信息"></a>4.3、重新加载配置信息</h3><p>在Jenkins服务器URL地址后加内容<strong>reload</strong></p>
+<p>  <a target="_blank" rel="noopener" href="http://localhost:8080/reload">http://localhost:8080/reload</a></p>
 
                 
               </div>
@@ -443,8 +432,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Git/" class="category-chain-item">Git</a>
+  <a href="/categories/CICD/" class="category-chain-item">CICD</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/CICD/Jenkins/" class="category-chain-item">Jenkins</a>
+  
+  
+
   
 
       </span>
@@ -458,11 +454,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Git/" class="print-no-link">#Git</a>
+        <a href="/tags/Jenkins/" class="print-no-link">#Jenkins</a>
       
-        <a href="/tags/Gitkraken/" class="print-no-link">#Gitkraken</a>
+        <a href="/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="print-no-link">#持续集成</a>
       
-        <a href="/tags/Git%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/" class="print-no-link">#Git可视化工具</a>
+        <a href="/tags/CICD%E5%B7%A5%E5%85%B7/" class="print-no-link">#CICD工具</a>
       
     </div>
   
@@ -474,8 +470,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Git可视化工具 Gitkraken安装过程指南</div>
-      <div>http://www.codestar.top/2023/11/16/Git/Git可视化工具-Gitkraken安装过程指南/</div>
+      <div>Jenkins操作指导1：jenkins安装</div>
+      <div>http://www.codestar.top/2023/11/06/CICD/Jenkins操作指导1：jenkins安装/</div>
     </div>
     <div class="license-meta">
       
@@ -487,13 +483,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月16日</div>
+          <div>2023年11月6日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年11月16日</div>
+          <div>2024年4月21日</div>
         </div>
       
       
@@ -536,9 +532,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/16/Git/GitKraken%E4%BB%A3%E7%A0%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8C%87%E5%AF%BC/" title="GitKraken代码基本操作指导">
+                      <a href="/2023/11/07/Windows/%E7%BD%91%E5%8D%A1%E4%BF%AE%E5%A4%8D%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%87%BA%E7%8E%B00x80004005%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="网卡修复程序执行出现0x80004005错误代码问题解决">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">GitKraken代码基本操作指导</span>
+                        <span class="hidden-mobile">网卡修复程序执行出现0x80004005错误代码问题解决</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -546,8 +542,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/15/AI_ML/LLM%E7%AC%94%E8%AE%B01%EF%BC%9A%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8E%86%E5%8F%B2%E5%8F%8A%E7%89%B9%E7%82%B9/" title="LLM笔记1：了解大模型的历史及特点">
-                        <span class="hidden-mobile">LLM笔记1：了解大模型的历史及特点</span>
+                      <a href="/2023/11/04/JAVA/IDEA%E6%96%B0%E5%BB%BAmaven%E9%A1%B9%E7%9B%AE%E5%87%BA%E7%8E%B0x%E5%9B%BE%E6%A0%87%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="IDEA新建maven项目出现x图标，运行报错解决方法">
+                        <span class="hidden-mobile">IDEA新建maven项目出现x图标，运行报错解决方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
