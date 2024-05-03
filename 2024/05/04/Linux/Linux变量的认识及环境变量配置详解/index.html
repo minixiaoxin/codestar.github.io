@@ -18,26 +18,26 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、Linux文件权限1.1、如何查看到文件权限使用ls -l或者ll指令可以直接查看到如下的标记，这些标记代表的相关文件或文件夹的权限类型及所属：  其中分四段：  第一段，为文件&#x2F;文件夹权限，其中首个bit位字符为文件类型，一共有如下的七种：前三种为常见类型     类型 说明    - 普通文件。   d 目录，字母d是dirtectory（目录）的缩写。   l 符号链接。请注意">
+    <meta name="description" content="1、变量的划分在Linux中，变量的划分有很多种，其中根据变量的作用范围（作用域）进行划分的有三类，分别是局部变量、全局变量、环境变量、内置变量。下面来具体讨论，本文以环境变量的讨论为主，其他变量简要说明。 2、局部变量局部变量，使用local关键字定义的变量，通常在定义它的脚本或命令中可见，但仅在定义的函数中可使用，脚本或命令中的其他函数不可使用，除非被明确传递，在其子脚本或子进程中也不可用。通">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux：文件权限详解及修改方法">
-<meta property="og:url" content="http://www.codestar.top/2024/03/03/Linux/Linux%EF%BC%9A%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="Linux变量的认识及环境变量配置详解">
+<meta property="og:url" content="http://www.codestar.top/2024/05/04/Linux/Linux%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%A4%E8%AF%86%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、Linux文件权限1.1、如何查看到文件权限使用ls -l或者ll指令可以直接查看到如下的标记，这些标记代表的相关文件或文件夹的权限类型及所属：  其中分四段：  第一段，为文件&#x2F;文件夹权限，其中首个bit位字符为文件类型，一共有如下的七种：前三种为常见类型     类型 说明    - 普通文件。   d 目录，字母d是dirtectory（目录）的缩写。   l 符号链接。请注意">
+<meta property="og:description" content="1、变量的划分在Linux中，变量的划分有很多种，其中根据变量的作用范围（作用域）进行划分的有三类，分别是局部变量、全局变量、环境变量、内置变量。下面来具体讨论，本文以环境变量的讨论为主，其他变量简要说明。 2、局部变量局部变量，使用local关键字定义的变量，通常在定义它的脚本或命令中可见，但仅在定义的函数中可使用，脚本或命令中的其他函数不可使用，除非被明确传递，在其子脚本或子进程中也不可用。通">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.codestar.top/img/blog-img/linux_pic2.png">
-<meta property="article:published_time" content="2024-03-02T16:02:42.000Z">
-<meta property="article:modified_time" content="2024-05-03T17:06:37.302Z">
+<meta property="article:published_time" content="2024-05-03T16:56:20.000Z">
+<meta property="article:modified_time" content="2024-05-03T17:18:13.557Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="文件管理">
-<meta property="article:tag" content="权限">
+<meta property="article:tag" content="bash">
 <meta property="article:tag" content="Linux">
+<meta property="article:tag" content="环境变量">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://www.codestar.top/img/blog-img/linux_pic2.png">
   
   
   
-  <title>Linux：文件权限详解及修改方法 - mini小新的博客</title>
+  <title>Linux变量的认识及环境变量配置详解 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -449,7 +449,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux：文件权限详解及修改方法"></span>
+            <span id="subtitle" data-typed-text="Linux变量的认识及环境变量配置详解"></span>
           
         </div>
 
@@ -465,8 +465,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-03 00:02" pubdate>
-          2024年3月3日 凌晨
+        <time datetime="2024-05-04 00:56" pubdate>
+          2024年5月4日 凌晨
         </time>
       </span>
     
@@ -477,7 +477,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          3.8k 字
         
       </span>
     
@@ -488,7 +488,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -533,7 +533,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux：文件权限详解及修改方法</h1>
+            <h1 id="seo-header">Linux变量的认识及环境变量配置详解</h1>
             
               <p class="note note-info">
                 
@@ -546,354 +546,139 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、Linux文件权限"><a href="#1、Linux文件权限" class="headerlink" title="1、Linux文件权限"></a>1、Linux文件权限</h2><h3 id="1-1、如何查看到文件权限"><a href="#1-1、如何查看到文件权限" class="headerlink" title="1.1、如何查看到文件权限"></a>1.1、如何查看到文件权限</h3><p>使用<code>ls -l</code>或者<code>ll</code>指令可以直接查看到如下的标记，这些标记代表的相关文件或文件夹的权限类型及所属：</p>
-<p><img src="https://codestar.top/note-image/202403021718549.png" srcset="/img/loading.gif" lazyload alt="image-20240222100605216"></p>
-<p>其中分四段：</p>
+                <h2 id="1、变量的划分"><a href="#1、变量的划分" class="headerlink" title="1、变量的划分"></a>1、变量的划分</h2><p>在Linux中，变量的划分有很多种，其中根据变量的<strong>作用范围（作用域）进行划分</strong>的有三类，分别是局部变量、全局变量、环境变量、内置变量。下面来具体讨论，本文以环境变量的讨论为主，其他变量简要说明。</p>
+<h2 id="2、局部变量"><a href="#2、局部变量" class="headerlink" title="2、局部变量"></a>2、局部变量</h2><p>局部变量，使用local关键字定义的变量，通常在定义它的脚本或命令中可见，但仅在定义的函数中可使用，脚本或命令中的其他函数不可使用，除非被明确传递，在其子脚本或子进程中也不可用。通常在函数中使用关键字<code>local</code>来定义，示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">function myFunction() &#123;<br>    local localVar=&quot;a local var&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3、全局变量"><a href="#3、全局变量" class="headerlink" title="3、全局变量"></a>3、全局变量</h2><p>全局变量，未使用 <code>local</code> 关键字的变量都是全局变量，在定义的脚本及命令中可见，一般在函数外定义，在整个脚本及命令中全局可使用。但在不使用<code>export</code>导出的情况下，无法在子脚本中可见，即切换进程后无法使用：</p>
 <ul>
-<li>第一段，为文件&#x2F;文件夹权限，其中首个bit位字符为文件类型，一共有如下的七种：<strong>前三种为常见类型</strong></li>
+<li>定义全局变量，示例：</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">GlobalVar1=&quot;A global VAR1&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">切换用户查看</span><br>su other_user<br>echo $GlobalVar1<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202405032227077.png" srcset="/img/loading.gif" lazyload alt="image-20240503222755932"></p>
+<p>切换进程后，无法查看到对应的全局变量，因为没通过<code>export</code>将其导出，无法正常的访问。</p>
+<ul>
+<li>定义全局变量，并将其<code>export</code>导出，示例：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">export GlobalVar2=&quot;A global VAR2&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">切换用户查看</span><br>su other_user<br>echo $GlobalVar2<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202405032227500.png" srcset="/img/loading.gif" lazyload alt="image-20240503222740097"></p>
+<p>切换进程后，能够正常的访问到相应的全局变量，其通过<code>export</code>导出，使其在子脚本或命令中可见，因此能够正常访问到。</p>
+<p><strong>注意：</strong> 全局变量一般定义为小写字母，当定义为大写字母时，默认其为全局配置，即环境变量，这是一个通用的约定，避免变量的调用冲突。</p>
+<h2 id="4、环境变量"><a href="#4、环境变量" class="headerlink" title="4、环境变量"></a>4、环境变量</h2><h3 id="4-1、概述"><a href="#4-1、概述" class="headerlink" title="4.1、概述"></a>4.1、概述</h3><p>环境变量是在Linux操作系统中用来指定操作系统运行环境的一些参数的一种机制。它们是动态命名的值，通常名称用大写字母进行定义，由操作系统或用户设置。通常情况下会存放重要的配置信息，如配置文件路径、用户信息、网络设置参数等。常见的环境变量有 <code>PATH</code>, <code>HOME</code>, <code>USER</code> 等，下面来详细讨论环境变量的不同配置方法及其作用域。</p>
+<h3 id="4-2、配置临时环境变量"><a href="#4-2、配置临时环境变量" class="headerlink" title="4.2、配置临时环境变量"></a>4.2、配置临时环境变量</h3><p>使用 <code>export</code> 命令来设置临时环境变量，示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>执行完后通过<code>echo $PATH</code>查看，仅在当前窗口生效，关闭窗口或新建其他窗口，无法查看到之前设置的临时环境变量：</p>
+<p><img src="https://codestar.top/note-image/202405032259194.png" srcset="/img/loading.gif" lazyload alt="image-20240503225912798"></p>
+<p><strong>作用范围：</strong>仅当前用户，当前窗口。</p>
+<p><strong>注意：</strong>与全局变量中使用<code>export</code>导出变量效果类似，差别在于大小写。</p>
+<h3 id="4-3、配置永久环境变量"><a href="#4-3、配置永久环境变量" class="headerlink" title="4.3、配置永久环境变量"></a>4.3、配置永久环境变量</h3><h4 id="4-3-1、用户级配置文件"><a href="#4-3-1、用户级配置文件" class="headerlink" title="4.3.1、用户级配置文件"></a>4.3.1、用户级配置文件</h4><p>用户级配置文件，作用范围仅为单个用户的账户，只有当该用户登录shell或启用新的shell面板时，配置内容才会生效。提供给不同用户可以灵活配置各自的工作环境，下面是具体的用户配置方法：</p>
+<h5 id="1）配置方法一：-bashrc文件"><a href="#1）配置方法一：-bashrc文件" class="headerlink" title="1）配置方法一：~&#x2F;.bashrc文件"></a>1）配置方法一：~&#x2F;.bashrc文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.bashrc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>适用于当前登录用户，用于非登录 shell，即在用户登录后启动的shell中生效或新的终端窗口或新的shell脚本。</p>
+<p><strong>生效方法：</strong>使用<code>source ~/.bashrc</code>生效配置，并重新打开新的终端，即刻生效。</p>
+<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
+<h5 id="2）配置方法二：-profile文件"><a href="#2）配置方法二：-profile文件" class="headerlink" title="2）配置方法二：~&#x2F;.profile文件"></a>2）配置方法二：~&#x2F;.profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>适用于当前登录用户，登录型shell，即登录过程中进行配置生效。</p>
+<p><strong>生效方法：</strong>使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
+<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
+<h5 id="3）配置方法三：-bash-profile文件"><a href="#3）配置方法三：-bash-profile文件" class="headerlink" title="3）配置方法三：~&#x2F;.bash_profile文件"></a>3）配置方法三：~&#x2F;.bash_profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.bash_profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>适用于当前登录用户，登录型shell，即登录过程中进行配置生效。与<code>~/.profile</code>作用范围相同，但生效的优先级高于<code>~/.profile</code>文件</p>
+<p><strong>生效方法：</strong>使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
+<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
+<h4 id="4-3-2、系统级配置文件"><a href="#4-3-2、系统级配置文件" class="headerlink" title="4.3.2、系统级配置文件"></a>4.3.2、系统级配置文件</h4><p>系统级配置文件，影响范围为整个系统，所有的用户账户，无论是哪一位用户登录均可使用当前配置的系统环境变量内容，作用在提供一套标准的用户环境，保持系统环境一致性。同时系统级配置存在权限控制，仅有管理员可以进行配置，加强了环境管理。下面是不同的系统级配置的方法：</p>
+<h5 id="1）配置方法一：-etc-environment文件"><a href="#1）配置方法一：-etc-environment文件" class="headerlink" title="1）配置方法一：&#x2F;etc&#x2F;environment文件"></a>1）配置方法一：&#x2F;etc&#x2F;environment文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/environment<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>这是一个简单的键值对文件，用于设置系统级环境变量。这里设置的变量对所有用户有效。这里由于使用键值对存储，无需使用export关键字。</p>
+<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
+<p><strong>用户范围：</strong>系统所有用户</p>
+<h5 id="2）配置方法二：-etc-profile文件"><a href="#2）配置方法二：-etc-profile文件" class="headerlink" title="2）配置方法二：&#x2F;etc&#x2F;profile文件"></a>2）配置方法二：&#x2F;etc&#x2F;profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>这是全系统的登录脚本，当任何用户登录时运行，登录过程中进行配置生效。</p>
+<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
+<p><strong>用户范围：</strong>系统所有用户</p>
+<h5 id="3）配置方法三：-etc-bashrc文件"><a href="#3）配置方法三：-etc-bashrc文件" class="headerlink" title="3）配置方法三：&#x2F;etc&#x2F;bashrc文件"></a>3）配置方法三：&#x2F;etc&#x2F;bashrc文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/bashrc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>适用于所有用户的 Bash 配置，用于非登录 shell，即在用户登录后启动的shell中生效或新的终端窗口或新的shell脚本。</p>
+<p><strong>生效方法：</strong>系统重启，或用户注销重新登录。针对当前窗口可以使用<code>source /etc/bashrc</code>来生效配置。</p>
+<p><strong>用户范围：</strong>系统所有用户</p>
+<h4 id="4-3-3、-etc-profile-d-配置路径"><a href="#4-3-3、-etc-profile-d-配置路径" class="headerlink" title="4.3.3、&#x2F;etc&#x2F;profile.d&#x2F;配置路径"></a>4.3.3、&#x2F;etc&#x2F;profile.d&#x2F;配置路径</h4><p>在Centos 7.9中，有<code>/etc/profile.d/</code>路径用来存放自定义脚本，这些脚本会在登录时自动运行，可以通过该机制，创建shell脚本来配置环境变量，如<code>setenv.sh</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>之后，赋予该脚本执行权限，即可在每次登录时，使用特定的环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod +x /etc/profile.d/setenv.sh<br></code></pre></td></tr></table></figure>
+
+<p>由于是在系统级路径下进行配置，其实整个过程，也相当于是系统级的一个环境变量配置。这个路径下的脚本，所有用户登录都会执行。</p>
+<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
+<p><strong>用户范围：</strong>系统所有用户</p>
+<h3 id="4-3、查看环境变量"><a href="#4-3、查看环境变量" class="headerlink" title="4.3、查看环境变量"></a>4.3、查看环境变量</h3><ul>
+<li>1、<code>printenv</code> 命令</li>
+</ul>
+<p>可以打印部分或全部环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">打印全部环境变量</span><br>printenv<br><span class="hljs-meta prompt_"># </span><span class="language-bash">打印PATH环境变量</span><br>printenv PATH<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>2、<code>env</code>命令</li>
+</ul>
+<p><code>env</code> 命令类似于 <code>printenv</code>，但通常用于在修改后的环境中运行程序，不带参数时与<code>printenv</code>等价。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">打印全部环境变量</span><br>env<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在新环境变量中运行程序</span><br>env test.sh<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>3、<code>echo</code>命令</li>
+</ul>
+<p>使用 <code>echo</code> 命令可以显示一个特定环境变量的值，可用于快速检查一个变量的修改是否生效：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo $PATH<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>4、<code>set</code>命令</li>
+</ul>
+<p><code>set</code> 命令可以显示局部和环境变量以及 shell 函数，其打印的信息比<code>printenv</code>更多，但不推荐使用，因为其包含的内容不只是环境变量，结果会更杂乱。</p>
+<h2 id="5、内置变量"><a href="#5、内置变量" class="headerlink" title="5、内置变量"></a>5、内置变量</h2><p>由 shell （比如 Bash Shell）本身预定义的变量称之为内置变量，非用户自定义。这些内置变量提供了关于系统环境和 shell 自身运行状态的重要信息，用户无法创建新的内置变量。一般情况下不允许用户修改内置变量，仅可读取，常见的内置变量有下面这些：</p>
 <table>
 <thead>
 <tr>
-<th>类型</th>
-<th>说明</th>
+<th align="center">内置变量</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>-</code></td>
-<td>普通文件。</td>
+<td align="center"><code>HOME</code></td>
+<td align="center">当前用户的主目录路径。</td>
 </tr>
 <tr>
-<td><code>d</code></td>
-<td>目录，字母<code>d</code>是<code>dirtectory</code>（目录）的缩写。</td>
+<td align="center"><code>PWD</code></td>
+<td align="center">当前工作目录的路径。</td>
 </tr>
 <tr>
-<td><code>l</code></td>
-<td>符号链接。请注意，一个目录或者说一个文件夹是一个特殊文件，这个特殊文件存放的是其他文件和文件夹的相关信息。</td>
+<td align="center"><code>USER</code></td>
+<td align="center">当前登录的用户名。</td>
 </tr>
 <tr>
-<td><code>b</code></td>
-<td>块设备文件。</td>
+<td align="center"><code>BASH_VERSION</code></td>
+<td align="center">当前运行的 Bash 版本信息。</td>
 </tr>
 <tr>
-<td><code>c</code></td>
-<td>字符设备文件。</td>
+<td align="center"><code>PATH</code></td>
+<td align="center">系统查找命令的目录列表。</td>
 </tr>
 <tr>
-<td><code>p</code></td>
-<td>管道文件</td>
+<td align="center"><code>RANDOM</code></td>
+<td align="center">每次引用时生成的随机整数。</td>
 </tr>
 <tr>
-<td><code>s</code></td>
-<td>套接口文件</td>
+<td align="center"><code>UID</code></td>
+<td align="center">当前用户的用户ID。</td>
 </tr>
 </tbody></table>
-<p>像类型为文件，如下面这种：</p>
-<p><img src="https://codestar.top/note-image/202403021719611.png" srcset="/img/loading.gif" lazyload alt="image-20240223160559384"></p>
-<p>之后跟随的会有9个bit位，分别代表不同的权限类型，后续再进一步讨论。</p>
-<ul>
-<li>第二段，为文件&#x2F;子目录的链接数量</li>
-</ul>
-<p>像上述的文件结果中，<code>1</code>表示有一个硬链接指向文件<code>python.gram</code>，一般来说文件类型均为1。如果为文件夹类型则表示的是链接的子目录个数。</p>
-<ul>
-<li>第三段，为权限<strong>所属用户</strong></li>
-</ul>
-<p>表示拥有当前文件或目录的用户。</p>
-<ul>
-<li>第四段，为权限<strong>所属群组</strong></li>
-</ul>
-<p>表示所属的群组（group）。群组下的每一个使用者都具有该文件\路径的控制权限，一个用户可以拥有一个以上的组，大部分都只属于1个群组。</p>
-<h3 id="1-2、ll命令介绍"><a href="#1-2、ll命令介绍" class="headerlink" title="1.2、ll命令介绍"></a>1.2、ll命令介绍</h3><p>在Ubuntu中默认不含ll命令，其实质为<code>ls -l</code>的别名，我们可以通过修改环境变量自行添加：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">切换管理员模式</span><br>su<br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改系统环境变量</span><br>vim ~/.bashrc<br></code></pre></td></tr></table></figure>
+<p>使用内置变量示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Your home directory is $HOME&quot;<br>echo &quot;You are logged in as $USER&quot;<br></code></pre></td></tr></table></figure>
 
-<p>添加或将下面这一段去掉注释：</p>
-<p><img src="https://codestar.top/note-image/202403021722920.png" srcset="/img/loading.gif" lazyload alt="image-20240222095730569"></p>
-<p>修改完成之后，使环境变量生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bashrc<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202403021722579.png" srcset="/img/loading.gif" lazyload alt="image-20240222100228829"></p>
-<p><strong>注：</strong>root环境变量和普通用户环境变量不共通，使用<code>ll</code>指令，不同用户下需单独修改。</p>
-<h2 id="2、权限分类"><a href="#2、权限分类" class="headerlink" title="2、权限分类"></a>2、权限分类</h2><h3 id="2-1、文件权限"><a href="#2-1、文件权限" class="headerlink" title="2.1、文件权限"></a>2.1、文件权限</h3><p>在文件类型字节位后，紧接着的3*3个字符分3组，各**表示不同角色对此文件的读(r)、写(w)、执行权限(x)**：</p>
-<ul>
-<li>第一段：3bit，对应**文件所有者(owner)**的权限</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">- rwx --- ---    对应文件所有者(owner)拥有读写及执行权限，设定值为700，其值等于下面三项值相加<br>- r-- --- ---    对应文件所有者(owner)拥有读权限，设定值为400<br>- -w- --- ---    对应文件所有者(owner)拥有写权限，设定值为200<br>- --x --- ---    对应文件所有者(owner)拥有执行权限，设定值为100<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>第二段：3bit，对应**文件所属用户群组(group)**的权限</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">- --- rwx ---    对应文件所属群组(owner)拥有读写及执行权限，设定值为070，其值等于下面三项值相加<br>- --- r-- ---    对应文件所属群组(owner)拥有读权限，设定值为040<br>- --- -w- ---    对应文件所属群组(owner)拥有写权限，设定值为020<br>- --- --x ---    对应文件所属群组(owner)拥有执行权限，设定值为010<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>第三段：3bit，对应**其他用户(others)**的权限</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">- --- --- rwx    对应其他用户(others)对文件拥有读写及执行权限，设定值为007，其值等于下面三项值相加<br>- --- --- r--    对应其他用户(others)对文件拥有读写及执行权限，设定值为004<br>- --- --- -w-    对应其他用户(others)对文件拥有读写及执行权限，设定值为002<br>- --- --- --x    对应其他用户(others)对文件拥有读写及执行权限，设定值为001<br></code></pre></td></tr></table></figure>
-
-<p>上述权限对应下来则为八进制码表，二进制码的计算顺序为从右往左：</p>
-<table>
-<thead>
-<tr>
-<th align="center">八进制位</th>
-<th align="center">权限</th>
-<th align="center">权限符号</th>
-<th align="center">二进制位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">7</td>
-<td align="center">读\写\执行</td>
-<td align="center">rwx</td>
-<td align="center">111</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center">读\写</td>
-<td align="center">rw-</td>
-<td align="center">110</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">读\执行</td>
-<td align="center">r-x</td>
-<td align="center">101</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">读</td>
-<td align="center">r–</td>
-<td align="center">100</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">写\执行</td>
-<td align="center">-wx</td>
-<td align="center">011</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">写</td>
-<td align="center">-w-</td>
-<td align="center">010</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">执行</td>
-<td align="center">–x</td>
-<td align="center">001</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">无权限</td>
-<td align="center">—</td>
-<td align="center">000</td>
-</tr>
-</tbody></table>
-<p><strong>举例：</strong></p>
-<p>权限符号为<code>rw-</code>，其二进制位为110，则二进制转为八进制为，计算顺序为从右往左：$2^0$+$2^1$+$2^1$&#x3D;6，即r为2号位值为1，w为1号为值为1，-为0号位值为0。</p>
-<h3 id="2-2、文件夹权限"><a href="#2-2、文件夹权限" class="headerlink" title="2.2、文件夹权限"></a>2.2、文件夹权限</h3><p>文件夹的权限标识与文件相同，但所具有的含义不一样，对应如下：</p>
-<ul>
-<li><code>r</code>：能够浏览目录信息，包括目录名称及所含文件等信息。无权限时无法查看对应内容</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202403021724448.png" srcset="/img/loading.gif" lazyload alt="image-20240223171228842"></p>
-<ul>
-<li><code>w</code>：能够删除新增或修改目录中的文件或目录。无权限时限制删除新增等操作</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202403021725734.png" srcset="/img/loading.gif" lazyload alt="image-20240223171711277"></p>
-<ul>
-<li><code>x</code>：当具有<code>x</code>权限时，能够进入该目录。无权限时被限制进入</li>
-</ul>
-<p><img src="https://codestar.top/note-image/202403021725361.png" srcset="/img/loading.gif" lazyload alt="image-20240223171127644"></p>
-<h2 id="3、权限修改"><a href="#3、权限修改" class="headerlink" title="3、权限修改"></a>3、权限修改</h2><h3 id="3-1、修改文件-文件夹权限"><a href="#3-1、修改文件-文件夹权限" class="headerlink" title="3.1、修改文件&#x2F;文件夹权限"></a>3.1、修改文件&#x2F;文件夹权限</h3><h4 id="1）chmod指令"><a href="#1）chmod指令" class="headerlink" title="1）chmod指令"></a>1）chmod指令</h4><p><code>chmod</code>修改文件权限：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod [选项] 权限 文件名/文件夹名<br></code></pre></td></tr></table></figure>
-
-<p>[选项]为可选，支持以下常用参数：</p>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">-c</td>
-<td align="left">改变权限成功后再输出成功信息</td>
-</tr>
-<tr>
-<td align="left">-R</td>
-<td align="left">递归处理所有子文件</td>
-</tr>
-<tr>
-<td align="left">-f</td>
-<td align="left">改变权限失败后不显示错误信息</td>
-</tr>
-<tr>
-<td align="left">-v</td>
-<td align="left">显示执行过程详细信息</td>
-</tr>
-</tbody></table>
-<p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">设置文件夹权限为770：文件所有者和用户群组有读\写\执行权限，其他用户无权限</span><br>chmod 770 testDir<br><span class="hljs-meta prompt_"># </span><span class="language-bash">设置文件权限为707：文件所有者和其他用户有读\写\执行权限，用户群组无权限</span><br>chmod 707 testfile<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202403021727664.png" srcset="/img/loading.gif" lazyload alt="image-20240223170729874"></p>
-<p><strong>注：</strong>只有**文件所有者(owner)或管理员(root)**才允许修改文件权限。</p>
-<h4 id="2）chmod指令符号"><a href="#2）chmod指令符号" class="headerlink" title="2）chmod指令符号"></a>2）chmod指令符号</h4><p>在chmod指令中，可以使用用户表示符和权限控制符号来简化指令，更为的清晰，其对应的不同符号如下：</p>
-<ul>
-<li><strong>用户表示符</strong></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>用户表示符</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>u</td>
-<td>所有者</td>
-</tr>
-<tr>
-<td>g</td>
-<td>拥有者同组用户</td>
-</tr>
-<tr>
-<td>o</td>
-<td>其它用户</td>
-</tr>
-<tr>
-<td>a</td>
-<td>所有用户</td>
-</tr>
-</tbody></table>
-<ul>
-<li><strong>权限操作符</strong></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>权限操作符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>+</td>
-<td>表示添加权限</td>
-</tr>
-<tr>
-<td>-</td>
-<td>表示移除权限</td>
-</tr>
-<tr>
-<td>&#x3D;</td>
-<td>表示设置权限为特定的值</td>
-</tr>
-</tbody></table>
-<ul>
-<li>权限符号</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r</td>
-<td>读取权限</td>
-</tr>
-<tr>
-<td>w</td>
-<td>写入权限</td>
-</tr>
-<tr>
-<td>x</td>
-<td>执行权限</td>
-</tr>
-</tbody></table>
-<p>组合使用举例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">给文件file.txt的所有者（u）增加读取（+r）权限</span><br>chmod u+r file.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">从文件file.txt的拥有者同组用户（g）中移除写入（-w）权限</span><br>chmod g-w file.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">给目录directory的其他用户（o）增加执行（+x）权限</span><br>chmod o+x directory<br><span class="hljs-meta prompt_"># </span><span class="language-bash">给文件file.txt的所有用户（a）设置读取和写入权限</span><br>chmod a=rw file.txt<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-2、修改文件-文件夹所属用户"><a href="#3-2、修改文件-文件夹所属用户" class="headerlink" title="3.2、修改文件&#x2F;文件夹所属用户"></a>3.2、修改文件&#x2F;文件夹所属用户</h3><p><code>chown</code>修改文件&#x2F;文件夹所属的用户：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chown [选项] 新所属用户名 文件名/文件夹名<br></code></pre></td></tr></table></figure>
-
-<p><code>chown</code>常用的[选项]参数：</p>
-<table>
-<thead>
-<tr>
-<th>常用参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-R, --recursive</code></td>
-<td>递归地更改指定目录及其子目录中所有文件和目录的所有者。</td>
-</tr>
-<tr>
-<td><code>--reference=RFILE</code></td>
-<td>把指定文件的拥有者和用户组应用到其他文件， RFILE为参考文件。</td>
-</tr>
-<tr>
-<td><code>--from=CURRENT_OWNER[:CURRENT_GROUP]</code></td>
-<td>仅在文件的当前所有者或用户组匹配指定的值时才更改文件的所有者和&#x2F;或用户组。</td>
-</tr>
-<tr>
-<td><code>--preserve-root</code></td>
-<td>不允许在 “&#x2F;“ 上递归操作</td>
-</tr>
-<tr>
-<td><code>-v, --verbose</code></td>
-<td>显示详细的操作信息。</td>
-</tr>
-</tbody></table>
-<p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将file.txt文件所属用户修改为用户miniboy</span><br>chown miniboy file.txt<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202403021754997.png" srcset="/img/loading.gif" lazyload alt="image-20240302175436935"></p>
-<p><strong>注：</strong>所修改的新用户，为存在的用户，否则会执行失败，提示无效用户。</p>
-<p><code>--from=CURRENT_OWNER[:CURRENT_GROUP]</code>参数使用举例：当匹配到对应的所有者&#x2F;用户组时才进行修改</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">当file.txt的当前所有者是olduser，用户组是oldgroup时，才将其所有者更改为newuser，用户组更改为newgroup</span><br>chown --from=olduser:oldgroup newuser:newgroup file.txt<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-3、修改文件-文件夹所属群组"><a href="#3-3、修改文件-文件夹所属群组" class="headerlink" title="3.3、修改文件&#x2F;文件夹所属群组"></a>3.3、修改文件&#x2F;文件夹所属群组</h3><p><code>chgrp</code>更改文件或文件夹所属用户组（group）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chgrp [选项] 用户组名 文件名/文件夹名<br></code></pre></td></tr></table></figure>
-
-<p>在[选项]参数方面与<code>chown</code>类似，常用参数如下：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-R, --recursive</code></td>
-<td>递归地更改指定目录及其子目录中<strong>所有文件和目录</strong>的所属用户组。</td>
-</tr>
-<tr>
-<td><code>--reference=RFILE</code></td>
-<td>把指定文件的用户组应用到其他文件。</td>
-</tr>
-<tr>
-<td><code>--preserve-root</code></td>
-<td>不要跨越文件系统的边界，这对于递归操作非常重要。</td>
-</tr>
-<tr>
-<td><code>-v, --verbose</code></td>
-<td>显示详细的操作信息。</td>
-</tr>
-<tr>
-<td><code>--dereference</code></td>
-<td>在符号链接指向文件本身时，处理符号链接指向的文件而不是符号链接文件本身。</td>
-</tr>
-</tbody></table>
-<p>使用示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将file.txt文件的所属群组修改为newgroup</span><br>chgrp newgroup file.txt<br></code></pre></td></tr></table></figure>
-
-<p><code>chgrp</code>部分修改也能够通过<code>chown</code>来实现，如<strong>修改拥有者和所属组：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">chown :root file30.txt （修改所属组为root）<br>chown root:root file30.txt （修改拥有者和所属组为root)<br></code></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>只有超级用户（root）或者文件的当前所有者才能使用<code>chgrp</code>命令。</p>
-<h2 id="4、参考"><a href="#4、参考" class="headerlink" title="4、参考"></a>4、参考</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_56311933/article/details/123006978">https://blog.csdn.net/m0_56311933/article/details/123006978</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kongzhongqijing/p/3488884.html">https://www.cnblogs.com/kongzhongqijing/p/3488884.html</a></p>
+<h2 id="6、参考"><a href="#6、参考" class="headerlink" title="6、参考"></a>6、参考</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904173775880199">https://juejin.cn/post/6844904173775880199</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566600783">https://zhuanlan.zhihu.com/p/566600783</a></p>
 
                 
               </div>
@@ -917,7 +702,7 @@
   
     <span>></span>
     
-  <a href="/categories/Linux/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="category-chain-item">文件管理</a>
+  <a href="/categories/Linux/bash/" class="category-chain-item">bash</a>
   
   
 
@@ -934,11 +719,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="print-no-link">#文件管理</a>
-      
-        <a href="/tags/%E6%9D%83%E9%99%90/" class="print-no-link">#权限</a>
+        <a href="/tags/bash/" class="print-no-link">#bash</a>
       
         <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="print-no-link">#环境变量</a>
       
     </div>
   
@@ -950,8 +735,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux：文件权限详解及修改方法</div>
-      <div>http://www.codestar.top/2024/03/03/Linux/Linux：文件权限详解及修改方法/</div>
+      <div>Linux变量的认识及环境变量配置详解</div>
+      <div>http://www.codestar.top/2024/05/04/Linux/Linux变量的认识及环境变量配置详解/</div>
     </div>
     <div class="license-meta">
       
@@ -963,7 +748,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月3日</div>
+          <div>2024年5月4日</div>
         </div>
       
       
@@ -1012,18 +797,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/21/BLOG/HEXO%EF%BC%9APicGo-Tynipng%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%8D%B3%E5%8E%8B%E7%BC%A9/" title="HEXO：PicGo+Tynipng实现图片上传即压缩">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HEXO：PicGo+Tynipng实现图片上传即压缩</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/02/19/Linux/Linux%EF%BC%9A%E5%AE%9E%E7%8E%B0%E5%B0%86%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E5%88%B0%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8C%87%E4%BB%A4%E4%B8%AD%E9%83%A8%E8%BF%9B%E8%A1%8C%E6%89%A7%E8%A1%8C/" title="Linux：实现将参数传递到下一个指令中部进行执行">
-                        <span class="hidden-mobile">Linux：实现将参数传递到下一个指令中部进行执行</span>
+                      <a href="/2024/05/03/BLOG/HEXO%EF%BC%9A%E7%AB%99%E7%82%B9sitemap-xml%E6%8F%90%E4%BA%A4%E5%90%8E%E6%89%93%E5%BC%80%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="HEXO：站点sitemap.xml提交后打开异常问题解决">
+                        <span class="hidden-mobile">HEXO：站点sitemap.xml提交后打开异常问题解决</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
