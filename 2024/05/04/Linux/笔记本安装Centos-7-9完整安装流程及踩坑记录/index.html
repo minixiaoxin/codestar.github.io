@@ -18,26 +18,25 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、变量的划分在Linux中，变量的划分有很多种，其中根据变量的作用范围（作用域）进行划分的有三类，分别是局部变量、全局变量、环境变量、内置变量。下面来具体讨论，本文以环境变量的讨论为主，其他变量简要说明。 2、局部变量局部变量，使用local关键字定义的变量，通常在定义它的脚本或命令中可见，但仅在定义的函数中可使用，脚本或命令中的其他函数不可使用，除非被明确传递，在其子脚本或子进程中也不可用。通">
+    <meta name="description" content="1、Centos 7.9镜像下载阿里云镜像源可以下载对应ISO镜像文件：https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;centos&#x2F;7.9.2009&#x2F;isos&#x2F;x86_64&#x2F;  下载版本推荐 centos 7.9，centos8.x在2022年后不再维护。 2、制作centos 7.9 U盘启动盘2.1、下载BalenaEtcher进入官网下载启动盘制作工具BalenaEtcher，选择便">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux变量的认识及环境变量配置详解">
-<meta property="og:url" content="http://www.codestar.top/2024/05/04/Linux/Linux%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%A4%E8%AF%86%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:title" content="笔记本安装Centos 7.9完整安装流程及踩坑记录">
+<meta property="og:url" content="http://www.codestar.top/2024/05/04/Linux/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85Centos-7-9%E5%AE%8C%E6%95%B4%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、变量的划分在Linux中，变量的划分有很多种，其中根据变量的作用范围（作用域）进行划分的有三类，分别是局部变量、全局变量、环境变量、内置变量。下面来具体讨论，本文以环境变量的讨论为主，其他变量简要说明。 2、局部变量局部变量，使用local关键字定义的变量，通常在定义它的脚本或命令中可见，但仅在定义的函数中可使用，脚本或命令中的其他函数不可使用，除非被明确传递，在其子脚本或子进程中也不可用。通">
+<meta property="og:description" content="1、Centos 7.9镜像下载阿里云镜像源可以下载对应ISO镜像文件：https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;centos&#x2F;7.9.2009&#x2F;isos&#x2F;x86_64&#x2F;  下载版本推荐 centos 7.9，centos8.x在2022年后不再维护。 2、制作centos 7.9 U盘启动盘2.1、下载BalenaEtcher进入官网下载启动盘制作工具BalenaEtcher，选择便">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/linux_pic2.png">
-<meta property="article:published_time" content="2024-05-03T16:56:20.000Z">
-<meta property="article:modified_time" content="2024-05-03T17:18:13.557Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/linux_centos_pic1.png">
+<meta property="article:published_time" content="2024-05-04T09:51:18.000Z">
+<meta property="article:modified_time" content="2024-05-04T09:54:10.553Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="bash">
+<meta property="article:tag" content="Centos">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="环境变量">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/linux_pic2.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/linux_centos_pic1.png">
   
   
   
-  <title>Linux变量的认识及环境变量配置详解 - mini小新的博客</title>
+  <title>笔记本安装Centos 7.9完整安装流程及踩坑记录 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -449,7 +448,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux变量的认识及环境变量配置详解"></span>
+            <span id="subtitle" data-typed-text="笔记本安装Centos 7.9完整安装流程及踩坑记录"></span>
           
         </div>
 
@@ -465,8 +464,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-04 00:56" pubdate>
-          2024年5月4日 凌晨
+        <time datetime="2024-05-04 17:51" pubdate>
+          2024年5月4日 下午
         </time>
       </span>
     
@@ -477,7 +476,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          1.4k 字
         
       </span>
     
@@ -488,7 +487,7 @@
         
         
         
-          10 分钟
+          4 分钟
         
       </span>
     
@@ -533,12 +532,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux变量的认识及环境变量配置详解</h1>
+            <h1 id="seo-header">笔记本安装Centos 7.9完整安装流程及踩坑记录</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年5月4日 凌晨
+                    本文最后更新于：2024年5月4日 下午
                   
                 
               </p>
@@ -546,139 +545,81 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、变量的划分"><a href="#1、变量的划分" class="headerlink" title="1、变量的划分"></a>1、变量的划分</h2><p>在Linux中，变量的划分有很多种，其中根据变量的<strong>作用范围（作用域）进行划分</strong>的有三类，分别是局部变量、全局变量、环境变量、内置变量。下面来具体讨论，本文以环境变量的讨论为主，其他变量简要说明。</p>
-<h2 id="2、局部变量"><a href="#2、局部变量" class="headerlink" title="2、局部变量"></a>2、局部变量</h2><p>局部变量，使用local关键字定义的变量，通常在定义它的脚本或命令中可见，但仅在定义的函数中可使用，脚本或命令中的其他函数不可使用，除非被明确传递，在其子脚本或子进程中也不可用。通常在函数中使用关键字<code>local</code>来定义，示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">function myFunction() &#123;<br>    local localVar=&quot;a local var&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="3、全局变量"><a href="#3、全局变量" class="headerlink" title="3、全局变量"></a>3、全局变量</h2><p>全局变量，未使用 <code>local</code> 关键字的变量都是全局变量，在定义的脚本及命令中可见，一般在函数外定义，在整个脚本及命令中全局可使用。但在不使用<code>export</code>导出的情况下，无法在子脚本中可见，即切换进程后无法使用：</p>
+                <h2 id="1、Centos-7-9镜像下载"><a href="#1、Centos-7-9镜像下载" class="headerlink" title="1、Centos 7.9镜像下载"></a>1、Centos 7.9镜像下载</h2><p>阿里云镜像源可以下载对应ISO镜像文件：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/">https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/</a></p>
+<p><img src="https://codestar.top/note-image/202404131105693.png" srcset="/img/loading.gif" lazyload alt="image-20240413110555617"></p>
+<p>下载版本推荐 centos 7.9，centos8.x在2022年后不再维护。</p>
+<h2 id="2、制作centos-7-9-U盘启动盘"><a href="#2、制作centos-7-9-U盘启动盘" class="headerlink" title="2、制作centos 7.9 U盘启动盘"></a>2、制作centos 7.9 U盘启动盘</h2><h3 id="2-1、下载BalenaEtcher"><a href="#2-1、下载BalenaEtcher" class="headerlink" title="2.1、下载BalenaEtcher"></a>2.1、下载BalenaEtcher</h3><p>进入官网下载启动盘制作工具BalenaEtcher，选择便携版下载：<a target="_blank" rel="noopener" href="https://etcher.balena.io/#download-etcher">https://etcher.balena.io/#download-etcher</a></p>
+<p><img src="https://codestar.top/note-image/202405041622642.png" srcset="/img/loading.gif" lazyload alt="image-20240504162213231"></p>
+<p>下载完成之后，点击<code>balenaEtcher-Portable-1.7.9.exe</code>进入应用。</p>
+<h3 id="2-2、制作U盘启动盘"><a href="#2-2、制作U盘启动盘" class="headerlink" title="2.2、制作U盘启动盘"></a>2.2、制作U盘启动盘</h3><p>进入BalenaEtcher应用，选择Centos镜像，选择刷入的U盘位置。点击<code>Flash</code>开始制作U盘启动盘：</p>
+<p><img src="https://codestar.top/note-image/202404142114755.png" srcset="/img/loading.gif" lazyload alt="image-20240414211428703"></p>
+<p>刷入完成时如下：</p>
+<p><img src="https://codestar.top/note-image/202404142112029.png" srcset="/img/loading.gif" lazyload alt="image-20240414211244920"></p>
+<h2 id="3、安装系统"><a href="#3、安装系统" class="headerlink" title="3、安装系统"></a>3、安装系统</h2><h3 id="3-1、PC设置U盘启动"><a href="#3-1、PC设置U盘启动" class="headerlink" title="3.1、PC设置U盘启动"></a>3.1、PC设置U盘启动</h3><p>这里以戴尔笔记本为例，PC启动按<strong>F12</strong>进入启动盘选择，在UEFI选项中选择USB设备，选中后enter回车，启动安装：</p>
+<p><img src="https://codestar.top/note-image/202405041637063.png" srcset="/img/loading.gif" lazyload alt="image-20240504163748612"></p>
+<p>启动后，选择<code>Install CentOS 7</code>：</p>
+<p><img src="https://codestar.top/note-image/202405041642340.png" srcset="/img/loading.gif" lazyload alt="image-20240504164239214"></p>
+<p>正常情况下会进入安装界面，加载正常：</p>
+<p><img src="https://codestar.top/note-image/202405041647191.png" srcset="/img/loading.gif" lazyload alt="image-20240504164743762"></p>
+<p><strong>注：</strong>此处概率性会遇到<code>nouveau 0000:02:00.0: DRM: Pointer to TMDs table inualid</code>问题，此问题的大概率是安装的镜像文件在加载过程中损坏了，我尝试解决的方法时重新执行制作U盘启动盘，参考文第二节。基于此原因，后续的配置尽可能不出错，否则很麻烦，如果有其他更好的方法欢迎大家留言。异常加载情况如下：</p>
+<p><img src="https://codestar.top/note-image/202405041746286.png" srcset="/img/loading.gif" lazyload alt="image-20240504174624358"></p>
+<h3 id="3-2、安装过程及配置"><a href="#3-2、安装过程及配置" class="headerlink" title="3.2、安装过程及配置"></a>3.2、安装过程及配置</h3><p>下一步进入安装配置页面：</p>
 <ul>
-<li>定义全局变量，示例：</li>
+<li>选择语言</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">GlobalVar1=&quot;A global VAR1&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">切换用户查看</span><br>su other_user<br>echo $GlobalVar1<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202405032227077.png" srcset="/img/loading.gif" lazyload alt="image-20240503222755932"></p>
-<p>切换进程后，无法查看到对应的全局变量，因为没通过<code>export</code>将其导出，无法正常的访问。</p>
+<p><img src="https://codestar.top/note-image/202405041700616.png" srcset="/img/loading.gif" lazyload alt="image-20240504170046825"></p>
 <ul>
-<li>定义全局变量，并将其<code>export</code>导出，示例：</li>
+<li>选择安装的软件环境</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">export GlobalVar2=&quot;A global VAR2&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">切换用户查看</span><br>su other_user<br>echo $GlobalVar2<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202405032227500.png" srcset="/img/loading.gif" lazyload alt="image-20240503222740097"></p>
-<p>切换进程后，能够正常的访问到相应的全局变量，其通过<code>export</code>导出，使其在子脚本或命令中可见，因此能够正常访问到。</p>
-<p><strong>注意：</strong> 全局变量一般定义为小写字母，当定义为大写字母时，默认其为全局配置，即环境变量，这是一个通用的约定，避免变量的调用冲突。</p>
-<h2 id="4、环境变量"><a href="#4、环境变量" class="headerlink" title="4、环境变量"></a>4、环境变量</h2><h3 id="4-1、概述"><a href="#4-1、概述" class="headerlink" title="4.1、概述"></a>4.1、概述</h3><p>环境变量是在Linux操作系统中用来指定操作系统运行环境的一些参数的一种机制。它们是动态命名的值，通常名称用大写字母进行定义，由操作系统或用户设置。通常情况下会存放重要的配置信息，如配置文件路径、用户信息、网络设置参数等。常见的环境变量有 <code>PATH</code>, <code>HOME</code>, <code>USER</code> 等，下面来详细讨论环境变量的不同配置方法及其作用域。</p>
-<h3 id="4-2、配置临时环境变量"><a href="#4-2、配置临时环境变量" class="headerlink" title="4.2、配置临时环境变量"></a>4.2、配置临时环境变量</h3><p>使用 <code>export</code> 命令来设置临时环境变量，示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>执行完后通过<code>echo $PATH</code>查看，仅在当前窗口生效，关闭窗口或新建其他窗口，无法查看到之前设置的临时环境变量：</p>
-<p><img src="https://codestar.top/note-image/202405032259194.png" srcset="/img/loading.gif" lazyload alt="image-20240503225912798"></p>
-<p><strong>作用范围：</strong>仅当前用户，当前窗口。</p>
-<p><strong>注意：</strong>与全局变量中使用<code>export</code>导出变量效果类似，差别在于大小写。</p>
-<h3 id="4-3、配置永久环境变量"><a href="#4-3、配置永久环境变量" class="headerlink" title="4.3、配置永久环境变量"></a>4.3、配置永久环境变量</h3><h4 id="4-3-1、用户级配置文件"><a href="#4-3-1、用户级配置文件" class="headerlink" title="4.3.1、用户级配置文件"></a>4.3.1、用户级配置文件</h4><p>用户级配置文件，作用范围仅为单个用户的账户，只有当该用户登录shell或启用新的shell面板时，配置内容才会生效。提供给不同用户可以灵活配置各自的工作环境，下面是具体的用户配置方法：</p>
-<h5 id="1）配置方法一：-bashrc文件"><a href="#1）配置方法一：-bashrc文件" class="headerlink" title="1）配置方法一：~&#x2F;.bashrc文件"></a>1）配置方法一：~&#x2F;.bashrc文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.bashrc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>适用于当前登录用户，用于非登录 shell，即在用户登录后启动的shell中生效或新的终端窗口或新的shell脚本。</p>
-<p><strong>生效方法：</strong>使用<code>source ~/.bashrc</code>生效配置，并重新打开新的终端，即刻生效。</p>
-<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
-<h5 id="2）配置方法二：-profile文件"><a href="#2）配置方法二：-profile文件" class="headerlink" title="2）配置方法二：~&#x2F;.profile文件"></a>2）配置方法二：~&#x2F;.profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>适用于当前登录用户，登录型shell，即登录过程中进行配置生效。</p>
-<p><strong>生效方法：</strong>使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
-<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
-<h5 id="3）配置方法三：-bash-profile文件"><a href="#3）配置方法三：-bash-profile文件" class="headerlink" title="3）配置方法三：~&#x2F;.bash_profile文件"></a>3）配置方法三：~&#x2F;.bash_profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.bash_profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>适用于当前登录用户，登录型shell，即登录过程中进行配置生效。与<code>~/.profile</code>作用范围相同，但生效的优先级高于<code>~/.profile</code>文件</p>
-<p><strong>生效方法：</strong>使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
-<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
-<h4 id="4-3-2、系统级配置文件"><a href="#4-3-2、系统级配置文件" class="headerlink" title="4.3.2、系统级配置文件"></a>4.3.2、系统级配置文件</h4><p>系统级配置文件，影响范围为整个系统，所有的用户账户，无论是哪一位用户登录均可使用当前配置的系统环境变量内容，作用在提供一套标准的用户环境，保持系统环境一致性。同时系统级配置存在权限控制，仅有管理员可以进行配置，加强了环境管理。下面是不同的系统级配置的方法：</p>
-<h5 id="1）配置方法一：-etc-environment文件"><a href="#1）配置方法一：-etc-environment文件" class="headerlink" title="1）配置方法一：&#x2F;etc&#x2F;environment文件"></a>1）配置方法一：&#x2F;etc&#x2F;environment文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/environment<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>这是一个简单的键值对文件，用于设置系统级环境变量。这里设置的变量对所有用户有效。这里由于使用键值对存储，无需使用export关键字。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
-<h5 id="2）配置方法二：-etc-profile文件"><a href="#2）配置方法二：-etc-profile文件" class="headerlink" title="2）配置方法二：&#x2F;etc&#x2F;profile文件"></a>2）配置方法二：&#x2F;etc&#x2F;profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>这是全系统的登录脚本，当任何用户登录时运行，登录过程中进行配置生效。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
-<h5 id="3）配置方法三：-etc-bashrc文件"><a href="#3）配置方法三：-etc-bashrc文件" class="headerlink" title="3）配置方法三：&#x2F;etc&#x2F;bashrc文件"></a>3）配置方法三：&#x2F;etc&#x2F;bashrc文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/bashrc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>适用于所有用户的 Bash 配置，用于非登录 shell，即在用户登录后启动的shell中生效或新的终端窗口或新的shell脚本。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录。针对当前窗口可以使用<code>source /etc/bashrc</code>来生效配置。</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
-<h4 id="4-3-3、-etc-profile-d-配置路径"><a href="#4-3-3、-etc-profile-d-配置路径" class="headerlink" title="4.3.3、&#x2F;etc&#x2F;profile.d&#x2F;配置路径"></a>4.3.3、&#x2F;etc&#x2F;profile.d&#x2F;配置路径</h4><p>在Centos 7.9中，有<code>/etc/profile.d/</code>路径用来存放自定义脚本，这些脚本会在登录时自动运行，可以通过该机制，创建shell脚本来配置环境变量，如<code>setenv.sh</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
-
-<p>之后，赋予该脚本执行权限，即可在每次登录时，使用特定的环境变量：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod +x /etc/profile.d/setenv.sh<br></code></pre></td></tr></table></figure>
-
-<p>由于是在系统级路径下进行配置，其实整个过程，也相当于是系统级的一个环境变量配置。这个路径下的脚本，所有用户登录都会执行。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
-<h3 id="4-3、查看环境变量"><a href="#4-3、查看环境变量" class="headerlink" title="4.3、查看环境变量"></a>4.3、查看环境变量</h3><ul>
-<li>1、<code>printenv</code> 命令</li>
-</ul>
-<p>可以打印部分或全部环境变量：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">打印全部环境变量</span><br>printenv<br><span class="hljs-meta prompt_"># </span><span class="language-bash">打印PATH环境变量</span><br>printenv PATH<br></code></pre></td></tr></table></figure>
-
+<p>在安装信息摘要页面，点击<code>软件选择</code>，选择最小安装：</p>
+<p><img src="https://codestar.top/note-image/202405041702661.png" srcset="/img/loading.gif" lazyload alt="image-20240504170214120"></p>
+<p><strong>注：</strong> 这里不要选择GNOME桌面，选择最小安装，避免后续出现启动过程一直卡在许可证授权界面，猜测为GNOME适配的问题。</p>
 <ul>
-<li>2、<code>env</code>命令</li>
+<li>安装位置选择</li>
 </ul>
-<p><code>env</code> 命令类似于 <code>printenv</code>，但通常用于在修改后的环境中运行程序，不带参数时与<code>printenv</code>等价。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">打印全部环境变量</span><br>env<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在新环境变量中运行程序</span><br>env test.sh<br></code></pre></td></tr></table></figure>
-
+<p>在安装信息摘要页面，点击<code>安装位置</code>，选择系统安装盘：</p>
+<p><img src="https://codestar.top/note-image/202405041707900.png" srcset="/img/loading.gif" lazyload alt="image-20240504170719517"></p>
+<p>这里会出现格式化磁盘的提醒，按照引导回收磁盘空间：</p>
+<p><img src="https://codestar.top/note-image/202405041709067.png" srcset="/img/loading.gif" lazyload alt="image-20240504170944784"></p>
 <ul>
-<li>3、<code>echo</code>命令</li>
+<li>配置网络连接</li>
 </ul>
-<p>使用 <code>echo</code> 命令可以显示一个特定环境变量的值，可用于快速检查一个变量的修改是否生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo $PATH<br></code></pre></td></tr></table></figure>
-
+<p>在安装信息摘要页面，点击<code>网络和主机名</code>，进入配置页面：连接WIFI或有线网，主机名称看自己爱好修改。配置完成后点击左上角<code>完成</code></p>
+<p><img src="https://codestar.top/note-image/202405041727485.png" srcset="/img/loading.gif" lazyload alt="image-20240504172718863"></p>
 <ul>
-<li>4、<code>set</code>命令</li>
+<li>进入安装流程</li>
 </ul>
-<p><code>set</code> 命令可以显示局部和环境变量以及 shell 函数，其打印的信息比<code>printenv</code>更多，但不推荐使用，因为其包含的内容不只是环境变量，结果会更杂乱。</p>
-<h2 id="5、内置变量"><a href="#5、内置变量" class="headerlink" title="5、内置变量"></a>5、内置变量</h2><p>由 shell （比如 Bash Shell）本身预定义的变量称之为内置变量，非用户自定义。这些内置变量提供了关于系统环境和 shell 自身运行状态的重要信息，用户无法创建新的内置变量。一般情况下不允许用户修改内置变量，仅可读取，常见的内置变量有下面这些：</p>
-<table>
-<thead>
-<tr>
-<th align="center">内置变量</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>HOME</code></td>
-<td align="center">当前用户的主目录路径。</td>
-</tr>
-<tr>
-<td align="center"><code>PWD</code></td>
-<td align="center">当前工作目录的路径。</td>
-</tr>
-<tr>
-<td align="center"><code>USER</code></td>
-<td align="center">当前登录的用户名。</td>
-</tr>
-<tr>
-<td align="center"><code>BASH_VERSION</code></td>
-<td align="center">当前运行的 Bash 版本信息。</td>
-</tr>
-<tr>
-<td align="center"><code>PATH</code></td>
-<td align="center">系统查找命令的目录列表。</td>
-</tr>
-<tr>
-<td align="center"><code>RANDOM</code></td>
-<td align="center">每次引用时生成的随机整数。</td>
-</tr>
-<tr>
-<td align="center"><code>UID</code></td>
-<td align="center">当前用户的用户ID。</td>
-</tr>
-</tbody></table>
-<p>使用内置变量示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Your home directory is $HOME&quot;<br>echo &quot;You are logged in as $USER&quot;<br></code></pre></td></tr></table></figure>
+<p>在配置完上述内容之后，可以开始安装过程了，直接点击右下角<code>开始安装</code>：</p>
+<p><img src="https://codestar.top/note-image/202405041720584.png" srcset="/img/loading.gif" lazyload alt="image-20240504172024510"></p>
+<ul>
+<li>配置账户及密码</li>
+</ul>
+<p>进入安装页面，配置root账户密码，以及创建新的登录账户：</p>
+<p><img src="https://codestar.top/note-image/202405041722133.png" srcset="/img/loading.gif" lazyload alt="image-20240504172203918"></p>
+<p>设置root用户密码：</p>
+<p><img src="https://codestar.top/note-image/202405041734598.png" srcset="/img/loading.gif" lazyload alt="image-20240504173412571"></p>
+<p>创建新的账户，名称自定义，将其设置为管理员并开启密码校验：</p>
+<p><img src="https://codestar.top/note-image/202405041732006.png" srcset="/img/loading.gif" lazyload alt="image-20240504173246264"></p>
+<p>配置完成后，接下来就是等待设备安装完成了：</p>
+<p><img src="https://codestar.top/note-image/202405041736011.png" srcset="/img/loading.gif" lazyload alt="image-20240504173644391"></p>
+<h3 id="3-3、安装完启动"><a href="#3-3、安装完启动" class="headerlink" title="3.3、安装完启动"></a>3.3、安装完启动</h3><ul>
+<li>安装完成后启动PC</li>
+</ul>
+<p>重新启动，自动加载Centos：</p>
+<p><img src="https://codestar.top/note-image/202405041734159.png" srcset="/img/loading.gif" lazyload alt="image-20240504173428768"></p>
+<p>进入命令行界面，登录后即可正常使用了：</p>
+<p><img src="https://codestar.top/note-image/202405041721083.png" srcset="/img/loading.gif" lazyload alt="image-20240504172105796"></p>
+<h2 id="3、安装图形界面"><a href="#3、安装图形界面" class="headerlink" title="3、安装图形界面"></a>3、安装图形界面</h2><p>执行下列指令进行安装GNOME图形界面：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum update -y<br>yum grouplist<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装GNOME图形界面</span><br>yum groupinstall -y &quot;GNOME Desktop&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装完成后，修改默认启动方式为图形化界面</span><br>systemctl set-default graphical.target <br><span class="hljs-meta prompt_"># </span><span class="language-bash">恢复为命令模式</span><br>systemctl set-default multi-user.target<br></code></pre></td></tr></table></figure>
 
-<h2 id="6、参考"><a href="#6、参考" class="headerlink" title="6、参考"></a>6、参考</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904173775880199">https://juejin.cn/post/6844904173775880199</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566600783">https://zhuanlan.zhihu.com/p/566600783</a></p>
+<p>安装完成后，<code>reboot</code>重启系统生效图形界面，登录账户，配置GNOME初始项，即可正常开始使用了：</p>
+<p><img src="https://codestar.top/note-image/202405041741836.png" srcset="/img/loading.gif" lazyload alt="image-20240504174144660"></p>
+<h2 id="4、开启SSH服务"><a href="#4、开启SSH服务" class="headerlink" title="4、开启SSH服务"></a>4、开启SSH服务</h2><p>安装完成GNOME桌面后，SSH服务会自动开启：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查SSH状态</span><br>systemctl status sshd<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202405041744198.png" srcset="/img/loading.gif" lazyload alt="image-20240504174415468"></p>
+<p>如果未开启，手动执行下列指令开启SSH：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start sshd<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -697,12 +638,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/Centos/" class="category-chain-item">Centos</a>
   
   
     <span>></span>
     
-  <a href="/categories/Linux/bash/" class="category-chain-item">bash</a>
+  <a href="/categories/Centos/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" class="category-chain-item">系统安装</a>
   
   
 
@@ -719,11 +660,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/bash/" class="print-no-link">#bash</a>
+        <a href="/tags/Centos/" class="print-no-link">#Centos</a>
       
         <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-        <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="print-no-link">#环境变量</a>
       
     </div>
   
@@ -735,8 +674,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux变量的认识及环境变量配置详解</div>
-      <div>http://www.codestar.top/2024/05/04/Linux/Linux变量的认识及环境变量配置详解/</div>
+      <div>笔记本安装Centos 7.9完整安装流程及踩坑记录</div>
+      <div>http://www.codestar.top/2024/05/04/Linux/笔记本安装Centos-7-9完整安装流程及踩坑记录/</div>
     </div>
     <div class="license-meta">
       
@@ -797,18 +736,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/04/Linux/Centos-7-9-%E9%85%8D%E7%BD%AEVNCServer%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8Bvnc%E8%BF%9E%E6%8E%A5/" title="Centos 7.9 配置VNCServer实现远程vnc连接">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Centos 7.9 配置VNCServer实现远程vnc连接</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/03/BLOG/HEXO%EF%BC%9A%E7%AB%99%E7%82%B9sitemap-xml%E6%8F%90%E4%BA%A4%E5%90%8E%E6%89%93%E5%BC%80%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="HEXO：站点sitemap.xml提交后打开异常问题解决">
-                        <span class="hidden-mobile">HEXO：站点sitemap.xml提交后打开异常问题解决</span>
+                      <a href="/2024/05/04/Linux/Centos-7-9%E5%AE%89%E8%A3%85node-js%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" title="Centos 7.9安装node.js完整过程及踩坑记录">
+                        <span class="hidden-mobile">Centos 7.9安装node.js完整过程及踩坑记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
