@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.codestar.top/2024/05/10/Compile/Centos-7-9%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85curl%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/</loc>
+    <lastmod>2024-05-09</lastmod>
+  </url>
+  <url>
+    <loc>http://www.codestar.top/2024/05/04/Linux/Centos-7-9%E5%AE%89%E8%A3%85node-js%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2024-05-09</lastmod>
+  </url>
+  <url>
+    <loc>http://www.codestar.top/2024/05/04/Linux/Linux%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%A4%E8%AF%86%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2024-05-06</lastmod>
+  </url>
+  <url>
     <loc>http://www.codestar.top/2024/05/04/Linux/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85Centos-7-9%E5%AE%8C%E6%95%B4%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2024-05-04</lastmod>
+    <lastmod>2024-05-06</lastmod>
   </url>
   <url>
     <loc>http://www.codestar.top/2023/10/12/Linux/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85%E7%BA%AF%E5%87%80Ubuntu%2022.04%20LTS%E7%B3%BB%E7%BB%9F%E5%85%A8%E6%B5%81%E7%A8%8B/</loc>
@@ -11,14 +23,6 @@
   <url>
     <loc>http://www.codestar.top/2024/05/04/Linux/Centos-7-9-%E9%85%8D%E7%BD%AEVNCServer%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8Bvnc%E8%BF%9E%E6%8E%A5/</loc>
     <lastmod>2024-05-04</lastmod>
-  </url>
-  <url>
-    <loc>http://www.codestar.top/2024/05/04/Linux/Centos-7-9%E5%AE%89%E8%A3%85node-js%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2024-05-04</lastmod>
-  </url>
-  <url>
-    <loc>http://www.codestar.top/2024/05/04/Linux/Linux%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%A4%E8%AF%86%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2024-05-03</lastmod>
   </url>
   <url>
     <loc>http://www.codestar.top/2024/03/03/Linux/Linux%EF%BC%9A%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95/</loc>

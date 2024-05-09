@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.codestar.top/img/blog-img/linux_centos_pic1.png">
 <meta property="article:published_time" content="2024-05-04T09:51:18.000Z">
-<meta property="article:modified_time" content="2024-05-04T09:54:10.553Z">
+<meta property="article:modified_time" content="2024-05-06T14:32:24.777Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="Centos">
 <meta property="article:tag" content="Linux">
@@ -537,7 +537,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年5月4日 下午
+                    本文最后更新于：2024年5月6日 晚上
                   
                 
               </p>
@@ -561,7 +561,7 @@
 <p><img src="https://codestar.top/note-image/202405041642340.png" srcset="/img/loading.gif" lazyload alt="image-20240504164239214"></p>
 <p>正常情况下会进入安装界面，加载正常：</p>
 <p><img src="https://codestar.top/note-image/202405041647191.png" srcset="/img/loading.gif" lazyload alt="image-20240504164743762"></p>
-<p><strong>注：</strong>此处概率性会遇到<code>nouveau 0000:02:00.0: DRM: Pointer to TMDs table inualid</code>问题，此问题的大概率是安装的镜像文件在加载过程中损坏了，我尝试解决的方法时重新执行制作U盘启动盘，参考文第二节。基于此原因，后续的配置尽可能不出错，否则很麻烦，如果有其他更好的方法欢迎大家留言。异常加载情况如下：</p>
+<p><strong>注：</strong>此处概率性会遇到<code>nouveau 0000:02:00.0: DRM: Pointer to TMDs table inualid</code>问题，此问题大概率是安装的镜像文件在加载过程中损坏了，我尝试解决的方法时重新制作U盘启动盘，参考本文第二节。基于此原因，后续的配置尽可能不出错，否则很麻烦，如果有其他更好的方法欢迎大家留言。异常加载情况如下：</p>
 <p><img src="https://codestar.top/note-image/202405041746286.png" srcset="/img/loading.gif" lazyload alt="image-20240504174624358"></p>
 <h3 id="3-2、安装过程及配置"><a href="#3-2、安装过程及配置" class="headerlink" title="3.2、安装过程及配置"></a>3.2、安装过程及配置</h3><p>下一步进入安装配置页面：</p>
 <ul>
@@ -609,12 +609,12 @@
 <p><img src="https://codestar.top/note-image/202405041734159.png" srcset="/img/loading.gif" lazyload alt="image-20240504173428768"></p>
 <p>进入命令行界面，登录后即可正常使用了：</p>
 <p><img src="https://codestar.top/note-image/202405041721083.png" srcset="/img/loading.gif" lazyload alt="image-20240504172105796"></p>
-<h2 id="3、安装图形界面"><a href="#3、安装图形界面" class="headerlink" title="3、安装图形界面"></a>3、安装图形界面</h2><p>执行下列指令进行安装GNOME图形界面：</p>
+<h2 id="4、安装图形界面"><a href="#4、安装图形界面" class="headerlink" title="4、安装图形界面"></a>4、安装图形界面</h2><p>执行下列指令进行安装GNOME图形界面：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum update -y<br>yum grouplist<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装GNOME图形界面</span><br>yum groupinstall -y &quot;GNOME Desktop&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装完成后，修改默认启动方式为图形化界面</span><br>systemctl set-default graphical.target <br><span class="hljs-meta prompt_"># </span><span class="language-bash">恢复为命令模式</span><br>systemctl set-default multi-user.target<br></code></pre></td></tr></table></figure>
 
 <p>安装完成后，<code>reboot</code>重启系统生效图形界面，登录账户，配置GNOME初始项，即可正常开始使用了：</p>
 <p><img src="https://codestar.top/note-image/202405041741836.png" srcset="/img/loading.gif" lazyload alt="image-20240504174144660"></p>
-<h2 id="4、开启SSH服务"><a href="#4、开启SSH服务" class="headerlink" title="4、开启SSH服务"></a>4、开启SSH服务</h2><p>安装完成GNOME桌面后，SSH服务会自动开启：</p>
+<h2 id="5、开启SSH服务"><a href="#5、开启SSH服务" class="headerlink" title="5、开启SSH服务"></a>5、开启SSH服务</h2><p>安装完成GNOME桌面后，SSH服务会自动开启：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查SSH状态</span><br>systemctl status sshd<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://codestar.top/note-image/202405041744198.png" srcset="/img/loading.gif" lazyload alt="image-20240504174415468"></p>
@@ -693,7 +693,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年5月4日</div>
+          <div>2024年5月6日</div>
         </div>
       
       
@@ -735,6 +735,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/05/10/Compile/Centos-7-9%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85curl%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" title="Centos 7.9如何使用源码编译安装curl最新版本">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Centos 7.9如何使用源码编译安装curl最新版本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
