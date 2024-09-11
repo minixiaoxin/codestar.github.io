@@ -1,0 +1,1319 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <link rel="icon" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mini小新">
+  <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
+  
+    <meta name="description" content="1、内核优化替换为优化内核PWSH 7，官方仓库： https:&#x2F;&#x2F;github.com&#x2F;PowerShell&#x2F;PowerShell&#x2F;releases 进入后，下载Windows 64位安装包：  根据安装向导，一路点击安装，安装完成后打开Windows terminal设置页面，将启动的内核切换为PowerShell：  2、配置优化2.1、默认配置文件安装完成后的windows termina">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows Terminal内核、配置及主题优化全流程">
+<meta property="og:url" content="http://www.codestar.top/2024/09/11/Windows/Windows-Terminal%E5%86%85%E6%A0%B8%E3%80%81%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%85%A8%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="mini小新的博客">
+<meta property="og:description" content="1、内核优化替换为优化内核PWSH 7，官方仓库： https:&#x2F;&#x2F;github.com&#x2F;PowerShell&#x2F;PowerShell&#x2F;releases 进入后，下载Windows 64位安装包：  根据安装向导，一路点击安装，安装完成后打开Windows terminal设置页面，将启动的内核切换为PowerShell：  2、配置优化2.1、默认配置文件安装完成后的windows termina">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/Windows_pic2.png">
+<meta property="article:published_time" content="2024-09-11T15:27:05.000Z">
+<meta property="article:modified_time" content="2024-09-11T15:30:54.663Z">
+<meta property="article:author" content="mini小新">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Windows Terminal">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Windows_pic2.png">
+  
+  
+  
+  <title>Windows Terminal内核、配置及主题优化全流程 - mini小新的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_8thc53fgzar.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.codestar.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"shell"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"a48e14d1d7805c8552eaa9824984945e","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Gxk1Sem8mKPN1DwNwHP3SsBG-MdYXbMMI","app_key":"wfFTsKm5TWsVNYYUHBugqEKu","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a48e14d1d7805c8552eaa9824984945e";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>mini小新</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-icon_books"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-knowledge-fill"></i>
+                <span>知识库</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://wiki.codestar.top/">
+                    <i class="iconfont icon-wiki"></i>
+                    <span>Wiki</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.yuque.com/dashboard/">
+                    <i class="iconfont icon-yuque-fill"></i>
+                    <span>语雀</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Command/">
+                    <i class="iconfont icon-learning"></i>
+                    <span>Command</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-AIzhineng"></i>
+                <span>AI Stuggle</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://metaso.cn/">
+                    <i class="iconfont icon-a-AISearch"></i>
+                    <span>AI Search</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.promptingguide.ai/zh">
+                    <i class="iconfont icon-prompt_o"></i>
+                    <span>PromptGuide</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://chat.lmsys.org/">
+                    <i class="iconfont icon-AI"></i>
+                    <span>AI Battle</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://colab.research.google.com/?hl=zh-cn">
+                    <i class="iconfont icon-laboratory"></i>
+                    <span>Colaboratory</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/index">
+                    <i class="iconfont icon-paddlepaddle"></i>
+                    <span>AI Paddle Studio</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-user-fill"></i>
+                <span>个人</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/">
+                    <i class="iconfont icon-info"></i>
+                    <span>关于</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://blog.mnxin.cn">
+                    <i class="iconfont icon-life-solid"></i>
+                    <span>Life Log</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.16type.com/result.html?id=2047343">
+                    <i class="iconfont icon-about1"></i>
+                    <span>我的十六型人格</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tranfer"></i>
+                <span>传送门</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html">
+                    <i class="iconfont icon-train"></i>
+                    <span>开往</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>友链</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-web"></i>
+                <span>站点数据</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://stats.uptimerobot.com/4Ild6fz42r">
+                    <i class="iconfont icon-monitoring"></i>
+                    <span>站点状态</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wall-3.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Windows Terminal内核、配置及主题优化全流程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        mini小新
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-11 23:27" pubdate>
+          2024年9月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Windows Terminal内核、配置及主题优化全流程</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年9月11日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1、内核优化"><a href="#1、内核优化" class="headerlink" title="1、内核优化"></a>1、内核优化</h2><p>替换为优化内核PWSH 7，官方仓库：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell/releases">https://github.com/PowerShell/PowerShell/releases</a></p>
+<p>进入后，下载Windows 64位安装包：</p>
+<p><img src="https://codestar.top/note-image/202409112253307.png" srcset="/img/loading.gif" lazyload alt="image-20240909173313490"></p>
+<p>根据安装向导，一路点击安装，安装完成后打开Windows terminal设置页面，将启动的内核切换为<code>PowerShell</code>：</p>
+<p><img src="https://codestar.top/note-image/202409112254705.png" srcset="/img/loading.gif" lazyload alt="image-20240909173607167"></p>
+<h2 id="2、配置优化"><a href="#2、配置优化" class="headerlink" title="2、配置优化"></a>2、配置优化</h2><h3 id="2-1、默认配置文件"><a href="#2-1、默认配置文件" class="headerlink" title="2.1、默认配置文件"></a>2.1、默认配置文件</h3><p>安装完成后的windows terminal默认配置文件为<code>settings.json</code>，默认路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">xxx为PC账户名</span><br>C:\Users\xxx\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState<br></code></pre></td></tr></table></figure>
+
+<p>通过Windows terminal设置界面，可以直接打开配置文件：</p>
+<p><img src="https://codestar.top/note-image/202409112255352.png" srcset="/img/loading.gif" lazyload alt="image-20240909175147668"></p>
+<h3 id="2-2、配置优化"><a href="#2-2、配置优化" class="headerlink" title="2.2、配置优化"></a>2.2、配置优化</h3><p>对于windows terminal，我们来对其进行简单的配置优化，打开<code>settings.json</code>文件，修改profiles中的内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">完整配置如下：</span><br>&quot;profiles&quot;: <br>    &#123;<br>        &quot;defaults&quot;: // 适用于所有配置文件的默认设置 <br>        &#123;<br>            //设置字体配置  <br>            &quot;font&quot;: <br>                &#123;<br>                    &quot;face&quot;: &quot;Agave Nerd Font&quot;,<br>                    &quot;size&quot;: 12<br>                &#125;,<br>            //设置配色方案<br>            &quot;colorScheme&quot;: &quot;One Half Dark (copy)&quot;,<br>            //设置亚克力效果<br>            &quot;useAcrylic&quot;: true,<br>            //亚克力效果不透明度<br>            &quot;acrylicOpacity&quot;: 0.80,<br>            //设置背景图片<br>            &quot;backgroundImage&quot;: &quot;F:\\\u4e2a\u4eba\u6587\u6863\\\u58c1\u7eb8\\wallhaven-x6jo5o.jpg&quot;,<br>            //设置背景透明度<br>            &quot;backgroundImageOpacity&quot;: 0.85,<br>            //设置背景图片拉伸模式<br>            &quot;backgroundImageStretchMode&quot;: &quot;uniformToFill&quot;,<br>            //设置光标形状<br>            &quot;cursorShape&quot;: &quot;bar&quot;<br>        &#125;,<br>        &quot;list&quot;: //配置独立内核的配置文件<br>        [<br>            &#123;<br>                &quot;commandline&quot;: &quot;%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe&quot;,<br>                &quot;guid&quot;: &quot;&#123;61c54bbd-c2c6-5271-96e7-009a87ff44bf&#125;&quot;,<br>                &quot;hidden&quot;: false,<br>                &quot;name&quot;: &quot;Windows PowerShell&quot;<br>            &#125;,<br>            &#123;<br>                &quot;commandline&quot;: &quot;%SystemRoot%\\System32\\cmd.exe&quot;,<br>                &quot;guid&quot;: &quot;&#123;0caa0dad-35be-5f56-a8ff-afceeeaa6101&#125;&quot;,<br>                &quot;hidden&quot;: false,<br>                &quot;name&quot;: &quot;\u547d\u4ee4\u63d0\u793a\u7b26&quot;<br>            &#125;,<br>            &#123;<br>                &quot;guid&quot;: &quot;&#123;b453ae62-4e3d-5e58-b989-0a998ec441b8&#125;&quot;,<br>                &quot;hidden&quot;: false,<br>                &quot;name&quot;: &quot;Azure Cloud Shell&quot;,<br>                &quot;source&quot;: &quot;Windows.Terminal.Azure&quot;<br>            &#125;,<br>            &#123;<br>                &quot;elevate&quot;: true,<br>                &quot;guid&quot;: &quot;&#123;574e775e-4f2a-5b96-ac1e-a2962a402336&#125;&quot;,<br>                &quot;hidden&quot;: false,<br>                &quot;name&quot;: &quot;PowerShell&quot;,<br>                &quot;source&quot;: &quot;Windows.Terminal.PowershellCore&quot;<br>            &#125;<br>        ]<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>defaults为<strong>全局配置</strong>，list针对每个启动内核做单独的配置，当配置不同时，优先采用list中的独立配置项。</p>
+<p>自定义配色方案在schemes中创建，自定义主题在themes中创建。scheme只影响单独运用的终端，themes会影响整个终端效果，下面是参考的配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs shell">&quot;schemes&quot;: <br>    [<br>        &#123;<br>            &quot;background&quot;: &quot;#416187&quot;,<br>            &quot;black&quot;: &quot;#06141C&quot;,<br>            &quot;blue&quot;: &quot;#61AFEF&quot;,<br>            &quot;brightBlack&quot;: &quot;#686E80&quot;,<br>            &quot;brightBlue&quot;: &quot;#61AFEF&quot;,<br>            &quot;brightCyan&quot;: &quot;#56B6C2&quot;,<br>            &quot;brightGreen&quot;: &quot;#98C379&quot;,<br>            &quot;brightPurple&quot;: &quot;#C678DD&quot;,<br>            &quot;brightRed&quot;: &quot;#E06C75&quot;,<br>            &quot;brightWhite&quot;: &quot;#DCDFE4&quot;,<br>            &quot;brightYellow&quot;: &quot;#E5C07B&quot;,<br>            &quot;cursorColor&quot;: &quot;#FFFFFF&quot;,<br>            &quot;cyan&quot;: &quot;#56B6C2&quot;,<br>            &quot;foreground&quot;: &quot;#72A1AD&quot;,<br>            &quot;green&quot;: &quot;#98C379&quot;,<br>            &quot;name&quot;: &quot;One Half Dark (copy)&quot;,<br>            &quot;purple&quot;: &quot;#C678DD&quot;,<br>            &quot;red&quot;: &quot;#E06C75&quot;,<br>            &quot;selectionBackground&quot;: &quot;#FFFFFF&quot;,<br>            &quot;white&quot;: &quot;#DCDFE4&quot;,<br>            &quot;yellow&quot;: &quot;#E5C07B&quot;<br>        &#125;<br>    ],<br>    &quot;themes&quot;: [<br>        &#123;<br>            &quot;name&quot;: &quot;Custom Theme 1&quot;,<br>            &quot;tab&quot;: &#123;<br>                &quot;background&quot;: &quot;#1F1F1F&quot;,<br>                &quot;showCloseButton&quot;: &quot;always&quot;,<br>                &quot;unfocusedBackground&quot;: &quot;#2D2D2D&quot;<br>            &#125;,<br>            &quot;window&quot;: &#123;<br>                &quot;applicationTheme&quot;: &quot;dark&quot;,<br>                &quot;useMica&quot;: true<br>            &#125;<br>        &#125;<br>    ]<br></code></pre></td></tr></table></figure>
+
+<p>主题可在<code>设置</code>-&gt;<code>外观</code>-&gt;<code>应用程序主题</code>中设置：</p>
+<p><img src="https://codestar.top/note-image/202409112255840.png" srcset="/img/loading.gif" lazyload alt="image-20240910181007069"></p>
+<p>也可直接在配置文件中修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell">&quot;theme&quot;: &quot;Custom Theme 1&quot;,<br>&quot;themes&quot;: <br>    [<br>        &#123;<br>            &quot;name&quot;: &quot;Custom Theme 1&quot;,<br>            &quot;tab&quot;: <br>            &#123;<br>                &quot;background&quot;: &quot;#1F1F1FFF&quot;,<br>                &quot;iconStyle&quot;: &quot;default&quot;,<br>                &quot;showCloseButton&quot;: &quot;always&quot;,<br>                &quot;unfocusedBackground&quot;: &quot;#2D2D2DFF&quot;<br>            &#125;,<br>            &quot;window&quot;: <br>            &#123;<br>                &quot;applicationTheme&quot;: &quot;dark&quot;,<br>                &quot;experimental.rainbowFrame&quot;: false,<br>                &quot;frame&quot;: null,<br>                &quot;unfocusedFrame&quot;: null,<br>                &quot;useMica&quot;: true<br>            &#125;<br>        &#125;<br>    ]<br></code></pre></td></tr></table></figure>
+
+<p>此配置项与themes同级，不可嵌入到defaults或list中，为全局配置。</p>
+<h2 id="3、主题优化"><a href="#3、主题优化" class="headerlink" title="3、主题优化"></a>3、主题优化</h2><h3 id="3-1、on-my-posh安装及配置"><a href="#3-1、on-my-posh安装及配置" class="headerlink" title="3.1、on-my-posh安装及配置"></a>3.1、on-my-posh安装及配置</h3><p><strong>注意：</strong>下列步骤均基于<strong>管理员模式</strong>操作。</p>
+<p>on-my-posh是powershell中用于自定义和美化命令行提示符的跨平台工具。基于on-my-posh，可以自由的定制powershell命令行样式，大大增强了pwsh的美观度和实用性。下面是on-my-posh的安装过程：</p>
+<h4 id="1）on-my-posh安装"><a href="#1）on-my-posh安装" class="headerlink" title="1）on-my-posh安装"></a>1）on-my-posh安装</h4><p>打开Windows terminal命令行，执行安装指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">winget install JanDeDobbeleer.OhMyPosh -s winget<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或</span><br>winget install oh-my-posh<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202409112256137.png" srcset="/img/loading.gif" lazyload alt="image-20240909180329019"></p>
+<h4 id="2）安装oh-my-posh指令"><a href="#2）安装oh-my-posh指令" class="headerlink" title="2）安装oh-my-posh指令"></a>2）安装oh-my-posh指令</h4><p>安装完成后，进行oh-my-posh指令安装，执行下面指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">(Get-Command oh-my-posh).Source<br></code></pre></td></tr></table></figure>
+
+<p>可能会执行失败，执行失败时进行手动安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString(&#x27;https://ohmyposh.dev/install.ps1&#x27;))<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202409112257794.png" srcset="/img/loading.gif" lazyload alt="image-20240909180916109"></p>
+<p>在命令行输入<code>oh-my-posh</code>以验证<code>oh-my-posh</code>指令，正常输出如下：</p>
+<p><img src="https://codestar.top/note-image/202409112257627.png" srcset="/img/loading.gif" lazyload alt="image-20240909181059300"></p>
+<p>一般情况下默认安装最新版本，想要手动升级执行如下指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">winget upgrade JanDeDobbeleer.OhMyPosh -s winget<br></code></pre></td></tr></table></figure>
+
+<h4 id="3）配置oh-my-posh主题环境变量"><a href="#3）配置oh-my-posh主题环境变量" class="headerlink" title="3）配置oh-my-posh主题环境变量"></a>3）配置oh-my-posh主题环境变量</h4><ul>
+<li>设置<code>POSH_THEMES_PATH</code>环境变量：这个变量的作用在快速定位到oh-my-posh主题路径</li>
+</ul>
+<p><kbd>win</kbd>+<kbd>r</kbd>打开运行栏，输入<code>sysdm.cpl</code>打开系统属性配置页，在‘高级’-&gt;‘环境变量’，新建<code>POSH_THEMES_PATH</code>系统变量，加入主题文件路径，默认如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">xxx替换为自己的账户名称</span><br>C:\Users\xxx\AppData\Local\Programs\oh-my-posh\themes\<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202409112258334.png" srcset="/img/loading.gif" lazyload alt="image-20240909191025126"></p>
+<p>此路径下，每一个配置文件都为一个独立主题。</p>
+<h4 id="4）切换主题"><a href="#4）切换主题" class="headerlink" title="4）切换主题"></a>4）切换主题</h4><p>创建环境变量成功后，重新打开Windows terminal，进行主题切换，示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">切换到jandedobbeleer.omp主题</span><br>oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\jandedobbeleer.omp.json | Invoke-Expression<br></code></pre></td></tr></table></figure>
+
+<p>切换成功后，命令面板的样式会变化：</p>
+<p><img src="https://codestar.top/note-image/202409112259714.png" srcset="/img/loading.gif" lazyload alt="image-20240909192526186"></p>
+<p>或者在面板执行<code>Get-PoshThemes</code>获取主题列表，再进一步选择。</p>
+<p>切换指定的主题：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">M365Princess为主题名称</span><br>Set-PoshPrompt -Theme M365Princess<br></code></pre></td></tr></table></figure>
+
+<p>每种主题的效果，可以查看官方预览：<a target="_blank" rel="noopener" href="https://ohmyposh.dev/docs/themes">https://ohmyposh.dev/docs/themes</a></p>
+<h3 id="3-2、Nerd字体安装"><a href="#3-2、Nerd字体安装" class="headerlink" title="3.2、Nerd字体安装"></a>3.2、Nerd字体安装</h3><p>在配置完oh-my-posh后，因为主题中会含有部分特殊字符，用默认的系统字体会乱码，需要使用兼容性更好的字体，这里使用nerd font下面来安装</p>
+<h4 id="1）Nerd字体下载"><a href="#1）Nerd字体下载" class="headerlink" title="1）Nerd字体下载"></a>1）Nerd字体下载</h4><p>访问Nerd官方下载字体: <a target="_blank" rel="noopener" href="https://www.nerdfonts.com/font-downloads">https://www.nerdfonts.com/font-downloads</a></p>
+<p>选择任意一款字体下载即可，这里我选择下载<code>Agrave Nerd Font</code>字体：</p>
+<p><img src="https://codestar.top/note-image/202409112259097.png" srcset="/img/loading.gif" lazyload alt="image-20240909193138288"></p>
+<p>下载完成后，解压zip包，将其中的字体进行安装：</p>
+<p><img src="https://codestar.top/note-image/202409112300219.png" srcset="/img/loading.gif" lazyload alt="image-20240909193414036"></p>
+<p>上述文件，直接拖进<code>C:\Windows\Fonts\</code>路径进行安装：</p>
+<p><img src="https://codestar.top/note-image/202409112300083.png" srcset="/img/loading.gif" lazyload alt="image-20240909193521184"></p>
+<p>到此即可正常在系统中安装Nerd字体，后续在oh-my-posh中进一步配置。</p>
+<h4 id="2）oh-my-posh安装Nerd字体"><a href="#2）oh-my-posh安装Nerd字体" class="headerlink" title="2）oh-my-posh安装Nerd字体"></a>2）oh-my-posh安装Nerd字体</h4><p>进入Windows terminal，进行oh-my-posh字体安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">oh-my-posh font install<br></code></pre></td></tr></table></figure>
+
+<p>执行后，可以看到我们之前装的Agrave字体，选中按回车即可：</p>
+<p><img src="https://codestar.top/note-image/202409112300186.png" srcset="/img/loading.gif" lazyload alt="image-20240909194004482"></p>
+<p>安装成功之后结果如下：</p>
+<p><img src="https://codestar.top/note-image/202409112302124.png" srcset="/img/loading.gif" lazyload alt="image-20240909194112007"></p>
+<p>切换powershell内核字体：</p>
+<p>Windows terminal进入<code>设置</code>-&gt;<code>PowerShell</code>-&gt;<code>外观</code>-&gt;<code>字体</code>切换为Agrave Nerd Font，如下：</p>
+<p><img src="https://codestar.top/note-image/202409112301939.png" srcset="/img/loading.gif" lazyload alt="image-20240909194516190"></p>
+<p><strong>PS：切换之后一定要记得点保存！！</strong></p>
+<p>配置完上面的内容，主题即大功告成了。</p>
+<p><strong>提示：</strong>除了nerd还有其他可使用的字体还有：等距更纱黑体、powerline: <a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
+<h3 id="3-3、配置主题自启动"><a href="#3-3、配置主题自启动" class="headerlink" title="3.3、配置主题自启动"></a>3.3、配置主题自启动</h3><p>在默认powershell启动下，不会自动加载主题，下面通过自定义配置，使得PWSH启动时能够自动加载主题：</p>
+<ul>
+<li>创建Powershell配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查 <span class="hljs-variable">$PROFILE</span> 文件是否存在, 如果不存在则新建空文件</span><br>if (!(Test-Path -Path $PROFILE )) &#123; New-Item -Type File -Path $PROFILE -Force &#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202409112303890.png" srcset="/img/loading.gif" lazyload alt="image-20240909200813533"></p>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">notepad</span> <span class="hljs-variable">$PROFILE</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>加入配置内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">配置打开pwsh默认使用oh-my-posh并配置主题：jandedobbeleer.omp.json、1_shell.omp.json替换为自己定义的主题</span><br>oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\jandedobbeleer.omp.json | Invoke-Expression<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或</span><br>oh-my-posh init pwsh --config &quot;env:POSH_THEMES_PATH/1_shell.omp.json&quot; | Invoke-Expression<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202409112303749.png" srcset="/img/loading.gif" lazyload alt="image-20240909200924536"></p>
+<ul>
+<li>生效配置文件</li>
+</ul>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">. <span class="hljs-symbol">$PROFILE</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202409112303063.png" srcset="/img/loading.gif" lazyload alt="image-20240909201003112"></p>
+<p>生效配置后，重启Windows terminal即可自动加载oh-my-posh及主题了：</p>
+<p><img src="https://codestar.top/note-image/202409112303420.png" srcset="/img/loading.gif" lazyload alt="image-20240909201113245"></p>
+<h2 id="4、（可选）安装Starship主题"><a href="#4、（可选）安装Starship主题" class="headerlink" title="4、（可选）安装Starship主题"></a>4、（可选）安装Starship主题</h2><h3 id="4-1、starship安装"><a href="#4-1、starship安装" class="headerlink" title="4.1、starship安装"></a>4.1、starship安装</h3><p>基于前几章，已经将Windows terminal各项配置及主题都搞定，这里个人喜欢Starship的样式，在配置完前面的内容后，选择安装单独的Starship主题样式：</p>
+<p>官方开源库：<a target="_blank" rel="noopener" href="https://github.com/starship/starship">https://github.com/starship/starship</a></p>
+<p>样式预览：</p>
+<p><img src="https://raw.githubusercontent.com/starship/starship/master/media/demo.gif" srcset="/img/loading.gif" lazyload alt="demo.gif"></p>
+<p>针对Windows安装，使用以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">默认走github源</span><br>winget install --id Starship.Starship<br></code></pre></td></tr></table></figure>
+
+<p>键入Y同意：</p>
+<p><img src="https://codestar.top/note-image/202409112305802.png" srcset="/img/loading.gif" lazyload alt="image-20230517112525751"></p>
+<p>上述源安装失败后，切换到widget源继续：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">winget install --id Starship.Starship --source winget<br></code></pre></td></tr></table></figure>
+
+<p>安装成功如下：</p>
+<p><img src="https://codestar.top/note-image/202409112305922.png" srcset="/img/loading.gif" lazyload alt="image-20240909202527893"></p>
+<p>安装完成后重启powershell。</p>
+<h3 id="4-2、生效配置"><a href="#4-2、生效配置" class="headerlink" title="4.2、生效配置"></a>4.2、生效配置</h3><p>修改配置文件：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 打开配置文件</span><br><span class="hljs-attribute">notepad</span> <span class="hljs-variable">$PROFILE</span><br><span class="hljs-comment"># 填入下面内容</span><br>Invoke-Expression (&amp;starship init powershell)<br><span class="hljs-comment"># 生效配置</span><br>. <span class="hljs-variable">$PROFILE</span><br></code></pre></td></tr></table></figure>
+
+<p>切换效果：</p>
+<p><img src="https://codestar.top/note-image/202409112306396.png" srcset="/img/loading.gif" lazyload alt="image-20240909202928203"></p>
+<p>非GIT路径显示如下：</p>
+<p><img src="https://codestar.top/note-image/202409112306179.png" srcset="/img/loading.gif" lazyload alt="image-20240909203350840"></p>
+<p>GIT路径显示如下，会展示当前git分支及版本，仓库所用的编程语言：</p>
+<p><img src="https://codestar.top/note-image/202409112306390.png" srcset="/img/loading.gif" lazyload alt="image-20240909203552531"></p>
+<p>给命令行再加入背景壁纸：</p>
+<p><img src="https://codestar.top/note-image/202409112306074.png" srcset="/img/loading.gif" lazyload alt="image-20240909204005684"></p>
+<p>至此配置完毕。</p>
+<h2 id="5、附录：Windows-terminal常用快捷键"><a href="#5、附录：Windows-terminal常用快捷键" class="headerlink" title="5、附录：Windows terminal常用快捷键"></a>5、附录：Windows terminal常用快捷键</h2><table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">操作</th>
+<th align="left">快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">标签页操作</td>
+<td align="left">新建标签页</td>
+<td align="left">Ctrl + Shift + T</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">切换到下一个标签页</td>
+<td align="left">Ctrl + Tab</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">切换到上一个标签页</td>
+<td align="left">Ctrl + Shift + Tab</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">切换到指定编号的标签页</td>
+<td align="left">Ctrl + Num (1-9)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">关闭当前标签页</td>
+<td align="left">Ctrl + W</td>
+</tr>
+<tr>
+<td align="left">窗口分割</td>
+<td align="left">垂直分割窗口</td>
+<td align="left">Alt + Shift + +</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">水平分割窗口</td>
+<td align="left">Alt + Shift + -</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">在分割的窗口间切换焦点</td>
+<td align="left">Alt + 方向键</td>
+</tr>
+<tr>
+<td align="left">复制粘贴</td>
+<td align="left">复制选中文本</td>
+<td align="left">Ctrl + C</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">粘贴文本</td>
+<td align="left">Ctrl + V</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">粘贴（某些 shell 中）</td>
+<td align="left">Shift + 鼠标右键</td>
+</tr>
+<tr>
+<td align="left">文本操作</td>
+<td align="left">删除光标前的一个单词</td>
+<td align="left">Ctrl + Backspace</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">删除光标后的一个单词</td>
+<td align="left">Ctrl + Delete</td>
+</tr>
+<tr>
+<td align="left">滚动和查找</td>
+<td align="left">向上&#x2F;向下滚动</td>
+<td align="left">Ctrl + Shift + Up&#x2F;Down</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">在终端中查找文本</td>
+<td align="left">Ctrl + Shift + F</td>
+</tr>
+<tr>
+<td align="left">字体大小调整</td>
+<td align="left">增大字体</td>
+<td align="left">Ctrl + +</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">减小字体</td>
+<td align="left">Ctrl + -</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">重置字体大小</td>
+<td align="left">Ctrl + 0</td>
+</tr>
+<tr>
+<td align="left">全屏模式</td>
+<td align="left">切换全屏模式</td>
+<td align="left">F11</td>
+</tr>
+<tr>
+<td align="left">透明度调节</td>
+<td align="left">调整窗口透明度</td>
+<td align="left">Ctrl + Shift + 滚轮</td>
+</tr>
+<tr>
+<td align="left">设置</td>
+<td align="left">打开设置 JSON 文件</td>
+<td align="left">Ctrl + ,</td>
+</tr>
+<tr>
+<td align="left">命令面板</td>
+<td align="left">打开命令面板</td>
+<td align="left">Ctrl + Shift + P</td>
+</tr>
+<tr>
+<td align="left">配置文件</td>
+<td align="left">快速切换配置文件</td>
+<td align="left">Ctrl + Shift + 空格</td>
+</tr>
+<tr>
+<td align="left">多行选择</td>
+<td align="left">选择多行文本</td>
+<td align="left">Shift + 鼠标左键拖动</td>
+</tr>
+<tr>
+<td align="left">窗口操作</td>
+<td align="left">打开新的 Windows Terminal 窗口</td>
+<td align="left">Shift + Ctrl + N</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">关闭整个 Windows Terminal 窗口</td>
+<td align="left">Alt + F4</td>
+</tr>
+<tr>
+<td align="left">特定标签页</td>
+<td align="left">打开新的 PowerShell 标签页</td>
+<td align="left">Ctrl + Shift + 1</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">打开新的 CMD 标签页</td>
+<td align="left">Ctrl + Shift + 2</td>
+</tr>
+</tbody></table>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Likianta/article/details/124950605">https://blog.csdn.net/Likianta/article/details/124950605</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yihuajack/article/details/111405007">https://blog.csdn.net/yihuajack/article/details/111405007</a></p>
+<p><a target="_blank" rel="noopener" href="https://ohmyposh.dev/docs/installation/prompt">https://ohmyposh.dev/docs/installation/prompt</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/456129712">https://zhuanlan.zhihu.com/p/456129712</a></p>
+<p><a target="_blank" rel="noopener" href="https://sspai.com/post/52907">https://sspai.com/post/52907</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-conemu/">https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-conemu/</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Windows/" class="category-chain-item">Windows</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Windows/Windows-Terminal/" class="category-chain-item">Windows Terminal</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%B7%A5%E5%85%B7/" class="print-no-link">#工具</a>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/Windows-Terminal/" class="print-no-link">#Windows Terminal</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Windows Terminal内核、配置及主题优化全流程</div>
+      <div>http://www.codestar.top/2024/09/11/Windows/Windows-Terminal内核、配置及主题优化全流程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mini小新</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年9月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/07/29/Android/Android%E4%B8%AD%E5%A6%82%E4%BD%95%E6%89%8B%E5%8A%A8%E5%88%B6%E9%80%A0logcat%E5%90%84%E7%AD%89%E7%BA%A7%E6%97%A5%E5%BF%97%EF%BC%88VERBOSE%E3%80%81DEBUG%E3%80%81INFO%E3%80%81WARNING%E3%80%81ERROR%E3%80%81FATAL%EF%BC%89/" title="Android中如何手动制造logcat各等级日志（VERBOSE、DEBUG、INFO、WARNING、ERROR、FATAL）">
+                        <span class="hidden-mobile">Android中如何手动制造logcat各等级日志（VERBOSE、DEBUG、INFO、WARNING、ERROR、FATAL）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comentapi.codestar.top/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/bmoji","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/qq","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"locale":{"placeholder":"留下你的足迹，存下你的建议~","reactionTitle":"点赞"},"copyright":false},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://icp.gov.moe/?keyword=20240599" target="_blank">萌ICP备20240599号</a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-icon-star-on"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span>Copyright © 2022-2024. All Rights Reserved.</span><br> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
