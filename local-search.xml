@@ -4,6 +4,140 @@
   
   
   <entry>
+    <title>Docker安装及配置PostgreSQL</title>
+    <link href="/2024/10/08/Linux/Docker%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/"/>
+    <url>/2024/10/08/Linux/Docker%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、前置条件"><a href="#1、前置条件" class="headerlink" title="1、前置条件"></a>1、前置条件</h2><p>设备已安装docker：<code>docker version</code>检查版本。安装过程参考《Ubuntu安装docker环境及docker常用指令》</p><h2 id="2、docker安装PostgreSQL"><a href="#2、docker安装PostgreSQL" class="headerlink" title="2、docker安装PostgreSQL"></a>2、docker安装PostgreSQL</h2><h3 id="2-1、拉取PostgreSQL镜像"><a href="#2-1、拉取PostgreSQL镜像" class="headerlink" title="2.1、拉取PostgreSQL镜像"></a>2.1、拉取PostgreSQL镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker search postgres<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082254477.png" alt="image-20240911134408955"></p><p>拉取上图中标红的官方镜像：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull postgres<br><span class="hljs-meta prompt_"># </span><span class="language-bash">也可指定版本拉取</span><br>docker pull postgres:11.5<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082258728.png" alt="image-20240911134636344"></p><p>完成后如下：</p><p><img src="https://codestar.top/note-image/202410082307788.png" alt="image-20240911134752386"></p><p>查看拉取的镜像：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker images<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082308940.png" alt="image-20240911135012288"></p><h3 id="2-2、创建PostgreSQL容器"><a href="#2-2、创建PostgreSQL容器" class="headerlink" title="2.2、创建PostgreSQL容器"></a>2.2、创建PostgreSQL容器</h3><p>创建镜像实例（容器）并运行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建容器名称为postgresql、账户admin、密码为123456!、新建数据库sonarqube_db的postgres镜像实例</span><br>docker run --name postgresql \<br>--restart=always \<br>-e POSTGRES_USER=admin \<br>-e POSTGRES_PASSWORD=123456! \<br>-e POSTGRES_DB=sonarqube_db \<br>-p 5432:5432 \<br>-v /opt/postgres:/var/lib/postgresql/data \<br>-e ALLOW_IP_RANGE=0.0.0.0/0 \<br>-d postgres<br></code></pre></td></tr></table></figure><p>其中<code>-p</code>后接映射端口，此实例下，将容器PostgreSQL默认端口映射到主机的5432端口上。ALLOW_IP_RANGE&#x3D;0.0.0.0&#x2F;0 允许任何主机访问，-v &#x2F;opt&#x2F;postgres:&#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data，做数据持久化，此目录需确保存在。</p><p>执行后，<code>docker ps</code>检查容器状态，创建的容器已运行：</p><p><img src="https://codestar.top/note-image/202410082309447.png" alt="image-20240911140016953"></p><p>使用前面的账户名，连接到postgresql容器指定的数据库：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">运行postgresql容器并使用admin连接到sonarqube_db数据库</span><br>docker exec -it postgresql psql -U admin -d sonarqube_db<br></code></pre></td></tr></table></figure><p>psql为postgres控制指令。也可使用其他工具如navicat、datagrip等客户端连接到对应的数据库。</p><p>效果如下：</p><p><img src="https://codestar.top/note-image/202410082309510.png" alt="image-20240911140954521"></p><p><code>\l</code>列出所有的数据库：</p><p><img src="https://codestar.top/note-image/202410082309338.png" alt="image-20240911141428224"></p><p><code>\q</code>退出postgre命令行。</p><h2 id="3-使用客户端连接"><a href="#3-使用客户端连接" class="headerlink" title="3.使用客户端连接"></a>3.使用客户端连接</h2><p>这里以Datagrip连接示例：新建-&gt;数据源-&gt;PostgreSQL</p><p><img src="https://codestar.top/note-image/202410082318748.png" alt="image-20240919140039580"></p><p>进入配置页面，填写postgresql服务地址，就是装有postgresql的那台设备的IP，以及账户密码（前面创建镜像实例时配置的账户及密码）：</p><p><img src="https://codestar.top/note-image/202410082318970.png" alt="image-20240919140544369"></p><p>点击测试连接，一般docker环境按上述配置完后，连接时正常的：</p><p><img src="https://codestar.top/note-image/202410082319014.png" alt="image-20240919140745432"></p><p>测试正常后，直接应用即可。</p><p>参考：</p><p><a href="https://blog.csdn.net/hmx224_2014/article/details/136060525">https://blog.csdn.net/hmx224_2014/article/details/136060525</a></p><p><a href="https://moltke.cn/detail/163">https://moltke.cn/detail/163</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux技术</category>
+      
+      <category>PostgreSQL</category>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>PostgreSQL</tag>
+      
+      <tag>数据库</tag>
+      
+      <tag>Docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu安装docker环境及docker常用指令</title>
+    <link href="/2024/10/08/Linux/Ubuntu%E5%AE%89%E8%A3%85docker%E7%8E%AF%E5%A2%83%E5%8F%8Adocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+    <url>/2024/10/08/Linux/Ubuntu%E5%AE%89%E8%A3%85docker%E7%8E%AF%E5%A2%83%E5%8F%8Adocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、docker安装"><a href="#1、docker安装" class="headerlink" title="1、docker安装"></a>1、docker安装</h2><p>在Ubuntu中，docker这个名称已被用作Dockerlet应用，不能直接使用<code>apt install docker</code>进行安装，实际docker容器应用被命名为<strong>docker.io</strong>，使用下面的指令来进行安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install docker.io docker-compose<br></code></pre></td></tr></table></figure><p>等待包下载及安装：</p><p><img src="https://codestar.top/note-image/202410082321928.png" alt="image-20240911110015239"></p><p>安装完成后，检查安装版本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker -v<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082321573.png" alt="image-20240911110214122"></p><h2 id="2、docker验证"><a href="#2、docker验证" class="headerlink" title="2、docker验证"></a>2、docker验证</h2><p>docker默认有一个hello world镜像：</p><p><img src="https://codestar.top/note-image/202410082321142.png" alt="image-20240919141944591"></p><p>使用hello world镜像验证安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建hello-world镜像实例并运行</span><br>docker run hello-world<br></code></pre></td></tr></table></figure><p>正常执行如下，会出现<code>Hello from Docker！</code>字样：</p><p><img src="https://codestar.top/note-image/202410082322422.png" alt="image-20240911110515464"></p><p>通过<code>docker ps -a</code>可以看到刚才创建的实例正常运行：</p><p><img src="https://codestar.top/note-image/202410082322730.png" alt="image-20240919142429875"></p><p>执行过程中可能会出现“无法连接到 Docker 守护进程”的问题，重启系统再次执行指令可解决。</p><h2 id="3、docker常用指令"><a href="#3、docker常用指令" class="headerlink" title="3、docker常用指令"></a>3、docker常用指令</h2><table>  <thead>    <tr>      <th>类型</th>      <th>指令</th>      <th>说明</th>    </tr>  </thead>  <tbody>    <tr>      <td rowspan="2">基础操作</td>      <td><code>docker --version</code></td>      <td>查看 Docker 版本</td>    </tr>    <tr>      <td><code>docker info</code></td>      <td>查看 Docker 系统信息</td>    </tr>    <tr>      <td rowspan="6">镜像操作</td>      <td><code>docker images</code></td>      <td>列出本地所有镜像</td>    </tr>    <tr>      <td><code>docker pull [image]</code></td>      <td>从 Docker Hub 拉取或者更新指定镜像</td>    </tr>    <tr>      <td><code>docker build -t [image] [path]</code></td>      <td>从 Dockerfile 构建镜像</td>    </tr>    <tr>      <td><code>docker rmi [image]</code></td>      <td>删除指定镜像</td>    </tr>    <tr>      <td><code>docker tag [source-image] [target-image]</code></td>      <td>标记本地镜像，将其归入某一仓库</td>    </tr>    <tr>      <td><code>docker history [image]</code></td>      <td>查看指定镜像的创建历史</td>    </tr>    <tr>      <td rowspan="18">容器操作</td>      <td><code>docker run [options] [image]</code></td>      <td>创建一个新的容器并运行</td>    </tr>    <tr>      <td><code>docker ps</code></td>      <td>列出所有正在运行的容器</td>    </tr>    <tr>      <td><code>docker ps -a</code></td>      <td>列出所有容器，包括未运行的</td>    </tr>    <tr>      <td><code>docker stop [container]</code></td>      <td>停止一个运行的容器，有一定的等待时间</td>    </tr>    <tr>      <td><code>docker kill [container]</code></td>      <td>强制终止容器，立即停止。适用于容器出现无响应的场景</td>    </tr>    <tr>      <td><code>docker start [container]</code></td>      <td>启动一个停止的容器</td>    </tr>    <tr>      <td><code>docker restart [container]</code></td>      <td>重启一个容器</td>    </tr>    <tr>      <td><code>docker rm [container]</code></td>      <td>删除一个容器</td>    </tr>    <tr>      <td><code>docker rename old_container_name new_container_name</code></td>      <td>修改容器名称</td>    </tr>    <tr>      <td><code>docker pause [container]</code></td>      <td>暂停容器运行，ps -a可以查看到状态为pause</td>    </tr>    <tr>      <td><code>docker unpause [container]</code></td>      <td>恢复容器运行</td>    </tr>    <tr>      <td><code>docker exec -it [container] [command]</code></td>      <td>进入一个正在运行的容器执行命令</td>    </tr>    <tr>      <td><code>docker logs [container]</code></td>      <td>查看容器的日志</td>    </tr>    <tr>      <td><code>docker port [container]</code></td>      <td>查看容器的端口映射</td>    </tr>    <tr>      <td><code>docker inspect [container]</code></td>      <td>查询容器和镜像基本信息，包含挂载信息、网络信息、IP地址等</td>    </tr>    <tr>      <td><code>docker diff [container]</code></td>      <td>检查容器文件系统的变更，文件的变化、目录的变化等（A:新增项、D：删除项、C：变更项）</td>    </tr>    <tr>      <td><code>docker top [container]</code></td>      <td>查询容器的系统进程情况</td>    </tr>    <tr>      <td><code>docker stats</code></td>      <td>列出容器资源使用详情：CPU、RAM、NetworkI/O、BlockI/O、Process IDs</td>    </tr>    <tr>      <td rowspan="4">网络操作</td>      <td><code>docker network ls</code></td>      <td>列出所有 Docker 网络</td>    </tr>    <tr>      <td><code>docker network create [name]</code></td>      <td>创建一个新的网络</td>    </tr>    <tr>      <td><code>docker network connect [network] [container]</code></td>      <td>将容器连接到网络</td>    </tr>    <tr>      <td><code>docker network disconnect [network] [container]</code></td>      <td>将容器从网络中断开</td>    </tr>    <tr>      <td rowspan="3">数据卷操作</td>      <td><code>docker volume ls</code></td>      <td>列出所有数据卷</td>    </tr>    <tr>      <td><code>docker volume create [name]</code></td>      <td>创建一个新的数据卷</td>    </tr>    <tr>      <td><code>docker volume rm [name]</code></td>      <td>删除一个数据卷</td>    </tr>    <tr>      <td rowspan="2">文件拷贝</td>      <td><code>docker cp [container]:[path] [path]</code></td>      <td>从容器中拷贝文件到主机</td>    </tr>    <tr>      <td><code>docker cp [path] [container]:[path]</code></td>      <td>从主机拷贝文件到容器</td>    </tr>    <tr>      <td>容器 Commit</td>      <td><code>docker commit [container] [image]</code></td>      <td>从容器创建一个新的镜像</td>    </tr>  </tbody></table><p>参考：</p><p><a href="https://linux.cn/article-16531-1.html">https://linux.cn/article-16531-1.html</a></p><p><a href="https://linuxhandbook.com/essential-docker-commands/">https://linuxhandbook.com/essential-docker-commands/</a></p><p><a href="https://blog.csdn.net/qq_44281591/article/details/132252039">https://blog.csdn.net/qq_44281591/article/details/132252039</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux技术</category>
+      
+      <category>Docker</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>Docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu手动安装及配置PostgreSQL</title>
+    <link href="/2024/10/08/Linux/Ubuntu%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/"/>
+    <url>/2024/10/08/Linux/Ubuntu%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、PostgreSQL官方源配置"><a href="#1、PostgreSQL官方源配置" class="headerlink" title="1、PostgreSQL官方源配置"></a>1、PostgreSQL官方源配置</h2><p>添加PostgreSQL官方APT源到本地：方便后续从官方源下载或更新PostgreSQL包</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo sh -c &#x27;echo &quot;deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&#x27;<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082323907.png" alt="image-20240919104914454"></p><p>导入PostgreSQL官方的GPG公钥：用来验证PostgreSQL相关包的完整性，防止下载的包被篡改</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">ACCC4CF8.asc为官方公钥文件</span><br>wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -<br></code></pre></td></tr></table></figure><p>之后执行<code>apt-get update -y</code>或<code>apt update -y</code>更新一下配置的源。</p><h2 id="2、PostgreSQL安装"><a href="#2、PostgreSQL安装" class="headerlink" title="2、PostgreSQL安装"></a>2、PostgreSQL安装</h2><p>直接执行下面APT指令进行在线安装PostgreSQL：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">apt -y install postgresql<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082323028.png" alt="image-20240918114813169"></p><p>安装完成如下：</p><p><img src="https://codestar.top/note-image/202410082324147.png" alt="image-20240918115025965"></p><p><strong>注意：</strong> 这里需要注意自己安装的版本为多少，后续需要用到，此处安装的最新版本为PostgreSQL 16。</p><h2 id="3、PostgreSQL配置"><a href="#3、PostgreSQL配置" class="headerlink" title="3、PostgreSQL配置"></a>3、PostgreSQL配置</h2><h3 id="3-1、创建PostgreSQL数据库账户"><a href="#3-1、创建PostgreSQL数据库账户" class="headerlink" title="3.1、创建PostgreSQL数据库账户"></a>3.1、创建PostgreSQL数据库账户</h3><p>这里创建一个非管理员用户，供某个应用单独的使用，隔离数据库与表的权限。下面创建新用户sonar，后续用它来绑定sonarqube应用相关联的数据库：</p><p>默认postgres为超级管理员，初始创建数据库及权限配置需要使用该账户操作：</p><ul><li>1、以postgres用户直接登录到PostgreSQL控制台：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo -u postgres psql<br></code></pre></td></tr></table></figure><p>或先切换到postgres用户，再执行<code>psql</code>指令进入PostgreSQL：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo -i -u postgres<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082324788.png" alt="image-20240918134753771"></p><p>进入到PostgreSQL控制台：</p><p><img src="https://codestar.top/note-image/202410082324800.png" alt="image-20240918135037549"></p><p>2、创建PostgreSQL新账户sonar：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建sonar用户并设置密码ad123456!</span><br>CREATE USER sonar WITH PASSWORD &#x27;ad123456!&#x27;;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或下面这种，两者等价</span><br>CREATE ROLE sonar WITH PASSWORD &#x27;ad123456!&#x27;;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在创建的时候同步添加权限：依次为登录、创建数据库、创建角色权限，建议只设置登录权限和密码，后续其他权限单独操作。</span><br>CREATE ROLE sonar WITH<br>    LOGIN<br>    CREATEDB<br>    CREATEROLE<br>    PASSWORD &#x27;ad123456!&#x27;;<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082325256.png" alt="image-20240918135236979"></p><h3 id="3-2、创建PostgreSQL数据库"><a href="#3-2、创建PostgreSQL数据库" class="headerlink" title="3.2、创建PostgreSQL数据库"></a>3.2、创建PostgreSQL数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建数据库sonarqube_db，并且指定所有者为sonar</span><br>CREATE DATABASE sonarqube_db OWNER sonar;<br></code></pre></td></tr></table></figure><p><code>\l</code>查看所有数据库，看以看到刚才的数据库成功创建</p><p><img src="https://codestar.top/note-image/202410082325974.png" alt="image-20240918135632541"></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将sonarqube_db数据库的所有权限都赋予sonar，否则sonar只能登录控制台，没有任何数据库操作权限</span><br>GRANT ALL PRIVILEGES ON DATABASE sonarqube_db to sonar;<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082325735.png" alt="image-20240918135822246"></p><p>之后就可以使用sonar用户登录到对应的数据库了：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">进入到sonarqube_db数据库</span><br>\c sonarqube_db<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或在postgresql控制台直接以sonar用户进入到sonarqube_db数据库</span><br>psql -U sonar -d sonarqube_db<br></code></pre></td></tr></table></figure><p>切换非超级管理员区别在控制台的符号会有变化：</p><p><img src="https://codestar.top/note-image/202410082326899.png" alt="image-20240918143354084"></p><p>使用<code>\q</code>退出PostgreSQL命令行。</p><h3 id="3-3、启动PostgreSQL远程访问"><a href="#3-3、启动PostgreSQL远程访问" class="headerlink" title="3.3、启动PostgreSQL远程访问"></a>3.3、启动PostgreSQL远程访问</h3><p>修改远程监听配置：修改为对所有连接IP进行监听</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">配置文件路径</span><br>/etc/postgresql/16/main/postgresql.conf<br>sudo vim /etc/postgresql/16/main/postgresql.conf<br></code></pre></td></tr></table></figure><p><strong>注意：</strong> 所有用户控制台，均能看到配置文件，建议在postgresql控制台（postgres用户）中进行调整。</p><p><img src="https://codestar.top/note-image/202410082326569.png" alt="image-20240918140445978"></p><p>默认情况下，postgresql服务器仅监听本地地址，其中Connections Settings将listen_address修改为’*’开启远程访问：</p><p><img src="https://codestar.top/note-image/202410082327615.png" alt="image-20240918141036993"></p><p><img src="https://codestar.top/note-image/202410082327239.png" alt="image-20240918141240461"></p><p>修改完成保存即可。之后重启PostgreSQL服务：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo service postgresql restart<br></code></pre></td></tr></table></figure><h3 id="3-4、配置防火墙及PostgreSQL端口开放"><a href="#3-4、配置防火墙及PostgreSQL端口开放" class="headerlink" title="3.4、配置防火墙及PostgreSQL端口开放"></a>3.4、配置防火墙及PostgreSQL端口开放</h3><ul><li>配置防火墙：</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看防火墙状态：</span><br>sudo ufw status<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082327127.png" alt="image-20240918142240306"></p><p>防火墙状态如果为活动状态，则执行下面指令开放5432端口：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ufw allow 5432<br></code></pre></td></tr></table></figure><p>手动关闭防火墙：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ufw disable<br></code></pre></td></tr></table></figure><p>开启防火墙：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ufw enable<br></code></pre></td></tr></table></figure><ul><li>检查5432端口监听：</li></ul><p>默认PostgreSQL开放5432端口，检查：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">ss -nlt | grep 5432<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或</span><br>netstat -anp | grep 5432<br></code></pre></td></tr></table></figure><p>可以看到对任意IP(0.0.0.0)地址5432端口进行监听：</p><p><img src="https://codestar.top/note-image/202410082328061.png" alt="image-20240918141909692"></p><h3 id="3-5、配置服务器接受远程连接"><a href="#3-5、配置服务器接受远程连接" class="headerlink" title="3.5、配置服务器接受远程连接"></a>3.5、配置服务器接受远程连接</h3><p>PostgreSQL安全策略默认无法通过远程访问数据库，直接远程连接会报[28000]错误：</p><p><img src="https://codestar.top/note-image/202410082328766.png" alt="image-20240918152337152"></p><p>配置服务器接收远程连接，编辑<code>pg_hba.conf</code>配置文件：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo vim /etc/postgresql/16/main/pg_hba.conf<br></code></pre></td></tr></table></figure><p>在ipv4那里添加一行下面这行内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">配置允许所有IP连接</span><br>host            all            all           0.0.0.1/0           trust<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082329297.png" alt="image-20240918152827215"></p><p>保存后重启postgresql服务：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo service postgresql restart<br></code></pre></td></tr></table></figure><p>之后使用客户端就可以正常远程连接了：</p><p><img src="https://codestar.top/note-image/202410082329446.png" alt="image-20240918153021855"></p><p>参考：</p><p><a href="https://developer.aliyun.com/article/1206821">https://developer.aliyun.com/article/1206821</a></p><p><a href="https://blog.csdn.net/Alenxjxj/article/details/135254476">https://blog.csdn.net/Alenxjxj/article/details/135254476</a></p><p><a href="https://blog.csdn.net/Blingbling007/article/details/107908347">https://blog.csdn.net/Blingbling007/article/details/107908347</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux技术</category>
+      
+      <category>PostgreSQL</category>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux系统</tag>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>PostgreSQL</tag>
+      
+      <tag>数据库</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows配置安装gcc、g++、gdb编译环境</title>
+    <link href="/2024/10/08/Windows/Windows%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85gcc%E3%80%81g-%E3%80%81gdb%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/"/>
+    <url>/2024/10/08/Windows/Windows%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85gcc%E3%80%81g-%E3%80%81gdb%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、MinGW下载"><a href="#1、MinGW下载" class="headerlink" title="1、MinGW下载"></a>1、MinGW下载</h2><p>MinGW为windows平台模拟Linux中gcc编译环境的一套工具集，整合了GUN工具集，包括gcc、g++、make等内容，通过这个工具，我们能在windows平台中进行c代码或其他语言的编译任务。</p><p>MinGW下载地址：<a href="https://sourceforge.net/projects/mingw/files/">https://sourceforge.net/projects/mingw/files/</a></p><p>下载最新版：</p><p><img src="https://codestar.top/note-image/202410082330378.png" alt="image-20240918170622661"></p><p>下载完成后，修改自定义路径，点击<kbd>continue</kbd>进行安装：</p><p><img src="https://codestar.top/note-image/202410082330693.png" alt="image-20240918170537291"></p><h2 id="2、MinGW环境变量配置"><a href="#2、MinGW环境变量配置" class="headerlink" title="2、MinGW环境变量配置"></a>2、MinGW环境变量配置</h2><p>在安装完成后，需要配置环境变量，才能在系统命令行中正常使用：</p><ul><li><kbd>win</kbd>+<kbd>r</kbd>打开运行面板，输入<code>sysdm.cpl</code>，进入“高级-&gt;环境变量”：</li></ul><p><img src="https://codestar.top/note-image/202410082330951.png" alt="image-20240919102303293"></p><p>修改系统变量中的<code>path</code>变量值，新建项添加MinGW执行文件位置<code>D:\MinGW\bin</code>，这里与前面安装的路径相对应：</p><p><img src="https://codestar.top/note-image/202410082330409.png" alt="image-20240919102616891"></p><p>之后打开cmd命令行，输入<code>mingw-get</code>检查是否配置生效：执行完正常跳到MinGW界面则配置正常</p><p><img src="https://codestar.top/note-image/202410082331694.png" alt="image-20240918170957258"></p><p><strong>注：</strong> 若在配置环境前打开了cmd面板，需要重新打开环境变量才会生效。</p><h2 id="3、安装GCC、GDB、G-编译工具"><a href="#3、安装GCC、GDB、G-编译工具" class="headerlink" title="3、安装GCC、GDB、G++编译工具"></a>3、安装GCC、GDB、G++编译工具</h2><ul><li>安装GCC：</li></ul><p>在cmd面板，执行以下指令进行gcc安装：安装包相对想多，需要一些时间，耐心等待</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mingw-get install gcc<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082331560.png" alt="image-20240918171107054"></p><p>安装完成后执行<code>gcc -v</code>检查版本：安装成功正常返回版本信息如下</p><p><img src="https://codestar.top/note-image/202410082332379.png" alt="image-20240918171556189"></p><ul><li>安装G++：</li></ul><p>进一步安装g++、执行下面指令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mingw-get install g++<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082333116.png" alt="image-20240919103450703"></p><p>执行<code>g++ -v</code>检查安装版本，与gcc结果类似：</p><p><img src="https://codestar.top/note-image/202410082333525.png" alt="image-20240919103619281"></p><ul><li>安装gdb：</li></ul><p>进一步安装gdb，执行下面指令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mingw-get install gdb<br></code></pre></td></tr></table></figure><p><img src="https://codestar.top/note-image/202410082334197.png" alt="image-20240919103845478"></p><p>安装完成后，执行<code>gdb -v</code>验证版本：正常返回版本信息</p><p><img src="https://codestar.top/note-image/202410082335543.png" alt="image-20240919103929003"></p><p>参考：<a href="https://blog.csdn.net/weixin_64064486/article/details/123940266">https://blog.csdn.net/weixin_64064486/article/details/123940266</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+      <category>编译基础</category>
+      
+      <category>调试技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>用户管理</tag>
+      
+      <tag>编译基础</tag>
+      
+      <tag>调试技术</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Windows Terminal内核、配置及主题优化全流程</title>
     <link href="/2024/09/11/Windows/Windows-Terminal%E5%86%85%E6%A0%B8%E3%80%81%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%85%A8%E6%B5%81%E7%A8%8B/"/>
     <url>/2024/09/11/Windows/Windows-Terminal%E5%86%85%E6%A0%B8%E3%80%81%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%85%A8%E6%B5%81%E7%A8%8B/</url>
@@ -1641,6 +1775,8 @@
     <tags>
       
       <tag>COREDUMP</tag>
+      
+      <tag>调试技术</tag>
       
     </tags>
     
