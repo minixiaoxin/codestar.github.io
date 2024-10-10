@@ -1,0 +1,1306 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <link rel="icon" href="/img/mini%E5%B0%8F%E6%96%B0.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mini小新">
+  <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
+  
+    <meta name="description" content="1、sonarqube介绍Sonar (SonarQube)是一个开源平台，用于管理源代码的质量。支持Java、kotlin、Scala、python、JavaScrip等二十几种编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。 sonarqube分为四个版本：社区版、开发版、企业版、数据中心版，各版本之间差异如下  官网：https">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu docker搭建sonarqube社区版">
+<meta property="og:url" content="http://www.codestar.top/2024/10/10/Linux/Ubuntu-docker%E6%90%AD%E5%BB%BAsonarqube%E7%A4%BE%E5%8C%BA%E7%89%88/index.html">
+<meta property="og:site_name" content="mini小新的博客">
+<meta property="og:description" content="1、sonarqube介绍Sonar (SonarQube)是一个开源平台，用于管理源代码的质量。支持Java、kotlin、Scala、python、JavaScrip等二十几种编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。 sonarqube分为四个版本：社区版、开发版、企业版、数据中心版，各版本之间差异如下  官网：https">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/Codescan_pic1.png">
+<meta property="article:published_time" content="2024-10-10T14:16:35.000Z">
+<meta property="article:modified_time" content="2024-10-10T14:21:59.140Z">
+<meta property="article:author" content="mini小新">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Sonarqube">
+<meta property="article:tag" content="代码扫描">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Codescan_pic1.png">
+  
+  
+  
+  <title>Ubuntu docker搭建sonarqube社区版 - mini小新的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_8thc53fgzar.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.codestar.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"shell"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"a48e14d1d7805c8552eaa9824984945e","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Gxk1Sem8mKPN1DwNwHP3SsBG-MdYXbMMI","app_key":"wfFTsKm5TWsVNYYUHBugqEKu","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a48e14d1d7805c8552eaa9824984945e";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>mini小新</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-icon_books"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-knowledge-fill"></i>
+                <span>知识库</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://wiki.codestar.top/">
+                    <i class="iconfont icon-wiki"></i>
+                    <span>Wiki</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.yuque.com/dashboard/">
+                    <i class="iconfont icon-yuque-fill"></i>
+                    <span>语雀</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Command/">
+                    <i class="iconfont icon-learning"></i>
+                    <span>Command</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-AIzhineng"></i>
+                <span>AI Stuggle</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://metaso.cn/">
+                    <i class="iconfont icon-a-AISearch"></i>
+                    <span>AI Search</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.promptingguide.ai/zh">
+                    <i class="iconfont icon-prompt_o"></i>
+                    <span>PromptGuide</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://chat.lmsys.org/">
+                    <i class="iconfont icon-AI"></i>
+                    <span>AI Battle</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://colab.research.google.com/?hl=zh-cn">
+                    <i class="iconfont icon-laboratory"></i>
+                    <span>Colaboratory</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/index">
+                    <i class="iconfont icon-paddlepaddle"></i>
+                    <span>AI Paddle Studio</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-user-fill"></i>
+                <span>个人</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/">
+                    <i class="iconfont icon-info"></i>
+                    <span>关于</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://blog.mnxin.cn">
+                    <i class="iconfont icon-life-solid"></i>
+                    <span>Life Log</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.16type.com/result.html?id=2047343">
+                    <i class="iconfont icon-about1"></i>
+                    <span>我的十六型人格</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tranfer"></i>
+                <span>传送门</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html">
+                    <i class="iconfont icon-train"></i>
+                    <span>开往</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>友链</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-web"></i>
+                <span>站点数据</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://stats.uptimerobot.com/4Ild6fz42r">
+                    <i class="iconfont icon-monitoring"></i>
+                    <span>站点状态</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wall-3.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ubuntu docker搭建sonarqube社区版"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        mini小新
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-10 22:16" pubdate>
+          2024年10月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ubuntu docker搭建sonarqube社区版</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年10月10日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1、sonarqube介绍"><a href="#1、sonarqube介绍" class="headerlink" title="1、sonarqube介绍"></a>1、sonarqube介绍</h2><p>Sonar (SonarQube)是一个开源平台，用于管理源代码的质量。支持Java、kotlin、Scala、python、JavaScrip等二十几种编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。</p>
+<p>sonarqube分为四个版本：社区版、开发版、企业版、数据中心版，各版本之间差异如下</p>
+<p><img src="https://codestar.top/note-image/202410092324256.png" srcset="/img/loading.gif" lazyload alt="image-20240413021201801"></p>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/products/sonarqube/">https://www.sonarsource.com/products/sonarqube/</a></p>
+<p>Sonar分为两部分：</p>
+<ul>
+<li>第一部分为服务端，为Sonarqube为代码指令管理平台</li>
+<li>第二部分为客户端，为sonar-scanner扫描器</li>
+</ul>
+<p>后续操作将完整的docker搭建sonarqube服务平台过程做记录，并使用sonar-scanner进行手工代码扫描尝试。</p>
+<h2 id="2、环境配置要求"><a href="#2、环境配置要求" class="headerlink" title="2、环境配置要求"></a>2、环境配置要求</h2><p>官方配置要求：<a target="_blank" rel="noopener" href="https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/">https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/</a></p>
+<p>搭建环境配置参考：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">OS系统</td>
+<td align="center">Ubuntu 24.1 LTS</td>
+</tr>
+<tr>
+<td align="center">RAM</td>
+<td align="center">8G（要求&gt;&#x3D;4G）</td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">2 cores（要求&gt;&#x3D;2 cores）</td>
+</tr>
+<tr>
+<td align="center">硬盘</td>
+<td align="center">20G（要求&gt;&#x3D;30G）</td>
+</tr>
+<tr>
+<td align="center">JAVA</td>
+<td align="center">version 17（要求至少为JAVA 11，不支持Java8）</td>
+</tr>
+<tr>
+<td align="center">PostgreSQL</td>
+<td align="center">version 16（要求&gt;&#x3D;11）</td>
+</tr>
+</tbody></table>
+<p>其中硬盘自行决定，这里20GB仅作为短时间验证使用，存储空间按照官方要求来。</p>
+<h2 id="3、docker安装PostgreSQL"><a href="#3、docker安装PostgreSQL" class="headerlink" title="3、docker安装PostgreSQL"></a>3、docker安装PostgreSQL</h2><p>由于PostgreSQL在性能和兼容性方面优于MySQL，并且作为官方的推荐使用数据库，这里基于PostgreSQL来进行安装配置：</p>
+<h3 id="3-1、拉取PostgreSQL镜像"><a href="#3-1、拉取PostgreSQL镜像" class="headerlink" title="3.1、拉取PostgreSQL镜像"></a>3.1、拉取PostgreSQL镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker search postgres<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410092325119.png" srcset="/img/loading.gif" lazyload alt="image-20240911134408955"></p>
+<p>拉取上图中标红的官方镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull postgres<br><span class="hljs-meta prompt_"># </span><span class="language-bash">也可指定版本拉取</span><br>docker pull postgres:11.5<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410092325636.png" srcset="/img/loading.gif" lazyload alt="image-20240911134636344"></p>
+<p>完成后如下：</p>
+<p><img src="https://codestar.top/note-image/202410092325801.png" srcset="/img/loading.gif" lazyload alt="image-20240911134752386"></p>
+<p>查看拉取的镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker images<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410092325457.png" srcset="/img/loading.gif" lazyload alt="image-20240911135012288"></p>
+<h3 id="3-2、创建PostgreSQL容器"><a href="#3-2、创建PostgreSQL容器" class="headerlink" title="3.2、创建PostgreSQL容器"></a>3.2、创建PostgreSQL容器</h3><p>创建镜像实例（容器）：</p>
+<ul>
+<li><your-postgres-container-name>：容器名称。自定义</li>
+<li><your-postgres-user>：账户名</li>
+<li><your-postgres-password>：账户密码</li>
+<li><your-postgres-database>：数据库名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">docker run --name &lt;your-postgres-container-name&gt; -e POSTGRES_USER=&lt;your-postgres-user&gt; -e POSTGRES_PASSWORD=&lt;your-postgres-password&gt; -e POSTGRES_DB=&lt;your-postgres-database&gt; -p 5432:5432 -d postgres</span><br>docker run --name postgresql \<br>--restart=always \<br>-e POSTGRES_USER=admin \<br>-e POSTGRES_PASSWORD=123456! \<br>-e POSTGRES_DB=sonarqube_db \<br>-p 5432:5432 \<br>-v /opt/postgres:/var/lib/postgresql/data \<br>-e ALLOW_IP_RANGE=0.0.0.0/0 \<br>-d postgres<br></code></pre></td></tr></table></figure>
+
+<p>其中<code>-p</code>后接映射端口，此实例下，将容器PostgreSQL默认端口映射到主机的5432端口上。ALLOW_IP_RANGE&#x3D;0.0.0.0&#x2F;0 允许任何主机访问，-v &#x2F;opt&#x2F;postgres:&#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data，做数据持久化，此目录需确保存在。</p>
+<p>执行后，<code>docker ps</code>查看运行的容器：</p>
+<p><img src="https://codestar.top/note-image/202410092325518.png" srcset="/img/loading.gif" lazyload alt="image-20240911150909155"></p>
+<p><img src="https://codestar.top/note-image/202410092326174.png" srcset="/img/loading.gif" lazyload alt="image-20240911150948080"></p>
+<p>使用前面的账户名，连接到postgresql容器指定的数据库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">docker <span class="hljs-built_in">exec</span> -it &lt;your-postgres-container-name&gt; psql -U &lt;your-postgres-user&gt; -d &lt;your-postgres-database&gt;</span><br>docker exec -it postgresql psql -U admin -d sonarqube_db<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或进入容器控制台后执行psql -U admin -d sonarqube_db</span><br>docker exec -it 143aa13dd734 /bin/bash<br></code></pre></td></tr></table></figure>
+
+<p>psql为postgres控制指令。也可使用其他工具如navicat、datagrip等客户端连接到对应的数据库。</p>
+<p>效果如下：</p>
+<p><img src="https://codestar.top/note-image/202410092326282.png" srcset="/img/loading.gif" lazyload alt="image-20240911140954521"></p>
+<p><code>\l</code>查看所有的数据库：</p>
+<p><img src="https://codestar.top/note-image/202410092326179.png" srcset="/img/loading.gif" lazyload alt="image-20240911141428224"></p>
+<p><code>\q</code>退出postgre命令行。</p>
+<h2 id="4、使用docker安装sonarqube"><a href="#4、使用docker安装sonarqube" class="headerlink" title="4、使用docker安装sonarqube"></a>4、使用docker安装sonarqube</h2><h3 id="4-1、拉取sonarqube镜像"><a href="#4-1、拉取sonarqube镜像" class="headerlink" title="4.1、拉取sonarqube镜像"></a>4.1、拉取sonarqube镜像</h3><p>Docker Hub库：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/sonarqube/tags">https://hub.docker.com/_/sonarqube/tags</a></p>
+<p>根据需要选择对应版本，我这里选择社区版本，拷贝后面的拉取镜像指令：</p>
+<p><img src="https://codestar.top/note-image/202410092326229.png" srcset="/img/loading.gif" lazyload alt="image-20240911111344715"></p>
+<p>在Ubuntu执行，拉取sonarqube社区版镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull sonarqube:9.9-community<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410092327343.png" srcset="/img/loading.gif" lazyload alt="image-20240911112050508"></p>
+<p>拉取完成如下：</p>
+<p><img src="https://codestar.top/note-image/202410092327323.png" srcset="/img/loading.gif" lazyload alt="image-20240911112314331"></p>
+<p>使用<code>docker images</code>查看本地的镜像，可以看到已经有对应镜像：</p>
+<p><img src="https://codestar.top/note-image/202410092344436.png" srcset="/img/loading.gif" lazyload alt="image-20240911112618908"></p>
+<h3 id="4-2、创建sonarqube容器实例"><a href="#4-2、创建sonarqube容器实例" class="headerlink" title="4.2、创建sonarqube容器实例"></a>4.2、创建sonarqube容器实例</h3><h4 id="1）创建默认数据库实例"><a href="#1）创建默认数据库实例" class="headerlink" title="1）创建默认数据库实例"></a>1）创建默认数据库实例</h4><p>我们来根据镜像创建并运行实例，当不指定数据库创建时，默认为H2嵌入式数据库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">docker run --name 容器名(可任意) -d -p 内部端口:外部端口 镜像名</span><br>docker run --name sonarqube -p 9000:9000 -d sonarqube:9.9-community<br></code></pre></td></tr></table></figure>
+
+<p>运行成功：</p>
+<p><img src="https://codestar.top/note-image/202410092342800.png" srcset="/img/loading.gif" lazyload alt="image-20240911112904627"></p>
+<p>之后根据创建时的端口，在Linux设备中浏览器访问对应的地址：<a target="_blank" rel="noopener" href="http://localhost:9000/">http://localhost:9000/</a> ，初始管理员用户和密码为：<code>admin/admin</code></p>
+<p><img src="https://codestar.top/note-image/202410092344204.png" srcset="/img/loading.gif" lazyload alt="image-20240911113325377"></p>
+<p>登录之后会要求更新密码：</p>
+<p><img src="https://codestar.top/note-image/202410102120672.png" srcset="/img/loading.gif" lazyload alt="image-20240911113422454"></p>
+<p>登录之后页面如下：</p>
+<p><img src="https://codestar.top/note-image/202410102120835.png" srcset="/img/loading.gif" lazyload alt="image-20240911113605657"></p>
+<p>默认的H2嵌入式数据库有下面几个缺点：</p>
+<ul>
+<li>内嵌数据库<strong>只能用于测试场景</strong>。</li>
+<li>内嵌数据库无法扩展。</li>
+<li>无法升级到新版本的SonarQube。</li>
+<li>不支持将数据迁移至其他数据库引擎。</li>
+</ul>
+<p>基于这些点，也参考官方推荐，使用postgresql数据库是较好的一种方式。下面来说明如何指定PostgreSQL创建sonarqube创建容器实例。</p>
+<h4 id="2）创建指定PostgreSQL数据库实例-推荐"><a href="#2）创建指定PostgreSQL数据库实例-推荐" class="headerlink" title="2）创建指定PostgreSQL数据库实例-推荐"></a>2）创建指定PostgreSQL数据库实例-推荐</h4><p>提前在Linux设备创建下面几个目录，做相关的数据存放：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir -p /opt/sonarqube/data /opt/sonarqube/extensions /opt/sonarqube/logs /opt/sonarqube/conf<br></code></pre></td></tr></table></figure>
+
+<p>之后，创建PostgreSQL数据库容器实例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run --name sonarqube \<br>	--restart=always \<br>    -e SONAR_JDBC_URL=jdbc:postgresql://192.168.135.128:5432/sonarqube_db \<br>    -e SONAR_JDBC_USERNAME=admin \<br>    -e SONAR_JDBC_PASSWORD=123456! \<br>    -p 9000:9000 \<br>    -v sonarqube_data:/opt/sonarqube/data \<br>    -v sonarqube_extensions:/opt/sonarqube/extensions \<br>    -v sonarqube_logs:/opt/sonarqube/logs \<br>    -v sonarqube_conf:/opt/sonarqube/conf \<br>    -d sonarqube:9.9-community<br></code></pre></td></tr></table></figure>
+
+<p>通过下面这些参数，将指定Postgresql数据库启动，IP替换为postgresql所在的主机地址，sonarqube_db对应为<a href="##3%E3%80%81docker%E5%AE%89%E8%A3%85PostgreSQL">第三节：3、docker安装PostgreSQL</a>创建的数据库名称：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意IP、数据库、用户名、密码不要出现错误！与第三节配置保持一致</span><br>	-e SONAR_JDBC_URL=jdbc:postgresql://192.168.135.128:5432/sonarqube_db \<br>    -e SONAR_JDBC_USERNAME=admin \<br>    -e SONAR_JDBC_PASSWORD=123456! \<br></code></pre></td></tr></table></figure>
+
+<p>下面路径分别做数据存放：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">存储 SonarQube 的数据文件：如索引、分析结果、快照等</span><br>	-v sonarqube_data:/opt/sonarqube/data \<br><span class="hljs-meta prompt_"># </span><span class="language-bash">用于存放 SonarQube 的扩展和插件</span><br>    -v sonarqube_extensions:/opt/sonarqube/extensions \<br><span class="hljs-meta prompt_"># </span><span class="language-bash">存储 SonarQube 的日志文件</span><br>    -v sonarqube_logs:/opt/sonarqube/logs \<br><span class="hljs-meta prompt_"># </span><span class="language-bash">存放 SonarQube 的配置文件</span><br>    -v sonarqube_conf:/opt/sonarqube/conf \<br></code></pre></td></tr></table></figure>
+
+<p>创建完成后，<code>docker ps -a</code>查看对应的容器状态：</p>
+<p><img src="https://codestar.top/note-image/202410102206581.png" srcset="/img/loading.gif" lazyload alt="image-20240911155852444"></p>
+<p><img src="https://codestar.top/note-image/202410102123641.png" srcset="/img/loading.gif" lazyload alt="image-20240911155917518"></p>
+<p>在Linux设备浏览器中访问sonarqube服务对应的地址：<a target="_blank" rel="noopener" href="http://localhost:9000/">http://localhost:9000/</a> ，默认管理员用户及密码：admin&#x2F;admin，与上一节相同，更新密码后进入到主界面：</p>
+<p><img src="https://codestar.top/note-image/202410102123961.png" srcset="/img/loading.gif" lazyload alt="image-20240911160234108"></p>
+<p><strong>注：</strong>切换到postgresql首次启动，初始化时间相对会长一些。</p>
+<p>若出现问题，可以通过<code>docker logs -f sonarqube</code>查看对应的日志信息检查错误点，修正后重启容器。sonarqube为容器名称。</p>
+<h2 id="5、插件安装"><a href="#5、插件安装" class="headerlink" title="5、插件安装"></a>5、插件安装</h2><h3 id="5-1、中文汉化插件安装"><a href="#5-1、中文汉化插件安装" class="headerlink" title="5.1、中文汉化插件安装"></a>5.1、中文汉化插件安装</h3><p>进入到插件商城，搜索插件<code>chinese</code>，按下面操作进入到插件主页进行下载：</p>
+<p><img src="https://codestar.top/note-image/202410102124358.png" srcset="/img/loading.gif" lazyload alt="image-20240911160719504"></p>
+<p>跳转后到如下仓库，进入发布页面：</p>
+<p><img src="https://codestar.top/note-image/202410102128127.png" srcset="/img/loading.gif" lazyload alt="image-20240911161651943"></p>
+<p>选择指定版本，点击下载jar包：</p>
+<p><img src="https://codestar.top/note-image/202410102128323.png" srcset="/img/loading.gif" lazyload alt="image-20240911161510076"></p>
+<p><strong>注：</strong> 下载的插件版本需要与实际sonarqube版本一致，兼容性表参考：</p>
+<p><img src="https://codestar.top/note-image/202410102129292.png" srcset="/img/loading.gif" lazyload alt="image-20240911161557274"></p>
+<p>将下好的插件放置到以下路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/var/lib/docker/volumes/sonarqube_extensions/_data/plugins<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102131589.png" srcset="/img/loading.gif" lazyload alt="image-20240911163931822"></p>
+<p>此路径，通过<code>docker inspect 772c017e3e4e</code>检查mounts可查看到，772c017e3e4e为容器ID：</p>
+<p><img src="https://codestar.top/note-image/202410102131611.png" srcset="/img/loading.gif" lazyload alt="image-20240911163601260"></p>
+<p>放置好插件之后，执行<code>docker restart 772c017e3e4e</code>重启sonarqube容器生效，772c017e3e4e为容器ID。</p>
+<p><img src="https://codestar.top/note-image/202410102132525.png" srcset="/img/loading.gif" lazyload alt="image-20240911164136503"></p>
+<p>之后再进入sonarqube首页，可以看到切换为了中文界面。</p>
+<p><img src="https://codestar.top/note-image/202410102132857.png" srcset="/img/loading.gif" lazyload alt="image-20240911164251850"></p>
+<h3 id="5-2、PDF分析报告导出插件"><a href="#5-2、PDF分析报告导出插件" class="headerlink" title="5.2、PDF分析报告导出插件"></a>5.2、PDF分析报告导出插件</h3><p>PDF报告导出的功能，<strong>官方需要升级到企业版才支持</strong>，社区版可通过插件来拓展能力。</p>
+<h4 id="1）方案1：pdf-plugin插件"><a href="#1）方案1：pdf-plugin插件" class="headerlink" title="1）方案1：pdf-plugin插件"></a>1）方案1：pdf-plugin插件</h4><p>插件仓库：<a target="_blank" rel="noopener" href="https://gitee.com/zzulj/sonar-pdf-plugin/releases">https://gitee.com/zzulj/sonar-pdf-plugin/releases</a></p>
+<p>下载9.x版本：</p>
+<p><img src="https://codestar.top/note-image/202410102132759.png" srcset="/img/loading.gif" lazyload alt="image-20240912111823791"></p>
+<p>放置到插件路径：</p>
+<p><img src="https://codestar.top/note-image/202410102133010.png" srcset="/img/loading.gif" lazyload alt="image-20240912112857575"></p>
+<p>重启sonarqube容器：</p>
+<p><img src="https://codestar.top/note-image/202410102133173.png" srcset="/img/loading.gif" lazyload alt="image-20240912113059245"></p>
+<p>重启后进入sonarqube首页，配置PDF下载的账户：填写账户名及密码</p>
+<p><img src="https://codestar.top/note-image/202410102133284.png" srcset="/img/loading.gif" lazyload alt="image-20240912113330294"></p>
+<p>之后在‘项目’-&gt;‘更多’中，可以看到有下载PDF的按钮，点击直接下载即可：</p>
+<p><img src="https://codestar.top/note-image/202410102133213.png" srcset="/img/loading.gif" lazyload alt="image-20240912113515997"></p>
+<p><strong>需要注意的是，在安装完这个插件之后，首次使用需要进行1次新的扫描，否则无法下载PDF。</strong></p>
+<p>此插件，目前实测使用存在问题，sonarqube 9.9 LTS版本在执行完1次扫描后，依旧无法下载，实际使用的话需要考虑一下。</p>
+<h4 id="2）方案2：bitegarden-Report-Plugin"><a href="#2）方案2：bitegarden-Report-Plugin" class="headerlink" title="2）方案2：bitegarden Report Plugin"></a>2）方案2：bitegarden Report Plugin</h4><p>其他生成报告插件，付费插件，此插件有14天试用期：<a target="_blank" rel="noopener" href="https://www.bitegarden.com/sonarqube-report-documentation">https://www.bitegarden.com/sonarqube-report-documentation</a></p>
+<p>填写相关申请信息下载插件使用，信息内容自定义，无校验：</p>
+<p><img src="https://codestar.top/note-image/202410102134450.png" srcset="/img/loading.gif" lazyload alt="image-20240919163118559"></p>
+<p>插件下载完成放到sonarqube插件路径，重启sonarqube容器生效：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">插件路径</span><br>/var/lib/docker/volumes/sonarqube_extensions/_data/plugins<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102135078.png" srcset="/img/loading.gif" lazyload alt="image-20240919163906210"></p>
+<h3 id="5-3、配置PMD、findbugs、checkstyle规则插件"><a href="#5-3、配置PMD、findbugs、checkstyle规则插件" class="headerlink" title="5.3、配置PMD、findbugs、checkstyle规则插件"></a>5.3、配置PMD、findbugs、checkstyle规则插件</h3><ul>
+<li><p>PMD插件：<a target="_blank" rel="noopener" href="https://github.com/jborgers/sonar-pmd">https://github.com/jborgers/sonar-pmd</a></p>
+</li>
+<li><p>findbugs插件：<a target="_blank" rel="noopener" href="https://github.com/spotbugs/sonar-findbugs">https://github.com/spotbugs/sonar-findbugs</a></p>
+</li>
+<li><p>checkstyle插件：<a target="_blank" rel="noopener" href="https://github.com/checkstyle/sonar-checkstyle">https://github.com/checkstyle/sonar-checkstyle</a></p>
+</li>
+</ul>
+<p><img src="https://codestar.top/note-image/202410102135762.png" srcset="/img/loading.gif" lazyload alt="image-20240919164857955"></p>
+<p>根据<a target="_blank" rel="noopener" href="https://docs.sonarsource.com/sonarqube/9.9/instance-administration/plugin-version-matrix/">官方插件适配矩阵</a>，选择对应版本集成相应的规则插件。下载jar包放入插件路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/var/lib/docker/volumes/sonarqube_extensions/_data/plugins<br></code></pre></td></tr></table></figure>
+
+<p>重启sonarqube容器生效。</p>
+<h3 id="5-4、C语言扫描插件"><a href="#5-4、C语言扫描插件" class="headerlink" title="5.4、C语言扫描插件"></a>5.4、C语言扫描插件</h3><p>插件仓库：<a target="_blank" rel="noopener" href="https://github.com/SonarOpenCommunity/sonar-cxx">https://github.com/SonarOpenCommunity/sonar-cxx</a></p>
+<p>根据适配矩阵下载插件版本，放入插件路径。重启sonarqube容器使插件生效。</p>
+<p>配置C&#x2F;c++扫描规则：</p>
+<ul>
+<li>1、创建质量配置：质量配置-&gt;创建-&gt;创建空质量配置-&gt;语言选择cxx-&gt;名称自定义</li>
+</ul>
+<p><img src="https://codestar.top/note-image/202410102141137.png" srcset="/img/loading.gif" lazyload alt="image-20240919171118223"></p>
+<ul>
+<li>2、进入质量配置-&gt;打开创建的<code>cpp_extra_rule</code>配置-&gt;右上角齿轮-&gt;激活更多规则</li>
+</ul>
+<p><img src="https://codestar.top/note-image/202410102141784.png" srcset="/img/loading.gif" lazyload alt="image-20240919171358690"></p>
+<ul>
+<li>3、进入到代码规则页面：批量修改-&gt;激活-&gt;选择<code>cpp_extra_rule</code>配置-&gt;应用</li>
+</ul>
+<p><img src="https://codestar.top/note-image/202410102142027.png" srcset="/img/loading.gif" lazyload alt="image-20240919181041344"></p>
+<ul>
+<li><p>4、切换默认规则：进入质量配置-&gt;cxx配置-&gt;<code>cpp_extra_rule</code>右侧齿轮打开菜单-&gt;选择<code>设为默认</code></p>
+</li>
+<li><p>5、项目配置：进入项目页面-&gt;打开项目配置-&gt;选择<code>质量配置</code></p>
+</li>
+</ul>
+<p><img src="https://codestar.top/note-image/202410102142674.png" srcset="/img/loading.gif" lazyload alt="image-20240914175949631"></p>
+<ul>
+<li>6、配置项目语言及文件后缀：</li>
+</ul>
+<p>添加新语言：选择CXX-&gt;选择<code>cpp_extra_rule</code>配置</p>
+<p><img src="https://codestar.top/note-image/202410102154417.png" srcset="/img/loading.gif" lazyload alt="image-20240919181821869"></p>
+<p>进入CXX配置页-&gt;修改File suffixes文件后缀-&gt;添加下面的后缀(.cxx&#x2F;,cpp&#x2F;.cc&#x2F;.c)</p>
+<p><img src="https://codestar.top/note-image/202410102154256.png" srcset="/img/loading.gif" lazyload alt="image-20240914175911833"></p>
+<p>至此，可正常在此项目下进行c语言项目扫描了：</p>
+<h2 id="6、手动代码分析"><a href="#6、手动代码分析" class="headerlink" title="6、手动代码分析"></a>6、手动代码分析</h2><p>在配置完sonarqube后，进入到主页，我们点击‘手工’尝试一下手动代码扫描：填入显示名、项目标识，点击设置进入下一步</p>
+<p><img src="https://codestar.top/note-image/202410102154411.png" srcset="/img/loading.gif" lazyload alt="image-20240911170717465"></p>
+<p>由于暂时还未集成其他系统，这里选择其他CI：</p>
+<p><img src="https://codestar.top/note-image/202410102155817.png" srcset="/img/loading.gif" lazyload alt="image-20240911171103276"></p>
+<p>进入令牌创建页，点击创建：</p>
+<p><img src="https://codestar.top/note-image/202410102155888.png" srcset="/img/loading.gif" lazyload alt="image-20240911171249226"></p>
+<p>保存令牌并点击继续：创建的令牌可在期限内应用到多项目的扫描中</p>
+<p><img src="https://codestar.top/note-image/202410102156342.png" srcset="/img/loading.gif" lazyload alt="image-20240911171338640"></p>
+<p>接着根据项目情况选择类型：</p>
+<p><img src="https://codestar.top/note-image/202410102156026.png" srcset="/img/loading.gif" lazyload alt="image-20240911171559717"></p>
+<p>根据下面的步骤进行操作：</p>
+<p><img src="https://codestar.top/note-image/202410102157967.png" srcset="/img/loading.gif" lazyload alt="image-20240911171809485"></p>
+<ul>
+<li>1、拷贝第一步中的指令，在windows poershell中执行，下载windows平台的扫描器</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$env:SONAR_SCANNER_VERSION</span> = <span class="hljs-string">&quot;4.7.0.2747&quot;</span><br><span class="hljs-variable">$env:SONAR_DIRECTORY</span> = [<span class="hljs-type">System.IO.Path</span>]::Combine(<span class="hljs-variable">$</span>(<span class="hljs-built_in">get-location</span>).Path,<span class="hljs-string">&quot;.sonar&quot;</span>)<br><span class="hljs-variable">$env:SONAR_SCANNER_HOME</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$env:SONAR_DIRECTORY</span>/sonar-scanner-<span class="hljs-variable">$env:SONAR_SCANNER_VERSION</span>-windows&quot;</span><br><span class="hljs-built_in">rm</span> <span class="hljs-variable">$env:SONAR_SCANNER_HOME</span> <span class="hljs-literal">-Force</span> <span class="hljs-literal">-Recurse</span> <span class="hljs-literal">-ErrorAction</span> SilentlyContinue<br><span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-path</span> <span class="hljs-variable">$env:SONAR_SCANNER_HOME</span> <span class="hljs-literal">-type</span> directory<br>(<span class="hljs-built_in">New-Object</span> System.Net.WebClient).DownloadFile(<span class="hljs-string">&quot;https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-<span class="hljs-variable">$env:SONAR_SCANNER_VERSION</span>-windows.zip&quot;</span>, <span class="hljs-string">&quot;<span class="hljs-variable">$env:SONAR_DIRECTORY</span>/sonar-scanner.zip&quot;</span>)<br><span class="hljs-built_in">Add-Type</span> <span class="hljs-literal">-AssemblyName</span> System.IO.Compression.FileSystem<br>[<span class="hljs-type">System.IO.Compression.ZipFile</span>]::ExtractToDirectory(<span class="hljs-string">&quot;<span class="hljs-variable">$env:SONAR_DIRECTORY</span>/sonar-scanner.zip&quot;</span>, <span class="hljs-string">&quot;<span class="hljs-variable">$env:SONAR_DIRECTORY</span>&quot;</span>)<br><span class="hljs-built_in">rm</span> ./.sonar/sonar<span class="hljs-literal">-scanner</span>.zip <span class="hljs-literal">-Force</span> <span class="hljs-literal">-ErrorAction</span> SilentlyContinue<br><span class="hljs-variable">$env:Path</span> += <span class="hljs-string">&quot;;<span class="hljs-variable">$env:SONAR_SCANNER_HOME</span>/bin&quot;</span><br><span class="hljs-variable">$env:SONAR_SCANNER_OPTS</span>=<span class="hljs-string">&quot;-server&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102204059.png" srcset="/img/loading.gif" lazyload alt="image-20240911173131811"></p>
+<ul>
+<li>2、添加环境变量</li>
+</ul>
+<p>系统环境变量中创建<code>SONAR_TOKEN</code>，对应值为令牌内容：</p>
+<p><img src="https://codestar.top/note-image/202410102201093.png" srcset="/img/loading.gif" lazyload alt="image-20240911173327868"></p>
+<ul>
+<li>3、在项目目录下执行扫描器，触发扫描：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sonar-scanner.bat -D&quot;sonar.projectKey=sonarqube-test-code&quot; -D&quot;sonar.sources=.&quot; -D&quot;sonar.host.url=http://192.168.135.128:9000&quot;<br></code></pre></td></tr></table></figure>
+
+<p>进入到项目目录，执行上述扫描指令：</p>
+<p><img src="https://codestar.top/note-image/202410102201604.png" srcset="/img/loading.gif" lazyload alt="image-20240911175203318"></p>
+<p>执行完成之后，会出现<code>EXECUTION SUCCESS</code>关键字，sonarqube页面会自动刷新结果：</p>
+<p><img src="https://codestar.top/note-image/202410102202404.png" srcset="/img/loading.gif" lazyload alt="image-20240911175107785"></p>
+<p><img src="https://codestar.top/note-image/202410102202479.png" srcset="/img/loading.gif" lazyload alt="image-20240911175747525"></p>
+<p><img src="https://codestar.top/note-image/202410102203457.png" srcset="/img/loading.gif" lazyload alt="image-20240911175832610"></p>
+<p>点击对应项可查看详情：</p>
+<p><img src="https://codestar.top/note-image/202410102203312.png" srcset="/img/loading.gif" lazyload alt="image-20240912111732661"></p>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.pkslow.com/docs/zh/docker-sonarqube/#_2-1-%E5%AE%89%E8%A3%85">https://www.pkslow.com/docs/zh/docker-sonarqube/#_2-1-%E5%AE%89%E8%A3%85</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44281591/article/details/132252039">https://blog.csdn.net/qq_44281591/article/details/132252039</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lixie0215/p/15341843.html">https://www.cnblogs.com/lixie0215/p/15341843.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7021019542130262024">https://juejin.cn/post/7021019542130262024</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.advance.ai/zh-cn/sonar-qube-topic-0">https://blog.advance.ai/zh-cn/sonar-qube-topic-0</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7265614572119490595">https://juejin.cn/post/7265614572119490595</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Docker/" class="category-chain-item">Docker</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Docker/Sonarqube/" class="category-chain-item">Sonarqube</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Docker/Sonarqube/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" class="category-chain-item">代码扫描</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+      
+        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+      
+        <a href="/tags/Sonarqube/" class="print-no-link">#Sonarqube</a>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" class="print-no-link">#代码扫描</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ubuntu docker搭建sonarqube社区版</div>
+      <div>http://www.codestar.top/2024/10/10/Linux/Ubuntu-docker搭建sonarqube社区版/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mini小新</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年10月10日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/10/10/Linux/Sonarqube-DataCenter%E7%89%88%E6%9C%AC%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" title="Sonarqube DataCenter版本手动搭建完整流程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Sonarqube DataCenter版本手动搭建完整流程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/08/Linux/Docker%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/" title="Docker安装及配置PostgreSQL">
+                        <span class="hidden-mobile">Docker安装及配置PostgreSQL</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comentapi.codestar.top/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/bmoji","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/qq","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"locale":{"placeholder":"留下你的足迹，存下你的建议~","reactionTitle":"点赞"},"copyright":false},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://icp.gov.moe/?keyword=20240599" target="_blank">萌ICP备20240599号</a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-icon-star-on"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span>Copyright © 2022-2024. All Rights Reserved.</span><br> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
