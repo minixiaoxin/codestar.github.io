@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.codestar.top/img/blog-img/Python_pic2.png">
 <meta property="article:published_time" content="2024-12-15T08:16:33.000Z">
-<meta property="article:modified_time" content="2024-12-15T08:33:11.409Z">
+<meta property="article:modified_time" content="2024-12-15T12:47:53.427Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="PIP环境配置">
@@ -57,7 +57,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_axic6slp35c.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4300802_fkyh2igcqd4.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -310,7 +310,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-knowledge-fill"></i>
+                <i class="iconfont icon-code"></i>
                 <span>Code Space</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -549,7 +549,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年12月15日 下午
+                    本文最后更新于：2024年12月15日 晚上
                   
                 
               </p>
@@ -557,7 +557,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>在python国内的网络环境下，pip的镜像源默认为官方库：<a target="_blank" rel="noopener" href="https://pypi.python.org/simple%EF%BC%8C%E4%BD%86%E5%9B%BD%E5%86%85%E8%BF%9E%E6%8E%A5%E5%AE%98%E6%96%B9%E5%BA%93%E7%BD%91%E7%BB%9C%E5%BB%B6%E8%BF%9F%E5%A4%AA%E9%AB%98%EF%BC%8C%E5%BE%88%E5%AE%B9%E6%98%93%E5%87%BA%E7%8E%B0%E5%8C%85%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E5%AF%BC%E8%87%B4%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%9B%A0%E6%AD%A4%E9%9C%80%E8%A6%81%E6%9B%BF%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E7%9A%84pip%E9%95%9C%E5%83%8F%E6%BA%90%E9%81%BF%E5%85%8D%E4%B8%8B%E8%BD%BD%E5%BB%B6%E8%BF%9F%E8%BF%87%E9%AB%98%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%EF%BC%8C%E4%B9%9F%E4%B8%BA%E4%BA%86%E6%8F%90%E5%8D%87%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%EF%BC%8C%E6%8F%90%E9%AB%98%E5%AE%89%E8%A3%85%E6%95%88%E7%8E%87%E3%80%82">https://pypi.python.org/simple，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。</a></p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>在python国内的网络环境下，pip的镜像源默认为官方库：<a target="_blank" rel="noopener" href="https://pypi.python.org/simple">https://pypi.python.org/simple</a>，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。</p>
 <h2 id="2、临时方法"><a href="#2、临时方法" class="headerlink" title="2、临时方法"></a>2、临时方法</h2><p>使用<code>-i</code>参数，在单次执行中指定镜像源下载，示例如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用指定的镜像源下载numpy库</span><br>pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple/<br></code></pre></td></tr></table></figure>
 
