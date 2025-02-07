@@ -18,25 +18,25 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、前言在python国内的网络环境下，pip的镜像源默认为官方库：https:&#x2F;&#x2F;pypi.python.org&#x2F;simple，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。 2、临时方法使用-i参数，在单次执行中指定镜像源下载，示例如下： 12# 使用指定的镜像源下载nump">
+    <meta name="description" content="1、背景在我们执行python脚本的过程中，每次执行都需要在命令面板执行一段指令，如python timecalc.py。通过指令执行的方式，利于动态修改脚本检查效果，方便调试。当我们脚本的功能都已经实现完成后，那么在windows PC中，考虑将其封装为exe程序，之后每次运行，只需要双击应用即可，也无需执行命令。 2、exe封装过程2.1 原始应用基于时间计算器timecalc.py进行封装，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PIP镜像源配置详细记录">
-<meta property="og:url" content="http://www.codestar.top/2024/12/15/Python/PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:title" content="Python程序封装为exe应用方法">
+<meta property="og:url" content="http://www.codestar.top/2025/02/07/Python/Python%E7%A8%8B%E5%BA%8F%E5%B0%81%E8%A3%85%E4%B8%BAexe%E5%BA%94%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、前言在python国内的网络环境下，pip的镜像源默认为官方库：https:&#x2F;&#x2F;pypi.python.org&#x2F;simple，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。 2、临时方法使用-i参数，在单次执行中指定镜像源下载，示例如下： 12# 使用指定的镜像源下载nump">
+<meta property="og:description" content="1、背景在我们执行python脚本的过程中，每次执行都需要在命令面板执行一段指令，如python timecalc.py。通过指令执行的方式，利于动态修改脚本检查效果，方便调试。当我们脚本的功能都已经实现完成后，那么在windows PC中，考虑将其封装为exe程序，之后每次运行，只需要双击应用即可，也无需执行命令。 2、exe封装过程2.1 原始应用基于时间计算器timecalc.py进行封装，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/Python_pic2.png">
-<meta property="article:published_time" content="2024-12-15T08:16:33.000Z">
-<meta property="article:modified_time" content="2024-12-18T15:42:32.003Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/Python_pic3.png">
+<meta property="article:published_time" content="2025-02-07T14:30:15.000Z">
+<meta property="article:modified_time" content="2025-02-07T14:49:14.945Z">
 <meta property="article:author" content="mini小新">
 <meta property="article:tag" content="Python">
-<meta property="article:tag" content="PIP环境配置">
+<meta property="article:tag" content="EXE打包方法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Python_pic2.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Python_pic3.png">
   
   
   
-  <title>PIP镜像源配置详细记录 - mini小新的博客</title>
+  <title>Python程序封装为exe应用方法 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -460,7 +460,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PIP镜像源配置详细记录"></span>
+            <span id="subtitle" data-typed-text="Python程序封装为exe应用方法"></span>
           
         </div>
 
@@ -476,8 +476,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-15 16:16" pubdate>
-          2024年12月15日 下午
+        <time datetime="2025-02-07 22:30" pubdate>
+          2025年2月7日 晚上
         </time>
       </span>
     
@@ -488,7 +488,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.5k 字
         
       </span>
     
@@ -499,7 +499,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -544,12 +544,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">PIP镜像源配置详细记录</h1>
+            <h1 id="seo-header">Python程序封装为exe应用方法</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年12月18日 晚上
+                    本文最后更新于：2025年2月7日 晚上
                   
                 
               </p>
@@ -557,88 +557,187 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>在python国内的网络环境下，pip的镜像源默认为官方库：<a target="_blank" rel="noopener" href="https://pypi.python.org/simple">https://pypi.python.org/simple</a>，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。</p>
-<h2 id="2、临时方法"><a href="#2、临时方法" class="headerlink" title="2、临时方法"></a>2、临时方法</h2><p>使用<code>-i</code>参数，在单次执行中指定镜像源下载，示例如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用指定的镜像源下载numpy库</span><br>pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple/<br></code></pre></td></tr></table></figure>
+                <h2 id="1、背景"><a href="#1、背景" class="headerlink" title="1、背景"></a>1、背景</h2><p>在我们执行python脚本的过程中，每次执行都需要在命令面板执行一段指令，如<code>python timecalc.py</code>。通过指令执行的方式，利于动态修改脚本检查效果，方便调试。当我们脚本的功能都已经实现完成后，那么在windows PC中，考虑将其封装为exe程序，之后每次运行，只需要双击应用即可，也无需执行命令。</p>
+<h2 id="2、exe封装过程"><a href="#2、exe封装过程" class="headerlink" title="2、exe封装过程"></a>2、exe封装过程</h2><h3 id="2-1-原始应用"><a href="#2-1-原始应用" class="headerlink" title="2.1 原始应用"></a>2.1 原始应用</h3><p>基于时间计算器timecalc.py进行封装，基本功能，计算毫秒级别时间序列及时间戳的差值，界面如下，执行<code>python timecalc.py</code>运行脚本：</p>
+<p><img src="https://codestar.top/note-image/202502072231259.png" srcset="/img/loading.gif" lazyload alt="image-20250206143701436"></p>
+<p><img src="https://codestar.top/note-image/202502072232330.png" srcset="/img/loading.gif" lazyload alt="image-20250206142614691"></p>
+<h3 id="2-2-Pyinstaller封装环境准备"><a href="#2-2-Pyinstaller封装环境准备" class="headerlink" title="2.2 Pyinstaller封装环境准备"></a>2.2 Pyinstaller封装环境准备</h3><p>Pyinstaller为封装python脚本的三方库，通过pip进行安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip install pyinstaller<br></code></pre></td></tr></table></figure>
 
+<p>如果在配置文件中修改过PIP镜像源为清华PIP镜像源，可能会出现403断联情况（实际为本机IP被pip清华源封禁，无此问题可忽略，正常下载即可）：</p>
+<p><img src="https://codestar.top/note-image/202502072236192.png" srcset="/img/loading.gif" lazyload alt="image-20250117105212582"></p>
+<p>另外可使用<code>-i</code>参数在安装时指定官方镜像源下载：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">后接-i参数，指定镜像源</span><br>pip install pyinstaller -i https://pypi.python.org/simple<br></code></pre></td></tr></table></figure>
 
+<p>安装成功如下，安装成功会出现Successfully关键字：</p>
+<p><img src="https://codestar.top/note-image/202502072237456.png" srcset="/img/loading.gif" lazyload alt="image-20250117105319506"></p>
+<p>安装完成，可以直接在控制台执行<code>pyinstaller</code>验证安装，正常会返回以下说明内容：</p>
+<p><img src="https://codestar.top/note-image/202502072237712.png" srcset="/img/loading.gif" lazyload alt="image-20250117105804552"></p>
+<h3 id="2-3-Pyinstaller封装py程序"><a href="#2-3-Pyinstaller封装py程序" class="headerlink" title="2.3 Pyinstaller封装py程序"></a>2.3 Pyinstaller封装py程序</h3><p>拷贝需要打包的python程序地址：选中python程序文件，shift+鼠标右键，点击复制文件地址</p>
+<p><img src="https://codestar.top/note-image/202502072237723.png" srcset="/img/loading.gif" lazyload alt="image-20250206143255550"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">后接python程序实际绝对路径</span><br>pyinstaller &quot;E:\浏览器下载文件\timecalc.py&quot;<br></code></pre></td></tr></table></figure>
 
-<h2 id="3、永久修改"><a href="#3、永久修改" class="headerlink" title="3、永久修改"></a>3、永久修改</h2><h3 id="3-1、windows设备"><a href="#3-1、windows设备" class="headerlink" title="3.1、windows设备"></a>3.1、windows设备</h3><p>进入AppData路径：文件管理器中输入<code>%APPDATA%</code></p>
-<p><img src="https://codestar.top/note-image/202412151612128.png" srcset="/img/loading.gif" lazyload alt="image-20231114095149935"></p>
-<p>进入后默认会是：C:\Users\PC用户名\AppData\Roaming路径下：</p>
-<p>新建下面的路径和文件：pip\pip.ini</p>
-<p><img src="https://codestar.top/note-image/202412151612225.png" srcset="/img/loading.gif" lazyload alt="image-20231114095403225"></p>
-<p>填入下面的配置内容，我配置的是清华源：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[global]<br>index-url = https://pypi.tuna.tsinghua.edu.cn/simple/<br>trusted-host = pypi.tuna.tsinghua.edu.cn<br>timeout = 6000<br></code></pre></td></tr></table></figure>
-
-<p>安装一个库<code>pip install loguru</code>验证一下，之后就会默认从清华源查找库：</p>
-<p><img src="https://codestar.top/note-image/202412151613346.png" srcset="/img/loading.gif" lazyload alt="image-20231114095750763"></p>
-<h3 id="3-2、linux设备"><a href="#3-2、linux设备" class="headerlink" title="3.2、linux设备"></a>3.2、linux设备</h3><p>修改pip配置文件（没有文件时会自动创建）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.pip/pip.conf<br></code></pre></td></tr></table></figure>
-
-<p>填入以下内容，使用的是清华镜像源，配置内容与windows一致：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[global]<br>index-url = https://pypi.tuna.tsinghua.edu.cn/simple/<br>trusted-host = pypi.tuna.tsinghua.edu.cn<br>timeout = 6000<br></code></pre></td></tr></table></figure>
-
-<p>或使用以下指令一键替换，与上述方法等价：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/<br>pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn<br>pip config set global.timeout 500<br></code></pre></td></tr></table></figure>
-
-<p><strong>注：</strong> 使用命令行修改，需要pip版本&gt;&#x3D;10.0.0才行，如果pip版本太低，需要执行<code>python -m pip install --upgrade pip</code>升级pip为最新版本后再操作。</p>
-<h3 id="3-3、查看镜像源配置"><a href="#3-3、查看镜像源配置" class="headerlink" title="3.3、查看镜像源配置"></a>3.3、查看镜像源配置</h3><p>配置完成之后，可以使用以下指令查看设置的是否正确：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip config list<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202412151613276.png" srcset="/img/loading.gif" lazyload alt="image-20241118144650579"></p>
-<h2 id="4、Pycharm修改pip镜像源"><a href="#4、Pycharm修改pip镜像源" class="headerlink" title="4、Pycharm修改pip镜像源"></a>4、Pycharm修改pip镜像源</h2><ul>
-<li>旧版Pycharm UI：</li>
+<p>执行后即开始打包过程：</p>
+<p><img src="https://codestar.top/note-image/202502072238960.png" srcset="/img/loading.gif" lazyload alt="image-20250117110151311"></p>
+<p>出现‘completed successfully’字段即打包完成：</p>
+<p><img src="https://codestar.top/note-image/202502072239948.png" srcset="/img/loading.gif" lazyload alt="image-20250117110127219"></p>
+<p>按照此方法执行完成后会在同路径下生成<code>dict文件夹、build文件夹、timecalc.spec文件</code>：</p>
+<p><img src="https://codestar.top/note-image/202502072239670.png" srcset="/img/loading.gif" lazyload alt="image-20250206144234747"></p>
+<p>最后只需要dist路径下的exe程序即可：</p>
+<p><img src="https://codestar.top/note-image/202502072239722.png" srcset="/img/loading.gif" lazyload alt="image-20250206144347407"></p>
+<p>运行之后，效果是和执行脚本一样：</p>
+<p><img src="https://codestar.top/note-image/202502072240751.png" srcset="/img/loading.gif" lazyload alt="image-20250206144504946"></p>
+<p><strong>注意：</strong> 此方法存在的缺点就是，exe应用执行时需要和<code>_internal</code>路径在一块，这个目录下存放的为依赖文件，分开存放的话，程序会执行失败。</p>
+<h3 id="2-4-Pyinstaller无依赖封装py程序"><a href="#2-4-Pyinstaller无依赖封装py程序" class="headerlink" title="2.4 Pyinstaller无依赖封装py程序"></a>2.4 Pyinstaller无依赖封装py程序</h3><ul>
+<li>使用<code>-F</code>参数，打包时不生成依赖文件：</li>
 </ul>
-<p>ctrl + alt + s 进入设置，搜索interpret：</p>
-<p><img src="https://codestar.top/note-image/202412151613669.png" srcset="/img/loading.gif" lazyload alt="image-20241118151342862"></p>
-<p>点击‘ + ’号进入包管理页面，之后点击‘Manage Repositories’进入到源管理界面，点击‘ + ’添加镜像源。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">无依赖文件打包</span><br>pyinstaller -F .\timecalc.py<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202502072240550.png" srcset="/img/loading.gif" lazyload alt="image-20250206145321037"></p>
+<p>exe文件可以任意搬运，但每次执行，都会出现控制台运行框。</p>
 <ul>
-<li>新版Pycharm UI：</li>
+<li>使用<code>-w</code>参数，去除控制台：</li>
 </ul>
-<p>新版本UI发生了变化，其包管理器移到了主界面：位于页面的左下侧，点击<img src="/./PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95.assets/image-20241118152213575.png" srcset="/img/loading.gif" lazyload>即可进入</p>
-<p><img src="https://codestar.top/note-image/202412151614786.png" srcset="/img/loading.gif" lazyload alt="image-20241118152157926"></p>
-<p>包管理页面，点击右上角齿轮，选择管理仓库，进入源管理界面：</p>
-<p><img src="https://codestar.top/note-image/202412151615942.png" srcset="/img/loading.gif" lazyload alt="image-20241118152332199"></p>
-<p>添加对应的镜像源，应用即可：</p>
-<p><img src="https://codestar.top/note-image/202412151615733.png" srcset="/img/loading.gif" lazyload alt="image-20241118152435209"></p>
-<p>配置完成之后，在包管理页面会增加新配置的镜像源：</p>
-<p><img src="https://codestar.top/note-image/202412151615663.png" srcset="/img/loading.gif" lazyload alt="image-20241118153640656"></p>
-<h2 id="5、镜像源列表"><a href="#5、镜像源列表" class="headerlink" title="5、镜像源列表"></a>5、镜像源列表</h2><table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">无依赖文件，无控制台</span><br>pyinstaller -F -w .\timecalc.py<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<code>-i</code>参数，指定图标进行打包：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">Pyinstaller -F -w -i dragon.ico .\timecalc.py<br></code></pre></td></tr></table></figure>
+
+<p>使用这项图标进行打包：</p>
+<p><img src="https://codestar.top/note-image/202502072242039.png" srcset="/img/loading.gif" lazyload alt="image-20250117111705355"></p>
+<p>windows下打包的图标需使用.ico文件，这个格式为windows原生支持的一项图标格式，在日常打开时不会出现兼容性问题，使用其他的png、jpg图片格式可能会出现图标显示异常等问题。</p>
+<blockquote>
+<p>jpg格式转ico格式工具：<a target="_blank" rel="noopener" href="https://convertio.co/zh/jpg-ico/">https://convertio.co/zh/jpg-ico/</a></p>
+</blockquote>
+<p>完整的打包指令参考如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">Pyinstaller -F -w -i &quot;E:\浏览器下载文件\dragon.ico&quot; &quot;E:\浏览器下载文件\timecalc_v1.2.py&quot;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202502072242071.png" srcset="/img/loading.gif" lazyload alt="image-20250117111837697"></p>
+<p>直接在dist目录下生成带图标的exe应用，且无依赖文件：</p>
+<p><img src="https://codestar.top/note-image/202502072242662.png" srcset="/img/loading.gif" lazyload alt="image-20250117112007467"></p>
+<p>打包之后的程序输出，我们可以指定其输出位置，方便我们直接查找生成的应用：使用<code>--distpath</code>参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">输出exe到指定目录</span><br>Pyinstaller -F -w -i &quot;E:\dragon.ico&quot; --distpath &quot;E:\浏览器下载文件&quot; &quot;E:\浏览器下载文件\timecalc_v1.2.py&quot;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3、参数说明"><a href="#3、参数说明" class="headerlink" title="3、参数说明"></a>3、参数说明</h2><p>常用参数列表如下，方便查询：</p>
+<table>
 <thead>
 <tr>
-<th>镜像源</th>
-<th>地址</th>
+<th align="center">参数</th>
+<th align="center">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>清华(每隔5分钟同步一次官方镜像)</td>
-<td><a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></td>
+<td align="center"><code>-F</code> 或 <code>--onefile</code></td>
+<td align="center">将所有文件打包成一个单独的可执行文件。</td>
 </tr>
 <tr>
-<td>阿里云</td>
-<td><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></td>
+<td align="center"><code>-D</code> 或 <code>--onedir</code></td>
+<td align="center">将所有文件打包到一个目录中（默认选项）。</td>
 </tr>
 <tr>
-<td>中国科技大学</td>
-<td><a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></td>
+<td align="center"><code>-n NAME</code> 或 <code>--name NAME</code></td>
+<td align="center">指定生成的可执行文件或目录的名称。</td>
 </tr>
 <tr>
-<td>华中理工大学</td>
-<td><a target="_blank" rel="noopener" href="http://pypi.hustunique.com/">http://pypi.hustunique.com/</a></td>
+<td align="center"><code>--add-data &lt;SRC;DEST&gt;</code></td>
+<td align="center">添加额外的文件或目录到打包中，格式为 <code>源路径;目标路径</code>。</td>
 </tr>
 <tr>
-<td>山东理工大学</td>
-<td><a target="_blank" rel="noopener" href="http://pypi.sdutlinux.org/">http://pypi.sdutlinux.org/</a></td>
+<td align="center"><code>--add-binary &lt;SRC;DEST&gt;</code></td>
+<td align="center">添加额外的二进制文件到打包中，格式为 <code>源路径;目标路径</code>。</td>
 </tr>
 <tr>
-<td>豆瓣</td>
-<td><a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></td>
+<td align="center"><code>-p DIR</code> 或 <code>--paths DIR</code></td>
+<td align="center">添加额外的 Python 模块搜索路径。</td>
+</tr>
+<tr>
+<td align="center"><code>--hidden-import MODULE</code></td>
+<td align="center">强制导入指定的隐藏模块。</td>
+</tr>
+<tr>
+<td align="center"><code>--exclude-module MODULE</code></td>
+<td align="center">排除指定的模块。</td>
+</tr>
+<tr>
+<td align="center"><code>--clean</code></td>
+<td align="center">清理临时文件和缓存。</td>
+</tr>
+<tr>
+<td align="center"><code>--log-level LEVEL</code></td>
+<td align="center">设置日志级别（如 <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code>, <code>CRITICAL</code>）。</td>
+</tr>
+<tr>
+<td align="center"><code>--windowed</code> 或 <code>-w</code></td>
+<td align="center">不显示命令行窗口（适用于 GUI 程序）。</td>
+</tr>
+<tr>
+<td align="center"><code>--console</code> 或 <code>-c</code></td>
+<td align="center">显示命令行窗口（默认选项）。</td>
+</tr>
+<tr>
+<td align="center"><code>--icon FILE.ico</code></td>
+<td align="center">设置生成的可执行文件的图标。</td>
+</tr>
+<tr>
+<td align="center"><code>--version-file FILE.txt</code></td>
+<td align="center">设置生成的可执行文件的版本信息文件。</td>
+</tr>
+<tr>
+<td align="center"><code>--upx-dir DIR</code></td>
+<td align="center">指定 UPX 压缩工具的路径。</td>
+</tr>
+<tr>
+<td align="center"><code>--key KEY</code></td>
+<td align="center">使用指定的密钥加密 Python 字节码。</td>
+</tr>
+<tr>
+<td align="center"><code>--distpath DIR</code></td>
+<td align="center">指定生成的可执行文件的输出目录。</td>
+</tr>
+<tr>
+<td align="center"><code>--workpath DIR</code></td>
+<td align="center">指定临时文件的目录。</td>
+</tr>
+<tr>
+<td align="center"><code>--specpath DIR</code></td>
+<td align="center">指定 <code>.spec</code> 文件的生成目录。</td>
+</tr>
+<tr>
+<td align="center"><code>--noupx</code></td>
+<td align="center">禁用 UPX 压缩。</td>
+</tr>
+<tr>
+<td align="center"><code>--debug</code></td>
+<td align="center">启用调试模式，生成调试信息。</td>
+</tr>
+<tr>
+<td align="center"><code>--strip</code></td>
+<td align="center">去除调试信息（减小文件大小）。</td>
+</tr>
+<tr>
+<td align="center"><code>--runtime-tmpdir DIR</code></td>
+<td align="center">指定运行时的临时文件目录。</td>
+</tr>
+<tr>
+<td align="center"><code>--additional-hooks-dir DIR</code></td>
+<td align="center">添加额外的钩子目录。</td>
+</tr>
+<tr>
+<td align="center"><code>--runtime-hook FILE.py</code></td>
+<td align="center">添加额外的运行时钩子文件。</td>
+</tr>
+<tr>
+<td align="center"><code>--uac-admin</code></td>
+<td align="center">启用 UAC 管理员权限（仅适用于 Windows）。</td>
+</tr>
+<tr>
+<td align="center"><code>--uac-uiaccess</code></td>
+<td align="center">启用 UAC UI 访问权限（仅适用于 Windows）。</td>
 </tr>
 </tbody></table>
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41010198/article/details/94054194">https://blog.csdn.net/weixin_41010198/article/details/94054194</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kantin_y/article/details/121087117">https://blog.csdn.net/kantin_y/article/details/121087117</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_63203517/article/details/124383678">https://blog.csdn.net/m0_63203517/article/details/124383678</a></p>
 
                 
               </div>
@@ -674,7 +773,7 @@
       
         <a href="/tags/Python/" class="print-no-link">#Python</a>
       
-        <a href="/tags/PIP%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="print-no-link">#PIP环境配置</a>
+        <a href="/tags/EXE%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/" class="print-no-link">#EXE打包方法</a>
       
     </div>
   
@@ -686,8 +785,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>PIP镜像源配置详细记录</div>
-      <div>http://www.codestar.top/2024/12/15/Python/PIP镜像源配置详细记录/</div>
+      <div>Python程序封装为exe应用方法</div>
+      <div>http://www.codestar.top/2025/02/07/Python/Python程序封装为exe应用方法/</div>
     </div>
     <div class="license-meta">
       
@@ -699,13 +798,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月15日</div>
+          <div>2025年2月7日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月18日</div>
+          <div>2025年2月7日</div>
         </div>
       
       
@@ -748,18 +847,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/07/Python/Python%E7%A8%8B%E5%BA%8F%E5%B0%81%E8%A3%85%E4%B8%BAexe%E5%BA%94%E7%94%A8%E6%96%B9%E6%B3%95/" title="Python程序封装为exe应用方法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python程序封装为exe应用方法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/10/Linux/Sonarqube-DataCenter%E7%89%88%E6%9C%AC%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" title="Sonarqube DataCenter版本手动搭建完整流程">
-                        <span class="hidden-mobile">Sonarqube DataCenter版本手动搭建完整流程</span>
+                      <a href="/2024/12/15/Python/PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95/" title="PIP镜像源配置详细记录">
+                        <span class="hidden-mobile">PIP镜像源配置详细记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

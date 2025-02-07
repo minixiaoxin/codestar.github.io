@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.codestar.top/2023/10/31/Android/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2025-02-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/2025/02/07/Python/Python%E7%A8%8B%E5%BA%8F%E5%B0%81%E8%A3%85%E4%B8%BAexe%E5%BA%94%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2025-02-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.codestar.top/2024/12/15/Python/PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2024-12-18</lastmod>
@@ -614,15 +632,6 @@
   </url>
   
   <url>
-    <loc>http://www.codestar.top/2023/10/31/Android/Android%20adb%20%E5%88%A9%E7%94%A8wlan%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</loc>
-    
-    <lastmod>2023-11-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.codestar.top/about/index.html</loc>
     
     <lastmod>2023-10-20</lastmod>
@@ -652,7 +661,7 @@
 
   <url>
     <loc>http://www.codestar.top/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -660,574 +669,581 @@
   
   <url>
     <loc>http://www.codestar.top/tags/Datawhale/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/LLM/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/AI-ML/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Certification/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Android/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/ADB/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/FASTBOOT/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E9%A9%B1%E5%8A%A8/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/linux%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Confluence/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/MySQL/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/WIKI-System/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/CDN/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/logcat/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/log/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Jenkins/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/CICD%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/HEXO/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/PicGo%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/WEB%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%AD%90%E5%9F%9F%E5%90%8D/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Linux/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Centos/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%BC%96%E8%AF%91%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Tools/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/JAVA/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Maven%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/apk%E5%8C%85%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/IDEA/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Git/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Gitee/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Gitkraken/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Git%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/IDE/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/vscode/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Github/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/VNC/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/node-js/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/npm/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/SSH%E8%BF%9C%E7%A8%8B/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Ubuntu/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/PostgreSQL/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Docker/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/CPU%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/COREDUMP/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E8%BF%9B%E7%A8%8B/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%BA%BF%E7%A8%8B/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E6%9D%83%E9%99%90/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/bash/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Sonarqube/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Linux%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/test/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/SQL/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Python%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Python/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/PIP%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/cmd%E6%8C%87%E4%BB%A4/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/pytest/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/websocket/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/pip/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/LeetCode/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%BC%96%E7%A0%81/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Windows/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/Windows-Terminal/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/JAVA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E5%B1%8F%E4%BF%9D%E8%AE%BE%E7%BD%AE/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/tags/%E7%BD%91%E5%8D%A1%E8%AE%BE%E5%A4%87/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.codestar.top/tags/EXE%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1236,399 +1252,399 @@
   
   <url>
     <loc>http://www.codestar.top/categories/AI-ML/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/AI-ML/LLM/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Confluence/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/CDN/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/CICD/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/Android%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/AI-ML/LLM/Certification/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/FASTBOOT/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Centos/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Maven/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/Android-APK/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Git/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/IDE/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/CDN/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Android%E6%8A%80%E6%9C%AF/logcat/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/CICD/Jenkins/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/HEXO/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/SQL/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Python/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/node-js/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/LeetCode/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Centos/%E7%BC%96%E8%AF%91%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Windows/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/IDE/vscode/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Centos/JAVA/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/CDN/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Centos/node-js/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/SSH/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/PostgreSQL/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/%E8%B0%83%E8%AF%95%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux/bash/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/Sonarqube/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/Google/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/Docker/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Centos/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/LeetCode/vscode/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Windows/Windows-Terminal/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/PostgreSQL/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/Sonarqube/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/Docker/Sonarqube/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Linux%E6%8A%80%E6%9C%AF/Docker/Sonarqube/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/JAVA/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Windows/%E7%BC%96%E8%AF%91%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/JAVA/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Windows/%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.codestar.top/categories/Windows/%E7%BC%96%E8%AF%91%E5%9F%BA%E7%A1%80/%E8%B0%83%E8%AF%95%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-02-05</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
