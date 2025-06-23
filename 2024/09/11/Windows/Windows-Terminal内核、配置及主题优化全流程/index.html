@@ -130,7 +130,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -582,7 +582,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell">&quot;theme&quot;: &quot;Custom Theme 1&quot;,<br>&quot;themes&quot;: <br>    [<br>        &#123;<br>            &quot;name&quot;: &quot;Custom Theme 1&quot;,<br>            &quot;tab&quot;: <br>            &#123;<br>                &quot;background&quot;: &quot;#1F1F1FFF&quot;,<br>                &quot;iconStyle&quot;: &quot;default&quot;,<br>                &quot;showCloseButton&quot;: &quot;always&quot;,<br>                &quot;unfocusedBackground&quot;: &quot;#2D2D2DFF&quot;<br>            &#125;,<br>            &quot;window&quot;: <br>            &#123;<br>                &quot;applicationTheme&quot;: &quot;dark&quot;,<br>                &quot;experimental.rainbowFrame&quot;: false,<br>                &quot;frame&quot;: null,<br>                &quot;unfocusedFrame&quot;: null,<br>                &quot;useMica&quot;: true<br>            &#125;<br>        &#125;<br>    ]<br></code></pre></td></tr></table></figure>
 
 <p>此配置项与themes同级，不可嵌入到defaults或list中，为全局配置。</p>
-<h2 id="3、主题优化"><a href="#3、主题优化" class="headerlink" title="3、主题优化"></a>3、主题优化</h2><h3 id="3-1、on-my-posh安装及配置"><a href="#3-1、on-my-posh安装及配置" class="headerlink" title="3.1、on-my-posh安装及配置"></a>3.1、on-my-posh安装及配置</h3><p><strong>注意：</strong>下列步骤均基于<strong>管理员模式</strong>操作。</p>
+<h2 id="3、主题优化"><a href="#3、主题优化" class="headerlink" title="3、主题优化"></a>3、主题优化</h2><h3 id="3-1、on-my-posh安装及配置"><a href="#3-1、on-my-posh安装及配置" class="headerlink" title="3.1、on-my-posh安装及配置"></a>3.1、on-my-posh安装及配置</h3><p><strong>注意：<strong>下列步骤均基于</strong>管理员模式</strong>操作。</p>
 <p>on-my-posh是powershell中用于自定义和美化命令行提示符的跨平台工具。基于on-my-posh，可以自由的定制powershell命令行样式，大大增强了pwsh的美观度和实用性。下面是on-my-posh的安装过程：</p>
 <h4 id="1）on-my-posh安装"><a href="#1）on-my-posh安装" class="headerlink" title="1）on-my-posh安装"></a>1）on-my-posh安装</h4><p>打开Windows terminal命令行，执行安装指令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">winget install JanDeDobbeleer.OhMyPosh -s winget<br><span class="hljs-meta prompt_"># </span><span class="language-bash">或</span><br>winget install oh-my-posh<br></code></pre></td></tr></table></figure>
@@ -639,7 +639,7 @@
 <p><img src="https://codestar.top/note-image/202409112301939.png" srcset="/img/loading.gif" lazyload alt="image-20240909194516190"></p>
 <p><strong>PS：切换之后一定要记得点保存！！</strong></p>
 <p>配置完上面的内容，主题即大功告成了。</p>
-<p><strong>提示：</strong>除了nerd还有其他可使用的字体还有：等距更纱黑体、powerline: <a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
+<p>**提示：**除了nerd还有其他可使用的字体还有：等距更纱黑体、powerline: <a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
 <h3 id="3-3、配置主题自启动"><a href="#3-3、配置主题自启动" class="headerlink" title="3.3、配置主题自启动"></a>3.3、配置主题自启动</h3><p>在默认powershell启动下，不会自动加载主题，下面通过自定义配置，使得PWSH启动时能够自动加载主题：</p>
 <ul>
 <li>创建Powershell配置文件</li>
@@ -661,7 +661,7 @@
 <ul>
 <li>生效配置文件</li>
 </ul>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">. <span class="hljs-symbol">$PROFILE</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">. </span>$PROFILE<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://codestar.top/note-image/202409112303063.png" srcset="/img/loading.gif" lazyload alt="image-20240909201003112"></p>
 <p>生效配置后，重启Windows terminal即可自动加载oh-my-posh及主题了：</p>

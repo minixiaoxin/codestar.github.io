@@ -130,7 +130,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -624,8 +624,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bashrc<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://codestar.top/note-image/202403021722579.png" srcset="/img/loading.gif" lazyload alt="image-20240222100228829"></p>
-<p><strong>注：</strong>root环境变量和普通用户环境变量不共通，使用<code>ll</code>指令，不同用户下需单独修改。</p>
-<h2 id="2、权限分类"><a href="#2、权限分类" class="headerlink" title="2、权限分类"></a>2、权限分类</h2><h3 id="2-1、文件权限"><a href="#2-1、文件权限" class="headerlink" title="2.1、文件权限"></a>2.1、文件权限</h3><p>在文件类型字节位后，紧接着的3*3个字符分3组，各**表示不同角色对此文件的读(r)、写(w)、执行权限(x)**：</p>
+<p>**注：**root环境变量和普通用户环境变量不共通，使用<code>ll</code>指令，不同用户下需单独修改。</p>
+<h2 id="2、权限分类"><a href="#2、权限分类" class="headerlink" title="2、权限分类"></a>2、权限分类</h2><h3 id="2-1、文件权限"><a href="#2-1、文件权限" class="headerlink" title="2.1、文件权限"></a>2.1、文件权限</h3><p>在文件类型字节位后，紧接着的3*3个字符分3组，各<strong>表示不同角色对此文件的读(r)、写(w)、执行权限(x)</strong>：</p>
 <ul>
 <li>第一段：3bit，对应**文件所有者(owner)**的权限</li>
 </ul>
@@ -747,7 +747,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">设置文件夹权限为770：文件所有者和用户群组有读\写\执行权限，其他用户无权限</span><br>chmod 770 testDir<br><span class="hljs-meta prompt_"># </span><span class="language-bash">设置文件权限为707：文件所有者和其他用户有读\写\执行权限，用户群组无权限</span><br>chmod 707 testfile<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://codestar.top/note-image/202403021727664.png" srcset="/img/loading.gif" lazyload alt="image-20240223170729874"></p>
-<p><strong>注：</strong>只有**文件所有者(owner)或管理员(root)**才允许修改文件权限。</p>
+<p>**注：<strong>只有</strong>文件所有者(owner)或管理员(root)**才允许修改文件权限。</p>
 <h4 id="2）chmod指令符号"><a href="#2）chmod指令符号" class="headerlink" title="2）chmod指令符号"></a>2）chmod指令符号</h4><p>在chmod指令中，可以使用用户表示符和权限控制符号来简化指令，更为的清晰，其对应的不同符号如下：</p>
 <ul>
 <li><strong>用户表示符</strong></li>
@@ -861,7 +861,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将file.txt文件所属用户修改为用户miniboy</span><br>chown miniboy file.txt<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://codestar.top/note-image/202403021754997.png" srcset="/img/loading.gif" lazyload alt="image-20240302175436935"></p>
-<p><strong>注：</strong>所修改的新用户，为存在的用户，否则会执行失败，提示无效用户。</p>
+<p>**注：**所修改的新用户，为存在的用户，否则会执行失败，提示无效用户。</p>
 <p><code>--from=CURRENT_OWNER[:CURRENT_GROUP]</code>参数使用举例：当匹配到对应的所有者&#x2F;用户组时才进行修改</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">当file.txt的当前所有者是olduser，用户组是oldgroup时，才将其所有者更改为newuser，用户组更改为newgroup</span><br>chown --from=olduser:oldgroup newuser:newgroup file.txt<br></code></pre></td></tr></table></figure>
 
@@ -903,7 +903,7 @@
 <p><code>chgrp</code>部分修改也能够通过<code>chown</code>来实现，如<strong>修改拥有者和所属组：</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">chown :root file30.txt （修改所属组为root）<br>chown root:root file30.txt （修改拥有者和所属组为root)<br></code></pre></td></tr></table></figure>
 
-<p><strong>注：</strong>只有超级用户（root）或者文件的当前所有者才能使用<code>chgrp</code>命令。</p>
+<p>**注：**只有超级用户（root）或者文件的当前所有者才能使用<code>chgrp</code>命令。</p>
 <h2 id="4、参考"><a href="#4、参考" class="headerlink" title="4、参考"></a>4、参考</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_56311933/article/details/123006978">https://blog.csdn.net/m0_56311933/article/details/123006978</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kongzhongqijing/p/3488884.html">https://www.cnblogs.com/kongzhongqijing/p/3488884.html</a></p>
 

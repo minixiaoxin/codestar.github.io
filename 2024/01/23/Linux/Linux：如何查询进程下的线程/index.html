@@ -130,7 +130,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -583,7 +583,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step 1:查询进程gvfsd详情，第二列为pid</span><br>ps -ef | grep gvfsd<br><span class="hljs-meta prompt_"># </span><span class="language-bash">step 2:获取前一段指令执行结果第2列值</span><br>| awk &#x27;&#123;print $2&#125;&#x27;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">step 3:将awk获取到的值，作为参数传递给下一步的指令</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">正常执行ps -T -p 1300，这一段中的pid 1300，通过ps -ef | grep gvfsd | awk <span class="hljs-string">&#x27;&#123;print $2&#125;&#x27;</span> | 执行的指令获取。</span><br>| xargs ps -T -p<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://codestar.top/note-image/202401232252363.png" srcset="/img/loading.gif" lazyload alt="image-20240123225254283"></p>
-<p><strong>注：</strong>当要查询的进程名存在多项时，会将所有的线程结果查询出来。</p>
+<p>**注：**当要查询的进程名存在多项时，会将所有的线程结果查询出来。</p>
 <p><img src="https://codestar.top/note-image/202401232255216.png" srcset="/img/loading.gif" lazyload alt="image-20240123225525979"></p>
 <h3 id="2-3、如何知道进程是否有线程？"><a href="#2-3、如何知道进程是否有线程？" class="headerlink" title="2.3、如何知道进程是否有线程？"></a>2.3、如何知道进程是否有线程？</h3><p>通过上述的方法，能够成功的查询到指定进程下所含的线程，那么我们不知道对应进程全名，只是想知道哪些进程有线程时，如何来查询呢？linux中也提供了相应的指令来查询：</p>
 <p>正常我们使用<code>ps -ef</code>查询指令会展示所有进程的全格式列表下的内容，但扩展<code>-L</code>参数一起使用时会增加NLWP（线程数）和LWP（线程ID）列：</p>

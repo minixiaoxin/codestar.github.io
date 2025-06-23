@@ -131,7 +131,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -582,7 +582,7 @@
 <p>执行<code>node -v</code>检查安装：20.12.1版本安装会报下面的错误，版本太新。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@iZwz989evjoe57f1d0klxcZ bin]# node -v<br>node: /lib64/libm.so.6: version `GLIBC_2.27&#x27; not found (required by node)<br>node: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20&#x27; not found (required by node)<br>node: /lib64/libstdc++.so.6: version `CXXABI_1.3.9&#x27; not found (required by node)<br>node: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.21&#x27; not found (required by node)<br>node: /lib64/libc.so.6: version `GLIBC_2.28&#x27; not found (required by node)<br>node: /lib64/libc.so.6: version `GLIBC_2.25&#x27; not found (required by node)<br></code></pre></td></tr></table></figure>
 
-<p><strong>报错的原因：</strong>GCC版本可能相对较低，与node.js新的版本不兼容</p>
+<p>**报错的原因：**GCC版本可能相对较低，与node.js新的版本不兼容</p>
 <blockquote>
 <p>由于CentOS 7.9 默认仓库提供的GCC版本可能相对较低，因为这个版本的系统主要是为了稳定性考虑，通常不会包含最新的开发工具链。CentOS 7.9 默认安装的GCC版本是4.8.x系列,make是3.x，这也就导致node.js新的版本不兼容。考虑到系统稳定性，还是选择降低node.js版本，或者更换未docker版本，而不是升级gcc及make。</p>
 </blockquote>

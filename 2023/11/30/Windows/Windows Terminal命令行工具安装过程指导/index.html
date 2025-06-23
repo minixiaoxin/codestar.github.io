@@ -130,7 +130,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -489,7 +489,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          933 字
+          937 字
         
       </span>
     
@@ -566,7 +566,7 @@
 <p>下载完成之后，文件后缀为<code>.msixbundle</code>，直接双击安装包进行安装：</p>
 <p><img src="https://codestar.top/note-image/image-20230216144504874.png" srcset="/img/loading.gif" lazyload alt="image-20230216144504874"></p>
 <p><img src="https://codestar.top/note-image/image-20230216144528352.png" srcset="/img/loading.gif" lazyload alt="image-20230216144528352"></p>
-<h2 id="3、问题记录"><a href="#3、问题记录" class="headerlink" title="3、问题记录"></a>3、问题记录</h2><p>出现<strong>应用安装程序无法安装应用包相关项。请向开发人员索要  应用包。</strong>的问题：</p>
+<h2 id="3、问题记录"><a href="#3、问题记录" class="headerlink" title="3、问题记录"></a>3、问题记录</h2><p>出现**应用安装程序无法安装应用包相关项。请向开发人员索要  应用包。**的问题：</p>
 <p><img src="https://codestar.top/note-image/image-20230216171030402.png" srcset="/img/loading.gif" lazyload alt="image-20230216171030402"></p>
 <p>可以尝试下面的方法来解决问题：</p>
 <ul>
@@ -585,8 +585,7 @@
 
 <p>2）重启电脑，重新安装Microsoft Store</p>
 <p>右键 开始 -&gt; Windows PowerShell (Admin) -&gt; 输入下列指令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">add-appxpackage</span> <span class="hljs-literal">-register</span> <span class="hljs-string">&quot;C:\Program Files\WindowsApps\*Store*\AppxManifest.xml&quot;</span> <span class="hljs-literal">-disabledevelopmentmode</span><br></code></pre></td></tr></table></figure>
-</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">add-appxpackage</span> <span class="hljs-literal">-register</span> <span class="hljs-string">&quot;C:\Program Files\WindowsApps\*Store*\AppxManifest.xml&quot;</span> <span class="hljs-literal">-disabledevelopmentmode</span><br></code></pre></td></tr></table></figure></blockquote>
 <ul>
 <li>3、修改支持TLS协议</li>
 </ul>

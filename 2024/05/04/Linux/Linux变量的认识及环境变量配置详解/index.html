@@ -130,7 +130,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -489,7 +489,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          3.9k 字
         
       </span>
     
@@ -584,40 +584,40 @@
 
 <p>执行完后通过<code>echo $PATH</code>查看，仅在当前窗口生效，关闭窗口或新建其他窗口，无法查看到之前设置的临时环境变量：</p>
 <p><img src="https://codestar.top/note-image/202405032259194.png" srcset="/img/loading.gif" lazyload alt="image-20240503225912798"></p>
-<p><strong>作用范围：</strong>仅当前用户，当前窗口。</p>
-<p><strong>注意：</strong>与全局变量中使用<code>export</code>导出变量效果类似，差别在于大小写。</p>
+<p>**作用范围：**仅当前用户，当前窗口。</p>
+<p>**注意：**与全局变量中使用<code>export</code>导出变量效果类似，差别在于大小写。</p>
 <h3 id="4-3、配置永久环境变量"><a href="#4-3、配置永久环境变量" class="headerlink" title="4.3、配置永久环境变量"></a>4.3、配置永久环境变量</h3><h4 id="4-3-1、用户级配置文件"><a href="#4-3-1、用户级配置文件" class="headerlink" title="4.3.1、用户级配置文件"></a>4.3.1、用户级配置文件</h4><p>用户级配置文件，作用范围仅为单个用户的账户，只有当该用户登录shell或启用新的shell面板时，配置内容才会生效。提供给不同用户可以灵活配置各自的工作环境，下面是具体的用户配置方法：</p>
 <h5 id="1）配置方法一：-bashrc文件"><a href="#1）配置方法一：-bashrc文件" class="headerlink" title="1）配置方法一：~&#x2F;.bashrc文件"></a>1）配置方法一：~&#x2F;.bashrc文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.bashrc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
 <p>适用于当前登录用户，用于非登录 shell，即在用户登录后启动的shell中生效或新的终端窗口或新的shell脚本。</p>
-<p><strong>生效方法：</strong>使用<code>source ~/.bashrc</code>生效配置，并重新打开新的终端，即刻生效。</p>
-<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
+<p>**生效方法：**使用<code>source ~/.bashrc</code>生效配置，并重新打开新的终端，即刻生效。</p>
+<p>**用户范围：**当前用户，新建窗口&amp;刷新变量后的窗口。</p>
 <h5 id="2）配置方法二：-profile文件"><a href="#2）配置方法二：-profile文件" class="headerlink" title="2）配置方法二：~&#x2F;.profile文件"></a>2）配置方法二：~&#x2F;.profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
 <p>适用于当前登录用户，登录型shell，即登录过程中进行配置生效。</p>
-<p><strong>生效方法：</strong>使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
-<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
+<p>**生效方法：**使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
+<p>**用户范围：**当前用户，新建窗口&amp;刷新变量后的窗口。</p>
 <h5 id="3）配置方法三：-bash-profile文件"><a href="#3）配置方法三：-bash-profile文件" class="headerlink" title="3）配置方法三：~&#x2F;.bash_profile文件"></a>3）配置方法三：~&#x2F;.bash_profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.bash_profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
 <p>适用于当前登录用户，登录型shell，即登录过程中进行配置生效。与<code>~/.profile</code>作用范围相同，但生效的优先级高于<code>~/.profile</code>文件</p>
-<p><strong>生效方法：</strong>使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
-<p><strong>用户范围：</strong>当前用户，新建窗口&amp;刷新变量后的窗口。</p>
+<p>**生效方法：**使用<code>source ~/.profile</code>生效配置，并重新打开新的终端，即刻生效。</p>
+<p>**用户范围：**当前用户，新建窗口&amp;刷新变量后的窗口。</p>
 <h4 id="4-3-2、系统级配置文件"><a href="#4-3-2、系统级配置文件" class="headerlink" title="4.3.2、系统级配置文件"></a>4.3.2、系统级配置文件</h4><p>系统级配置文件，影响范围为整个系统，所有的用户账户，无论是哪一位用户登录均可使用当前配置的系统环境变量内容，作用在提供一套标准的用户环境，保持系统环境一致性。同时系统级配置存在权限控制，仅有管理员可以进行配置，加强了环境管理。下面是不同的系统级配置的方法：</p>
 <h5 id="1）配置方法一：-etc-environment文件"><a href="#1）配置方法一：-etc-environment文件" class="headerlink" title="1）配置方法一：&#x2F;etc&#x2F;environment文件"></a>1）配置方法一：&#x2F;etc&#x2F;environment文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/environment<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
 <p>这是一个简单的键值对文件，用于设置系统级环境变量。这里设置的变量对所有用户有效。这里由于使用键值对存储，无需使用export关键字。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
+<p>**生效方法：**系统重启，或用户注销重新登录</p>
+<p>**用户范围：**系统所有用户</p>
 <h5 id="2）配置方法二：-etc-profile文件"><a href="#2）配置方法二：-etc-profile文件" class="headerlink" title="2）配置方法二：&#x2F;etc&#x2F;profile文件"></a>2）配置方法二：&#x2F;etc&#x2F;profile文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/profile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
 <p>这是全系统的登录脚本，当任何用户登录时运行，登录过程中进行配置生效。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
+<p>**生效方法：**系统重启，或用户注销重新登录</p>
+<p>**用户范围：**系统所有用户</p>
 <h5 id="3）配置方法三：-etc-bashrc文件"><a href="#3）配置方法三：-etc-bashrc文件" class="headerlink" title="3）配置方法三：&#x2F;etc&#x2F;bashrc文件"></a>3）配置方法三：&#x2F;etc&#x2F;bashrc文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/bashrc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">内容末行添加环境变量内容：完成后wq保存并关闭文件</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
 <p>适用于所有用户的 Bash 配置，用于非登录 shell，即在用户登录后启动的shell中生效或新的终端窗口或新的shell脚本。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录。针对当前窗口可以使用<code>source /etc/bashrc</code>来生效配置。</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
+<p>**生效方法：**系统重启，或用户注销重新登录。针对当前窗口可以使用<code>source /etc/bashrc</code>来生效配置。</p>
+<p>**用户范围：**系统所有用户</p>
 <h4 id="4-3-3、-etc-profile-d-配置路径"><a href="#4-3-3、-etc-profile-d-配置路径" class="headerlink" title="4.3.3、&#x2F;etc&#x2F;profile.d&#x2F;配置路径"></a>4.3.3、&#x2F;etc&#x2F;profile.d&#x2F;配置路径</h4><p>在Centos 7.9中，有<code>/etc/profile.d/</code>路径用来存放自定义脚本，这些脚本会在登录时自动运行，可以通过该机制，创建shell脚本来配置环境变量，如<code>setenv.sh</code>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br>export TEST=&quot;$TEST:/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
 
@@ -625,8 +625,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod +x /etc/profile.d/setenv.sh<br></code></pre></td></tr></table></figure>
 
 <p>由于是在系统级路径下进行配置，其实整个过程，也相当于是系统级的一个环境变量配置。这个路径下的脚本，所有用户登录都会执行。</p>
-<p><strong>生效方法：</strong>系统重启，或用户注销重新登录</p>
-<p><strong>用户范围：</strong>系统所有用户</p>
+<p>**生效方法：**系统重启，或用户注销重新登录</p>
+<p>**用户范围：**系统所有用户</p>
 <h3 id="4-3、查看环境变量"><a href="#4-3、查看环境变量" class="headerlink" title="4.3、查看环境变量"></a>4.3、查看环境变量</h3><ul>
 <li>1、<code>printenv</code> 命令</li>
 </ul>

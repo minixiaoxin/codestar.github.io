@@ -130,7 +130,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -489,7 +489,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          581 字
+          585 字
         
       </span>
     
@@ -567,7 +567,7 @@
 <h2 id="2、站点配置"><a href="#2、站点配置" class="headerlink" title="2、站点配置"></a>2、站点配置</h2><p>在找到可以使用的API之后，我们需要将其配置到站点中，定期更新。修改站点配置文件<code>_config.yml</code>，其中有一段slogon配置：</p>
 <p><img src="https://codestar.top/note-image/202401090019455.png" srcset="/img/loading.gif" lazyload alt="image-20240109001947396"></p>
 <p>将API的地址填入上面的url，将开关enable置为<code>true</code>即可，其中<code>keys</code>填入需要获取值的字段名称。请求方式这个接口使用GET类型，按需配置。</p>
-<p><strong>注：</strong>这里有一个要求，需要将打字机的效果打开才能正常的生效API，将下面的配置改为true：</p>
+<p>**注：**这里有一个要求，需要将打字机的效果打开才能正常的生效API，将下面的配置改为true：</p>
 <p><img src="https://codestar.top/note-image/202401080032091.png" srcset="/img/loading.gif" lazyload alt="image-20240108003221050"></p>
 <h2 id="3、部署到网站"><a href="#3、部署到网站" class="headerlink" title="3、部署到网站"></a>3、部署到网站</h2><p>配置完成之后，执行下面指令，重新生成网页：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo clean<br>hexo g<br>hexo s<br></code></pre></td></tr></table></figure>

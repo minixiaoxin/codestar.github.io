@@ -18,12 +18,12 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、PostgreSQL官方源配置添加PostgreSQL官方APT源到本地：方便后续从官方源下载或更新PostgreSQL包 1sudo sh -c &amp;#x27;echo &quot;deb https:&#x2F;&#x2F;apt.postgresql.org&#x2F;pub&#x2F;repos&#x2F;apt $(lsb_release -cs)-pgdg main&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.">
+    <meta name="description" content="1、PostgreSQL官方源配置添加PostgreSQL官方APT源到本地：方便后续从官方源下载或更新PostgreSQL包 1sudo sh -c &#x27;echo &quot;deb https:&#x2F;&#x2F;apt.postgresql.org&#x2F;pub&#x2F;repos&#x2F;apt $(lsb_release -cs)-pgdg main&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu手动安装及配置PostgreSQL">
 <meta property="og:url" content="http://www.codestar.top/2024/10/08/Linux/Ubuntu%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、PostgreSQL官方源配置添加PostgreSQL官方APT源到本地：方便后续从官方源下载或更新PostgreSQL包 1sudo sh -c &amp;#x27;echo &quot;deb https:&#x2F;&#x2F;apt.postgresql.org&#x2F;pub&#x2F;repos&#x2F;apt $(lsb_release -cs)-pgdg main&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.">
+<meta property="og:description" content="1、PostgreSQL官方源配置添加PostgreSQL官方APT源到本地：方便后续从官方源下载或更新PostgreSQL包 1sudo sh -c &#x27;echo &quot;deb https:&#x2F;&#x2F;apt.postgresql.org&#x2F;pub&#x2F;repos&#x2F;apt $(lsb_release -cs)-pgdg main&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.codestar.top/img/blog-img/PostgreSQL_pic1.png">
 <meta property="article:published_time" content="2024-10-08T15:45:40.000Z">
@@ -131,7 +131,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -579,7 +579,7 @@
 <ul>
 <li>1、以postgres用户直接登录到PostgreSQL控制台：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo -u postgres psql<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> -u postgres psql<br></code></pre></td></tr></table></figure>
 
 <p>或先切换到postgres用户，再执行<code>psql</code>指令进入PostgreSQL：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo -i -u postgres<br></code></pre></td></tr></table></figure>

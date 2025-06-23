@@ -129,7 +129,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -568,10 +568,10 @@
 <h2 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h2><p>上网查阅资料，处理方法为，将下面的路径加入到环境变量path中：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">your-user-name 是你自己的电脑用户名</span><br>C:\\Users\\your-user-name\\AppData\\Roaming\\npm<br></code></pre></td></tr></table></figure>
 
-<p><strong>但是！！！</strong>很奇怪的是，我的APPDATA下没有npm这个路径：</p>
+<p>**但是！！！**很奇怪的是，我的APPDATA下没有npm这个路径：</p>
 <p><img src="https://codestar.top/note-image/image-20231009232454879.png" srcset="/img/loading.gif" lazyload alt="image-20231009232454879"></p>
 <p>在另外一台Windows10上安装就没有出现这种问题，在Windows 11上就有这种奇怪的现象！</p>
-<p><strong>思考：</strong>到底是什么原因导致的，我在Windows terminal中，还是在cmd，以及Node.js prompt中，甚至是进入到<code>D:\Node.js\node_global\node_modules</code>相应的安装路径下执行，都还是找不到hexo这个命令，我重装hexo都不生效。</p>
+<p>**思考：**到底是什么原因导致的，我在Windows terminal中，还是在cmd，以及Node.js prompt中，甚至是进入到<code>D:\Node.js\node_global\node_modules</code>相应的安装路径下执行，都还是找不到hexo这个命令，我重装hexo都不生效。</p>
 <p>而修改环境变量更加不可行，本身我的node.js已经记录在环境变量的path下，原则上来说应该不影响才对。到底是什么原因？继续查找答案。</p>
 <p><img src="https://codestar.top/note-image/image-20231009232908162.png" srcset="/img/loading.gif" lazyload alt="image-20231009232908162"></p>
 <h2 id="3、另辟蹊径之重装Node-js"><a href="#3、另辟蹊径之重装Node-js" class="headerlink" title="3、另辟蹊径之重装Node.js"></a>3、另辟蹊径之重装Node.js</h2><p>尝试重装Node.js</p>
