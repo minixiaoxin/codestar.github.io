@@ -18,25 +18,26 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、前言在python国内的网络环境下，pip的镜像源默认为官方库：https:&#x2F;&#x2F;pypi.python.org&#x2F;simple，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。 2、临时方法使用-i参数，在单次执行中指定镜像源下载，示例如下： 12# 使用指定的镜像源下载nump">
+    <meta name="description" content="1、Sonarqube介绍Sonar (SonarQube)是一个开源平台，用于管理源代码的质量，Datacenter版本为最高版本。其支持C、C++、Java、kotlin、Scala、python、JavaScrip等几乎所有编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。 sonarqube分为四个版本：社区版、开发版、企业版、">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PIP镜像源配置详细记录">
-<meta property="og:url" content="http://www.codestar.top/2024/12/15/Python/PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:title" content="Sonarqube DataCenter版本手动搭建完整流程">
+<meta property="og:url" content="http://www.codestar.top/2024/10/10/TestSkill/Sonarqube-DataCenter%E7%89%88%E6%9C%AC%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、前言在python国内的网络环境下，pip的镜像源默认为官方库：https:&#x2F;&#x2F;pypi.python.org&#x2F;simple，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。 2、临时方法使用-i参数，在单次执行中指定镜像源下载，示例如下： 12# 使用指定的镜像源下载nump">
+<meta property="og:description" content="1、Sonarqube介绍Sonar (SonarQube)是一个开源平台，用于管理源代码的质量，Datacenter版本为最高版本。其支持C、C++、Java、kotlin、Scala、python、JavaScrip等几乎所有编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。 sonarqube分为四个版本：社区版、开发版、企业版、">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/Python_pic2.png">
-<meta property="article:published_time" content="2024-12-15T08:16:33.000Z">
-<meta property="article:modified_time" content="2024-12-18T15:42:32.003Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/CodeScan_pic2.png">
+<meta property="article:published_time" content="2024-10-10T15:22:20.000Z">
+<meta property="article:modified_time" content="2024-10-11T15:05:18.898Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="PIP环境配置">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Sonarqube">
+<meta property="article:tag" content="代码扫描">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Python_pic2.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/CodeScan_pic2.png">
   
   
   
-  <title>PIP镜像源配置详细记录 - mini小新的博客</title>
+  <title>Sonarqube DataCenter版本手动搭建完整流程 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -460,7 +461,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PIP镜像源配置详细记录"></span>
+            <span id="subtitle" data-typed-text="Sonarqube DataCenter版本手动搭建完整流程"></span>
           
         </div>
 
@@ -476,8 +477,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-15 16:16" pubdate>
-          2024年12月15日 下午
+        <time datetime="2024-10-10 23:22" pubdate>
+          2024年10月10日 晚上
         </time>
       </span>
     
@@ -488,7 +489,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          4.7k 字
         
       </span>
     
@@ -499,7 +500,7 @@
         
         
         
-          5 分钟
+          12 分钟
         
       </span>
     
@@ -544,12 +545,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">PIP镜像源配置详细记录</h1>
+            <h1 id="seo-header">Sonarqube DataCenter版本手动搭建完整流程</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年12月18日 晚上
+                    本文最后更新于：2024年10月11日 晚上
                   
                 
               </p>
@@ -557,88 +558,150 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>在python国内的网络环境下，pip的镜像源默认为官方库：<a target="_blank" rel="noopener" href="https://pypi.python.org/simple">https://pypi.python.org/simple</a>，但国内连接官方库网络延迟太高，很容易出现包下载中断导致安装失败，因此需要替换为国内的pip镜像源避免下载延迟过高导致的安装失败问题，也为了提升下载速度，提高安装效率。</p>
-<h2 id="2、临时方法"><a href="#2、临时方法" class="headerlink" title="2、临时方法"></a>2、临时方法</h2><p>使用<code>-i</code>参数，在单次执行中指定镜像源下载，示例如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用指定的镜像源下载numpy库</span><br>pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple/<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="3、永久修改"><a href="#3、永久修改" class="headerlink" title="3、永久修改"></a>3、永久修改</h2><h3 id="3-1、windows设备"><a href="#3-1、windows设备" class="headerlink" title="3.1、windows设备"></a>3.1、windows设备</h3><p>进入AppData路径：文件管理器中输入<code>%APPDATA%</code></p>
-<p><img src="https://codestar.top/note-image/202412151612128.png" srcset="/img/loading.gif" lazyload alt="image-20231114095149935"></p>
-<p>进入后默认会是：C:\Users\PC用户名\AppData\Roaming路径下：</p>
-<p>新建下面的路径和文件：pip\pip.ini</p>
-<p><img src="https://codestar.top/note-image/202412151612225.png" srcset="/img/loading.gif" lazyload alt="image-20231114095403225"></p>
-<p>填入下面的配置内容，我配置的是清华源：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[global]<br>index-url = https://pypi.tuna.tsinghua.edu.cn/simple/<br>trusted-host = pypi.tuna.tsinghua.edu.cn<br>timeout = 6000<br></code></pre></td></tr></table></figure>
-
-<p>安装一个库<code>pip install loguru</code>验证一下，之后就会默认从清华源查找库：</p>
-<p><img src="https://codestar.top/note-image/202412151613346.png" srcset="/img/loading.gif" lazyload alt="image-20231114095750763"></p>
-<h3 id="3-2、linux设备"><a href="#3-2、linux设备" class="headerlink" title="3.2、linux设备"></a>3.2、linux设备</h3><p>修改pip配置文件（没有文件时会自动创建）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim ~/.pip/pip.conf<br></code></pre></td></tr></table></figure>
-
-<p>填入以下内容，使用的是清华镜像源，配置内容与windows一致：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[global]<br>index-url = https://pypi.tuna.tsinghua.edu.cn/simple/<br>trusted-host = pypi.tuna.tsinghua.edu.cn<br>timeout = 6000<br></code></pre></td></tr></table></figure>
-
-<p>或使用以下指令一键替换，与上述方法等价：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/<br>pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn<br>pip config set global.timeout 500<br></code></pre></td></tr></table></figure>
-
-<p><strong>注：</strong> 使用命令行修改，需要pip版本&gt;&#x3D;10.0.0才行，如果pip版本太低，需要执行<code>python -m pip install --upgrade pip</code>升级pip为最新版本后再操作。</p>
-<h3 id="3-3、查看镜像源配置"><a href="#3-3、查看镜像源配置" class="headerlink" title="3.3、查看镜像源配置"></a>3.3、查看镜像源配置</h3><p>配置完成之后，可以使用以下指令查看设置的是否正确：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip config list<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202412151613276.png" srcset="/img/loading.gif" lazyload alt="image-20241118144650579"></p>
-<h2 id="4、Pycharm修改pip镜像源"><a href="#4、Pycharm修改pip镜像源" class="headerlink" title="4、Pycharm修改pip镜像源"></a>4、Pycharm修改pip镜像源</h2><ul>
-<li>旧版Pycharm UI：</li>
-</ul>
-<p>ctrl + alt + s 进入设置，搜索interpret：</p>
-<p><img src="https://codestar.top/note-image/202412151613669.png" srcset="/img/loading.gif" lazyload alt="image-20241118151342862"></p>
-<p>点击‘ + ’号进入包管理页面，之后点击‘Manage Repositories’进入到源管理界面，点击‘ + ’添加镜像源。</p>
+                <h2 id="1、Sonarqube介绍"><a href="#1、Sonarqube介绍" class="headerlink" title="1、Sonarqube介绍"></a>1、Sonarqube介绍</h2><p>Sonar (SonarQube)是一个开源平台，用于管理源代码的质量，Datacenter版本为最高版本。其支持C、C++、Java、kotlin、Scala、python、JavaScrip等几乎所有编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。</p>
+<p>sonarqube分为四个版本：社区版、开发版、企业版、数据中心版，各版本之间差异如下</p>
+<p><img src="https://codestar.top/note-image/202410092324256.png" srcset="/img/loading.gif" lazyload alt="image-20240413021201801"></p>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/products/sonarqube/">https://www.sonarsource.com/products/sonarqube/</a></p>
+<p>Sonar分为两部分：</p>
 <ul>
-<li>新版Pycharm UI：</li>
+<li>第一部分为服务端，为Sonarqube为代码指令管理平台</li>
+<li>第二部分为客户端，为sonar-scanner扫描器</li>
 </ul>
-<p>新版本UI发生了变化，其包管理器移到了主界面：位于页面的左下侧，点击<img src="/./PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95.assets/image-20241118152213575.png" srcset="/img/loading.gif" lazyload>即可进入</p>
-<p><img src="https://codestar.top/note-image/202412151614786.png" srcset="/img/loading.gif" lazyload alt="image-20241118152157926"></p>
-<p>包管理页面，点击右上角齿轮，选择管理仓库，进入源管理界面：</p>
-<p><img src="https://codestar.top/note-image/202412151615942.png" srcset="/img/loading.gif" lazyload alt="image-20241118152332199"></p>
-<p>添加对应的镜像源，应用即可：</p>
-<p><img src="https://codestar.top/note-image/202412151615733.png" srcset="/img/loading.gif" lazyload alt="image-20241118152435209"></p>
-<p>配置完成之后，在包管理页面会增加新配置的镜像源：</p>
-<p><img src="https://codestar.top/note-image/202412151615663.png" srcset="/img/loading.gif" lazyload alt="image-20241118153640656"></p>
-<h2 id="5、镜像源列表"><a href="#5、镜像源列表" class="headerlink" title="5、镜像源列表"></a>5、镜像源列表</h2><table>
+<p>由于是安装Data Center版本，不支持docker安装，后续操作基于<strong>本地安装包搭建完整的sonarqube服务平台过程做记录</strong>。</p>
+<h2 id="2、环境配置要求"><a href="#2、环境配置要求" class="headerlink" title="2、环境配置要求"></a>2、环境配置要求</h2><p>官方配置要求：<a target="_blank" rel="noopener" href="https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/">https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/</a></p>
+<p>搭建环境配置参考：</p>
+<table>
 <thead>
 <tr>
-<th>镜像源</th>
-<th>地址</th>
+<th align="center">类型</th>
+<th align="center">配置</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>清华(每隔5分钟同步一次官方镜像)</td>
-<td><a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></td>
+<td align="center">OS系统</td>
+<td align="center">Ubuntu 24.1 LTS</td>
 </tr>
 <tr>
-<td>阿里云</td>
-<td><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></td>
+<td align="center">RAM</td>
+<td align="center">8G（要求&gt;&#x3D;4G）</td>
 </tr>
 <tr>
-<td>中国科技大学</td>
-<td><a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></td>
+<td align="center">CPU</td>
+<td align="center">2 cores（要求&gt;&#x3D;2 cores）</td>
 </tr>
 <tr>
-<td>华中理工大学</td>
-<td><a target="_blank" rel="noopener" href="http://pypi.hustunique.com/">http://pypi.hustunique.com/</a></td>
+<td align="center">硬盘</td>
+<td align="center">20G（要求&gt;&#x3D;30G）</td>
 </tr>
 <tr>
-<td>山东理工大学</td>
-<td><a target="_blank" rel="noopener" href="http://pypi.sdutlinux.org/">http://pypi.sdutlinux.org/</a></td>
+<td align="center">JAVA</td>
+<td align="center">version 17（要求至少为JAVA 11，不支持Java8）</td>
 </tr>
 <tr>
-<td>豆瓣</td>
-<td><a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></td>
+<td align="center">PostgreSQL</td>
+<td align="center">version 16（要求&gt;&#x3D;11）</td>
 </tr>
 </tbody></table>
+<p>其中硬盘自行决定，这里20GB仅作为短时间验证使用，存储空间按照官方要求来。Java配置过程参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_62636014/article/details/137872596">https://blog.csdn.net/weixin_62636014/article/details/137872596</a></p>
+<h2 id="3、搭建sonarqube流程"><a href="#3、搭建sonarqube流程" class="headerlink" title="3、搭建sonarqube流程"></a>3、搭建sonarqube流程</h2><h3 id="3-1、获取Sonarqube-Datacenter安装包"><a href="#3-1、获取Sonarqube-Datacenter安装包" class="headerlink" title="3.1、获取Sonarqube Datacenter安装包"></a>3.1、获取Sonarqube Datacenter安装包</h3><p>下载安装包：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1TnwrJvdts7rrSr3vPkHiaA">https://pan.baidu.com/s/1TnwrJvdts7rrSr3vPkHiaA</a> 提取码：9y4b</p>
+<p>上传至Linux服务器路径，这里我上传到<code>/usr/local/etc/sonarqube</code>。</p>
+<p>将压缩包进行解压：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">unzip sonarqube-datacenter-10.4.0.87286.zip -d /usr/local/etc/sonarqube<br></code></pre></td></tr></table></figure>
+
+<p>解压后如下：</p>
+<p><img src="https://codestar.top/note-image/202410102225359.png" srcset="/img/loading.gif" lazyload alt="image-20240919195926875"></p>
+<p>后续所有的操作均基于此路径。</p>
+<h3 id="3-2、创建非管理员用户"><a href="#3-2、创建非管理员用户" class="headerlink" title="3.2、创建非管理员用户"></a>3.2、创建非管理员用户</h3><p><strong>注意:</strong>  由于elastic search不支持root用户启动，需要创建单独的非root用户来启动sonar。</p>
+<h4 id="1）创建用户sonar"><a href="#1）创建用户sonar" class="headerlink" title="1）创建用户sonar"></a>1）创建用户sonar</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">新增用户sonar，根据提示完成密码配置</span><br>sudo adduser sonar<br></code></pre></td></tr></table></figure>
+
+<p>修改账户密码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo passwd sonar<br></code></pre></td></tr></table></figure>
+
+<h4 id="2）将sonar用户添加sudo管理特权"><a href="#2）将sonar用户添加sudo管理特权" class="headerlink" title="2）将sonar用户添加sudo管理特权"></a>2）将sonar用户添加sudo管理特权</h4><p>执行<code>visudo</code>打开配置文件，添加sonar用户配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sonar   ALL=(ALL:ALL) ALL<br></code></pre></td></tr></table></figure>
+
+<p>添加到下面<code>User privilege specification</code>位置：</p>
+<p><img src="https://codestar.top/note-image/202410102225007.png" srcset="/img/loading.gif" lazyload alt="image-20240919200350800"></p>
+<p>添加完成后，键入<kbd>Ctrl</kbd>+<kbd>O</kbd>写入内容，出现弹窗时点击<kbd>enter</kbd>完成写入：</p>
+<p><img src="https://codestar.top/note-image/202410102226928.png" srcset="/img/loading.gif" lazyload alt="image-20240919200604937"></p>
+<p><img src="https://codestar.top/note-image/202410102226870.png" srcset="/img/loading.gif" lazyload alt="image-20240919200623177"></p>
+<p>写入完成后键入<kbd>Ctrl</kbd>+<kbd>X</kbd>离开文本编辑页。</p>
+<p>检查修改是否完成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /etc/sudoers |grep &quot;sonar&quot;<br></code></pre></td></tr></table></figure>
+
+<p>正常返回如下：</p>
+<p><img src="https://codestar.top/note-image/202410102227257.png" srcset="/img/loading.gif" lazyload alt="image-20240919200932493"></p>
+<h4 id="3）切换到sonar用户"><a href="#3）切换到sonar用户" class="headerlink" title="3）切换到sonar用户"></a>3）切换到sonar用户</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">su - sonar<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-3、启动sonarqube"><a href="#3-3、启动sonarqube" class="headerlink" title="3.3、启动sonarqube"></a>3.3、启动sonarqube</h3><p>使用sonar用户启动sonarqube：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">sonar用户执行</span><br>sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh start<br>sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh start<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102227583.png" srcset="/img/loading.gif" lazyload alt="image-20240918102303902"></p>
+<p><strong>注意：</strong>  当不小心以root用户启动sonarqube时，可删除路径.&#x2F;temp路径下的所有文件、SonarQube.pid、es.log、sonar.log文件再重新执行启动指令即可。原因为这些文件的权限归属到root非sonar用户。</p>
+<p>运行日志查看路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/etc/sonarqube/sonarqube-10.4.0.87286/logs<br></code></pre></td></tr></table></figure>
+
+<p>启动过程可查看sonar运行日志<code>tail -f /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/logs/sonar.log</code>，出现下面两串关键字系统可正常操作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">2024.09.18 16:48:22 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up<br>2024.09.18 16:48:22 INFO  app[][o.s.a.SchedulerImpl] SonarQube is operational<br></code></pre></td></tr></table></figure>
+
+<p>进入sonarqube主页：<a target="_blank" rel="noopener" href="http://localhost:9000/sessions/new?return_to=/">http://localhost:9000/sessions/new?return_to=%2F</a></p>
+<p><img src="https://codestar.top/note-image/202410102305161.png" srcset="/img/loading.gif" lazyload alt="image-20240914190131330"></p>
+<p>默认账户和密码：admin&#x2F;admin，登录后更新密码即可进入到主页。</p>
+<h2 id="4、配置PostgreSQL数据库"><a href="#4、配置PostgreSQL数据库" class="headerlink" title="4、配置PostgreSQL数据库"></a>4、配置PostgreSQL数据库</h2><p>**Tips：**这里默认已经安装完成PostgreSQL数据库的安装，具体详情可参考《Ubuntu手动安装及配置PostgreSQL》。</p>
+<p>进入sonar配置文件修改数据库配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/etc/sonarqube/sonarqube-10.4.0.87286/conf/sonar.properties<br></code></pre></td></tr></table></figure>
+
+<p>根据数据库类型，修改对应配置项：</p>
+<p><img src="https://codestar.top/note-image/202410102305343.png" srcset="/img/loading.gif" lazyload alt="image-20240918110431430"></p>
+<p>这里我选择的是PostgreSQL，在本地已有PostgreSQL数据库后修改如下：</p>
+<p><img src="https://codestar.top/note-image/202410102235695.png" srcset="/img/loading.gif" lazyload alt="image-20240918160438523"></p>
+<p>重启sonarqube服务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh restart<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：在配置PostgreSQL之前，需要确保能正常进行远程连接，否则elastic search会启动失败报错（143错误）。</p>
+<h2 id="5、破解流程"><a href="#5、破解流程" class="headerlink" title="5、破解流程"></a>5、破解流程</h2><p><a target="_blank" rel="noopener" href="https://dashenxian.github.io/static/posts/2023/2023-12-19-SonarQube%E7%A0%B4%E8%A7%A3-SonarQubeAgent-1.1-SNAPSHOT.jar">下载</a>破解agent jar包，或在3.1节中将百度云的jar包保存下来：</p>
+<p><img src="https://codestar.top/note-image/202410102306275.png" srcset="/img/loading.gif" lazyload alt="image-20240918144545988"></p>
+<p>上传<code>SonarQubeAgent-1.2-SNAPSHOT.jar</code>到sonarqube安装目录，这里是<code>/usr/local/etc/sonarqube</code>。</p>
+<p>修改配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/conf/sonar.properties<br></code></pre></td></tr></table></figure>
+
+<p>加入下面内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意：路径需替换为本地实际jar所在的位置</span><br>sonar.web.javaOpts=-javaagent:/usr/local/etc/sonarqube/SonarQubeAgent-1.2-SNAPSHOT.jar -Xmx1G -Xms128m -XX:+HeapDumpOnOutOfMemoryError<br>sonar.ce.javaOpts=-javaagent:/usr/local/etc/sonarqube/SonarQubeAgent-1.2-SNAPSHOT.jar -Xmx2G -Xms128m -XX:+HeapDumpOnOutOfMemoryError<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102312639.png" srcset="/img/loading.gif" lazyload alt="image-20240918145311394"></p>
+<p>重启sonarqube服务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh restart<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102312533.png" srcset="/img/loading.gif" lazyload alt="image-20240918145407602"></p>
+<p>登录后进入到许可证页面，添加授权：<a target="_blank" rel="noopener" href="http://localhost:9000/admin/extension/license/app">http://localhost:9000/admin/extension/license/app</a></p>
+<p><img src="https://codestar.top/note-image/202410102312457.png" srcset="/img/loading.gif" lazyload alt="image-20240918153953792"></p>
+<p>将授权码信息通过BASE64算法加密,之后将加密后的内容后填入license框中：<a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=3">https://tool.oschina.net/encrypt?type=3</a></p>
+<ul>
+<li>授权码信息,根据需要选择其中任意一个：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">datacenter版</span><br>Company=Unknown<br>Digest=NotRequired<br>Edition=Datacenter<br>EditionLabel=Datacenter<br>Expiration=2099-01-01<br>MaxLoc=9223372036854775806<br>Plugins=abap,cpp,plsql,security,sonarapex,swift,tsql,vbnet,cobol,pli,rpg,vb<br>Features=*<br>ServerId=*<br>Support=false<br>Type=ny0c<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Enterprice版</span><br>Company=Unknown<br>Digest=NotRequired<br>Edition=Enterprise<br>EditionLabel=Enterprise<br>Expiration=2099-01-01<br>MaxLoc=9223372036854775806<br>Plugins=abap,cpp,plsql,security,sonarapex,swift,tsql,vbnet,cobol,pli,rpg,vb<br>Features=*<br>ServerId=*<br>Support=false<br>Type=ny0c<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Develop</span><br>Company=Unknown<br>Digest=NotRequired<br>Edition=Developer<br>EditionLabel=Developer<br>Expiration=2099-01-01<br>MaxLoc=9223372036854775806<br>Plugins=abap,cpp,plsql,security,sonarapex,swift,tsql,vbnet,cobol,pli,rpg,vb<br>Features=*<br>ServerId=*<br>Support=false<br>Type=ny0c<br></code></pre></td></tr></table></figure>
+
+<p>之后就可以正常的使用了：</p>
+<p><img src="https://codestar.top/note-image/202410102321323.png" srcset="/img/loading.gif" lazyload alt="image-20240918154130450"></p>
+<h2 id="6、中文插件安装"><a href="#6、中文插件安装" class="headerlink" title="6、中文插件安装"></a>6、中文插件安装</h2><p>插件官方库：<a target="_blank" rel="noopener" href="https://github.com/xuhuisheng/sonar-l10n-zh">https://github.com/xuhuisheng/sonar-l10n-zh</a></p>
+<p>根据sonarqube下载对应的版本，我这里安装的为sonarqube10.4版本，插件也下载对应的版本：</p>
+<p><img src="https://codestar.top/note-image/202410102319881.png" srcset="/img/loading.gif" lazyload alt="image-20240918154314348"></p>
+<p>进入release界面：</p>
+<p><img src="https://codestar.top/note-image/202410102320131.png" srcset="/img/loading.gif" lazyload alt="image-20240918154351545"></p>
+<p>将下好的插件，放入到插件路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">/usr/local/etc/sonarqube为安装路径</span><br>/usr/local/etc/sonarqube/sonarqube-10.4.0.87286/extensions/plugins<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/202410102320143.png" srcset="/img/loading.gif" lazyload alt="image-20240918154837656"></p>
+<p>之后，重启sonarqube即可生效：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh restart<br></code></pre></td></tr></table></figure>
+
+<p>之后重新进入页面即可显示中文样式：</p>
+<p><img src="https://codestar.top/note-image/202410102320907.png" srcset="/img/loading.gif" lazyload alt="image-20240918155114443"></p>
+<p>至此，大功告成~</p>
 <p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41010198/article/details/94054194">https://blog.csdn.net/weixin_41010198/article/details/94054194</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kantin_y/article/details/121087117">https://blog.csdn.net/kantin_y/article/details/121087117</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/anliven/p/11986480.html">https://www.cnblogs.com/anliven/p/11986480.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.813972.xyz/p/%E5%9C%A8rocky-linux-9%E4%B8%8A%E5%AE%89%E8%A3%85sonarqude/">https://www.813972.xyz/p/%E5%9C%A8rocky-linux-9%E4%B8%8A%E5%AE%89%E8%A3%85sonarqude/</a></p>
+<p><a target="_blank" rel="noopener" href="https://dashenxian.github.io/post/SonarQube%E7%A0%B4%E8%A7%A3">https://dashenxian.github.io/post/SonarQube%E7%A0%B4%E8%A7%A3</a></p>
 
                 
               </div>
@@ -657,8 +720,22 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Sonarqube/" class="category-chain-item">Sonarqube</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Sonarqube/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" class="category-chain-item">代码扫描</a>
+  
+  
+
+  
+
   
 
       </span>
@@ -672,9 +749,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
       
-        <a href="/tags/PIP%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="print-no-link">#PIP环境配置</a>
+        <a href="/tags/Sonarqube/" class="print-no-link">#Sonarqube</a>
+      
+        <a href="/tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" class="print-no-link">#代码扫描</a>
       
     </div>
   
@@ -686,8 +765,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>PIP镜像源配置详细记录</div>
-      <div>http://www.codestar.top/2024/12/15/Python/PIP镜像源配置详细记录/</div>
+      <div>Sonarqube DataCenter版本手动搭建完整流程</div>
+      <div>http://www.codestar.top/2024/10/10/TestSkill/Sonarqube-DataCenter版本手动搭建完整流程/</div>
     </div>
     <div class="license-meta">
       
@@ -699,13 +778,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月15日</div>
+          <div>2024年10月10日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月18日</div>
+          <div>2024年10月11日</div>
         </div>
       
       
@@ -748,9 +827,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/07/Python/Python%E7%A8%8B%E5%BA%8F%E5%B0%81%E8%A3%85%E4%B8%BAexe%E5%BA%94%E7%94%A8%E6%96%B9%E6%B3%95/" title="Python程序封装为exe应用方法">
+                      <a href="/2024/12/15/Python/PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95/" title="PIP镜像源配置详细记录">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python程序封装为exe应用方法</span>
+                        <span class="hidden-mobile">PIP镜像源配置详细记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -758,8 +837,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/10/TestSkill/Sonarqube-DataCenter%E7%89%88%E6%9C%AC%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" title="Sonarqube DataCenter版本手动搭建完整流程">
-                        <span class="hidden-mobile">Sonarqube DataCenter版本手动搭建完整流程</span>
+                      <a href="/2024/10/10/Linux/Ubuntu-docker%E6%90%AD%E5%BB%BAsonarqube%E7%A4%BE%E5%8C%BA%E7%89%88/" title="Ubuntu docker搭建sonarqube社区版">
+                        <span class="hidden-mobile">Ubuntu docker搭建sonarqube社区版</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

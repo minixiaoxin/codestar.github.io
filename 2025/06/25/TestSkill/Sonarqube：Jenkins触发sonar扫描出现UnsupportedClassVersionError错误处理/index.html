@@ -18,26 +18,26 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、Sonarqube介绍Sonar (SonarQube)是一个开源平台，用于管理源代码的质量，Datacenter版本为最高版本。其支持C、C++、Java、kotlin、Scala、python、JavaScrip等几乎所有编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。 sonarqube分为四个版本：社区版、开发版、企业版、">
+    <meta name="description" content="1、问题现象问题现象：在每次Jenkins触发sonar扫描时，Sonar-scanner扫描器执行都会出现UnsupportedClassVersionError异常，如下：  123456789101112131415161718192021222324252627ERROR: Error during SonarQube Scanner executionjava.lang.Unsuppor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sonarqube DataCenter版本手动搭建完整流程">
-<meta property="og:url" content="http://www.codestar.top/2024/10/10/Linux/Sonarqube-DataCenter%E7%89%88%E6%9C%AC%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="Sonarqube：Jenkins触发sonar扫描出现UnsupportedClassVersionError错误处理">
+<meta property="og:url" content="http://www.codestar.top/2025/06/25/TestSkill/Sonarqube%EF%BC%9AJenkins%E8%A7%A6%E5%8F%91sonar%E6%89%AB%E6%8F%8F%E5%87%BA%E7%8E%B0UnsupportedClassVersionError%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、Sonarqube介绍Sonar (SonarQube)是一个开源平台，用于管理源代码的质量，Datacenter版本为最高版本。其支持C、C++、Java、kotlin、Scala、python、JavaScrip等几乎所有编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。 sonarqube分为四个版本：社区版、开发版、企业版、">
+<meta property="og:description" content="1、问题现象问题现象：在每次Jenkins触发sonar扫描时，Sonar-scanner扫描器执行都会出现UnsupportedClassVersionError异常，如下：  123456789101112131415161718192021222324252627ERROR: Error during SonarQube Scanner executionjava.lang.Unsuppor">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/CodeScan_pic2.png">
-<meta property="article:published_time" content="2024-10-10T15:22:20.000Z">
-<meta property="article:modified_time" content="2024-10-11T15:05:18.898Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/CodeScan_pic1.png">
+<meta property="article:published_time" content="2025-06-25T15:25:15.000Z">
+<meta property="article:modified_time" content="2025-06-25T15:33:03.502Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Sonarqube">
-<meta property="article:tag" content="代码扫描">
+<meta property="article:tag" content="异常处理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/CodeScan_pic2.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/CodeScan_pic1.png">
   
   
   
-  <title>Sonarqube DataCenter版本手动搭建完整流程 - mini小新的博客</title>
+  <title>Sonarqube：Jenkins触发sonar扫描出现UnsupportedClassVersionError错误处理 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -461,7 +461,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Sonarqube DataCenter版本手动搭建完整流程"></span>
+            <span id="subtitle" data-typed-text="Sonarqube：Jenkins触发sonar扫描出现UnsupportedClassVersionError错误处理"></span>
           
         </div>
 
@@ -477,8 +477,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-10 23:22" pubdate>
-          2024年10月10日 晚上
+        <time datetime="2025-06-25 23:25" pubdate>
+          2025年6月25日 晚上
         </time>
       </span>
     
@@ -489,7 +489,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k 字
+          5.8k 字
         
       </span>
     
@@ -500,7 +500,7 @@
         
         
         
-          12 分钟
+          15 分钟
         
       </span>
     
@@ -545,12 +545,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Sonarqube DataCenter版本手动搭建完整流程</h1>
+            <h1 id="seo-header">Sonarqube：Jenkins触发sonar扫描出现UnsupportedClassVersionError错误处理</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年10月11日 晚上
+                    本文最后更新于：2025年6月25日 晚上
                   
                 
               </p>
@@ -558,151 +558,45 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、Sonarqube介绍"><a href="#1、Sonarqube介绍" class="headerlink" title="1、Sonarqube介绍"></a>1、Sonarqube介绍</h2><p>Sonar (SonarQube)是一个开源平台，用于管理源代码的质量，Datacenter版本为最高版本。其支持C、C++、Java、kotlin、Scala、python、JavaScrip等几乎所有编程语言的代码质量管理与检测。支持将代码扫描集成到现有的工作流，以便在项目分支和拉取请求之间进行连续的代码检查。</p>
-<p>sonarqube分为四个版本：社区版、开发版、企业版、数据中心版，各版本之间差异如下</p>
-<p><img src="https://codestar.top/note-image/202410092324256.png" srcset="/img/loading.gif" lazyload alt="image-20240413021201801"></p>
-<p>官网：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/products/sonarqube/">https://www.sonarsource.com/products/sonarqube/</a></p>
-<p>Sonar分为两部分：</p>
+                <h2 id="1、问题现象"><a href="#1、问题现象" class="headerlink" title="1、问题现象"></a>1、问题现象</h2><p><strong>问题现象</strong>：在每次Jenkins触发sonar扫描时，Sonar-scanner扫描器执行都会出现<code>UnsupportedClassVersionError</code>异常，如下：</p>
+<p><img src="https://codestar.top/note-image/20250625231818678.png" srcset="/img/loading.gif" lazyload alt="image-20250624163248423"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs shell">ERROR: Error during SonarQube Scanner execution<br>java.lang.UnsupportedClassVersionError: org/sonar/batch/bootstrapper/EnvironmentInformation has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0<br>	at java.base/java.lang.ClassLoader.defineClass1(Native Method)<br>	at java.base/java.lang.ClassLoader.defineClass(Unknown Source)<br>	at java.base/java.security.SecureClassLoader.defineClass(Unknown Source)<br>	at java.base/java.net.URLClassLoader.defineClass(Unknown Source)<br>	at java.base/java.net.URLClassLoader$1.run(Unknown Source)<br>	at java.base/java.net.URLClassLoader$1.run(Unknown Source)<br>	at java.base/java.security.AccessController.doPrivileged(Native Method)<br>	at java.base/java.net.URLClassLoader.findClass(Unknown Source)<br>	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)<br>	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)<br>	at org.sonarsource.scanner.api.internal.batch.DefaultBatchFactory.createBatch(DefaultBatchFactory.java:32)<br>	at org.sonarsource.scanner.api.internal.batch.BatchIsolatedLauncher.execute(BatchIsolatedLauncher.java:46)<br>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br>	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br>	at java.base/java.lang.reflect.Method.invoke(Unknown Source)<br>	at org.sonarsource.scanner.api.internal.IsolatedLauncherProxy.invoke(IsolatedLauncherProxy.java:60)<br>	at com.sun.proxy.$Proxy0.execute(Unknown Source)<br>	at org.sonarsource.scanner.api.EmbeddedScanner.doExecute(EmbeddedScanner.java:189)<br>	at org.sonarsource.scanner.api.EmbeddedScanner.execute(EmbeddedScanner.java:138)<br>	at org.sonarsource.scanner.cli.Main.execute(Main.java:112)<br>	at org.sonarsource.scanner.cli.Main.execute(Main.java:75)<br>	at org.sonarsource.scanner.cli.Main.main(Main.java:61)<br>ERROR: <br>ERROR: Re-run SonarQube Scanner using the -X switch to enable full debug logging.<br></code></pre></td></tr></table></figure>
+
+<h2 id="2、问题根因"><a href="#2、问题根因" class="headerlink" title="2、问题根因"></a>2、问题根因</h2><p>这个问题表现<strong>在于扫描环境中java版本的错误</strong>，要求执行<code>sonar-scanner</code>时<strong>Java版本 &gt;&#x3D; Java17(class version 61)</strong>，但当前环境实际Java版本为Java11（class version 55），存在不支持的类，所以报错。这个问题本身很好解决，重新配置java环境变量即可，但这里面有个坑，配置的环境变量可能会不生效，需要专门的来说一下。</p>
+<p><strong>根因具体有几方面</strong>：</p>
+<blockquote>
 <ul>
-<li>第一部分为服务端，为Sonarqube为代码指令管理平台</li>
-<li>第二部分为客户端，为sonar-scanner扫描器</li>
+<li>1、系统默认的Java版本为Java11，导致sonar-scanner执行失败</li>
+<li>2、sonar-scanner.properties配置文件指定了Java11的版本</li>
+<li>3、sonar-scanner执行时使用了内嵌Java，并且版本为Java11（重点）</li>
 </ul>
-<p>由于是安装Data Center版本，不支持docker安装，后续操作基于<strong>本地安装包搭建完整的sonarqube服务平台过程做记录</strong>。</p>
-<h2 id="2、环境配置要求"><a href="#2、环境配置要求" class="headerlink" title="2、环境配置要求"></a>2、环境配置要求</h2><p>官方配置要求：<a target="_blank" rel="noopener" href="https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/">https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/</a></p>
-<p>搭建环境配置参考：</p>
-<table>
-<thead>
-<tr>
-<th align="center">类型</th>
-<th align="center">配置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">OS系统</td>
-<td align="center">Ubuntu 24.1 LTS</td>
-</tr>
-<tr>
-<td align="center">RAM</td>
-<td align="center">8G（要求&gt;&#x3D;4G）</td>
-</tr>
-<tr>
-<td align="center">CPU</td>
-<td align="center">2 cores（要求&gt;&#x3D;2 cores）</td>
-</tr>
-<tr>
-<td align="center">硬盘</td>
-<td align="center">20G（要求&gt;&#x3D;30G）</td>
-</tr>
-<tr>
-<td align="center">JAVA</td>
-<td align="center">version 17（要求至少为JAVA 11，不支持Java8）</td>
-</tr>
-<tr>
-<td align="center">PostgreSQL</td>
-<td align="center">version 16（要求&gt;&#x3D;11）</td>
-</tr>
-</tbody></table>
-<p>其中硬盘自行决定，这里20GB仅作为短时间验证使用，存储空间按照官方要求来。Java配置过程参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_62636014/article/details/137872596">https://blog.csdn.net/weixin_62636014/article/details/137872596</a></p>
-<h2 id="3、搭建sonarqube流程"><a href="#3、搭建sonarqube流程" class="headerlink" title="3、搭建sonarqube流程"></a>3、搭建sonarqube流程</h2><h3 id="3-1、获取Sonarqube-Datacenter安装包"><a href="#3-1、获取Sonarqube-Datacenter安装包" class="headerlink" title="3.1、获取Sonarqube Datacenter安装包"></a>3.1、获取Sonarqube Datacenter安装包</h3><p>下载安装包：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1TnwrJvdts7rrSr3vPkHiaA">https://pan.baidu.com/s/1TnwrJvdts7rrSr3vPkHiaA</a> 提取码：9y4b</p>
-<p>上传至Linux服务器路径，这里我上传到<code>/usr/local/etc/sonarqube</code>。</p>
-<p>将压缩包进行解压：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">unzip sonarqube-datacenter-10.4.0.87286.zip -d /usr/local/etc/sonarqube<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="3、解决思路"><a href="#3、解决思路" class="headerlink" title="3、解决思路"></a>3、解决思路</h2><h3 id="3-1-解决思路1"><a href="#3-1-解决思路1" class="headerlink" title="3.1 解决思路1"></a>3.1 解决思路1</h3><p><strong>针对第1点：</strong> 直接重新配置执行时的环境变量即可，刷新Java生效的环境。</p>
+<p>通过在Execute shell中指定重新配置Java环境变量，添加的时候必须将PATH一起配置，否则，当PATH路径中Java11版本的配置排列在Java17之前，会被优先索引到并采用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64<br>export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH<br></code></pre></td></tr></table></figure>
 
-<p>解压后如下：</p>
-<p><img src="https://codestar.top/note-image/202410102225359.png" srcset="/img/loading.gif" lazyload alt="image-20240919195926875"></p>
-<p>后续所有的操作均基于此路径。</p>
-<h3 id="3-2、创建非管理员用户"><a href="#3-2、创建非管理员用户" class="headerlink" title="3.2、创建非管理员用户"></a>3.2、创建非管理员用户</h3><p><strong>注意:</strong>  由于elastic search不支持root用户启动，需要创建单独的非root用户来启动sonar。</p>
-<h4 id="1）创建用户sonar"><a href="#1）创建用户sonar" class="headerlink" title="1）创建用户sonar"></a>1）创建用户sonar</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">新增用户sonar，根据提示完成密码配置</span><br>sudo adduser sonar<br></code></pre></td></tr></table></figure>
+<p><img src="https://codestar.top/note-image/20250625231848294.png" srcset="/img/loading.gif" lazyload alt="image-20250624173208206"></p>
+<h3 id="3-2-解决思路2"><a href="#3-2-解决思路2" class="headerlink" title="3.2 解决思路2"></a>3.2 解决思路2</h3><p><strong>针对第2点：</strong> 需要对<code>sonar-scanner.properties</code>中设置进行修正，将其指定为Java17的版本。</p>
+<p>配置文件路径通常为<code>/opt/sonarqube/sonar-scanner/conf/sonar-scanner.properties</code></p>
+<p>配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sonar.scanner.javaHome=/usr/lib/jvm/java-17-openjdk-amd64<br></code></pre></td></tr></table></figure>
 
-<p>修改账户密码：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo passwd sonar<br></code></pre></td></tr></table></figure>
+<p><strong>注意：</strong> <code>sonar.scanner.javaHome</code>的参数支持，需要要求<strong>sonar-scanner版本&gt;&#x3D;4.12</strong>，将<code>sonar-scanner.properties</code>配置完成之后，最好再根据第1点，在执行前指定Java17，sonar-scanner.properties的作用通常在执行扫描时生效。</p>
+<h3 id="3-3-解决思路3"><a href="#3-3-解决思路3" class="headerlink" title="3.3 解决思路3"></a>3.3 解决思路3</h3><p><strong>针对第3点：这里面埋了个大坑</strong>，sonar-scanner脚本本身会指定Java版本，当内嵌的版本为Java11时，外部所有其他方式指定的Java配置均不生效。</p>
+<p>检查sonar-scanner执行脚本，文件路径在这<code>/opt/sonarqube/sonar-scanner/bin/sonar-scanner</code>，在下面几句会指明是否使用内嵌的Java：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">use_embedded_jre=<span class="hljs-literal">true</span><br><span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$use_embedded_jre</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span><br>  <span class="hljs-built_in">export</span> JAVA_HOME=<span class="hljs-variable">$sonar_scanner_home</span>/jre<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2）将sonar用户添加sudo管理特权"><a href="#2）将sonar用户添加sudo管理特权" class="headerlink" title="2）将sonar用户添加sudo管理特权"></a>2）将sonar用户添加sudo管理特权</h4><p>执行<code>visudo</code>打开配置文件，添加sonar用户配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sonar   ALL=(ALL:ALL) ALL<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>当<code>use_embedded_jre</code>变量值为true时，会直接采用内嵌的java版本，将内嵌的jre路径导入<code>export JAVA_HOME=$sonar_scanner_home/jre</code>，<strong>这一项的优先级高于其他所有的配置。当此配置为true时，我们在第1点、第2点中所修改的内容都将不生效。</strong></p>
+</blockquote>
+<p><strong>解决方法：</strong> 直接修改<code>sonar-scanner执行脚本</code>，将<code>use_embedded_jre</code>设置为false，其他无需更改，即修改为如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">use_embedded_jre=false<br>if [ &quot;$use_embedded_jre&quot; = true ]; then<br>  export JAVA_HOME=$sonar_scanner_home/jre<br>fi<br></code></pre></td></tr></table></figure>
 
-<p>添加到下面<code>User privilege specification</code>位置：</p>
-<p><img src="https://codestar.top/note-image/202410102225007.png" srcset="/img/loading.gif" lazyload alt="image-20240919200350800"></p>
-<p>添加完成后，键入<kbd>Ctrl</kbd>+<kbd>O</kbd>写入内容，出现弹窗时点击<kbd>enter</kbd>完成写入：</p>
-<p><img src="https://codestar.top/note-image/202410102226928.png" srcset="/img/loading.gif" lazyload alt="image-20240919200604937"></p>
-<p><img src="https://codestar.top/note-image/202410102226870.png" srcset="/img/loading.gif" lazyload alt="image-20240919200623177"></p>
-<p>写入完成后键入<kbd>Ctrl</kbd>+<kbd>X</kbd>离开文本编辑页。</p>
-<p>检查修改是否完成：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /etc/sudoers |grep &quot;sonar&quot;<br></code></pre></td></tr></table></figure>
-
-<p>正常返回如下：</p>
-<p><img src="https://codestar.top/note-image/202410102227257.png" srcset="/img/loading.gif" lazyload alt="image-20240919200932493"></p>
-<h4 id="3）切换到sonar用户"><a href="#3）切换到sonar用户" class="headerlink" title="3）切换到sonar用户"></a>3）切换到sonar用户</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">su - sonar<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-3、启动sonarqube"><a href="#3-3、启动sonarqube" class="headerlink" title="3.3、启动sonarqube"></a>3.3、启动sonarqube</h3><p>使用sonar用户启动sonarqube：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">sonar用户执行</span><br>sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh start<br>sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh start<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202410102227583.png" srcset="/img/loading.gif" lazyload alt="image-20240918102303902"></p>
-<p><strong>注意：</strong>  当不小心以root用户启动sonarqube时，可删除路径.&#x2F;temp路径下的所有文件、SonarQube.pid、es.log、sonar.log文件再重新执行启动指令即可。原因为这些文件的权限归属到root非sonar用户。</p>
-<p>运行日志查看路径：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/etc/sonarqube/sonarqube-10.4.0.87286/logs<br></code></pre></td></tr></table></figure>
-
-<p>启动过程可查看sonar运行日志<code>tail -f /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/logs/sonar.log</code>，出现下面两串关键字系统可正常操作：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">2024.09.18 16:48:22 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up<br>2024.09.18 16:48:22 INFO  app[][o.s.a.SchedulerImpl] SonarQube is operational<br></code></pre></td></tr></table></figure>
-
-<p>进入sonarqube主页：<a target="_blank" rel="noopener" href="http://localhost:9000/sessions/new?return_to=/">http://localhost:9000/sessions/new?return_to=%2F</a></p>
-<p><img src="https://codestar.top/note-image/202410102305161.png" srcset="/img/loading.gif" lazyload alt="image-20240914190131330"></p>
-<p>默认账户和密码：admin&#x2F;admin，登录后更新密码即可进入到主页。</p>
-<h2 id="4、配置PostgreSQL数据库"><a href="#4、配置PostgreSQL数据库" class="headerlink" title="4、配置PostgreSQL数据库"></a>4、配置PostgreSQL数据库</h2><p>**Tips：**这里默认已经安装完成PostgreSQL数据库的安装，具体详情可参考《Ubuntu手动安装及配置PostgreSQL》。</p>
-<p>进入sonar配置文件修改数据库配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/local/etc/sonarqube/sonarqube-10.4.0.87286/conf/sonar.properties<br></code></pre></td></tr></table></figure>
-
-<p>根据数据库类型，修改对应配置项：</p>
-<p><img src="https://codestar.top/note-image/202410102305343.png" srcset="/img/loading.gif" lazyload alt="image-20240918110431430"></p>
-<p>这里我选择的是PostgreSQL，在本地已有PostgreSQL数据库后修改如下：</p>
-<p><img src="https://codestar.top/note-image/202410102235695.png" srcset="/img/loading.gif" lazyload alt="image-20240918160438523"></p>
-<p>重启sonarqube服务：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh restart<br></code></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：在配置PostgreSQL之前，需要确保能正常进行远程连接，否则elastic search会启动失败报错（143错误）。</p>
-<h2 id="5、破解流程"><a href="#5、破解流程" class="headerlink" title="5、破解流程"></a>5、破解流程</h2><p><a target="_blank" rel="noopener" href="https://dashenxian.github.io/static/posts/2023/2023-12-19-SonarQube%E7%A0%B4%E8%A7%A3-SonarQubeAgent-1.1-SNAPSHOT.jar">下载</a>破解agent jar包，或在3.1节中将百度云的jar包保存下来：</p>
-<p><img src="https://codestar.top/note-image/202410102306275.png" srcset="/img/loading.gif" lazyload alt="image-20240918144545988"></p>
-<p>上传<code>SonarQubeAgent-1.2-SNAPSHOT.jar</code>到sonarqube安装目录，这里是<code>/usr/local/etc/sonarqube</code>。</p>
-<p>修改配置文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/conf/sonar.properties<br></code></pre></td></tr></table></figure>
-
-<p>加入下面内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">注意：路径需替换为本地实际jar所在的位置</span><br>sonar.web.javaOpts=-javaagent:/usr/local/etc/sonarqube/SonarQubeAgent-1.2-SNAPSHOT.jar -Xmx1G -Xms128m -XX:+HeapDumpOnOutOfMemoryError<br>sonar.ce.javaOpts=-javaagent:/usr/local/etc/sonarqube/SonarQubeAgent-1.2-SNAPSHOT.jar -Xmx2G -Xms128m -XX:+HeapDumpOnOutOfMemoryError<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202410102312639.png" srcset="/img/loading.gif" lazyload alt="image-20240918145311394"></p>
-<p>重启sonarqube服务：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh restart<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202410102312533.png" srcset="/img/loading.gif" lazyload alt="image-20240918145407602"></p>
-<p>登录后进入到许可证页面，添加授权：<a target="_blank" rel="noopener" href="http://localhost:9000/admin/extension/license/app">http://localhost:9000/admin/extension/license/app</a></p>
-<p><img src="https://codestar.top/note-image/202410102312457.png" srcset="/img/loading.gif" lazyload alt="image-20240918153953792"></p>
-<p>将授权码信息通过BASE64算法加密,之后将加密后的内容后填入license框中：<a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=3">https://tool.oschina.net/encrypt?type=3</a></p>
-<ul>
-<li>授权码信息,根据需要选择其中任意一个：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">datacenter版</span><br>Company=Unknown<br>Digest=NotRequired<br>Edition=Datacenter<br>EditionLabel=Datacenter<br>Expiration=2099-01-01<br>MaxLoc=9223372036854775806<br>Plugins=abap,cpp,plsql,security,sonarapex,swift,tsql,vbnet,cobol,pli,rpg,vb<br>Features=*<br>ServerId=*<br>Support=false<br>Type=ny0c<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Enterprice版</span><br>Company=Unknown<br>Digest=NotRequired<br>Edition=Enterprise<br>EditionLabel=Enterprise<br>Expiration=2099-01-01<br>MaxLoc=9223372036854775806<br>Plugins=abap,cpp,plsql,security,sonarapex,swift,tsql,vbnet,cobol,pli,rpg,vb<br>Features=*<br>ServerId=*<br>Support=false<br>Type=ny0c<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Develop</span><br>Company=Unknown<br>Digest=NotRequired<br>Edition=Developer<br>EditionLabel=Developer<br>Expiration=2099-01-01<br>MaxLoc=9223372036854775806<br>Plugins=abap,cpp,plsql,security,sonarapex,swift,tsql,vbnet,cobol,pli,rpg,vb<br>Features=*<br>ServerId=*<br>Support=false<br>Type=ny0c<br></code></pre></td></tr></table></figure>
-
-<p>之后就可以正常的使用了：</p>
-<p><img src="https://codestar.top/note-image/202410102321323.png" srcset="/img/loading.gif" lazyload alt="image-20240918154130450"></p>
-<h2 id="6、中文插件安装"><a href="#6、中文插件安装" class="headerlink" title="6、中文插件安装"></a>6、中文插件安装</h2><p>插件官方库：<a target="_blank" rel="noopener" href="https://github.com/xuhuisheng/sonar-l10n-zh">https://github.com/xuhuisheng/sonar-l10n-zh</a></p>
-<p>根据sonarqube下载对应的版本，我这里安装的为sonarqube10.4版本，插件也下载对应的版本：</p>
-<p><img src="https://codestar.top/note-image/202410102319881.png" srcset="/img/loading.gif" lazyload alt="image-20240918154314348"></p>
-<p>进入release界面：</p>
-<p><img src="https://codestar.top/note-image/202410102320131.png" srcset="/img/loading.gif" lazyload alt="image-20240918154351545"></p>
-<p>将下好的插件，放入到插件路径：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">/usr/local/etc/sonarqube为安装路径</span><br>/usr/local/etc/sonarqube/sonarqube-10.4.0.87286/extensions/plugins<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://codestar.top/note-image/202410102320143.png" srcset="/img/loading.gif" lazyload alt="image-20240918154837656"></p>
-<p>之后，重启sonarqube即可生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sh /usr/local/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh restart<br></code></pre></td></tr></table></figure>
-
-<p>之后重新进入页面即可显示中文样式：</p>
-<p><img src="https://codestar.top/note-image/202410102320907.png" srcset="/img/loading.gif" lazyload alt="image-20240918155114443"></p>
-<p>至此，大功告成~</p>
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/anliven/p/11986480.html">https://www.cnblogs.com/anliven/p/11986480.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.813972.xyz/p/%E5%9C%A8rocky-linux-9%E4%B8%8A%E5%AE%89%E8%A3%85sonarqude/">https://www.813972.xyz/p/%E5%9C%A8rocky-linux-9%E4%B8%8A%E5%AE%89%E8%A3%85sonarqude/</a></p>
-<p><a target="_blank" rel="noopener" href="https://dashenxian.github.io/post/SonarQube%E7%A0%B4%E8%A7%A3">https://dashenxian.github.io/post/SonarQube%E7%A0%B4%E8%A7%A3</a></p>
-
+<p><img src="https://codestar.top/note-image/20250625232318364.png" srcset="/img/loading.gif" lazyload alt="image-20250624154648144"></p>
+<p>这样就默认不会采用内嵌的Java，之后再结合第1点的配置调整环境变量。重新触发构建，可正常进行扫描：</p>
+<p><img src="https://codestar.top/note-image/20250625232400366.png" srcset="/img/loading.gif" lazyload alt="image-20250624175149369"></p>
+<p>如果没有Jenkins服务器权限，可以在Jenkins配置中新建Execute shell，填入以下指令，直接在命令行对<code>sonar-scanner</code>进行修改：除了改动<code>use_embedded_jre</code>值外，其他原封不动粘贴</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat &lt;&lt; &#x27;EOF&#x27; &gt; /opt/sonarqube/sonar-scanner/bin/sonar-scanner<br><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/sh</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># SonarQube Scanner Startup Script for Unix</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Optional ENV vars:</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">  SONAR_SCANNER_OPTS - Parameters passed to the Java VM when running the SonarQube Scanner</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">  SONAR_SCANNER_DEBUG_OPTS - Extra parameters passed to the Java VM <span class="hljs-keyword">for</span> debugging</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">  JAVA_HOME - Location of Java<span class="hljs-string">&#x27;s installation</span></span><br><br>real_path () &#123;<br>  target=$1<br><br>  (<br>  while true; do<br>    cd &quot;$(dirname &quot;$target&quot;)&quot;<br>    target=$(basename &quot;$target&quot;)<br>    test -L &quot;$target&quot; || break<br>    target=$(readlink &quot;$target&quot;)<br>  done<br><br>  echo &quot;$(pwd -P)/$target&quot;<br>  )<br>&#125;<br><br>script_path=$(real_path &quot;$0&quot;)<br>sonar_scanner_home=$(dirname &quot;$script_path&quot;)/..<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">make it fully qualified</span></span><br>sonar_scanner_home=$(cd &quot;$sonar_scanner_home&quot; &amp;&amp; pwd -P)<br><br>jar_file=$sonar_scanner_home/lib/sonar-scanner-cli-4.2.0.1873.jar<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">check that sonar_scanner_home has been correctly set</span></span><br>if [ ! -f &quot;$jar_file&quot; ] ; then<br>  echo &quot;File does not exist: $jar_file&quot;<br>  echo &quot;&#x27;$sonar_scanner_home&#x27; does not point to a valid installation directory: $sonar_scanner_home&quot;<br>  exit 1<br>fi<br><br>use_embedded_jre=false<br>if [ &quot;$use_embedded_jre&quot; = true ]; then<br>  export JAVA_HOME=$sonar_scanner_home/jre<br>fi<br><br>if [ -n &quot;$JAVA_HOME&quot; ]<br>then<br>  java_cmd=&quot;$JAVA_HOME/bin/java&quot;<br>else<br>  java_cmd=&quot;$(which java)&quot;<br>fi<br><br>if [ -z &quot;$java_cmd&quot; -o ! -x &quot;$java_cmd&quot; ] ; then<br>  echo &quot;Could not find &#x27;java&#x27; executable in JAVA_HOME or PATH.&quot;<br>  exit 1<br>fi<br><br>project_home=$(pwd)<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">echo &quot;Info: Using sonar-scanner at $sonar_scanner_home&quot;</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">echo &quot;Info: Using java at $java_cmd&quot;</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">echo &quot;Info: Using classpath $jar_file&quot;</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">echo &quot;Info: Using project $project_home&quot;</span></span><br><br>exec &quot;$java_cmd&quot; \<br>  -Djava.awt.headless=true \<br><span class="hljs-meta prompt_">  $</span><span class="language-bash"><span class="hljs-string">SONAR_SCANNER_OPTS \</span></span><br><span class="hljs-string"><span class="language-bash">  $SONAR_SCANNER_DEBUG_OPTS \</span></span><br><span class="hljs-string"><span class="language-bash">  -classpath  &quot;$jar_file&quot; \</span></span><br><span class="hljs-string"><span class="language-bash">  -Dscanner.home=&quot;$sonar_scanner_home&quot; \</span></span><br><span class="hljs-string"><span class="language-bash">  -Dproject.home=&quot;$project_home&quot; \</span></span><br><span class="hljs-string"><span class="language-bash">  org.sonarsource.scanner.cli.Main &quot;$@&quot;</span></span><br>EOF<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -720,20 +614,13 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
+  <a href="/categories/Sonarqube/" class="category-chain-item">Sonarqube</a>
   
   
     <span>></span>
     
-  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Sonarqube/" class="category-chain-item">Sonarqube</a>
+  <a href="/categories/Sonarqube/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="category-chain-item">异常处理</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Sonarqube/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" class="category-chain-item">代码扫描</a>
-  
-  
-
   
 
   
@@ -749,11 +636,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+        <a href="/tags/Jenkins/" class="print-no-link">#Jenkins</a>
       
         <a href="/tags/Sonarqube/" class="print-no-link">#Sonarqube</a>
       
-        <a href="/tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" class="print-no-link">#代码扫描</a>
+        <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="print-no-link">#异常处理</a>
       
     </div>
   
@@ -765,8 +652,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Sonarqube DataCenter版本手动搭建完整流程</div>
-      <div>http://www.codestar.top/2024/10/10/Linux/Sonarqube-DataCenter版本手动搭建完整流程/</div>
+      <div>Sonarqube：Jenkins触发sonar扫描出现UnsupportedClassVersionError错误处理</div>
+      <div>http://www.codestar.top/2025/06/25/TestSkill/Sonarqube：Jenkins触发sonar扫描出现UnsupportedClassVersionError错误处理/</div>
     </div>
     <div class="license-meta">
       
@@ -778,13 +665,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月10日</div>
+          <div>2025年6月25日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年10月11日</div>
+          <div>2025年6月25日</div>
         </div>
       
       
@@ -827,18 +714,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/12/15/Python/PIP%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AE%B0%E5%BD%95/" title="PIP镜像源配置详细记录">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PIP镜像源配置详细记录</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/10/Linux/Ubuntu-docker%E6%90%AD%E5%BB%BAsonarqube%E7%A4%BE%E5%8C%BA%E7%89%88/" title="Ubuntu docker搭建sonarqube社区版">
-                        <span class="hidden-mobile">Ubuntu docker搭建sonarqube社区版</span>
+                      <a href="/2025/06/23/TestSkill/%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%9A%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="测试设计方法：正交试验原理分析与实践">
+                        <span class="hidden-mobile">测试设计方法：正交试验原理分析与实践</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
