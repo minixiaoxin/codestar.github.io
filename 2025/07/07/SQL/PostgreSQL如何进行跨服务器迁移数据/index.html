@@ -18,25 +18,26 @@
   <meta name="author" content="mini小新">
   <meta name="keywords" content="总有着许多的未知来探索，那都是学不完的...">
   
-    <meta name="description" content="1、docker安装在Ubuntu中，docker这个名称已被用作Dockerlet应用，不能直接使用apt install docker进行安装，实际docker容器应用被命名为docker.io，使用下面的指令来进行安装： 1sudo apt install docker.io docker-compose  等待包下载及安装：  安装完成后，检查安装版本： 1docker -v   2、do">
+    <meta name="description" content="1、方案在针对PostgreSQL的数据迁移这一块功能，官方有相应的工具支持：pg_dump和pg_restore，通过这两个工具，可以很好的对数据库中的数据进行备份和恢复。那既然支持通过包来备份和恢复，那在跨服务器数据迁移，区别也仅仅在于PostgreSQL服务器地址存在差异，需要增加步骤来在两台服务器之间进行备份数据包的传输即可，基于此，下面来说明如何来操作这一系列过程。 2、准备工作梳理本地">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu安装docker环境及docker常用指令">
-<meta property="og:url" content="http://www.codestar.top/2024/10/08/Linux/Ubuntu%E5%AE%89%E8%A3%85docker%E7%8E%AF%E5%A2%83%E5%8F%8Adocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:title" content="PostgreSQL如何进行跨服务器迁移数据">
+<meta property="og:url" content="http://www.codestar.top/2025/07/07/SQL/PostgreSQL%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%B7%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="mini小新的博客">
-<meta property="og:description" content="1、docker安装在Ubuntu中，docker这个名称已被用作Dockerlet应用，不能直接使用apt install docker进行安装，实际docker容器应用被命名为docker.io，使用下面的指令来进行安装： 1sudo apt install docker.io docker-compose  等待包下载及安装：  安装完成后，检查安装版本： 1docker -v   2、do">
+<meta property="og:description" content="1、方案在针对PostgreSQL的数据迁移这一块功能，官方有相应的工具支持：pg_dump和pg_restore，通过这两个工具，可以很好的对数据库中的数据进行备份和恢复。那既然支持通过包来备份和恢复，那在跨服务器数据迁移，区别也仅仅在于PostgreSQL服务器地址存在差异，需要增加步骤来在两台服务器之间进行备份数据包的传输即可，基于此，下面来说明如何来操作这一系列过程。 2、准备工作梳理本地">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.codestar.top/img/blog-img/Docker_pic1.png">
-<meta property="article:published_time" content="2024-10-08T15:53:39.000Z">
-<meta property="article:modified_time" content="2024-10-08T16:01:04.448Z">
+<meta property="og:image" content="http://www.codestar.top/img/blog-img/PostgreSQL_pic3.png">
+<meta property="article:published_time" content="2025-07-07T15:32:42.000Z">
+<meta property="article:modified_time" content="2025-07-07T15:35:01.434Z">
 <meta property="article:author" content="mini小新">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="PostgreSQL">
+<meta property="article:tag" content="数据迁移">
+<meta property="article:tag" content="SonarQube">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/Docker_pic1.png">
+<meta name="twitter:image" content="http://www.codestar.top/img/blog-img/PostgreSQL_pic3.png">
   
   
   
-  <title>Ubuntu安装docker环境及docker常用指令 - mini小新的博客</title>
+  <title>PostgreSQL如何进行跨服务器迁移数据 - mini小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -460,7 +461,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Ubuntu安装docker环境及docker常用指令"></span>
+            <span id="subtitle" data-typed-text="PostgreSQL如何进行跨服务器迁移数据"></span>
           
         </div>
 
@@ -476,8 +477,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-08 23:53" pubdate>
-          2024年10月8日 晚上
+        <time datetime="2025-07-07 23:32" pubdate>
+          2025年7月7日 晚上
         </time>
       </span>
     
@@ -488,7 +489,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          4.6k 字
         
       </span>
     
@@ -499,7 +500,7 @@
         
         
         
-          5 分钟
+          12 分钟
         
       </span>
     
@@ -544,12 +545,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Ubuntu安装docker环境及docker常用指令</h1>
+            <h1 id="seo-header">PostgreSQL如何进行跨服务器迁移数据</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年10月9日 凌晨
+                    本文最后更新于：2025年7月7日 晚上
                   
                 
               </p>
@@ -557,193 +558,145 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、docker安装"><a href="#1、docker安装" class="headerlink" title="1、docker安装"></a>1、docker安装</h2><p>在Ubuntu中，docker这个名称已被用作Dockerlet应用，不能直接使用<code>apt install docker</code>进行安装，实际docker容器应用被命名为<strong>docker.io</strong>，使用下面的指令来进行安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install docker.io docker-compose<br></code></pre></td></tr></table></figure>
+                <h2 id="1、方案"><a href="#1、方案" class="headerlink" title="1、方案"></a>1、方案</h2><p>在针对PostgreSQL的数据迁移这一块功能，官方有相应的工具支持：<code>pg_dump</code>和<code>pg_restore</code>，通过这两个工具，可以很好的对数据库中的数据进行备份和恢复。那既然支持通过包来备份和恢复，那在跨服务器数据迁移，区别也仅仅在于PostgreSQL服务器地址存在差异，需要增加步骤来在两台服务器之间进行备份数据包的传输即可，基于此，下面来说明如何来操作这一系列过程。</p>
+<h2 id="2、准备工作"><a href="#2、准备工作" class="headerlink" title="2、准备工作"></a>2、准备工作</h2><p>梳理本地环境以及目标环境相应参数表如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>配置项</strong></th>
+<th><strong>源数据库（本地）</strong></th>
+<th><strong>目标数据库（远程）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>服务器IP</strong></td>
+<td><code>localhost(或127.0.0.1)</code></td>
+<td><code>10.17.100.245</code></td>
+</tr>
+<tr>
+<td><strong>数据库名称</strong></td>
+<td><code>sonarqube_db</code></td>
+<td><code>sonarqube_db</code>（可同名或不同名）</td>
+</tr>
+<tr>
+<td><strong>Postgresql连接用户</strong></td>
+<td><code>sonar</code></td>
+<td><code>sonar</code></td>
+</tr>
+<tr>
+<td><strong>Postgresql端口</strong></td>
+<td><code>5432</code>（默认端口）</td>
+<td><code>5432</code>（默认端口）</td>
+</tr>
+<tr>
+<td><strong>远程服务器系统用户</strong></td>
+<td>本地用户</td>
+<td><code>sonar</code>（用于SSH&#x2F;SCP传输）</td>
+</tr>
+</tbody></table>
+<p><strong>上层服务应用：Sonarqube</strong></p>
+<p>操作流程与实际的应用服务理论上无关，这里说明上层应用仅方便后续验证实际数据恢复后的效果用。</p>
+<h2 id="3、操作流程"><a href="#3、操作流程" class="headerlink" title="3、操作流程"></a>3、操作流程</h2><h3 id="3-1-导出原始数据库数据"><a href="#3-1-导出原始数据库数据" class="headerlink" title="3.1 导出原始数据库数据"></a>3.1 导出原始数据库数据</h3><p>登录<strong>原始数据库所在的Linux服务器</strong>，以数据库管理员身份登录到PostgreSQL：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo -u postgres psql<br></code></pre></td></tr></table></figure>
 
-<p>等待包下载及安装：</p>
-<p><img src="https://codestar.top/note-image/202410082321928.png" srcset="/img/loading.gif" lazyload alt="image-20240911110015239"></p>
-<p>安装完成后，检查安装版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker -v<br></code></pre></td></tr></table></figure>
+<p>使用<code>pg_dump</code>命令导出数据库中的数据:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">从本地localhost 5432端口以sonar身份登录postgresql将sonarqube_db数据库导出到文件source_db_dump.custom</span><br>pg_dump -h localhost -p 5432 -U sonar -F c -v -f source_db_dump.custom sonarqube_db<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://codestar.top/note-image/202410082321573.png" srcset="/img/loading.gif" lazyload alt="image-20240911110214122"></p>
-<h2 id="2、docker验证"><a href="#2、docker验证" class="headerlink" title="2、docker验证"></a>2、docker验证</h2><p>docker默认有一个hello world镜像：</p>
-<p><img src="https://codestar.top/note-image/202410082321142.png" srcset="/img/loading.gif" lazyload alt="image-20240919141944591"></p>
-<p>使用hello world镜像验证安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建hello-world镜像实例并运行</span><br>docker run hello-world<br></code></pre></td></tr></table></figure>
+<p>执行后，会要求输入sonar账户的口令密码，输入密码后开始正常导出数据：</p>
+<p><img src="https://codestar.top/note-image/20250707220544452.png" srcset="/img/loading.gif" lazyload alt="image-20250427141323988"></p>
+<p>导出完成后，数据文件<code>source_db_dump.custom</code>在当前命令执行的目录下生成：</p>
+<p><img src="https://codestar.top/note-image/20250707220607007.png" srcset="/img/loading.gif" lazyload alt="image-20250427141510791"></p>
+<h3 id="3-2-传输数据文件"><a href="#3-2-传输数据文件" class="headerlink" title="3.2 传输数据文件"></a>3.2 传输数据文件</h3><p>在完成原始数据库的数据导出之后，使用<code>scp</code>工具将其远程传输到需要恢复数据的目标服务器上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将以sonar用户身份登录到10.17.100.245服务器并传输source_db_dump.custom到/home/sonar路径</span><br>scp source_db_dump.custom sonar@10.17.100.245:/home/sonar/<br></code></pre></td></tr></table></figure>
 
-<p>正常执行如下，会出现<code>Hello from Docker！</code>字样：</p>
-<p><img src="https://codestar.top/note-image/202410082322422.png" srcset="/img/loading.gif" lazyload alt="image-20240911110515464"></p>
-<p>通过<code>docker ps -a</code>可以看到刚才创建的实例正常运行：</p>
-<p><img src="https://codestar.top/note-image/202410082322730.png" srcset="/img/loading.gif" lazyload alt="image-20240919142429875"></p>
-<p>执行过程中可能会出现“无法连接到 Docker 守护进程”的问题，重启系统再次执行指令可解决。</p>
-<h2 id="3、docker常用指令"><a href="#3、docker常用指令" class="headerlink" title="3、docker常用指令"></a>3、docker常用指令</h2><table>
-  <thead>
-    <tr>
-      <th>类型</th>
-      <th>指令</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2">基础操作</td>
-      <td><code>docker --version</code></td>
-      <td>查看 Docker 版本</td>
-    </tr>
-    <tr>
-      <td><code>docker info</code></td>
-      <td>查看 Docker 系统信息</td>
-    </tr>
-    <tr>
-      <td rowspan="6">镜像操作</td>
-      <td><code>docker images</code></td>
-      <td>列出本地所有镜像</td>
-    </tr>
-    <tr>
-      <td><code>docker pull [image]</code></td>
-      <td>从 Docker Hub 拉取或者更新指定镜像</td>
-    </tr>
-    <tr>
-      <td><code>docker build -t [image] [path]</code></td>
-      <td>从 Dockerfile 构建镜像</td>
-    </tr>
-    <tr>
-      <td><code>docker rmi [image]</code></td>
-      <td>删除指定镜像</td>
-    </tr>
-    <tr>
-      <td><code>docker tag [source-image] [target-image]</code></td>
-      <td>标记本地镜像，将其归入某一仓库</td>
-    </tr>
-    <tr>
-      <td><code>docker history [image]</code></td>
-      <td>查看指定镜像的创建历史</td>
-    </tr>
-    <tr>
-      <td rowspan="18">容器操作</td>
-      <td><code>docker run [options] [image]</code></td>
-      <td>创建一个新的容器并运行</td>
-    </tr>
-    <tr>
-      <td><code>docker ps</code></td>
-      <td>列出所有正在运行的容器</td>
-    </tr>
-    <tr>
-      <td><code>docker ps -a</code></td>
-      <td>列出所有容器，包括未运行的</td>
-    </tr>
-    <tr>
-      <td><code>docker stop [container]</code></td>
-      <td>停止一个运行的容器，有一定的等待时间</td>
-    </tr>
-    <tr>
-      <td><code>docker kill [container]</code></td>
-      <td>强制终止容器，立即停止。适用于容器出现无响应的场景</td>
-    </tr>
-    <tr>
-      <td><code>docker start [container]</code></td>
-      <td>启动一个停止的容器</td>
-    </tr>
-    <tr>
-      <td><code>docker restart [container]</code></td>
-      <td>重启一个容器</td>
-    </tr>
-    <tr>
-      <td><code>docker rm [container]</code></td>
-      <td>删除一个容器</td>
-    </tr>
-    <tr>
-      <td><code>docker rename old_container_name new_container_name</code></td>
-      <td>修改容器名称</td>
-    </tr>
-    <tr>
-      <td><code>docker pause [container]</code></td>
-      <td>暂停容器运行，ps -a可以查看到状态为pause</td>
-    </tr>
-    <tr>
-      <td><code>docker unpause [container]</code></td>
-      <td>恢复容器运行</td>
-    </tr>
-    <tr>
-      <td><code>docker exec -it [container] [command]</code></td>
-      <td>进入一个正在运行的容器执行命令</td>
-    </tr>
-    <tr>
-      <td><code>docker logs [container]</code></td>
-      <td>查看容器的日志</td>
-    </tr>
-    <tr>
-      <td><code>docker port [container]</code></td>
-      <td>查看容器的端口映射</td>
-    </tr>
-    <tr>
-      <td><code>docker inspect [container]</code></td>
-      <td>查询容器和镜像基本信息，包含挂载信息、网络信息、IP地址等</td>
-    </tr>
-    <tr>
-      <td><code>docker diff [container]</code></td>
-      <td>检查容器文件系统的变更，文件的变化、目录的变化等（A:新增项、D：删除项、C：变更项）</td>
-    </tr>
-    <tr>
-      <td><code>docker top [container]</code></td>
-      <td>查询容器的系统进程情况</td>
-    </tr>
-    <tr>
-      <td><code>docker stats</code></td>
-      <td>列出容器资源使用详情：CPU、RAM、NetworkI/O、BlockI/O、Process IDs</td>
-    </tr>
-    <tr>
-      <td rowspan="4">网络操作</td>
-      <td><code>docker network ls</code></td>
-      <td>列出所有 Docker 网络</td>
-    </tr>
-    <tr>
-      <td><code>docker network create [name]</code></td>
-      <td>创建一个新的网络</td>
-    </tr>
-    <tr>
-      <td><code>docker network connect [network] [container]</code></td>
-      <td>将容器连接到网络</td>
-    </tr>
-    <tr>
-      <td><code>docker network disconnect [network] [container]</code></td>
-      <td>将容器从网络中断开</td>
-    </tr>
-    <tr>
-      <td rowspan="3">数据卷操作</td>
-      <td><code>docker volume ls</code></td>
-      <td>列出所有数据卷</td>
-    </tr>
-    <tr>
-      <td><code>docker volume create [name]</code></td>
-      <td>创建一个新的数据卷</td>
-    </tr>
-    <tr>
-      <td><code>docker volume rm [name]</code></td>
-      <td>删除一个数据卷</td>
-    </tr>
-    <tr>
-      <td rowspan="2">文件拷贝</td>
-      <td><code>docker cp [container]:[path] [path]</code></td>
-      <td>从容器中拷贝文件到主机</td>
-    </tr>
-    <tr>
-      <td><code>docker cp [path] [container]:[path]</code></td>
-      <td>从主机拷贝文件到容器</td>
-    </tr>
-    <tr>
-      <td>容器 Commit</td>
-      <td><code>docker commit [container] [image]</code></td>
-      <td>从容器创建一个新的镜像</td>
-    </tr>
-  </tbody>
-</table>
+<p>输入目标服务器的连接账户密码后开始传输：</p>
+<p><img src="https://codestar.top/note-image/20250707221130058.png" srcset="/img/loading.gif" lazyload alt="image-20250427142251778"></p>
+<p>传输完成后，开始准备下一步导入数据。</p>
+<h3 id="3-3-目标数据库导入数据"><a href="#3-3-目标数据库导入数据" class="headerlink" title="3.3 目标数据库导入数据"></a>3.3 目标数据库导入数据</h3><h4 id="3-3-1-导入前目标数据库准备"><a href="#3-3-1-导入前目标数据库准备" class="headerlink" title="3.3.1 导入前目标数据库准备"></a>3.3.1 导入前目标数据库准备</h4><p>在开始导入数据前，需提前对目标服务器中的数据库做一些配置：</p>
+<p>1）创建目标数据库</p>
+<ul>
+<li>登录远程服务器，连接到远程 PostgreSQL 数据库：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">可能需要输入 postgres 用户的密码</span><br>sudo -u postgres psql<br></code></pre></td></tr></table></figure>
 
+<ul>
+<li>创建目标数据库（已有则忽略此步骤）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 创建sonar账户下的sonarqube_db数据库<br><span class="hljs-keyword">CREATE</span> DATABASE sonarqube_db OWNER sonar;<br># 检查是否创建成功<br>\l<br># 切换到sonarqube_db数据库<br>\c sonarqube_db<br># 完成创建后，退出数据库到终端<br>\q<br></code></pre></td></tr></table></figure>
 
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://linux.cn/article-16531-1.html">https://linux.cn/article-16531-1.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://linuxhandbook.com/essential-docker-commands/">https://linuxhandbook.com/essential-docker-commands/</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44281591/article/details/132252039">https://blog.csdn.net/qq_44281591/article/details/132252039</a></p>
+<p>2）扩展检查（可选）</p>
+<p><strong>当源数据库使用了扩展时，必须在导入数据前提前安装完成所有的插件，否则导入时会出现异常：</strong></p>
+<ul>
+<li>检查数据库使用的扩展</li>
+</ul>
+<p><code>sudo -u postgres psql</code>登录到源PostgreSQL数据库，执行下列语句检查：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 检查数据库使用的插件<br>\dx<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>安装必要插件</li>
+</ul>
+<p>当检查出有插件在使用时，需针对每一个插件进行安装：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 示例：安装postgis插件</span><br><span class="hljs-keyword">CREATE</span> EXTENSION IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> &quot;postgis&quot;;<br></code></pre></td></tr></table></figure>
+
+<p>每个扩展使用<code>CREATE EXTENSION</code>进行安装。</p>
+<h4 id="3-3-2-数据导入"><a href="#3-3-2-数据导入" class="headerlink" title="3.3.2 数据导入"></a>3.3.2 数据导入</h4><p>完成导入前的准备操作后，在目标服务器终端开始导入数据：</p>
+<ul>
+<li>数据文件路径在：<code>/home/sonar</code></li>
+<li>使用<code>pg_restore</code>导入数据：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">目标服务器停止sonar服务：停止上层应用服务</span><br>/home/sonar/etc/sonarqube/sonarqube-10.4.0.87286/bin/linux-x86-64/sonar.sh stop<br><span class="hljs-meta prompt_"># </span><span class="language-bash">移动到数据文件目录</span><br>cd /home/sonar<br><span class="hljs-meta prompt_"># </span><span class="language-bash">终端执行将source_db_dump.custom数据文件导入到数据库sonarqube_db</span><br>pg_restore -h localhost -p 5432 -U sonar -v -d sonarqube_db --clean source_db_dump.custom<br></code></pre></td></tr></table></figure>
+
+<p>这里我选择使用<code>--clean</code>参数以覆盖的形式替代原有的所有同名数据，无需覆盖可不加此参数，根据需求使用：</p>
+<p><img src="https://codestar.top/note-image/20250707222855375.png" srcset="/img/loading.gif" lazyload alt="image-20250427172936647"></p>
+<p><strong>注意：</strong> 覆盖现有的数据后，目标服务器中已有的数据会被清掉，应用服务中的账户内容也会替换为源数据库中的账户，如果账户同名，后续使用时注意密码会更新。</p>
+<h3 id="3-4-数据验证"><a href="#3-4-数据验证" class="headerlink" title="3.4 数据验证"></a>3.4 数据验证</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">连接到目标数据库</span><br>sudo -u postgres psql<br><span class="hljs-meta prompt_"># </span><span class="language-bash">切换至sonarqube_db数据库</span><br>\c sonarqube_db<br><span class="hljs-meta prompt_"># </span><span class="language-bash">列出所有数据库</span><br>\l<br></code></pre></td></tr></table></figure>
+
+<p>所有的数据库结果如下：</p>
+<p><img src="https://codestar.top/note-image/20250707223404768.png" srcset="/img/loading.gif" lazyload alt="image-20250707223336718"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">列出所有表，检查数量是否与源数据库大致相同。q退出</span><br>\dt<br></code></pre></td></tr></table></figure>
+
+<p>记录数检查结果如下，可以看到数据记录是前后一致的：</p>
+<p><img src="https://codestar.top/note-image/20250707223644719.png" srcset="/img/loading.gif" lazyload alt="image-20250427150947568"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查所有序列是否存在</span><br>\ds<br></code></pre></td></tr></table></figure>
+
+<p>选取projects表作为数据对比表，检查记录：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">FROM</span> projects;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/20250707224048872.png" srcset="/img/loading.gif" lazyload alt="image-20250707224033068"></p>
+<p>上述记录可以看到数据已经同步正常，所有的项目均已导入。也可以对数据进行抽查检查数据内容是否有错误：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> projects LIMIT <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<p><strong>Tips：</strong> 在导入数据时没有要求数据库要停止服务，但<strong>避免可能在导入时有其他用户或应用存在数据更新而导致数据异常，最好还是先停止数据库服务再进行数据导入。</strong></p>
+<h3 id="3-5-更新数据库统计信息"><a href="#3-5-更新数据库统计信息" class="headerlink" title="3.5 更新数据库统计信息"></a>3.5 更新数据库统计信息</h3><p>当数据存在更新时，需要对数据库统计信息进行更新：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">切换到postgresql管理员用户</span><br>sudo -i -u postgres<br>psql -d sonarqube_db<br><span class="hljs-meta prompt_"># </span><span class="language-bash">更新统计信息</span><br>ANALYZE VERBOSE;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://codestar.top/note-image/20250707231129663.png" srcset="/img/loading.gif" lazyload alt="image-20250427163801111"></p>
+<p>当出现以下报错，为非管理员账户进行的更新操作导致，切换管理员身份重新操作即可：</p>
+<p><img src="https://codestar.top/note-image/20250707231112040.png" srcset="/img/loading.gif" lazyload alt="image-20250427164210978"></p>
+<p>如果数据库存在名称变更，上层使用此数据库的应用一定要更新指向新的数据库。至此，所有数据完成迁移。</p>
+<h2 id="4、-应用服务数据更新"><a href="#4、-应用服务数据更新" class="headerlink" title="4、 应用服务数据更新"></a>4、 应用服务数据更新</h2><h3 id="4-1-重建ElasticSearch索引"><a href="#4-1-重建ElasticSearch索引" class="headerlink" title="4.1 重建ElasticSearch索引"></a>4.1 重建ElasticSearch索引</h3><p>由于我这边上层使用PostgreSQL数据的应用为Sonarqube，其中包含ES服务，对于数据库存在更新时，为了保障数据使用正常，需要对ES进行索引重建，操作步骤如下：</p>
+<ul>
+<li><p>1、停止SonarQube服务器&#x2F;集群</p>
+</li>
+<li><p>2、进入SonarQube的安装目录<code>/etc/sonarqube/sonarqube-10.4.0.87286/data</code></p>
+</li>
+</ul>
+<p><em><code>/etc/sonarqube/sonarqube-10.4.0.87286</code>为本地Sonar安装路径，根据实际路径执行</em></p>
+<ul>
+<li>3、删除<code>/etc/sonarqube/sonarqube-10.4.0.87286/data/data/es8</code> 目录下的所有内容 （<em>需要注意在较旧的ES版本中，此目录可能为 <code>es6</code> 或 <code>es7</code></em>）</li>
+</ul>
+<p><img src="https://codestar.top/note-image/20250707231102858.png" srcset="/img/loading.gif" lazyload alt="image-20250427173435009"></p>
+<ul>
+<li>4、重新启动SonarQube服务器&#x2F;集群。</li>
+</ul>
+<p>具体原因是，<code>es8</code>目录包含Elasticsearch的索引，当此目录不存在时，迫使SonarQube识别到Elasticsearch索引的缺失，在服务启动时会触发完整的索引重建过程，从而确保索引是基于新迁移的数据库构建的。</p>
+<h3 id="4-2-应用数据检查"><a href="#4-2-应用数据检查" class="headerlink" title="4.2 应用数据检查"></a>4.2 应用数据检查</h3><p>重新启动服务，检查数据是否正常：可以看到所有的项目都已完全导入，部分细节访问，如issue板块，需要在索引重建完成后才能完整查看。</p>
+<p><img src="https://codestar.top/note-image/20250707231037720.png" srcset="/img/loading.gif" lazyload alt="image-20250707231014112"></p>
+<p>完成索引重建后，所有页面都可正常访问：</p>
+<p><img src="https://codestar.top/note-image/20250707230915221.png" srcset="/img/loading.gif" lazyload alt="image-20250427174202706"></p>
+<h2 id="5、附录：pg-restore参数说明"><a href="#5、附录：pg-restore参数说明" class="headerlink" title="5、附录：pg_restore参数说明"></a>5、附录：pg_restore参数说明</h2><p><code>pg_restore</code>命令格式如下<code>pg_restore [选项]... [文件名]</code>，具体支持的参数如下，供使用时参考：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs shell">一般选项:<br>  -d, --dbname=名字        连接数据库名字<br>  -f, --file=文件名        输出文件名<br>  -F, --format=c|d|t       备份文件格式(应该自动进行)<br>  -l, --list               打印归档文件的 TOC 概述<br>  -v, --verbose            详细模式<br>  -V, --version            输出版本信息, 然后退出<br>  -?, --help               显示此帮助, 然后退出<br><br>恢复控制选项:<br>  -a, --data-only              只恢复数据, 不包括模式<br>  -c, --clean                  在重新创建之前，先清除（删除）数据库对象<br>  -C, --create                 创建目标数据库<br>  -e, --exit-on-error          发生错误退出, 默认为继续<br>  -I, --index=NAME             恢复指定名称的索引<br>  -j, --jobs=NUM               执行多个并行任务进行恢复工作<br>  -L, --use-list=FILENAME      从这个文件中使用指定的内容表排序<br>                               输出<br>  -n, --schema=NAME            在这个模式中只恢复对象<br>  -N, --exclude-schema=NAME    不恢复此模式中的对象<br>  -O, --no-owner               不恢复对象所属者<br>  -P, --function=NAME(args)    恢复指定名字的函数<br>  -s, --schema-only            只恢复模式, 不包括数据<br>  -S, --superuser=NAME         使用指定的超级用户来禁用触发器<br>  -t, --table=NAME             恢复命名关系（表、视图等）<br>  -T, --trigger=NAME           恢复指定名字的触发器<br>  -x, --no-privileges          跳过处理权限的恢复 (grant/revoke)<br>  -1, --single-transaction     作为单个事务恢复<br>  --disable-triggers           在只恢复数据的过程中禁用触发器<br>  --enable-row-security        启用行安全性<br>  --if-exists                  当删除对象时使用IF EXISTS<br>  --no-comments                不恢复注释<br>  --no-data-for-failed-tables  对那些无法创建的表不进行<br>                               数据恢复<br>  --no-publications            不恢复发行<br>  --no-security-labels         不恢复安全标签信息<br>  --no-subscriptions           不恢复订阅<br>  --no-tablespaces             不恢复表空间的分配信息<br>  --section=SECTION            恢复命名节 (数据前、数据及数据后)<br>  --strict-names               要求每个表和(或)schema包括模式以匹配至少一个实体<br>  --use-set-session-authorization<br>                               使用 SESSION AUTHORIZATION 命令代替<br>                               ALTER OWNER 命令来设置所有权<br><br>联接选项:<br>  -h, --host=主机名        数据库服务器的主机名或套接字目录<br>  -p, --port=端口号        数据库服务器的端口号<br>  -U, --username=名字      以指定的数据库用户联接<br>  -w, --no-password        永远不提示输入口令<br>  -W, --password           强制口令提示 (自动)<br>  --role=ROLENAME          在恢复前执行SET ROLE操作<br><br>选项 -I, -n, -N, -P, -t, -T, 以及 --section 可以组合使用和指定<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -762,12 +715,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/" class="category-chain-item">Linux技术</a>
+  <a href="/categories/PostgreSQL/" class="category-chain-item">PostgreSQL</a>
   
   
     <span>></span>
     
-  <a href="/categories/Linux%E6%8A%80%E6%9C%AF/Docker/" class="category-chain-item">Docker</a>
+  <a href="/categories/PostgreSQL/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
   
   
 
@@ -784,9 +737,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+        <a href="/tags/PostgreSQL/" class="print-no-link">#PostgreSQL</a>
       
-        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" class="print-no-link">#数据迁移</a>
+      
+        <a href="/tags/SonarQube/" class="print-no-link">#SonarQube</a>
       
     </div>
   
@@ -798,8 +753,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Ubuntu安装docker环境及docker常用指令</div>
-      <div>http://www.codestar.top/2024/10/08/Linux/Ubuntu安装docker环境及docker常用指令/</div>
+      <div>PostgreSQL如何进行跨服务器迁移数据</div>
+      <div>http://www.codestar.top/2025/07/07/SQL/PostgreSQL如何进行跨服务器迁移数据/</div>
     </div>
     <div class="license-meta">
       
@@ -811,13 +766,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月8日</div>
+          <div>2025年7月7日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年10月9日</div>
+          <div>2025年7月7日</div>
         </div>
       
       
@@ -860,18 +815,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/08/Linux/Docker%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/" title="Docker安装及配置PostgreSQL">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Docker安装及配置PostgreSQL</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/08/SQL/Ubuntu%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPostgreSQL/" title="Ubuntu手动安装及配置PostgreSQL">
-                        <span class="hidden-mobile">Ubuntu手动安装及配置PostgreSQL</span>
+                      <a href="/2025/07/03/TestSkill/%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%9A%E5%9B%A0%E6%9E%9C%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E5%8F%8A%E8%BF%90%E7%94%A8/" title="测试设计方法：因果图的基本原理及运用">
+                        <span class="hidden-mobile">测试设计方法：因果图的基本原理及运用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
