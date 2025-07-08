@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.codestar.top//website/hexo-set-blog-flow.html</loc>
+    <lastmod>2025-07-08</lastmod>
+  </url>
+  <url>
     <loc>http://blog.codestar.top//windows/windows-install-java-environment-variables.html</loc>
     <lastmod>2025-07-08</lastmod>
   </url>
@@ -218,10 +222,6 @@
   </url>
   <url>
     <loc>http://blog.codestar.top//website/hexo-set-picgo-tinypng.html</loc>
-    <lastmod>2025-07-08</lastmod>
-  </url>
-  <url>
-    <loc>http://blog.codestar.top//website/hexo-set-blog-flow.html</loc>
     <lastmod>2025-07-08</lastmod>
   </url>
   <url>
