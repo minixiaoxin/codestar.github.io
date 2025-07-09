@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.codestar.top//website/github-token-update-issue-handle.html</loc>
+    <lastmod>2025-07-09</lastmod>
+  </url>
+  <url>
     <loc>http://blog.codestar.top//website/hexo-set-blog-flow.html</loc>
     <lastmod>2025-07-08</lastmod>
   </url>
@@ -286,10 +290,6 @@
   </url>
   <url>
     <loc>http://blog.codestar.top//ai-ml/llm-learning-note1.html</loc>
-    <lastmod>2025-07-08</lastmod>
-  </url>
-  <url>
-    <loc>http://blog.codestar.top/2024/01/25/Website/Github%E6%9B%B4%E6%8D%A2token%E5%90%8Ecloudflare%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</loc>
     <lastmod>2025-07-08</lastmod>
   </url>
 </urlset> 

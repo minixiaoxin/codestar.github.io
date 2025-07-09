@@ -687,11 +687,11 @@
     
     <tags>
       
+      <tag>HEXO</tag>
+      
       <tag>博客优化</tag>
       
       <tag>建站指南</tag>
-      
-      <tag>HEXO</tag>
       
     </tags>
     
@@ -718,9 +718,9 @@
     
     <tags>
       
-      <tag>建站指南</tag>
-      
       <tag>HEXO</tag>
+      
+      <tag>建站指南</tag>
       
       <tag>[object Object]</tag>
       
@@ -749,11 +749,11 @@
     
     <tags>
       
+      <tag>HEXO</tag>
+      
       <tag>博客优化</tag>
       
       <tag>建站指南</tag>
-      
-      <tag>HEXO</tag>
       
     </tags>
     
@@ -780,11 +780,11 @@
     
     <tags>
       
+      <tag>HEXO</tag>
+      
       <tag>博客优化</tag>
       
       <tag>建站指南</tag>
-      
-      <tag>HEXO</tag>
       
     </tags>
     
@@ -811,11 +811,11 @@
     
     <tags>
       
+      <tag>HEXO</tag>
+      
       <tag>博客优化</tag>
       
       <tag>建站指南</tag>
-      
-      <tag>HEXO</tag>
       
     </tags>
     
@@ -989,9 +989,9 @@
     
     <tags>
       
-      <tag>建站指南</tag>
-      
       <tag>HEXO</tag>
+      
+      <tag>建站指南</tag>
       
       <tag>PicGo技巧</tag>
       
@@ -1094,10 +1094,10 @@
   
   <entry>
     <title>Github更换token后cloudflare图床链接失效问题处理</title>
-    <link href="/2024/01/25/Website/Github%E6%9B%B4%E6%8D%A2token%E5%90%8Ecloudflare%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/"/>
-    <url>/2024/01/25/Website/Github%E6%9B%B4%E6%8D%A2token%E5%90%8Ecloudflare%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
+    <link href="/website/github-token-update-issue-handle.html"/>
+    <url>/website/github-token-update-issue-handle.html</url>
     
-    <content type="html"><![CDATA[<h2 id="1、问题现象"><a href="#1、问题现象" class="headerlink" title="1、问题现象"></a>1、问题现象</h2><p>在更新classic token后，通过github搭建的图床链接尽数失效了，产生了裂图，现象如下，图像加载失败：</p><p><img src="https://codestar.top/note-image/202401250016470.png" alt="image-20231110155119781"></p><p>为了恢复博客图片的加载，需要尽快解决。</p><h2 id="2、问题原因"><a href="#2、问题原因" class="headerlink" title="2、问题原因"></a>2、问题原因</h2><p>由于我是使用github和cloudflare一起搭建的图床，在更新github token更新之后cloudflare 配置的github token还是旧的，导致worker作业流异常：</p><p><img src="https://codestar.top/note-image/202401250017434.png" alt="image-20231110160557408"></p><p>因为这个原因，导致我的图片访问出现异常。</p><h2 id="3、解决方法"><a href="#3、解决方法" class="headerlink" title="3、解决方法"></a>3、解决方法</h2><p>要解决这个问题，只需要在更新github token的同时，同步更新cloudflare中workflow的相关token即可：</p><h3 id="3-1、生成github-token"><a href="#3-1、生成github-token" class="headerlink" title="3.1、生成github token"></a>3.1、生成github token</h3><p>在github的<code>Settings &gt;&gt; Personal access tokens &gt;&gt; Tokens(classic)</code>更新token过期时间为no expiration：</p><p><img src="https://codestar.top/note-image/202401250018066.png" alt="image-20231110161120652"></p><p><img src="https://codestar.top/note-image/202401250019485.png" alt="image-20231110161230648"></p><p>token只会展示1次，要保存好。要想安全系数更高一些可以选择固定时间，或自定义过期时间。生成之后，下拉到页面底部，<code>update token</code></p><h3 id="3-2、更新cloudflare-worker"><a href="#3-2、更新cloudflare-worker" class="headerlink" title="3.2、更新cloudflare worker"></a>3.2、更新cloudflare worker</h3><p>Workers &amp; Pages –&gt; Overview  进入到cloudflare工作流：</p><p><img src="https://codestar.top/note-image/202401250019458.png" alt="image-20231110162035573"></p><p>编辑工作流：</p><p><img src="https://codestar.top/note-image/202401250019072.png" alt="image-20231110162437465"></p><p>将token更新之后，执行<code>Save and deploy</code>，在这个页面测试链接会报400的错误，我个人设置的为私有库导致这种现象，无需理会，不影响作业流更新：</p><p><img src="https://codestar.top/note-image/202401250019738.png" alt="image-20231110163726076"></p><p>更新之后，下面的图片链接就可以正常的访问了：</p><p><img src="https://codestar.top/note-image/202401250020831.png" alt="image-20231110163627806"></p><p>**注意：**当更新上述内容之后，依然部分图片链接异常。<strong>需要重新配置worker</strong>，详情参考指导《Windows中配置PigGo图床及CDN加速》中第5.4节。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1、问题现象"><a href="#1、问题现象" class="headerlink" title="1、问题现象"></a>1、问题现象</h2><p>在更新classic token后，通过github搭建的图床链接尽数失效了，产生了裂图，现象如下，图像加载失败：</p><p><img src="https://codestar.top/note-image/202401250016470.png" alt="image-20231110155119781"></p><p>为了恢复博客图片的加载，需要尽快解决。</p><h2 id="2、问题原因"><a href="#2、问题原因" class="headerlink" title="2、问题原因"></a>2、问题原因</h2><p>由于我是使用github和cloudflare一起搭建的图床，在更新github token更新之后cloudflare 配置的github token还是旧的，导致worker作业流异常：</p><p><img src="https://codestar.top/note-image/202401250017434.png" alt="image-20231110160557408"></p><p>因为这个原因，导致我的图片访问出现异常。</p><h2 id="3、解决方法"><a href="#3、解决方法" class="headerlink" title="3、解决方法"></a>3、解决方法</h2><p>要解决这个问题，只需要在更新github token的同时，同步更新cloudflare中workflow的相关token即可：</p><h3 id="3-1、生成github-token"><a href="#3-1、生成github-token" class="headerlink" title="3.1、生成github token"></a>3.1、生成github token</h3><p>在github的<code>Settings &gt;&gt; Personal access tokens &gt;&gt; Tokens(classic)</code>更新token过期时间为no expiration：</p><p><img src="https://codestar.top/note-image/202401250018066.png" alt="image-20231110161120652"></p><p><img src="https://codestar.top/note-image/202401250019485.png" alt="image-20231110161230648"></p><p>token只会展示1次，要保存好。要想安全系数更高一些可以选择固定时间，或自定义过期时间。生成之后，下拉到页面底部，<code>update token</code></p><h3 id="3-2、更新cloudflare-worker"><a href="#3-2、更新cloudflare-worker" class="headerlink" title="3.2、更新cloudflare worker"></a>3.2、更新cloudflare worker</h3><p>Workers &amp; Pages –&gt; Overview  进入到cloudflare工作流：</p><p><img src="https://codestar.top/note-image/202401250019458.png" alt="image-20231110162035573"></p><p>编辑工作流：</p><p><img src="https://codestar.top/note-image/202401250019072.png" alt="image-20231110162437465"></p><p>将token更新之后，执行<code>Save and deploy</code>，在这个页面测试链接会报400的错误，我个人设置的为私有库导致这种现象，无需理会，不影响作业流更新：</p><p><img src="https://codestar.top/note-image/202401250019738.png" alt="image-20231110163726076"></p><p>更新之后，下面的图片链接就可以正常的访问了：</p><p><img src="https://codestar.top/note-image/202401250020831.png" alt="image-20231110163627806"></p><p><strong>注意：</strong> 当更新上述内容之后，会依然部分图片链接异常，<strong>需要重新配置worker</strong>，详情参考指导《Windows中配置PigGo图床及CDN加速》中第5.4节。</p>]]></content>
     
     
     <categories>
@@ -1202,9 +1202,9 @@
     
     <tags>
       
-      <tag>建站指南</tag>
-      
       <tag>HEXO</tag>
+      
+      <tag>建站指南</tag>
       
       <tag>子域</tag>
       
@@ -1287,11 +1287,11 @@
     
     <tags>
       
+      <tag>HEXO</tag>
+      
       <tag>博客优化</tag>
       
       <tag>建站指南</tag>
-      
-      <tag>HEXO</tag>
       
     </tags>
     
@@ -1380,9 +1380,9 @@
     
     <tags>
       
-      <tag>HEXO</tag>
-      
       <tag>Windows</tag>
+      
+      <tag>HEXO</tag>
       
     </tags>
     
@@ -1440,9 +1440,9 @@
     
     <tags>
       
-      <tag>建站指南</tag>
-      
       <tag>HEXO</tag>
+      
+      <tag>建站指南</tag>
       
     </tags>
     
