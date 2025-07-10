@@ -20,14 +20,14 @@
   
     <meta name="description" content="1、引言因果图，作为一种黑盒测试方法，经常用来作为复杂场景的案例设计工具，尤其是针对逻辑关系、依赖关系强的场景，而正因为这一点，很好的弥补了我前面讨论的正交试验的不足之处。因果图能够用来研究条件与结果之间的逻辑关系的变化，很好的发现和探索其中的因果之变，下面来探究如何来这一种方法的原理，以及如何使用因果图来设计测试案例。 2、因果图基本原理及定义因果图是一种针对输入条件的组合进行分析的一种设计方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试设计方法：因果图的基本原理及运用">
+<meta property="og:title" content="测试设计方法：因果图基本原理及实践">
 <meta property="og:url" content="http://blog.codestar.top/testskill/causal-diagram-basic-principle-and-application.html">
 <meta property="og:site_name" content="MINI小新的博客">
 <meta property="og:description" content="1、引言因果图，作为一种黑盒测试方法，经常用来作为复杂场景的案例设计工具，尤其是针对逻辑关系、依赖关系强的场景，而正因为这一点，很好的弥补了我前面讨论的正交试验的不足之处。因果图能够用来研究条件与结果之间的逻辑关系的变化，很好的发现和探索其中的因果之变，下面来探究如何来这一种方法的原理，以及如何使用因果图来设计测试案例。 2、因果图基本原理及定义因果图是一种针对输入条件的组合进行分析的一种设计方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.codestar.top/img/blog-img/software_testing_pic5.png">
 <meta property="article:published_time" content="2025-07-03T15:42:54.000Z">
-<meta property="article:modified_time" content="2025-07-08T16:37:07.258Z">
+<meta property="article:modified_time" content="2025-07-10T14:48:05.356Z">
 <meta property="article:author" content="MINI小新">
 <meta property="article:tag" content="测试设计方法">
 <meta property="article:tag" content="黑盒测试">
@@ -37,7 +37,7 @@
   
   
   
-  <title>测试设计方法：因果图的基本原理及运用 - MINI小新的博客</title>
+  <title>测试设计方法：因果图基本原理及实践 - MINI小新的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -461,7 +461,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="测试设计方法：因果图的基本原理及运用"></span>
+            <span id="subtitle" data-typed-text="测试设计方法：因果图基本原理及实践"></span>
           
         </div>
 
@@ -545,12 +545,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">测试设计方法：因果图的基本原理及运用</h1>
+            <h1 id="seo-header">测试设计方法：因果图基本原理及实践</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2025年7月9日 凌晨
+                    本文最后更新于：2025年7月10日 晚上
                   
                 
               </p>
@@ -558,7 +558,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1、引言"><a href="#1、引言" class="headerlink" title="1、引言"></a>1、引言</h2><p>因果图，作为一种黑盒测试方法，经常用来作为复杂场景的案例设计工具，尤其是针对逻辑关系、依赖关系强的场景，而正因为这一点，很好的弥补了我前面讨论的<a href="https://blog.codestar.top/2025/06/23/TestSkill/%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%9A%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/">正交试验</a>的不足之处。因果图能够用来研究条件与结果之间的逻辑关系的变化，很好的发现和探索其中的因果之变，下面来探究如何来这一种方法的原理，以及如何使用因果图来设计测试案例。</p>
+                <h2 id="1、引言"><a href="#1、引言" class="headerlink" title="1、引言"></a>1、引言</h2><p>因果图，作为一种黑盒测试方法，经常用来作为复杂场景的案例设计工具，尤其是针对逻辑关系、依赖关系强的场景，而正因为这一点，很好的弥补了我前面讨论的<a href="https://blog.codestar.top/testskill/orthogonal-experiment-basic-principle-and-practice.html">正交试验</a>的不足之处。因果图能够用来研究条件与结果之间的逻辑关系的变化，很好的发现和探索其中的因果之变，下面来探究如何来这一种方法的原理，以及如何使用因果图来设计测试案例。</p>
 <h2 id="2、因果图基本原理及定义"><a href="#2、因果图基本原理及定义" class="headerlink" title="2、因果图基本原理及定义"></a>2、因果图基本原理及定义</h2><p><strong>因果图</strong>是一种针对输入条件的组合进行分析的一种设计方法，基于图的原理，将输入内容和输出结果进行组合和联系。与正交实验不同，因果图不要求输入条件为独立特性，允许条件之间存在相互依赖或相互约束的关系，重点探究的是从输入到输出之间的因果逻辑。</p>
 <h2 id="3、因果图设计步骤"><a href="#3、因果图设计步骤" class="headerlink" title="3、因果图设计步骤"></a>3、因果图设计步骤</h2><p>从需求分析到用因果图生成用例，大致步骤如下：</p>
 <p><strong>1）拆解需求：</strong> </p>
@@ -812,7 +812,7 @@
 </tr>
 </tbody></table>
 <p>因果图的分析中，可以进一步补充条件进行分析，如在Case1的基础上，再增加分析文件修改权限的讨论。</p>
-<h3 id="6-2-案例二：自助售货机系统"><a href="#6-2-案例二：自助售货机系统" class="headerlink" title="6.2 案例二：自助售货机系统"></a>6.2 案例二：自助售货机系统</h3><p>依据之前讲解的<a href="https://blog.codestar.top/2025/06/23/TestSkill/%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%9A%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/">正交试验</a>中的例子，分析自助售货机系统。假设完整的需求如下：</p>
+<h3 id="6-2-案例二：自助售货机系统"><a href="#6-2-案例二：自助售货机系统" class="headerlink" title="6.2 案例二：自助售货机系统"></a>6.2 案例二：自助售货机系统</h3><p>依据之前讲解的<a href="https://blog.codestar.top/testskill/orthogonal-experiment-basic-principle-and-practice.html">正交试验</a>中的例子，分析自助售货机系统。假设完整的需求如下：</p>
 <blockquote>
 <p>某自助售货机，支持自助售卖饮品，售卖的产品有怡宝、农夫山泉、脉动，售货机支持的支付方式需要有：支付宝、微信支付、数字货币、云闪付并且在交易时，并且支持人民币、美元支付。售卖机投放的区域有两块，区域A、区域B。售卖规则按所属区域自主调控定价。</p>
 <p>完整区域定价表如下： </p>
@@ -1079,7 +1079,7 @@
 <h2 id="7、拓展：因果图与正交试验结合"><a href="#7、拓展：因果图与正交试验结合" class="headerlink" title="7、拓展：因果图与正交试验结合"></a>7、拓展：因果图与正交试验结合</h2><p>在实际应用中，正交试验与因果图这两种方法是可以结合使用的，例如：先使用正交试验法对主要因素进行初步筛选和测试，确定一些关键的因素组合，然后针对这些关键组合，使用因果图法进行更详细的测试用例设计，以进一步提高测试的全面性和准确性，下面来介绍两种结合的策略。</p>
 <h3 id="7-1-策略一：基于因果图对正交试验结果进行补充逻辑验证"><a href="#7-1-策略一：基于因果图对正交试验结果进行补充逻辑验证" class="headerlink" title="7.1 策略一：基于因果图对正交试验结果进行补充逻辑验证"></a>7.1 策略一：基于因果图对正交试验结果进行补充逻辑验证</h3><p><strong>1、分析需求并构建因果图：</strong> 分析需求，得到输入和结果，绘制因果图并补充约束关系。</p>
 <p><strong>2、因素与水平的提取：</strong> 从因果图中选取独立”原因“作为正交试验的”因素“，将作为”因素“的每个可能取值，作为该”因素“的”水平“值。</p>
-<p><strong>3、选择正交表并生成测试用例组合：</strong> 根据获取的”因素“和”水平“选取合适的正交表进行试验分析，具体正交表的操作方法可以查看<a href="https://blog.codestar.top/2025/06/23/TestSkill/%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%9A%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E8%B7%B5/">正交试验</a>，得到正交表后，再通过正交表得到初步测试用例。</p>
+<p><strong>3、选择正交表并生成测试用例组合：</strong> 根据获取的”因素“和”水平“选取合适的正交表进行试验分析，具体正交表的操作方法可以查看<a href="https://blog.codestar.top/testskill/orthogonal-experiment-basic-principle-and-practice.html">正交试验</a>，得到正交表后，再通过正交表得到初步测试用例。</p>
 <p><strong>4、结合因果图逻辑进行验证与调整：</strong></p>
 <ul>
 <li><strong>约束验证：</strong> 根据因果图中的约束条件（E、R约束等），验证正交表中的测试用例组合，剔除不符合实际业务的组合项。</li>
@@ -1148,7 +1148,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>测试设计方法：因果图的基本原理及运用</div>
+      <div>测试设计方法：因果图基本原理及实践</div>
       <div>http://blog.codestar.top/testskill/causal-diagram-basic-principle-and-application.html</div>
     </div>
     <div class="license-meta">
@@ -1167,7 +1167,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年7月9日</div>
+          <div>2025年7月10日</div>
         </div>
       
       
